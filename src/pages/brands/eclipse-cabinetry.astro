@@ -8,7 +8,17 @@ const schema = {"@context":"https://schema.org","@type":"Product","name":"Eclips
 <div class="page-header"><h1>Eclipse Cabinetry — Modern Frameless Full-Access Design</h1><p>European-inspired frameless construction with American craftsmanship. Up to 15% more usable storage.</p></div>
 <div class="content-narrow section">
 <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Brands',href:'/#brands'},{name:'Eclipse Cabinetry'}]} />
+
+<div class="brand-hero-image">
+  <img src="/images/brands/eclipse-hero.webp" alt="Eclipse Cabinetry modern frameless kitchen in morning fog finish" width="1600" height="1067" />
+</div>
+
 <p>Eclipse Cabinetry is a modern, frameless cabinetry line that combines sleek, contemporary design with superior functionality. Built by W.W. Wood Products in Missouri, Eclipse offers clean lines, full-access storage, and a wide selection of finishes. Its frameless construction maximizes usable space, while premium features like soft-close doors and drawers ensure a seamless, high-end user experience.</p>
+
+<div class="brand-gallery">
+  <img src="/images/brands/eclipse-walnut.webp" alt="Eclipse Cabinetry walnut kitchen" loading="lazy" />
+  <img src="/images/brands/eclipse-gray-kitchen.webp" alt="Eclipse Cabinetry gray modern kitchen" loading="lazy" />
+</div>
 <h2>Why Frameless?</h2>
 <p>Without the face frame reducing the opening, drawers and pull-out accessories can be wider, providing up to 15% more usable storage in the same cabinet footprint. The full-overlay doors create a sleek, seamless appearance with minimal reveal lines.</p>
 <h2>Finish Options</h2>
@@ -20,3 +30,10 @@ const schema = {"@context":"https://schema.org","@type":"Product","name":"Eclips
 <DealerCTA heading="Become an Eclipse Cabinetry Dealer" text="Offer your clients modern frameless design backed by WW Wood's American craftsmanship." />
 </div>
 </BaseLayout>
+<style>
+  .brand-hero-image { margin: 1.5rem 0 2rem; border-radius: 8px; overflow: hidden; }
+  .brand-hero-image img { width: 100%; height: auto; display: block; }
+  .brand-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
+  .brand-gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; }
+  @media (max-width: 640px) { .brand-gallery { grid-template-columns: 1fr; } }
+</style>

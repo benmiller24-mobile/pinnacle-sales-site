@@ -9,6 +9,10 @@ const schema = {"@context":"https://schema.org","@type":"Product","name":"Pronor
 <div class="content-narrow section">
 <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Brands',href:'/#brands'},{name:'Pronorm German Kitchens'}]} />
 <p>Pronorm Einbauküchen is a premium fitted German kitchen brand known for its sleek, contemporary designs and exceptional functionality. With a focus on modularity and customization, Pronorm offers a wide range of finishes, materials, and innovative storage solutions to create tailored kitchens that combine style and practicality. Built with precision engineering and high-quality craftsmanship in Vlotho, Eastern Westphalia — the heart of Germany's kitchen industry.</p>
+
+<div class="video-embed">
+  <iframe src="https://www.youtube.com/embed/wVd7X4c8p7k" title="Pronorm German Kitchens" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
 <h2>German Engineering, American Support</h2>
 <p>Through an exclusive partnership with Pinnacle Sales, Pronorm German kitchens are available to qualified dealers and discerning homeowners across the United States. Pinnacle Sales manages product specification, design consultation, order management, logistics coordination from the German factory, and after-sale service.</p>
 <h2>Construction Excellence</h2>
@@ -24,3 +28,12 @@ const schema = {"@context":"https://schema.org","@type":"Product","name":"Pronor
 <DealerCTA heading="Become a Pronorm Dealer" text="Offer your clients authentic German kitchen design with dedicated US support. Protected territories available nationwide." />
 </div>
 </BaseLayout>
+<style>
+  .video-embed {
+    position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
+    margin: 2rem 0; border-radius: 8px;
+  }
+  .video-embed iframe {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 8px;
+  }
+</style>
