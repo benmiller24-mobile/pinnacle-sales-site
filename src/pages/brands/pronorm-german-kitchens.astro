@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import DealerCTA from '../../components/DealerCTA.astro';
+const schema = {"@context":"https://schema.org","@type":"Product","name":"Pronorm German Kitchens","brand":{"@type":"Brand","name":"Pronorm"},"description":"Premium fitted German kitchen brand with sleek contemporary designs, precision engineering, and sustainable manufacturing.","category":"Kitchen Cabinetry","manufacturer":{"@type":"Organization","name":"Pronorm Einbauküchen GmbH"}};
+---
+<BaseLayout title="Pronorm German Kitchens | Exclusive US Dealer | Pinnacle Sales" description="Pronorm German kitchens available in the US exclusively through Pinnacle Sales. Precision-engineered fitted kitchens with sustainable manufacturing. Available nationwide." schema={schema}>
+<div class="page-header"><h1>Pronorm German Kitchens — Precision Engineering, Timeless Design</h1><p>Exclusive US agent for one of Germany's most respected fitted kitchen manufacturers. Available nationwide.</p></div>
+<div class="content-narrow section">
+<Breadcrumbs items={[{name:'Home',href:'/'},{name:'Brands',href:'/#brands'},{name:'Pronorm German Kitchens'}]} />
+<p>Pronorm Einbauküchen is a premium fitted German kitchen brand known for its sleek, contemporary designs and exceptional functionality. With a focus on modularity and customization, Pronorm offers a wide range of finishes, materials, and innovative storage solutions to create tailored kitchens that combine style and practicality. Built with precision engineering and high-quality craftsmanship in Vlotho, Eastern Westphalia — the heart of Germany's kitchen industry.</p>
+<h2>German Engineering, American Support</h2>
+<p>Through an exclusive partnership with Pinnacle Sales, Pronorm German kitchens are available to qualified dealers and discerning homeowners across the United States. Pinnacle Sales manages product specification, design consultation, order management, logistics coordination from the German factory, and after-sale service.</p>
+<h2>Construction Excellence</h2>
+<p>Pronorm uses 19mm thick panels throughout (compared to 16mm from many competitors), providing greater structural rigidity. All carcasses feature fully finished interiors, integrated cable management, and pre-drilled adjustment points. Hardware is sourced from Blum, Hettich, and Grass with soft-close standard on every door and drawer.</p>
+<h2>Product Lines</h2>
+<ul><li><strong>Y-Line:</strong> Handleless construction with integrated aluminum channel profiles</li><li><strong>Modern Shaker LF:</strong> Refined reinterpretation of the classic shaker with ultra-thin stiles and rails</li><li><strong>Boho Textured White Oak:</strong> Softly sculpted relief-style vertical texture in warm natural oak</li></ul>
+<h2>Design Range</h2>
+<p>Hundreds of door front options spanning high-gloss lacquer, super-matte anti-fingerprint surfaces, real wood veneers (oak, walnut, specialty species), and ultra-thin ceramic and stone-look fronts. Full palette of matte lacquers and textured laminates.</p>
+<h2>Pricing & Market Position</h2>
+<p>Pronorm fills the critical gap between entry-level German brands and ultra-premium names like SieMatic and Poggenpohl. Typical installations range from $40,000 to $150,000+, with strong dealer margins and design exclusivity.</p>
+<h2>Related Playbook Articles</h2>
+<ul><li><a href="/playbook/pronorm-german-kitchens-usa">Complete Guide to Pronorm in the United States</a></li><li><a href="/playbook/pronorm-boho-textured-white-oak">Boho Textured White Oak Display</a></li><li><a href="/playbook/pronorm-modern-shaker-lf">Modern Shaker LF Door Style</a></li><li><a href="/playbook/japan-inspired-kitchens">Japan-Inspired Kitchens with Pronorm</a></li></ul>
+<DealerCTA heading="Become a Pronorm Dealer" text="Offer your clients authentic German kitchen design with dedicated US support. Protected territories available nationwide." />
+</div>
+</BaseLayout>

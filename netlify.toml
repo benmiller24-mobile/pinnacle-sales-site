@@ -1,0 +1,149 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# 301 Redirects from old Squarespace URLs
+[[redirects]]
+  from = "/shiloh-cabinetry"
+  to = "/brands/shiloh-cabinetry"
+  status = 301
+
+[[redirects]]
+  from = "/eclipsecabinetry"
+  to = "/brands/eclipse-cabinetry"
+  status = 301
+
+[[redirects]]
+  from = "/aspect-cabinetry"
+  to = "/brands/aspect-cabinetry"
+  status = 301
+
+[[redirects]]
+  from = "/pronorm-german-kitchens"
+  to = "/brands/pronorm-german-kitchens"
+  status = 301
+
+[[redirects]]
+  from = "/thekitchendealerplaybook"
+  to = "/playbook"
+  status = 301
+
+[[redirects]]
+  from = "/thekitchendealerplaybook/*"
+  to = "/playbook/:splat"
+  status = 301
+
+# Specific blog post redirects (old Squarespace slugs -> new slugs)
+[[redirects]]
+  from = "/thekitchendealerplaybook/frameless-vs-face-frame-cabinets-which-construction-method-is-right-for-your-kitchen"
+  to = "/playbook/frameless-vs-face-frame-cabinets"
+  status = 301
+
+[[redirects]]
+  from = "/thekitchendealerplaybook/how-to-become-a-kitchen-cabinet-dealer"
+  to = "/playbook/how-to-become-kitchen-cabinet-dealer"
+  status = 301
+
+[[redirects]]
+  from = "/thekitchendealerplaybook/the-complete-guide-to-pronorm-german-kitchens-in-the-united-states"
+  to = "/playbook/pronorm-german-kitchens-usa"
+  status = 301
+
+[[redirects]]
+  from = "/thekitchendealerplaybook/meet-the-eclipse-merchandiser-a-smarter-showroom-ready-display-for-sample-libraries"
+  to = "/playbook/eclipse-merchandiser-display"
+  status = 301
+
+[[redirects]]
+  from = "/thekitchendealerplaybook/new-from-shiloh-1-edge-banded-shelf"
+  to = "/playbook/shiloh-edge-banded-shelf"
+  status = 301
+
+[[redirects]]
+  from = "/thekitchendealerplaybook/how-showcasing-installed-projects-helps-dealers-stand-out"
+  to = "/playbook/showcasing-installed-projects"
+  status = 301
+
+[[redirects]]
+  from = "/thekitchendealerplaybook/japaninspired-kitchens-how-to-sell-the-trend-and-still-win-on-price"
+  to = "/playbook/japan-inspired-kitchens"
+  status = 301
+
+[[redirects]]
+  from = "/thekitchendealerplaybook/pronorms-new-boho-textured-white-oak"
+  to = "/playbook/pronorm-boho-textured-white-oak"
+  status = 301
+
+[[redirects]]
+  from = "/thekitchendealerplaybook/handcrafted-quality-shiloh-cabinetry-furniture-vanities"
+  to = "/playbook/shiloh-furniture-vanities"
+  status = 301
+
+[[redirects]]
+  from = "/thekitchendealerplaybook/strengthening-partnerships-greenwood-kitchens-visits-ww-wood-with-pinnacle-sales"
+  to = "/playbook/greenwood-kitchens-factory-visit"
+  status = 301
+
+[[redirects]]
+  from = "/thekitchendealerplaybook/introducing-the-new-modern-shaker-lf-door-style-a-game-changer-for-kitchen-designers"
+  to = "/playbook/pronorm-modern-shaker-lf"
+  status = 301
+
+[[redirects]]
+  from = "/thekitchendealerplaybook/modern-inset"
+  to = "/playbook/modern-inset"
+  status = 301
+
+[[redirects]]
+  from = "/thekitchendealerplaybook/slatted-wood-series"
+  to = "/playbook/slatted-wood-series"
+  status = 301
+
+[[redirects]]
+  from = "/thekitchendealerplaybook/nevara-cabinetry-by-ww-wood"
+  to = "/playbook/nevara-cabinetry"
+  status = 301
+
+[[redirects]]
+  from = "/thekitchendealerplaybook/why-dealers-are-turning-to-custom-paint-with-sherwin-williams-colors"
+  to = "/playbook/custom-paint-sherwin-williams"
+  status = 301
+
+[[redirects]]
+  from = "/thekitchendealerplaybook/why-dealers-are-turning-to-custom-paint-with-sherwin-williams-colors-27ept"
+  to = "/playbook/excelle-shiloh-inset"
+  status = 301
+
+[[redirects]]
+  from = "/thekitchendealerplaybook/Blog Post Title One-bbntx"
+  to = "/playbook/napa-slim-shaker-rift-white-oak"
+  status = 301
+
+[[redirects]]
+  from = "/thekitchendealerplaybook/blog-post-title-two-m6jpa"
+  to = "/playbook/dealer-spotlight-plum-kitchens"
+  status = 301
+
+[[redirects]]
+  from = "/blog/blog-post-title-two-69fdy"
+  to = "/playbook/excelle-shiloh-inset"
+  status = 301
+
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Cache static assets
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/_astro/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

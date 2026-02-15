@@ -1,0 +1,112 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { blogPosts } from '../../data/blogPosts';
+
+const categories = [...new Set(blogPosts.map(p => p.category))];
+---
+
+<BaseLayout
+  title="The Kitchen Dealer Playbook | Pinnacle Sales"
+  description="Your go-to resource for growing a profitable kitchen design business. Product deep dives, dealer success stories, design trends, and AI-powered ops hacks from Pinnacle Sales."
+>
+  <div class="page-header">
+    <h1>The Kitchen Dealer Playbook</h1>
+    <p>Your go-to resource for growing a profitable kitchen design business with Shiloh, Eclipse, Aspect, and Pronorm cabinetry. Published by Pinnacle Sales, the leading manufacturers' rep firm in the Western U.S.</p>
+  </div>
+
+  <div class="container section">
+    <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Playbook' }]} />
+
+    <!-- Category filter -->
+    <div class="category-nav">
+      <span class="cat-label">Filter:</span>
+      <a href="/playbook" class="cat-tag active">All</a>
+      {categories.map(cat => (
+        <span class="cat-tag">{cat}</span>
+      ))}
+    </div>
+
+    <!-- Post grid -->
+    <div class="post-grid">
+      {blogPosts.map((post) => (
+        <article class="post-card">
+          {post.image && (
+            <a href={`/playbook/${post.slug}`} class="post-card-image">
+              <img src={post.image} alt={post.title} loading="lazy" width="600" height="340" />
+            </a>
+          )}
+          <div class="post-card-body">
+            <div class="post-card-category">{post.category}</div>
+            <h2><a href={`/playbook/${post.slug}`}>{post.title}</a></h2>
+            <p>{post.excerpt}</p>
+            <div class="post-card-meta">
+              <span>{post.author}</span>
+              <time datetime={post.date}>
+                {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+              </time>
+            </div>
+            <a href={`/playbook/${post.slug}`} class="read-more">Read More &rarr;</a>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Subscribe CTA -->
+    <div class="subscribe-cta">
+      <h2>Stay in the Loop</h2>
+      <p>Subscribe to the Kitchen Dealer Playbook for weekly product deep dives, territory win stories, and operational insights delivered to your inbox.</p>
+      <a href="/become-a-dealer" class="hero-cta">Sign Up for Free</a>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .category-nav {
+    display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-bottom: 2rem;
+  }
+  .cat-label { font-weight: 600; font-size: 0.875rem; color: #6b7280; margin-right: 0.5rem; }
+  .cat-tag {
+    display: inline-block; padding: 0.35rem 0.85rem; border-radius: 20px; font-size: 0.8rem;
+    background: #f3f4f6; color: #374151; cursor: pointer; border: 1px solid #e5e7eb;
+  }
+  .cat-tag.active { background: #1a1a2e; color: #c8a96e; border-color: #1a1a2e; }
+  .post-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .post-card {
+    border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden;
+    transition: box-shadow 0.2s; display: flex; flex-direction: column;
+  }
+  .post-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+  .post-card-image {
+    display: block; width: 100%; height: 200px; overflow: hidden; background: #f3f4f6;
+  }
+  .post-card-image img {
+    width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s;
+  }
+  .post-card:hover .post-card-image img { transform: scale(1.03); }
+  .post-card-body { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
+  .post-card-category {
+    font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em;
+    color: #c8a96e; font-weight: 600; margin-bottom: 0.5rem;
+  }
+  .post-card h2 { font-size: 1.2rem; margin: 0 0 0.75rem; line-height: 1.4; }
+  .post-card h2 a { color: #1a1a2e; text-decoration: none; }
+  .post-card h2 a:hover { color: #2563eb; }
+  .post-card p { font-size: 0.9rem; color: #4b5563; flex-grow: 1; }
+  .post-card-meta {
+    display: flex; justify-content: space-between; font-size: 0.8rem; color: #9ca3af;
+    margin-bottom: 0.75rem; padding-top: 0.75rem; border-top: 1px solid #f3f4f6;
+  }
+  .read-more { color: #c8a96e; font-weight: 600; text-decoration: none; font-size: 0.9rem; }
+  .subscribe-cta {
+    background: #1a1a2e; color: #fff; padding: 3rem; border-radius: 8px;
+    text-align: center; margin-top: 3rem;
+  }
+  .subscribe-cta h2 { color: #fff; }
+  .subscribe-cta p { color: #d1d5db; max-width: 600px; margin: 0 auto 1.5rem; }
+  .hero-cta {
+    display: inline-block; background: #c8a96e; color: #1a1a2e; padding: 0.75rem 2rem;
+    border-radius: 4px; font-weight: 700; text-decoration: none;
+  }
+  @media (max-width: 768px) { .post-grid { grid-template-columns: 1fr; } }
+</style>

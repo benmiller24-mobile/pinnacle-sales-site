@@ -1,0 +1,169 @@
+---
+const navItems = [
+  { label: 'About', href: '/about' },
+  { label: 'Brands', href: '#', children: [
+    { label: 'Shiloh Cabinetry', href: '/brands/shiloh-cabinetry' },
+    { label: 'Eclipse Cabinetry', href: '/brands/eclipse-cabinetry' },
+    { label: 'Aspect Cabinetry', href: '/brands/aspect-cabinetry' },
+    { label: 'Pronorm German Kitchens', href: '/brands/pronorm-german-kitchens' },
+    { label: 'Vistora Closets', href: '/brands/vistora-closets' },
+  ]},
+  { label: 'Dealer Success Stories', href: '/dealer-success-stories' },
+  { label: 'Playbook', href: '/playbook' },
+  { label: 'FAQs', href: '/faqs' },
+  { label: 'Become a Dealer', href: '/become-a-dealer' },
+];
+---
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo" aria-label="Pinnacle Sales Home">
+      <img src="/images/pinnacle-sales-logo.webp" alt="Pinnacle Sales" class="logo-img" width="220" height="60" />
+    </a>
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span class="hamburger"></span>
+    </button>
+    <nav class="main-nav" aria-label="Main navigation">
+      <ul class="nav-list">
+        {navItems.map(item => (
+          <li class={item.children ? 'has-dropdown' : ''}>
+            <a href={item.href}>{item.label}</a>
+            {item.children && (
+              <ul class="dropdown">
+                {item.children.map(child => (
+                  <li><a href={child.href}>{child.label}</a></li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script type="module">
+const toggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('.main-nav');
+toggle?.addEventListener('click', () => {
+  const open = nav?.classList.toggle('open');
+  toggle.setAttribute('aria-expanded', String(open));
+});
+</script>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #fff;
+    border-bottom: 1px solid #e8e8e8;
+  }
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 2rem;
+  }
+  .logo { text-decoration: none; display: flex; align-items: center; }
+  .logo-img { height: 48px; width: auto; }
+  .logo:hover { opacity: 1; }
+
+  .nav-list {
+    display: flex;
+    list-style: none;
+    gap: 0;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+  .nav-list > li { position: relative; }
+  .nav-list > li > a {
+    display: block;
+    padding: 0.5rem 0.85rem;
+    color: #000;
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 400;
+    transition: opacity 0.2s;
+  }
+  .nav-list > li > a:hover { opacity: 0.5; }
+
+  /* Dropdown */
+  .has-dropdown { position: relative; }
+  .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    min-width: 240px;
+    padding: 0.5rem 0;
+    list-style: none;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  }
+  .has-dropdown:hover .dropdown { display: block; }
+  .dropdown li a {
+    display: block;
+    padding: 0.6rem 1.25rem;
+    color: #000;
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    transition: background 0.2s;
+  }
+  .dropdown li a:hover { background: #f5f5f5; opacity: 1; }
+
+  /* Hamburger */
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  .hamburger {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #000;
+    position: relative;
+  }
+  .hamburger::before, .hamburger::after {
+    content: '';
+    position: absolute;
+    width: 22px;
+    height: 2px;
+    background: #000;
+    left: 0;
+  }
+  .hamburger::before { top: -7px; }
+  .hamburger::after { top: 7px; }
+
+  @media (max-width: 900px) {
+    .menu-toggle { display: block; }
+    .main-nav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #fff;
+      border-bottom: 1px solid #e8e8e8;
+      padding: 1rem 0;
+    }
+    .main-nav.open { display: block; }
+    .nav-list { flex-direction: column; align-items: stretch; }
+    .nav-list > li > a { padding: 0.75rem 2rem; }
+    .dropdown { position: static; border: none; box-shadow: none; padding: 0; }
+    .dropdown li a { padding-left: 3rem; }
+    .has-dropdown:hover .dropdown,
+    .has-dropdown .dropdown { display: block; }
+  }
+</style>

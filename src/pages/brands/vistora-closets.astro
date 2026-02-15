@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import DealerCTA from '../../components/DealerCTA.astro';
+const schema = {"@context":"https://schema.org","@type":"Product","name":"Vistora Closets","brand":{"@type":"Brand","name":"Vistora"},"description":"Made-to-order closet solutions designed to maximize storage and enhance organization with style.","category":"Closet & Storage Systems"};
+---
+<BaseLayout title="Vistora Closets | Custom Closet & Storage Solutions | Pinnacle Sales" description="Vistora Closets offers made-to-order closet solutions with modern aesthetics and expert craftsmanship. Available through Pinnacle Sales dealers." schema={schema}>
+<div class="page-header"><h1>Vistora Closets — Made-to-Order Storage Solutions</h1><p>Maximize storage and enhance organization with custom closet systems designed for modern living.</p></div>
+<div class="content-narrow section">
+<Breadcrumbs items={[{name:'Home',href:'/'},{name:'Brands',href:'/#brands'},{name:'Vistora Closets'}]} />
+<p>Vistora Closets specializes in made-to-order closet solutions designed to maximize storage and enhance organization with style. Offering a variety of finishes, configurations, and accessories, Vistora combines functionality with modern aesthetics to create personalized spaces. With high-quality materials and expert craftsmanship, Vistora delivers durable and visually stunning designs tailored to fit any lifestyle.</p>
+<h2>Why Add Closets to Your Dealership?</h2>
+<p>Many kitchen customers also need pantry organization, walk-in closet systems, and mudroom storage. Vistora allows dealers to capture whole-home projects without referring that business elsewhere — increasing average project value without acquiring new customers.</p>
+<h2>Key Features</h2>
+<ul><li>Made-to-order for precise fit</li><li>Wide variety of finishes and configurations</li><li>Modern aesthetics with expert craftsmanship</li><li>Ideal for walk-in closets, reach-in closets, pantries, mudrooms, and home offices</li></ul>
+<DealerCTA heading="Add Vistora Closets to Your Showroom" text="Capture whole-home projects by offering premium closet solutions alongside your kitchen cabinetry." />
+</div>
+</BaseLayout>

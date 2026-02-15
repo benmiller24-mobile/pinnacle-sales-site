@@ -1,0 +1,357 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import DealerCTA from '../components/DealerCTA.astro';
+import { blogPosts } from '../data/blogPosts';
+
+const localBusinessSchema = {"@context":"https://schema.org","@type":"LocalBusiness","name":"Pinnacle Sales","image":"https://www.pinnaclesales.biz/images/pinnacle-sales-og.jpg","telephone":"+1-480-993-9224","address":{"@type":"PostalAddress","addressRegion":"AZ","addressCountry":"US"},"url":"https://www.pinnaclesales.biz","priceRange":"$$-$$$$","openingHours":"Mo-Fr 08:00-17:00"};
+const recentPosts = blogPosts.slice(0, 3);
+---
+<BaseLayout title="Pinnacle Sales | Premium Cabinetry Dealer Rep | 10 Western States" description="Pinnacle Sales connects kitchen & bath dealers with Shiloh, Eclipse, Aspect, Pronorm & Vistora cabinetry across AZ, CA, CO, ID, MT, NV, NM, OR, UT & WA. 23+ years of dealer support." schema={localBusinessSchema}>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="/images/hero-kitchen.webp" alt="Modern kitchen with Shiloh Cabinetry" />
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h4 class="hero-tagline">Connect | Collaborate | Create</h4>
+    <h1>Premium Kitchen & Bath Cabinetry for Dealers Across 10 Western US States</h1>
+    <p>Pinnacle Sales is the leading cabinetry dealer representative serving Arizona, California, Colorado, Idaho, Montana, Nevada, New Mexico, Oregon, Utah, and Washington. We connect kitchen and bath dealers with premium brands including <a href="/brands/shiloh-cabinetry">Shiloh Cabinetry</a>, <a href="/brands/eclipse-cabinetry">Eclipse Cabinetry</a>, <a href="/brands/aspect-cabinetry">Aspect Cabinetry</a>, <a href="/brands/pronorm-german-kitchens">Pronorm German Kitchens</a>, and <a href="/brands/vistora-closets">Vistora Closets</a> — backed by 23+ years of industry expertise, hands-on sales training, and showroom support.</p>
+    <a href="/become-a-dealer" class="btn btn-white">Become a Dealer</a>
+  </div>
+</section>
+
+<!-- Value Props -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-heading">Why Dealers Choose Pinnacle Sales</h2>
+    <div class="value-grid">
+      <div class="value-card">
+        <h3>Premium Brands</h3>
+        <p>Shiloh, Eclipse, Aspect Cabinetry, Pronorm German Kitchens, and Vistora Closets — made in the USA and Europe with unmatched design flexibility and price-to-value across every market tier.</p>
+      </div>
+      <div class="value-card">
+        <h3>Hands-On Support</h3>
+        <p>Sales training, showroom merchandising, technical help, 2020/Winner design services, and marketing resources tailored to your team. We work alongside you to close more projects.</p>
+      </div>
+      <div class="value-card">
+        <h3>10-State Territory</h3>
+        <p>Deep market expertise across Arizona, California, Colorado, Idaho, Montana, Nevada, New Mexico, Oregon, Utah, and Washington. We know your local design trends and competition.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery -->
+<section class="gallery-strip">
+  <img src="/images/gallery-1.webp" alt="Kitchen showroom display" loading="lazy" />
+  <img src="/images/gallery-2.webp" alt="Cabinetry installation" loading="lazy" />
+</section>
+
+<!-- Brands -->
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="section-heading">Premium Cabinetry Brands That Drive Dealer Growth</h2>
+    <div class="brand-list">
+      <div class="brand-card">
+        <div class="brand-logo-wrap">
+          <img src="/images/shiloh-logo.webp" alt="Shiloh Cabinetry" class="brand-logo" loading="lazy" />
+        </div>
+        <div class="brand-info">
+          <span class="brand-tag">Face-Frame & Inset</span>
+          <h3><a href="/brands/shiloh-cabinetry">Shiloh Cabinetry</a></h3>
+          <p>Shiloh Cabinetry is a family-owned, American-made brand renowned for its product value and diverse customization options. With a wide range of styles, finishes, and wood species, Shiloh allows homeowners and designers to create unique, tailored cabinetry solutions. Premium construction features like dovetail drawers, full-extension glides, and soft-close hinges come standard at a competitive price point.</p>
+          <a href="/brands/shiloh-cabinetry" class="brand-link">Learn more &rarr;</a>
+        </div>
+      </div>
+
+      <div class="brand-card">
+        <div class="brand-logo-wrap">
+          <img src="/images/eclipse-logo.webp" alt="Eclipse Cabinetry" class="brand-logo" loading="lazy" />
+        </div>
+        <div class="brand-info">
+          <span class="brand-tag">Frameless Full-Access</span>
+          <h3><a href="/brands/eclipse-cabinetry">Eclipse Cabinetry</a></h3>
+          <p>Eclipse Cabinetry is a modern, frameless cabinetry line that combines sleek, contemporary design with superior functionality. Built with precision and durability, Eclipse offers clean lines, full-access storage, and a wide selection of finishes. Its frameless construction maximizes usable space, while premium features ensure a seamless, high-end user experience.</p>
+          <a href="/brands/eclipse-cabinetry" class="brand-link">Learn more &rarr;</a>
+        </div>
+      </div>
+
+      <div class="brand-card">
+        <div class="brand-logo-wrap">
+          <img src="/images/aspect-logo.webp" alt="Aspect Cabinetry" class="brand-logo" loading="lazy" />
+        </div>
+        <div class="brand-info">
+          <span class="brand-tag">Value Semi-Custom</span>
+          <h3><a href="/brands/aspect-cabinetry">Aspect Cabinetry</a></h3>
+          <p>Aspect Cabinetry offers a perfect blend of quality, style, and affordability, making it an ideal choice for homeowners seeking value-driven semi-custom cabinetry. Durable construction and attention to detail ensure long-lasting performance, while competitive pricing makes quality cabinetry accessible for a variety of budgets.</p>
+          <a href="/brands/aspect-cabinetry" class="brand-link">Learn more &rarr;</a>
+        </div>
+      </div>
+
+      <div class="brand-card">
+        <div class="brand-logo-wrap">
+          <img src="/images/pronorm-logo.webp" alt="Pronorm German Kitchens" class="brand-logo" loading="lazy" />
+        </div>
+        <div class="brand-info">
+          <span class="brand-tag">Premium European</span>
+          <h3><a href="/brands/pronorm-german-kitchens">Pronorm German Kitchens</a></h3>
+          <p>Pronorm Einbauküchen is a premium fitted German kitchen brand known for its sleek, contemporary designs and exceptional functionality. With a focus on modularity and customization, Pronorm offers a wide range of finishes, materials, and innovative storage solutions. Built with precision engineering and high-quality German craftsmanship.</p>
+          <a href="/brands/pronorm-german-kitchens" class="brand-link">Learn more &rarr;</a>
+        </div>
+      </div>
+
+      <div class="brand-card">
+        <div class="brand-logo-wrap">
+          <img src="/images/vistora-logo.webp" alt="Vistora Closets" class="brand-logo" loading="lazy" />
+        </div>
+        <div class="brand-info">
+          <span class="brand-tag">Custom Closets & Storage</span>
+          <h3><a href="/brands/vistora-closets">Vistora Closets</a></h3>
+          <p>Vistora Closets specializes in made-to-order closet solutions designed to maximize storage and enhance organization with style. Offering a variety of finishes, configurations, and accessories, Vistora combines functionality with modern aesthetics to create personalized spaces.</p>
+          <a href="/brands/vistora-closets" class="brand-link">Learn more &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery 2 -->
+<section class="gallery-strip">
+  <img src="/images/gallery-3.webp" alt="Pronorm German Kitchen installation" loading="lazy" />
+  <img src="/images/gallery-4.webp" alt="Modern kitchen with custom cabinetry" loading="lazy" />
+</section>
+
+<!-- Playbook Promo -->
+<section class="section">
+  <div class="container">
+    <div class="playbook-promo">
+      <h2>The Kitchen Dealer Playbook</h2>
+      <p>Your go-to resource for growing a profitable kitchen design business. Product deep dives, dealer success stories, design trend analysis, and operational insights.</p>
+      <div class="playbook-posts">
+        {recentPosts.map(post => (
+          <a href={`/playbook/${post.slug}`} class="playbook-card">
+            <span class="playbook-cat">{post.category}</span>
+            <h3>{post.title}</h3>
+            <p>{post.excerpt}</p>
+          </a>
+        ))}
+      </div>
+      <div style="text-align:center;margin-top:2rem;">
+        <a href="/playbook" class="btn btn-outline">Read the Playbook</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<DealerCTA />
+
+<!-- LinkedIn -->
+<section class="section" style="text-align:center;">
+  <div class="container">
+    <h2 class="section-heading">Follow Us on LinkedIn</h2>
+    <p style="color:var(--color-muted);max-width:500px;margin:0 auto 2rem;">Stay connected with product launches, dealer spotlights, and industry insights.</p>
+    <a href="https://www.linkedin.com/company/pinnacle-sales-kbi" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Pinnacle Sales LinkedIn</a>
+  </div>
+</section>
+
+<!-- NKBA Badge -->
+<section style="text-align:center;padding:2rem 0 4rem;">
+  <img src="/images/nkba-certified.webp" alt="NKBA Certified Member" style="max-width:200px;margin:0 auto;opacity:0.6;" loading="lazy" />
+</section>
+
+</BaseLayout>
+
+<style>
+  /* Hero */
+  .hero {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    z-index: 1;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 850px;
+    padding: 4rem 2rem;
+    color: #fff;
+  }
+  .hero-tagline {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    color: #fff;
+    font-size: 2.75rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    margin-bottom: 1.5rem;
+    line-height: 1.25;
+  }
+  .hero-content p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.9;
+    margin-bottom: 2.5rem;
+  }
+  .hero-content p a { color: var(--color-accent); }
+
+  /* Section Heading */
+  .section-heading {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 1.5rem;
+  }
+
+  /* Value Props */
+  .value-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+  .value-card {
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+  .value-card h3 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+  }
+  .value-card p {
+    color: var(--color-muted);
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  /* Gallery Strip */
+  .gallery-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .gallery-strip img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+  }
+
+  /* Brands */
+  .section-alt { background: var(--color-bg-warm); }
+  .brand-list { display: flex; flex-direction: column; gap: 2rem; }
+  .brand-card {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 2.5rem;
+    align-items: start;
+    background: #fff;
+    padding: 2.5rem;
+    border: 1px solid var(--color-border);
+  }
+  .brand-logo-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80px;
+  }
+  .brand-logo { max-width: 160px; max-height: 70px; object-fit: contain; }
+  .brand-tag {
+    display: inline-block;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    border: 1px solid var(--color-border);
+    padding: 0.2rem 0.6rem;
+    margin-bottom: 0.5rem;
+  }
+  .brand-info h3 { margin-top: 0; font-size: 1.15rem; }
+  .brand-info h3 a { color: #000; text-decoration: none; }
+  .brand-info h3 a:hover { opacity: 0.6; }
+  .brand-info p { color: var(--color-muted); font-size: 0.95rem; }
+  .brand-link {
+    color: #000;
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .brand-link:hover { opacity: 0.5; }
+
+  /* Playbook */
+  .playbook-promo { text-align: center; }
+  .playbook-promo h2 { margin-bottom: 0.75rem; }
+  .playbook-promo > p { color: var(--color-muted); max-width: 600px; margin: 0 auto 2.5rem; }
+  .playbook-posts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    text-align: left;
+  }
+  .playbook-card {
+    border: 1px solid var(--color-border);
+    padding: 2rem;
+    text-decoration: none;
+    color: var(--color-body);
+    transition: border-color 0.3s, box-shadow 0.3s;
+    display: block;
+  }
+  .playbook-card:hover { border-color: #999; box-shadow: 0 4px 20px rgba(0,0,0,0.06); opacity: 1; }
+  .playbook-cat {
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+  .playbook-card h3 {
+    font-size: 1rem;
+    margin: 0.5rem 0 0.75rem;
+    line-height: 1.4;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+  .playbook-card p {
+    color: var(--color-muted);
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 768px) {
+    .hero { min-height: 70vh; }
+    .hero h1 { font-size: 1.75rem; }
+    .value-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .gallery-strip { grid-template-columns: 1fr; }
+    .gallery-strip img { height: 250px; }
+    .brand-card { grid-template-columns: 1fr; text-align: center; }
+    .brand-logo-wrap { justify-content: center; }
+    .brand-info { text-align: left; }
+    .playbook-posts { grid-template-columns: 1fr; }
+  }
+</style>

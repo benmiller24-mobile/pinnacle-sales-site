@@ -1,0 +1,338 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import DealerCTA from '../components/DealerCTA.astro';
+
+const stories = [
+  {
+    dealer: "Plum Kitchens",
+    location: "Denver, CO",
+    brand: "Shiloh Cabinetry",
+    tag: "Beaded Inset",
+    href: "/playbook/dealer-spotlight-plum-kitchens",
+    image: "/images/gallery-1.webp",
+    excerpt: "Shiloh's Beaded Inset cabinetry in a Denver home nails the balance between period charm and fresh functionality. A masterclass in color continuity and multi-functional layout."
+  },
+  {
+    dealer: "Excelle Kitchen & Bath",
+    location: "San Jose, CA",
+    brand: "Shiloh Cabinetry",
+    tag: "Inset — Evergreen Fog",
+    href: "/playbook/excelle-shiloh-inset",
+    image: "/images/gallery-4.webp",
+    excerpt: "Shiloh's Inset cabinetry in Evergreen Fog with Rift White Oak Clay accents brings design cohesion and modern charm together in a California kitchen."
+  },
+  {
+    dealer: "Caruso Kitchen Designs",
+    location: "Western US",
+    brand: "Eclipse Cabinetry",
+    tag: "Frameless Full-Access",
+    href: "/playbook/showcasing-installed-projects",
+    image: "/images/gallery-2.webp",
+    excerpt: "A compelling video showcase demonstrating Eclipse's frameless full-access platform with tiered combination drawers and custom square panel bar backs."
+  },
+  {
+    dealer: "Greenwood Kitchens",
+    location: "Western US",
+    brand: "WW Wood Products",
+    tag: "Factory Partnership",
+    href: "/playbook/greenwood-kitchens-factory-visit",
+    image: "/images/gallery-3.webp",
+    excerpt: "Deepening partnerships through a hands-on factory tour of WW Wood Products manufacturing operations alongside the Pinnacle Sales team."
+  }
+];
+
+const testimonials = [
+  {
+    quote: "Ben Miller and the team at Pinnacle Sales has been instrumental to our business. From the very beginning, Ben has given us guidance in creating our showroom, kept us apprised of current trends, navigate the intricacies of how our supplier operates, and never shied away from helping us through the tough situations that come with home remodeling. Over the 20 years I've been a designer, I've worked with a lot of sales representatives but Ben & Pinnacle Sales has truly gone above and beyond the rest to give us the tools for continued success.",
+    name: "Jason Castillo",
+    title: "Owner",
+    company: "Castle Vision Design",
+    location: "Ventura, CA",
+    url: "http://www.castlevisiondesign.com/",
+    image: "/images/testimonial-castle-vision.webp"
+  },
+  {
+    quote: "You have been so helpful this past year, from helping with the 2020 design program, to clarifying our questions about cabinets and processes, and even assisting us in the ordering process and the best ways customer service. Whenever we couldn't find an answer to our questions, and even customer service was at a loss, you were always able to step up and guide us in the right direction. Thank you so much from all of us at Kitchen Barn!",
+    name: "Andrew Naval",
+    title: "Sales",
+    company: "Kitchen Barn",
+    location: "Poway, CA",
+    url: "http://www.kitchenbarn.net/",
+    image: "/images/testimonial-kitchen-barn.webp"
+  },
+  {
+    quote: "Pinnacle Sales has been an exceptional partner to our team and to WW. Their support goes far beyond basic sales representation — they are responsive, proactive, and consistently invested in helping both our staff and our clients succeed. Behind the scenes, their communication, follow-through, and problem-solving make a real difference in day-to-day operations. As our business has grown, Pinnacle has continued to elevate their level of service, adapting to our needs while maintaining professionalism and reliability. We value the partnership greatly and appreciate the trust, collaboration, and support they provide.",
+    name: "Wendy Sprague",
+    title: "",
+    company: "All About Cabinets and Countertops",
+    location: "",
+    url: "https://www.allaboutcandc.com/",
+    image: "/images/testimonial-all-about.webp"
+  },
+  {
+    quote: "Anna Fisher is a valuable tool for us in selling the full suite of WW Wood Products. She is very kind & patient, even when we send her the most convoluted questions! Her depth of knowledge is impressive and she always offers insight to all aspects of selling WW Wood Products. We are very lucky to have her as a resource.",
+    name: "Paula Tormey",
+    title: "",
+    company: "Sullivan Studio II Designs",
+    location: "",
+    url: "https://www.studio2designs.com/",
+    image: "/images/testimonial-studio2-paula.webp"
+  },
+  {
+    quote: "I have nothing but the utmost appreciation and respect for our representatives at Pinnacle Sales group. Without them, I would not have been able to develop my skills and business to the level it is today. Anna and Scott are easy to approach and receive questions, requests, and suggestions with an open mind. Their professional, nurturing and timely responses have been instrumental in assisting us in building our solid knowledge base as well as keeping us progressing with the industry. Going above and beyond like lending out personal samples for the unexpected urgent project, or making sure concise and correct information is provided. I feel fortunate to be able to collaborate with Anna and the Pinnacle Sales team.",
+    name: "Amy Vitelli",
+    title: "Kitchen & Bath Designer, Co-Owner",
+    company: "Studio II",
+    location: "",
+    url: "https://www.studio2designs.com/",
+    image: "/images/testimonial-studio2-amy.webp"
+  }
+];
+---
+<BaseLayout title="Dealer Success Stories | Kitchen Cabinet Rep — Pinnacle Sales" description="See how kitchen dealers across the Western US are growing their businesses with Shiloh, Eclipse, Aspect, and Pronorm cabinetry through Pinnacle Sales. Read dealer testimonials and project case studies.">
+
+<div class="page-header">
+  <h1>Dealer Success Stories</h1>
+  <p>Real projects, real results. See how our dealer partners are winning with premium cabinetry.</p>
+</div>
+
+<!-- Testimonials -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-heading">What Our Dealers Say</h2>
+    <div class="testimonials">
+      {testimonials.map((t, i) => (
+        <div class={`testimonial ${i % 2 !== 0 ? 'testimonial-reverse' : ''}`}>
+          <div class="testimonial-image">
+            <img src={t.image} alt={`${t.company}`} loading="lazy" />
+          </div>
+          <div class="testimonial-content">
+            <blockquote>
+              <p>&ldquo;{t.quote}&rdquo;</p>
+            </blockquote>
+            <div class="testimonial-attribution">
+              <p class="testimonial-name">{t.name}</p>
+              <p class="testimonial-role">
+                {t.title && <span>{t.title}, </span>}
+                <a href={t.url} target="_blank" rel="noopener">{t.company}</a>
+                {t.location && <span> — {t.location}</span>}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Divider -->
+<div class="container"><hr /></div>
+
+<!-- Featured Projects -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-heading">Featured Projects</h2>
+    <div class="stories-grid">
+      {stories.map((story) => (
+        <a href={story.href} class="story-card">
+          <div class="story-image">
+            <img src={story.image} alt={`${story.dealer} project with ${story.brand}`} loading="lazy" />
+          </div>
+          <div class="story-content">
+            <span class="story-tag">{story.tag}</span>
+            <h3>{story.dealer}</h3>
+            <p class="story-location">{story.location} &bull; {story.brand}</p>
+            <p class="story-excerpt">{story.excerpt}</p>
+            <span class="story-link">Read Case Study &rarr;</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Submit -->
+<section class="section section-alt">
+  <div class="content-narrow" style="text-align:center;">
+    <h2>Want to Be Featured?</h2>
+    <p>We're always looking to highlight outstanding dealer projects. Submit your best installs with quality images and a short project summary — your work could be the next Playbook case study.</p>
+    <p style="margin-bottom:2rem;">
+      <a href="mailto:marketing@pinnaclesales.biz" class="btn btn-primary">Submit a Project</a>
+    </p>
+    <p style="color:var(--color-muted);font-size:0.9rem;">Or email us directly at <a href="mailto:marketing@pinnaclesales.biz">marketing@pinnaclesales.biz</a></p>
+  </div>
+</section>
+
+<DealerCTA />
+
+</BaseLayout>
+
+<style>
+  /* Section Heading */
+  .section-heading {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 1.5rem;
+  }
+
+  /* Testimonials */
+  .testimonials {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+  .testimonial {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  .testimonial-reverse {
+    grid-template-columns: 1fr 280px;
+  }
+  .testimonial-reverse .testimonial-image {
+    order: 2;
+  }
+  .testimonial-reverse .testimonial-content {
+    order: 1;
+  }
+  .testimonial-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .testimonial-image img {
+    width: 100%;
+    max-width: 280px;
+    object-fit: contain;
+  }
+  .testimonial-content blockquote {
+    border-left: 3px solid var(--color-accent);
+    padding: 0 0 0 1.75rem;
+    margin: 0 0 1.5rem;
+    font-style: normal;
+  }
+  .testimonial-content blockquote p {
+    color: var(--color-body);
+    font-size: 0.95rem;
+    line-height: 1.9;
+    margin: 0;
+  }
+  .testimonial-attribution {
+    padding-left: 1.75rem;
+  }
+  .testimonial-name {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-black);
+    margin: 0 0 0.15rem;
+  }
+  .testimonial-role {
+    font-size: 0.82rem;
+    color: var(--color-muted);
+    margin: 0;
+    letter-spacing: 0.02em;
+  }
+  .testimonial-role a {
+    color: var(--color-muted);
+  }
+  .testimonial-role a:hover {
+    color: var(--color-black);
+  }
+
+  /* Stories Grid */
+  .stories-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .story-card {
+    display: block;
+    text-decoration: none;
+    color: var(--color-body);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  .story-card:hover {
+    border-color: #999;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    opacity: 1;
+  }
+  .story-image {
+    overflow: hidden;
+    height: 260px;
+  }
+  .story-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .story-card:hover .story-image img {
+    transform: scale(1.03);
+  }
+  .story-content {
+    padding: 1.75rem 2rem 2rem;
+  }
+  .story-tag {
+    display: inline-block;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    border: 1px solid var(--color-border);
+    padding: 0.2rem 0.6rem;
+    margin-bottom: 0.75rem;
+  }
+  .story-content h3 {
+    font-size: 1.25rem;
+    margin: 0 0 0.25rem;
+    color: var(--color-black);
+    text-transform: none;
+    letter-spacing: 0.01em;
+  }
+  .story-location {
+    font-size: 0.82rem;
+    color: var(--color-muted);
+    margin: 0 0 1rem;
+    letter-spacing: 0.03em;
+  }
+  .story-excerpt {
+    color: var(--color-muted);
+    font-size: 0.92rem;
+    line-height: 1.7;
+    margin: 0 0 1.25rem;
+  }
+  .story-link {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-black);
+  }
+
+  .section-alt {
+    background: var(--color-bg-alt);
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid var(--color-border);
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .testimonial,
+    .testimonial-reverse {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .testimonial-reverse .testimonial-image { order: 0; }
+    .testimonial-reverse .testimonial-content { order: 0; }
+    .testimonial-image { justify-content: flex-start; }
+    .testimonial-image img { max-width: 180px; }
+    .stories-grid { grid-template-columns: 1fr; }
+    .story-image { height: 200px; }
+  }
+</style>

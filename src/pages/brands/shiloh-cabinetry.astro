@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import DealerCTA from '../../components/DealerCTA.astro';
+const schema = {"@context":"https://schema.org","@type":"Product","name":"Shiloh Cabinetry","brand":{"@type":"Brand","name":"Shiloh Cabinetry"},"description":"American-made semi-custom cabinetry with dovetail drawers, full-extension glides, and soft-close hinges.","category":"Kitchen Cabinetry","manufacturer":{"@type":"Organization","name":"WW Wood Products"}};
+---
+<BaseLayout title="Shiloh Cabinetry | Dealer Information & Product Details | Pinnacle Sales" description="Become a Shiloh Cabinetry dealer through Pinnacle Sales. Family-owned, American-made semi-custom cabinetry with diverse customization. Available in AZ, CA, CO, ID, NV, NM, OR, WA." schema={schema}>
+<div class="page-header"><h1>Shiloh Cabinetry — American-Made Semi-Custom Excellence</h1><p>Family-owned craftsmanship since 1977. Face-frame and inset construction with unmatched customization.</p></div>
+<div class="content-narrow section">
+<Breadcrumbs items={[{name:'Home',href:'/'},{name:'Brands',href:'/#brands'},{name:'Shiloh Cabinetry'}]} />
+<p>Shiloh Cabinetry is a family-owned, American-made brand renowned for its product value and diverse customization options. Built by W.W. Wood Products Inc. in Dudley, Missouri since 1977, Shiloh offers a wide range of styles, finishes, and wood species that allow homeowners and designers to create unique, tailored cabinetry solutions that suit any design aesthetic.</p>
+<h2>Construction & Quality</h2>
+<p>Shiloh emphasizes quality and value, offering premium construction features like dovetail drawers, full-extension glides, and soft-close hinges at a competitive price point. All cabinetry is built-to-order with all-plywood box construction.</p>
+<h2>Inset Cabinetry — 6 Styles, No Upcharge</h2>
+<p>Shiloh's Inset Cabinetry is available in six unique styles — Flush Inset, Modern Flush Inset, Beaded Inset, Modern Beaded Inset, Square Beaded Inset, and Modern Square Beaded Inset — all at nearly the same price point as full overlay frameless Eclipse.</p>
+<h2>Custom Paint Program</h2>
+<p>Shiloh's Custom Paint Program allows dealers to spec any "Standard" paint color from Sherwin-Williams. Custom color adds a 20% upcharge with a $15,000 minimum order, or a flat $750 fee for smaller jobs.</p>
+<h2>Key Features</h2>
+<ul><li>All-plywood box construction</li><li>Dovetail drawer boxes with full-extension soft-close guides</li><li>No-upcharge White Oak and Rift-Cut options</li><li>6 inset variations at no additional cost</li><li>Extensive stain and paint finish library</li><li>Multiple wood species: Maple, Cherry, Walnut, Hickory, Alder, White Oak</li><li>Slatted wood range hoods, end caps, and panels</li><li>Furniture vanities handcrafted from scratch</li><li>Approximately 6-week lead times</li></ul>
+<h2>Related Playbook Articles</h2>
+<ul><li><a href="/playbook/frameless-vs-face-frame-cabinets">Frameless vs. Face-Frame Cabinets</a></li><li><a href="/playbook/modern-inset">Modern Inset: 6 No Upcharge Variations</a></li><li><a href="/playbook/custom-paint-sherwin-williams">Custom Paint with Sherwin-Williams</a></li><li><a href="/playbook/slatted-wood-series">Slatted Wood Series</a></li></ul>
+<DealerCTA heading="Become a Shiloh Cabinetry Dealer" text="Join our dealer network across Arizona, California, Colorado, Idaho, Nevada, New Mexico, Oregon, and Washington." />
+</div>
+</BaseLayout>

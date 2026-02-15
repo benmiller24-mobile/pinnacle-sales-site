@@ -1,0 +1,170 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+---
+<BaseLayout title="Become a Dealer | Partner with Pinnacle Sales" description="Apply to become a Pinnacle Sales dealer partner. Access Shiloh, Eclipse, Aspect, Pronorm & Vistora cabinetry with training, showroom support, and territory protection.">
+<div class="page-header"><h1>Become a Pinnacle Sales Dealer</h1><p>Partner with the leading cabinetry rep firm in the Western US. Five premium brands, one trusted partnership.</p></div>
+<div class="content-narrow section">
+<Breadcrumbs items={[{name:'Home',href:'/'},{name:'Become a Dealer'}]} />
+
+<p>Whether you are an established kitchen dealer looking to expand your brand portfolio or an entrepreneur exploring how to launch a new showroom, Pinnacle Sales offers the brands, training, and hands-on support you need to build a profitable cabinetry business.</p>
+
+<h2>Why Partner with Pinnacle Sales?</h2>
+
+<div class="benefits-grid">
+<div class="benefit">
+<h3>Five Premium Brands</h3>
+<p><a href="/brands/shiloh-cabinetry">Shiloh</a>, <a href="/brands/eclipse-cabinetry">Eclipse</a>, <a href="/brands/aspect-cabinetry">Aspect</a>, <a href="/brands/pronorm-german-kitchens">Pronorm</a>, and <a href="/brands/vistora-closets">Vistora</a> cover every market tier from value semi-custom to ultra-premium European design. One partnership gives you a complete product lineup for any client and budget.</p>
+</div>
+<div class="benefit">
+<h3>Hands-On Sales Training</h3>
+<p>We train your sales team in person — product knowledge, competitive positioning, objection handling, and closing strategies tailored to your market. Not webinars. Real training in your showroom with your team.</p>
+</div>
+<div class="benefit">
+<h3>Showroom Merchandising</h3>
+<p>We help you plan, design, and set up showroom displays that drive conversations and close sales. From door sample walls to full kitchen vignettes, we provide merchandising guidance and display programs.</p>
+</div>
+<div class="benefit">
+<h3>Design & Quoting Support</h3>
+<p>Our team offers 2020/Winner design and quoting services to help you move projects from concept to order efficiently. We support complex projects, multi-brand quotes, and custom specifications.</p>
+</div>
+<div class="benefit">
+<h3>Marketing Resources</h3>
+<p>Co-branded content, photography, project showcases, and digital marketing support to help you attract homeowners and builders to your showroom.</p>
+</div>
+<div class="benefit">
+<h3>Factory Access</h3>
+<p>Direct relationships with WW Wood Products and Pronorm factory teams. We coordinate factory tours, technical consultations, and custom project support at the manufacturing level.</p>
+</div>
+</div>
+
+<h2>Available Territories</h2>
+
+<p>We serve dealers in Arizona, California, Colorado, Idaho, Montana, Nevada, New Mexico, Oregon, Utah, and Washington. Pronorm German Kitchens are available nationwide with protected dealer territories.</p>
+
+<p>Territory availability varies by brand and market. Contact us to discuss what is open in your area.</p>
+
+<h2>Who We Work With</h2>
+
+<p>Our dealer partners include independent kitchen and bath showrooms, design-build firms, custom home builders, interior design studios with product sales capability, and multi-location dealer groups. Whether you are a single-location showroom or a growing enterprise, we structure our support to match your business needs.</p>
+
+<h2>Apply to Become a Dealer</h2>
+
+<p>Complete the form below and our team will follow up within two business days to schedule an introductory call. We will discuss your market, showroom, current product lines, and which Pinnacle Sales brands are the best fit for your business.</p>
+
+<form name="dealer-application" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="dealer-form">
+<input type="hidden" name="form-name" value="dealer-application" />
+<p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
+
+<div class="form-group">
+<label for="contact-name">Your Name <span class="required">*</span></label>
+<input type="text" id="contact-name" name="name" required />
+</div>
+
+<div class="form-group">
+<label for="company">Company / Showroom Name <span class="required">*</span></label>
+<input type="text" id="company" name="company" required />
+</div>
+
+<div class="form-row">
+<div class="form-group">
+<label for="email">Email <span class="required">*</span></label>
+<input type="email" id="email" name="email" required />
+</div>
+<div class="form-group">
+<label for="phone">Phone <span class="required">*</span></label>
+<input type="tel" id="phone" name="phone" required />
+</div>
+</div>
+
+<div class="form-row">
+<div class="form-group">
+<label for="city">City <span class="required">*</span></label>
+<input type="text" id="city" name="city" required />
+</div>
+<div class="form-group">
+<label for="state">State <span class="required">*</span></label>
+<select id="state" name="state" required>
+<option value="">Select state...</option>
+<option value="AZ">Arizona</option>
+<option value="CA">California</option>
+<option value="CO">Colorado</option>
+<option value="ID">Idaho</option>
+<option value="MT">Montana</option>
+<option value="NV">Nevada</option>
+<option value="NM">New Mexico</option>
+<option value="OR">Oregon</option>
+<option value="UT">Utah</option>
+<option value="WA">Washington</option>
+<option value="Other">Other (Pronorm nationwide)</option>
+</select>
+</div>
+</div>
+
+<div class="form-group">
+<label for="website">Website URL</label>
+<input type="url" id="website" name="website" placeholder="https://" />
+</div>
+
+<div class="form-group">
+<label for="business-type">Business Type <span class="required">*</span></label>
+<select id="business-type" name="business-type" required>
+<option value="">Select type...</option>
+<option value="Kitchen & Bath Showroom">Kitchen & Bath Showroom</option>
+<option value="Design-Build Firm">Design-Build Firm</option>
+<option value="Interior Design Studio">Interior Design Studio</option>
+<option value="Custom Home Builder">Custom Home Builder</option>
+<option value="Multi-Location Dealer">Multi-Location Dealer Group</option>
+<option value="New Business / Startup">New Business / Startup</option>
+<option value="Other">Other</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="brands-interest">Which brands are you most interested in?</label>
+<div class="checkbox-group">
+<label class="checkbox-label"><input type="checkbox" name="brands-interest" value="Shiloh Cabinetry" /> Shiloh Cabinetry</label>
+<label class="checkbox-label"><input type="checkbox" name="brands-interest" value="Eclipse Cabinetry" /> Eclipse Cabinetry</label>
+<label class="checkbox-label"><input type="checkbox" name="brands-interest" value="Aspect Cabinetry" /> Aspect Cabinetry</label>
+<label class="checkbox-label"><input type="checkbox" name="brands-interest" value="Pronorm German Kitchens" /> Pronorm German Kitchens</label>
+<label class="checkbox-label"><input type="checkbox" name="brands-interest" value="Vistora Closets" /> Vistora Closets</label>
+</div>
+</div>
+
+<div class="form-group">
+<label for="current-lines">What cabinet lines do you currently carry?</label>
+<textarea id="current-lines" name="current-lines" rows="3" placeholder="List your current brands and approximate annual volume if comfortable sharing..."></textarea>
+</div>
+
+<div class="form-group">
+<label for="message">Anything else you'd like us to know?</label>
+<textarea id="message" name="message" rows="3"></textarea>
+</div>
+
+<button type="submit" class="btn-primary">Submit Application</button>
+</form>
+
+<p style="margin-top:2rem;color:#6b7280;font-size:.9rem;">Prefer to talk first? Call <a href="tel:+14809939224">480-993-9224</a> or email <a href="mailto:marketing@pinnaclesales.biz">marketing@pinnaclesales.biz</a>.</p>
+
+</div>
+</BaseLayout>
+<style>
+.benefits-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin:1.5rem 0}
+.benefit{border:1px solid #e5e7eb;border-radius:8px;padding:1.25rem}
+.benefit h3{margin:0 0 .5rem;font-size:1.05rem;color:#1a1a2e}
+.benefit p{color:#4b5563;margin:0;font-size:.95rem}
+.dealer-form{margin-top:1.5rem;max-width:640px}
+.form-group{margin-bottom:1.25rem}
+.form-group label{display:block;font-weight:600;margin-bottom:.4rem;font-size:.95rem;color:#1a1a2e}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:.65rem .75rem;border:1px solid #d1d5db;border-radius:6px;font-size:.95rem;font-family:inherit;background:#fff;transition:border-color .2s}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.1)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:600px){.form-row{grid-template-columns:1fr}}
+.checkbox-group{display:flex;flex-direction:column;gap:.5rem;margin-top:.25rem}
+.checkbox-label{display:flex;align-items:center;gap:.5rem;font-weight:400;font-size:.95rem;cursor:pointer}
+.checkbox-label input{width:auto;margin:0}
+.required{color:#dc2626}
+.hidden{display:none}
+.btn-primary{background:#1a1a2e;color:#fff;border:none;padding:.75rem 2rem;border-radius:6px;font-size:1rem;font-weight:600;cursor:pointer;transition:background .2s}
+.btn-primary:hover{background:#2563eb}
+</style>

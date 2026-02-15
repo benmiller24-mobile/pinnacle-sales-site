@@ -1,0 +1,116 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import DealerCTA from '../components/DealerCTA.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  author: string;
+  publishedDate: string;
+  modifiedDate?: string;
+  ogImage?: string;
+}
+
+const { title, description, author, publishedDate, modifiedDate, ogImage } = Astro.props;
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "author": { "@type": "Organization", "name": "Pinnacle Sales" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pinnacle Sales",
+    "logo": { "@type": "ImageObject", "url": "https://www.pinnaclesales.biz/images/pinnacle-sales-logo.png" }
+  },
+  "datePublished": publishedDate,
+  "dateModified": modifiedDate || publishedDate,
+  "description": description
+};
+---
+
+<BaseLayout
+  title={`${title} | Kitchen Dealer Playbook | Pinnacle Sales`}
+  description={description}
+  schema={articleSchema}
+  ogImage={ogImage}
+  article={{ publishedTime: publishedDate, modifiedTime: modifiedDate, author: 'Pinnacle Sales' }}
+>
+  <div class="content-narrow" style="padding-top: 2rem;">
+    <Breadcrumbs items={[
+      { name: 'Home', href: '/' },
+      { name: 'Playbook', href: '/playbook' },
+      { name: title }
+    ]} />
+
+    <article class="blog-post">
+      <header class="post-header">
+        <h1>{title}</h1>
+        <div class="post-meta">
+          <span class="post-author">By {author}</span>
+          <span class="post-date">
+            <time datetime={publishedDate}>
+              {new Date(publishedDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+            </time>
+          </span>
+        </div>
+      </header>
+      <div class="post-content">
+        <slot />
+      </div>
+    </article>
+
+    <DealerCTA />
+  </div>
+</BaseLayout>
+
+<style>
+  .post-header { margin-bottom: 2rem; border-bottom: 1px solid #e5e7eb; padding-bottom: 1.5rem; }
+  .post-header h1 { font-size: 2rem; }
+  .post-meta { display: flex; gap: 1.5rem; color: #6b7280; font-size: 0.9rem; margin-top: 0.75rem; }
+  .post-content h2 { font-size: 1.5rem; margin: 2.5rem 0 1rem; }
+  .post-content h3 { font-size: 1.25rem; margin: 2rem 0 0.75rem; }
+  .post-content ul, .post-content ol { margin: 0 0 1rem 1.5rem; }
+  .post-content li { margin-bottom: 0.5rem; }
+  .post-content blockquote {
+    border-left: 4px solid #c8a96e;
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    background: #faf8f5;
+    font-style: italic;
+    color: #4b5563;
+  }
+  .post-content img {
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    max-width: 100%;
+    height: auto;
+  }
+  :global(.post-images) {
+    display: flex; flex-wrap: wrap; gap: 1rem; margin: 1.5rem 0;
+  }
+  :global(.post-images img) {
+    border-radius: 8px; max-width: 100%; height: auto;
+  }
+  :global(.post-images:not(.post-images-grid) img) {
+    flex: 1 1 300px; max-height: 400px; object-fit: cover;
+  }
+  :global(.post-images-grid) {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+  }
+  :global(.post-images-grid img) {
+    width: 100%; height: 250px; object-fit: cover;
+  }
+  .post-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+  }
+  .post-content th, .post-content td {
+    border: 1px solid #e5e7eb;
+    padding: 0.75rem;
+    text-align: left;
+  }
+  .post-content th { background: #f9fafb; font-weight: 600; }
+</style>

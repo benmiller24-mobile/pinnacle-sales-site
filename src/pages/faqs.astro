@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+const faqs = [
+  {q:"What states does Pinnacle Sales cover?", a:"Pinnacle Sales serves kitchen and bath dealers across Arizona, California, Colorado, Idaho, Montana, Nevada, New Mexico, Oregon, Utah, and Washington for WW Wood Products brands. Pronorm German Kitchens are available nationwide."},
+  {q:"What brands does Pinnacle Sales represent?", a:"We represent Shiloh Cabinetry, Eclipse Cabinetry, Aspect Cabinetry, Pronorm German Kitchens, and Vistora Closets — covering face-frame, frameless, value, premium European, and closet/storage categories."},
+  {q:"How do I become a dealer?", a:"Visit our Become a Dealer page to apply. We'll review your application, discuss territory availability, and set up an introductory call to explore which brands are the right fit for your showroom."},
+  {q:"What support does Pinnacle Sales provide to dealers?", a:"We offer hands-on sales training, showroom merchandising support, 2020/Winner design services, technical assistance, marketing resources, factory tours, and ongoing business development consultation."},
+  {q:"What are typical lead times for cabinetry orders?", a:"Shiloh, Eclipse, and Aspect cabinetry typically ships in approximately 6 weeks. Nevara ships in 5-6 weeks. Pronorm German Kitchens have a 10-14 week production lead time plus international shipping."},
+  {q:"What is the difference between Shiloh and Eclipse?", a:"Shiloh is face-frame and inset box construction, while Eclipse is frameless (full-access) construction inspired by European design. Both are built by WW Wood Products in Missouri with similar quality standards."},
+  {q:"Does Pinnacle Sales work with builders?", a:"Yes. Many of our dealers serve builder clients. Aspect Cabinetry is frequently chosen for builder projects, with Shiloh and Eclipse available for custom and semi-custom upgrades."},
+  {q:"What is Pronorm and how is it different from American brands?", a:"Pronorm is a premium German fitted kitchen manufacturer. Unlike American cabinetry sold as individual boxes, German kitchens are engineered as complete systems with every element designed to work together with precision tolerances measured in fractions of a millimeter."},
+  {q:"Can I order custom paint colors on Shiloh or Eclipse?", a:"Yes. Both Shiloh and Eclipse offer a Custom Paint Program allowing you to spec any Standard Sherwin-Williams color. A sample door must be approved first. Minimum order is $15,000 list with a 20% custom color upcharge, or a flat $750 fee for smaller jobs."},
+  {q:"What is the difference between frameless and face-frame cabinets?", a:"Face-frame cabinets have a solid wood frame attached to the front of the box, providing traditional American aesthetics and forgiving installation. Frameless (full-access) cabinets eliminate the face frame for a sleek, modern look and up to 15% more usable interior space. We carry brands in both styles."},
+  {q:"Does Pinnacle Sales offer design and quoting services?", a:"Yes. Our team provides 2020/Winner design and quoting support for complex projects, multi-brand specifications, and custom configurations. We work alongside your design team to move projects from concept to order."},
+  {q:"How do showroom display programs work?", a:"Our manufacturers offer display programs that can subsidize sample and vignette costs for qualifying dealers. Programs vary by brand and typically involve minimum annual purchase commitments. Contact your Pinnacle Sales rep for current display program details."},
+  {q:"Can I carry Pronorm without being a WW Wood Products dealer?", a:"Yes. Pronorm German Kitchens are distributed independently through European Kitchen Distributors (EKD), a Pinnacle Sales company. Pronorm is available nationwide with protected dealer territories, regardless of whether you carry WW Wood brands."}
+];
+const faqSchema = {"@context":"https://schema.org","@type":"FAQPage","mainEntity":faqs.map(f=>({"@type":"Question","name":f.q,"acceptedAnswer":{"@type":"Answer","text":f.a}}))};
+---
+<BaseLayout title="FAQs | Pinnacle Sales Cabinetry Dealer Support" description="Frequently asked questions about becoming a Pinnacle Sales dealer, our cabinetry brands, lead times, territory coverage, and dealer support services." schema={faqSchema}>
+<div class="page-header"><h1>Frequently Asked Questions</h1><p>Everything you need to know about partnering with Pinnacle Sales.</p></div>
+<div class="content-narrow section">
+<Breadcrumbs items={[{name:'Home',href:'/'},{name:'FAQs'}]} />
+{faqs.map((faq) => (
+<div class="faq-item">
+<h2>{faq.q}</h2>
+<p>{faq.a}</p>
+</div>
+))}
+</div>
+</BaseLayout>
+<style>
+.faq-item { border-bottom: 1px solid #e5e7eb; padding: 1.5rem 0; }
+.faq-item:last-child { border-bottom: none; }
+.faq-item h2 { font-size: 1.15rem; margin: 0 0 0.75rem; color: #1a1a2e; }
+.faq-item p { color: #4b5563; margin: 0; }
+</style>

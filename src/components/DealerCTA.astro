@@ -1,0 +1,49 @@
+---
+export interface Props {
+  heading?: string;
+  text?: string;
+}
+const { heading = "Ready to Grow Your Kitchen & Bath Dealership?", text = "Let's build your showroom's future together. Whether you're a seasoned kitchen dealer or just launching your business, we're here to help you succeed." } = Astro.props;
+---
+<section class="dealer-cta">
+  <h2>{heading}</h2>
+  <p>{text}</p>
+  <a href="/become-a-dealer" class="btn btn-white">Become a Dealer</a>
+</section>
+<style>
+  .dealer-cta {
+    background: #000;
+    color: #fff;
+    padding: 5rem 2rem;
+    text-align: center;
+    margin: 4rem 0;
+  }
+  .dealer-cta h2 {
+    font-size: 1.75rem;
+    color: #fff;
+    margin: 0 0 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 400;
+  }
+  .dealer-cta p {
+    font-size: 1.05rem;
+    max-width: 580px;
+    margin: 0 auto 2rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.8;
+  }
+  .dealer-cta .btn {
+    display: inline-block;
+    background: #fff;
+    color: #000;
+    padding: 0.875rem 2.5rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: var(--font-body);
+    transition: all 0.3s ease;
+  }
+  .dealer-cta .btn:hover { background: rgba(255,255,255,0.9); opacity: 1; }
+</style>

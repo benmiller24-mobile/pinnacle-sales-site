@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+---
+<BaseLayout title="Contact Pinnacle Sales | Cabinetry Dealer Support" description="Contact Pinnacle Sales for cabinetry dealer support, brand information, or partnership inquiries. Serving 10 Western US states.">
+<div class="page-header"><h1>Contact Us</h1><p>Ready to connect? We would love to hear from you.</p></div>
+<div class="content-narrow section">
+<Breadcrumbs items={[{name:'Home',href:'/'},{name:'Contact'}]} />
+
+<div class="contact-grid">
+<div class="contact-info">
+<h2>Get in Touch</h2>
+
+<div class="contact-item">
+<h3>Phone</h3>
+<p><a href="tel:+14809939224">480-993-9224</a></p>
+</div>
+
+<div class="contact-item">
+<h3>Email</h3>
+<p><a href="mailto:marketing@pinnaclesales.biz">marketing@pinnaclesales.biz</a></p>
+</div>
+
+<div class="contact-item">
+<h3>LinkedIn</h3>
+<p><a href="https://www.linkedin.com/company/pinnacle-sales-kbi" target="_blank" rel="noopener">Pinnacle Sales on LinkedIn</a></p>
+</div>
+
+<h2>Territory Coverage</h2>
+
+<p><strong>WW Wood Products</strong> (Shiloh, Eclipse, Aspect, Vistora):<br/>
+Arizona, California, Colorado, Idaho, Montana, Nevada, New Mexico, Oregon, Utah, and Washington.</p>
+
+<p><strong>Pronorm German Kitchens:</strong><br/>
+Available nationwide through European Kitchen Distributors.</p>
+
+<h2>Looking to Become a Dealer?</h2>
+<p>Visit our <a href="/become-a-dealer">Become a Dealer</a> page to learn about partnership benefits and submit an application.</p>
+
+<h2>Have a Project to Share?</h2>
+<p>We feature outstanding dealer projects in our <a href="/playbook">Kitchen Dealer Playbook</a>. Send your best project photos and a short description to <a href="mailto:marketing@pinnaclesales.biz">marketing@pinnaclesales.biz</a>.</p>
+</div>
+
+<div class="contact-form-wrapper">
+<h2>Send Us a Message</h2>
+
+<form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
+<input type="hidden" name="form-name" value="contact" />
+<p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
+
+<div class="form-group">
+<label for="name">Name <span class="req">*</span></label>
+<input type="text" id="name" name="name" required />
+</div>
+
+<div class="form-group">
+<label for="email">Email <span class="req">*</span></label>
+<input type="email" id="email" name="email" required />
+</div>
+
+<div class="form-group">
+<label for="phone">Phone</label>
+<input type="tel" id="phone" name="phone" />
+</div>
+
+<div class="form-group">
+<label for="subject">Subject <span class="req">*</span></label>
+<select id="subject" name="subject" required>
+<option value="">Select a topic...</option>
+<option value="Dealer Partnership Inquiry">Dealer Partnership Inquiry</option>
+<option value="Brand Information">Brand Information</option>
+<option value="Design / Quoting Support">Design / Quoting Support</option>
+<option value="Showroom Display Programs">Showroom Display Programs</option>
+<option value="Training Request">Training Request</option>
+<option value="Project Submission">Project Submission for Playbook</option>
+<option value="General Inquiry">General Inquiry</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="message">Message <span class="req">*</span></label>
+<textarea id="message" name="message" rows="5" required></textarea>
+</div>
+
+<button type="submit" class="btn-primary">Send Message</button>
+</form>
+</div>
+</div>
+
+</div>
+</BaseLayout>
+<style>
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:1rem}
+@media(max-width:768px){.contact-grid{grid-template-columns:1fr;gap:2rem}}
+.contact-item{margin-bottom:1.25rem}
+.contact-item h3{margin:0 0 .25rem;font-size:1rem;color:#1a1a2e}
+.contact-item p{margin:0}
+.contact-item a{color:#2563eb;text-decoration:none;font-size:1.05rem}
+.contact-item a:hover{text-decoration:underline}
+.contact-form{margin-top:.5rem}
+.form-group{margin-bottom:1.25rem}
+.form-group label{display:block;font-weight:600;margin-bottom:.4rem;font-size:.95rem;color:#1a1a2e}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:.65rem .75rem;border:1px solid #d1d5db;border-radius:6px;font-size:.95rem;font-family:inherit;background:#fff;transition:border-color .2s;box-sizing:border-box}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.1)}
+.req{color:#dc2626}
+.hidden{display:none}
+.btn-primary{background:#1a1a2e;color:#fff;border:none;padding:.75rem 2rem;border-radius:6px;font-size:1rem;font-weight:600;cursor:pointer;transition:background .2s}
+.btn-primary:hover{background:#2563eb}
+</style>
