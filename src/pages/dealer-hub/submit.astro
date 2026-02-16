@@ -6,7 +6,8 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
 <h1>Submit a Request</h1>
 <p class="page-subtitle">Send us a design for review, an order to check before submission, or request a Zoom training session for your team.</p>
 
-<form id="request-form" class="request-form" enctype="multipart/form-data">
+<form id="request-form" class="request-form" name="dealer-request" method="POST" data-netlify="true" enctype="multipart/form-data">
+  <input type="hidden" name="form-name" value="dealer-request" />
 
   <div class="field">
     <label for="request-type">What do you need?</label>
@@ -85,7 +86,7 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
       <label for="file-upload">Attach Project Files</label>
       <div class="file-upload-area" id="file-upload-area">
         <input type="file" id="file-upload" name="files" multiple accept=".2020,.mcd,.xml,.pdf,.dwg,.dxf,.jpg,.jpeg,.png,.zip" />
-        <p class="file-hint">20/20 / ProKitchen files, PDFs, drawings, or images. Max 25MB total.</p>
+        <p class="file-hint">20/20 / ProKitchen files, PDFs, drawings, or images. Max 10MB total.</p>
         <p class="file-list" id="file-list"></p>
       </div>
     </div>
@@ -145,8 +146,8 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
 <div id="success-message" class="success-message" style="display:none;">
   <div class="success-icon">✓</div>
   <h2>Request Submitted</h2>
-  <p>Your request has been sent to the Pinnacle Sales team. We'll respond within the timeline indicated.</p>
-  <p style="color:var(--color-muted);font-size:0.88rem;">A copy has been sent to your email address. If you don't see it, check your spam folder or contact us directly at 480-993-9224.</p>
+  <p>Your request has been submitted to the Pinnacle Sales team along with any attached files. We'll respond within the timeline indicated.</p>
+  <p style="color:var(--color-muted);font-size:0.88rem;">If you don't hear back, contact us directly at 480-993-9224 or <a href="mailto:marketing@pinnaclesales.biz">marketing@pinnaclesales.biz</a>.</p>
   <a href="/dealer-hub/dashboard" class="back-link">← Back to Dashboard</a>
 </div>
 
@@ -179,7 +180,7 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
     }
   });
 
-  // Form submission
+  // Form submission via Netlify Forms
   document.getElementById('request-form').addEventListener('submit', function(e) {
     e.preventDefault();
 
@@ -187,48 +188,27 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
     btn.disabled = true;
     btn.textContent = 'Sending…';
 
-    var formData = new FormData(this);
-    var dealerName = sessionStorage.getItem('pinnacle_dealer_name') || '';
+    var form = this;
+    var formData = new FormData(form);
 
-    // Build email body
-    var requestType = formData.get('request-type');
-    var typeLabel = requestType === 'design-review' ? 'Design Review' :
-                    requestType === 'order-check' ? 'Pre-Order Check' : 'Zoom Training Session';
-
-    var subject = typeLabel + ' Request — ' + (formData.get('dealer-company') || dealerName);
-
-    var body = 'Request Type: ' + typeLabel + '\n';
-    body += 'Dealership: ' + formData.get('dealer-company') + '\n';
-    body += 'Contact: ' + formData.get('contact-name') + '\n';
-    body += 'Email: ' + formData.get('contact-email') + '\n';
-    body += 'Phone: ' + (formData.get('contact-phone') || 'N/A') + '\n\n';
-
-    if (requestType !== 'zoom-training') {
-      body += 'Brand: ' + (formData.get('brand') || 'N/A') + '\n';
-      body += 'Project: ' + (formData.get('project-name') || 'N/A') + '\n';
-      body += 'Timeline: ' + (formData.get('urgency') || 'standard') + '\n\n';
-    } else {
-      var topics = formData.getAll('topics').join(', ') || 'N/A';
-      body += 'Topics: ' + topics + '\n';
-      body += 'Team Size: ' + (formData.get('team-size') || 'N/A') + '\n';
-      body += 'Preferred Date: ' + (formData.get('preferred-date') || 'N/A') + '\n\n';
-    }
-
-    body += 'Notes: ' + (formData.get('notes') || 'None') + '\n';
-
-    // Open mailto with pre-filled content
-    var mailto = 'mailto:marketing@pinnaclesales.biz'
-      + '?subject=' + encodeURIComponent(subject)
-      + '&body=' + encodeURIComponent(body);
-
-    window.location.href = mailto;
-
-    // Show success after brief delay
-    setTimeout(function() {
-      document.getElementById('request-form').style.display = 'none';
-      document.getElementById('success-message').style.display = 'block';
-      window.scrollTo(0, 0);
-    }, 1000);
+    fetch('/', {
+      method: 'POST',
+      body: formData
+    })
+    .then(function(response) {
+      if (response.ok) {
+        form.style.display = 'none';
+        document.getElementById('success-message').style.display = 'block';
+        window.scrollTo(0, 0);
+      } else {
+        throw new Error('Submission failed');
+      }
+    })
+    .catch(function(error) {
+      btn.disabled = false;
+      btn.textContent = 'Submit Request';
+      alert('Something went wrong. Please try again or email marketing@pinnaclesales.biz directly.');
+    });
   });
 </script>
 
