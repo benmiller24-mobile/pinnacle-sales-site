@@ -13,14 +13,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
     <form id="login-form" class="login-form" autocomplete="off">
       <div class="field">
-        <label for="dealer-name">Your Name or Dealership</label>
-        <input type="text" id="dealer-name" name="dealer-name" placeholder="e.g. Castle Vision Design" required autocomplete="off" />
+        <label for="dealer-name">Username</label>
+        <input type="text" id="dealer-name" name="dealer-name" placeholder="Enter your username" required autocomplete="off" />
       </div>
       <div class="field">
         <label for="dealer-password">Password</label>
         <input type="password" id="dealer-password" name="dealer-password" placeholder="Enter dealer password" required autocomplete="off" />
       </div>
-      <p id="login-error" class="login-error" style="display:none;">Incorrect password. Contact your Pinnacle Sales rep if you need access.</p>
+      <p id="login-error" class="login-error" style="display:none;">Invalid username or password. Contact your Pinnacle Sales rep if you need access.</p>
       <button type="submit" class="login-btn">Sign In</button>
     </form>
 
@@ -31,9 +31,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 </div>
 
 <script is:inline>
-  // Simple shared-password auth
-  // Change this password to whatever you'd like dealers to use
-  const DEALER_PASSWORD = 'pinnacle2025';
+  // Authorized credentials — add new dealers as { username, password, displayName }
+  const CREDENTIALS = [
+    { username: 'BSM9981', password: 'pinnacle2025', displayName: 'Ben Miller' },
+  ];
 
   // If already authenticated, redirect to dashboard
   if (sessionStorage.getItem('pinnacle_dealer_auth') === 'authenticated') {
@@ -44,13 +45,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   document.getElementById('login-form').addEventListener('submit', function(e) {
     e.preventDefault();
-    const name = document.getElementById('dealer-name').value.trim();
+    const username = document.getElementById('dealer-name').value.trim();
     const password = document.getElementById('dealer-password').value;
     const errorEl = document.getElementById('login-error');
 
-    if (password === DEALER_PASSWORD) {
+    const match = CREDENTIALS.find(c => c.username === username && c.password === password);
+
+    if (match) {
       sessionStorage.setItem('pinnacle_dealer_auth', 'authenticated');
-      sessionStorage.setItem('pinnacle_dealer_name', name);
+      sessionStorage.setItem('pinnacle_dealer_name', match.displayName);
       const params = new URLSearchParams(window.location.search);
       const redirect = params.get('redirect') || '/dealer-hub/dashboard';
       window.location.href = redirect;
