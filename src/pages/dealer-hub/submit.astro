@@ -1,0 +1,339 @@
+---
+import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
+---
+<DealerHubLayout title="Submit a Request | Pinnacle Sales Dealer Hub" activeSection="Submit Request">
+
+<h1>Submit a Request</h1>
+<p class="page-subtitle">Send us a design for review, an order to check before submission, or request a Zoom training session for your team.</p>
+
+<form id="request-form" class="request-form" enctype="multipart/form-data">
+
+  <div class="field">
+    <label for="request-type">What do you need?</label>
+    <div class="radio-group">
+      <label class="radio-card">
+        <input type="radio" name="request-type" value="design-review" required />
+        <span class="radio-content">
+          <span class="radio-icon">📐</span>
+          <span class="radio-label">Design Review</span>
+          <span class="radio-desc">Have Pinnacle Sales review your 2020/Winner design for accuracy, optimization, and specification errors before presenting to your client.</span>
+        </span>
+      </label>
+      <label class="radio-card">
+        <input type="radio" name="request-type" value="order-check" />
+        <span class="radio-content">
+          <span class="radio-icon">✅</span>
+          <span class="radio-label">Pre-Order Check</span>
+          <span class="radio-desc">Submit your finalized order for a last-pass review before placing with WW Wood. We catch errors that cause delays and upcharges.</span>
+        </span>
+      </label>
+      <label class="radio-card">
+        <input type="radio" name="request-type" value="zoom-training" />
+        <span class="radio-content">
+          <span class="radio-icon">🎥</span>
+          <span class="radio-label">Zoom Training Session</span>
+          <span class="radio-desc">Schedule a live training session for your team — product knowledge, 2020/Winner software, sales strategy, or any topic you need.</span>
+        </span>
+      </label>
+    </div>
+  </div>
+
+  <!-- Shared fields -->
+  <div class="field-row">
+    <div class="field">
+      <label for="dealer-company">Dealership Name</label>
+      <input type="text" id="dealer-company" name="dealer-company" required placeholder="e.g. Castle Vision Design" />
+    </div>
+    <div class="field">
+      <label for="contact-name">Your Name</label>
+      <input type="text" id="contact-name" name="contact-name" required placeholder="First & last name" />
+    </div>
+  </div>
+
+  <div class="field-row">
+    <div class="field">
+      <label for="contact-email">Email</label>
+      <input type="email" id="contact-email" name="contact-email" required placeholder="you@company.com" />
+    </div>
+    <div class="field">
+      <label for="contact-phone">Phone (optional)</label>
+      <input type="tel" id="contact-phone" name="contact-phone" placeholder="480-555-1234" />
+    </div>
+  </div>
+
+  <!-- Design Review / Order Check fields -->
+  <div id="design-fields" class="conditional-section" style="display:none;">
+    <div class="field-row">
+      <div class="field">
+        <label for="brand-select">Brand</label>
+        <select id="brand-select" name="brand">
+          <option value="">Select brand…</option>
+          <option value="shiloh">Shiloh Cabinetry</option>
+          <option value="eclipse">Eclipse Cabinetry</option>
+          <option value="aspect">Aspect Cabinetry</option>
+          <option value="nevara">Nevara Cabinetry</option>
+          <option value="pronorm">Pronorm German Kitchens</option>
+          <option value="multi">Multiple Brands</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="project-name">Project / Client Name</label>
+        <input type="text" id="project-name" name="project-name" placeholder="e.g. Smith Kitchen Remodel" />
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="file-upload">Attach Project Files</label>
+      <div class="file-upload-area" id="file-upload-area">
+        <input type="file" id="file-upload" name="files" multiple accept=".2020,.mcd,.xml,.pdf,.dwg,.dxf,.jpg,.jpeg,.png,.zip" />
+        <p class="file-hint">2020/Winner files, PDFs, drawings, or images. Max 25MB total.</p>
+        <p class="file-list" id="file-list"></p>
+      </div>
+    </div>
+
+    <div class="field" id="urgency-field">
+      <label>Timeline</label>
+      <div class="pill-group">
+        <label class="pill"><input type="radio" name="urgency" value="standard" checked /><span>Standard (2-3 days)</span></label>
+        <label class="pill"><input type="radio" name="urgency" value="priority" /><span>Priority (24 hours)</span></label>
+        <label class="pill"><input type="radio" name="urgency" value="rush" /><span>Rush (same day)</span></label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Zoom Training fields -->
+  <div id="training-fields" class="conditional-section" style="display:none;">
+    <div class="field">
+      <label for="training-topics">Training Topics</label>
+      <div class="checkbox-group">
+        <label class="checkbox-item"><input type="checkbox" name="topics" value="product-knowledge" /><span>Product Knowledge (Shiloh / Eclipse / Aspect)</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="topics" value="pronorm" /><span>Pronorm German Kitchens</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="topics" value="2020-winner" /><span>2020/Winner Software Training</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="topics" value="inset" /><span>Inset Cabinetry Masterclass</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="topics" value="sales-strategy" /><span>Sales Strategy & Objection Handling</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="topics" value="competitive" /><span>Competitive Positioning</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="topics" value="custom-paint" /><span>Custom Paint Program</span></label>
+        <label class="checkbox-item"><input type="checkbox" name="topics" value="other" /><span>Other (describe below)</span></label>
+      </div>
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label for="team-size">How many attendees?</label>
+        <select id="team-size" name="team-size">
+          <option value="1-2">1-2 people</option>
+          <option value="3-5">3-5 people</option>
+          <option value="6-10">6-10 people</option>
+          <option value="10+">10+ people</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="preferred-date">Preferred Date/Time</label>
+        <input type="text" id="preferred-date" name="preferred-date" placeholder="e.g. Next Tuesday afternoon" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Notes — always visible -->
+  <div class="field">
+    <label for="notes">Additional Notes</label>
+    <textarea id="notes" name="notes" rows="4" placeholder="Anything specific you'd like us to focus on, questions, or context that would help…"></textarea>
+  </div>
+
+  <button type="submit" class="submit-btn" id="submit-btn">Submit Request</button>
+</form>
+
+<!-- Success message -->
+<div id="success-message" class="success-message" style="display:none;">
+  <div class="success-icon">✓</div>
+  <h2>Request Submitted</h2>
+  <p>Your request has been sent to the Pinnacle Sales team. We'll respond within the timeline indicated.</p>
+  <p style="color:var(--color-muted);font-size:0.88rem;">A copy has been sent to your email address. If you don't see it, check your spam folder or contact us directly at 480-993-9224.</p>
+  <a href="/dealer-hub/dashboard" class="back-link">← Back to Dashboard</a>
+</div>
+
+<script is:inline>
+  // Show/hide conditional fields based on request type
+  document.querySelectorAll('input[name="request-type"]').forEach(function(radio) {
+    radio.addEventListener('change', function() {
+      var designFields = document.getElementById('design-fields');
+      var trainingFields = document.getElementById('training-fields');
+      if (this.value === 'zoom-training') {
+        designFields.style.display = 'none';
+        trainingFields.style.display = 'block';
+      } else {
+        designFields.style.display = 'block';
+        trainingFields.style.display = 'none';
+      }
+    });
+  });
+
+  // File upload display
+  document.getElementById('file-upload').addEventListener('change', function() {
+    var list = document.getElementById('file-list');
+    if (this.files.length > 0) {
+      var names = Array.from(this.files).map(function(f) {
+        return f.name + ' (' + (f.size / 1024 / 1024).toFixed(1) + 'MB)';
+      });
+      list.textContent = names.join(', ');
+    } else {
+      list.textContent = '';
+    }
+  });
+
+  // Form submission
+  document.getElementById('request-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    var btn = document.getElementById('submit-btn');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    var formData = new FormData(this);
+    var dealerName = sessionStorage.getItem('pinnacle_dealer_name') || '';
+
+    // Build email body
+    var requestType = formData.get('request-type');
+    var typeLabel = requestType === 'design-review' ? 'Design Review' :
+                    requestType === 'order-check' ? 'Pre-Order Check' : 'Zoom Training Session';
+
+    var subject = typeLabel + ' Request — ' + (formData.get('dealer-company') || dealerName);
+
+    var body = 'Request Type: ' + typeLabel + '\n';
+    body += 'Dealership: ' + formData.get('dealer-company') + '\n';
+    body += 'Contact: ' + formData.get('contact-name') + '\n';
+    body += 'Email: ' + formData.get('contact-email') + '\n';
+    body += 'Phone: ' + (formData.get('contact-phone') || 'N/A') + '\n\n';
+
+    if (requestType !== 'zoom-training') {
+      body += 'Brand: ' + (formData.get('brand') || 'N/A') + '\n';
+      body += 'Project: ' + (formData.get('project-name') || 'N/A') + '\n';
+      body += 'Timeline: ' + (formData.get('urgency') || 'standard') + '\n\n';
+    } else {
+      var topics = formData.getAll('topics').join(', ') || 'N/A';
+      body += 'Topics: ' + topics + '\n';
+      body += 'Team Size: ' + (formData.get('team-size') || 'N/A') + '\n';
+      body += 'Preferred Date: ' + (formData.get('preferred-date') || 'N/A') + '\n\n';
+    }
+
+    body += 'Notes: ' + (formData.get('notes') || 'None') + '\n';
+
+    // Open mailto with pre-filled content
+    var mailto = 'mailto:marketing@pinnaclesales.biz'
+      + '?subject=' + encodeURIComponent(subject)
+      + '&body=' + encodeURIComponent(body);
+
+    window.location.href = mailto;
+
+    // Show success after brief delay
+    setTimeout(function() {
+      document.getElementById('request-form').style.display = 'none';
+      document.getElementById('success-message').style.display = 'block';
+      window.scrollTo(0, 0);
+    }, 1000);
+  });
+</script>
+
+</DealerHubLayout>
+
+<style>
+  .request-form { max-width: 720px; }
+  .field { margin-bottom: 1.25rem; }
+  .field label {
+    display: block; font-size: 0.85rem; font-weight: 600;
+    color: var(--color-dark); margin-bottom: 0.4rem; letter-spacing: 0.02em;
+  }
+  .field input[type="text"],
+  .field input[type="email"],
+  .field input[type="tel"],
+  .field select,
+  .field textarea {
+    width: 100%; padding: 0.65rem 0.85rem;
+    border: 1px solid var(--color-border); border-radius: 4px;
+    font-size: 0.95rem; font-family: var(--font-body);
+    transition: border-color 0.15s; background: #fff;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    outline: none; border-color: var(--color-dark);
+  }
+  .field textarea { resize: vertical; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 600px) { .field-row { grid-template-columns: 1fr; } }
+
+  /* Radio cards for request type */
+  .radio-group { display: flex; flex-direction: column; gap: 0.75rem; }
+  .radio-card { cursor: pointer; display: block; }
+  .radio-card input { display: none; }
+  .radio-content {
+    display: block; border: 1px solid var(--color-border); border-radius: 6px;
+    padding: 1.25rem; transition: all 0.15s;
+  }
+  .radio-card input:checked + .radio-content {
+    border-color: var(--color-dark); background: rgba(0,0,0,0.02);
+    box-shadow: 0 0 0 1px var(--color-dark);
+  }
+  .radio-icon { font-size: 1.25rem; display: block; margin-bottom: 0.4rem; }
+  .radio-label { font-weight: 600; font-size: 1rem; color: var(--color-black); display: block; margin-bottom: 0.25rem; }
+  .radio-desc { font-size: 0.85rem; color: var(--color-muted); line-height: 1.5; }
+
+  /* Conditional sections */
+  .conditional-section {
+    border-top: 1px solid var(--color-border);
+    padding-top: 1.5rem; margin-top: 0.5rem;
+  }
+
+  /* File upload */
+  .file-upload-area {
+    border: 2px dashed var(--color-border); border-radius: 6px;
+    padding: 1.25rem; text-align: center; position: relative;
+  }
+  .file-upload-area input[type="file"] {
+    position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%;
+  }
+  .file-hint { font-size: 0.85rem; color: var(--color-muted); margin: 0; }
+  .file-list { font-size: 0.82rem; color: var(--color-dark); margin: 0.5rem 0 0; word-break: break-all; }
+
+  /* Pills for urgency */
+  .pill-group { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .pill { cursor: pointer; }
+  .pill input { display: none; }
+  .pill span {
+    display: inline-block; padding: 0.4rem 1rem;
+    border: 1px solid var(--color-border); border-radius: 20px;
+    font-size: 0.85rem; color: var(--color-muted); transition: all 0.15s;
+  }
+  .pill input:checked + span {
+    border-color: var(--color-dark); background: var(--color-dark); color: #fff;
+  }
+
+  /* Checkbox group */
+  .checkbox-group { display: flex; flex-direction: column; gap: 0.5rem; }
+  .checkbox-item {
+    display: flex; align-items: center; gap: 0.5rem;
+    font-size: 0.92rem; cursor: pointer;
+  }
+  .checkbox-item input { width: 16px; height: 16px; accent-color: var(--color-dark); }
+
+  /* Submit */
+  .submit-btn {
+    width: 100%; padding: 0.8rem; margin-top: 0.5rem;
+    background: var(--color-dark); color: #fff; border: none; border-radius: 4px;
+    font-size: 1rem; font-family: var(--font-body); cursor: pointer; transition: background 0.15s;
+  }
+  .submit-btn:hover { background: #000; }
+  .submit-btn:disabled { background: #999; cursor: not-allowed; }
+
+  /* Success */
+  .success-message { text-align: center; padding: 3rem 0; }
+  .success-icon {
+    width: 60px; height: 60px; margin: 0 auto 1.5rem;
+    background: var(--color-dark); color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+  }
+  .success-message h2 { margin-bottom: 0.75rem; }
+  .back-link {
+    display: inline-block; margin-top: 1.5rem; font-size: 0.9rem;
+    color: var(--color-dark); text-decoration: underline; text-underline-offset: 3px;
+  }
+</style>
