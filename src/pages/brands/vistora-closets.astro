@@ -32,7 +32,18 @@ const schema = {"@context":"https://schema.org","@type":"Product","name":"Vistor
 </div>
 
 <h2>Nine Finish Options</h2>
-<p>Vistora's curated finish palette offers versatile options to suit any home style: Alno, Aliso, Folkstone, Formosa, Kyushu, Monterey, Ontano, Pepperdust, and Siberian. Each finish is designed to coordinate beautifully with existing bedroom and home decor, creating a cohesive, polished look.</p>
+<p>Vistora's curated finish palette offers versatile options to suit any home style — from light neutrals to rich wood tones. Each finish coordinates beautifully with existing bedroom and home decor.</p>
+<div class="finish-grid">
+  <div class="finish-swatch"><img src="/images/brands/vistora-finishes/alno.webp" alt="Alno finish" width="250" height="250" loading="lazy" /><span>Alno</span></div>
+  <div class="finish-swatch"><img src="/images/brands/vistora-finishes/aliso.webp" alt="Aliso finish" width="250" height="250" loading="lazy" /><span>Aliso</span></div>
+  <div class="finish-swatch"><img src="/images/brands/vistora-finishes/folkstone.webp" alt="Folkstone finish" width="250" height="250" loading="lazy" /><span>Folkstone</span></div>
+  <div class="finish-swatch"><img src="/images/brands/vistora-finishes/formosa.webp" alt="Formosa finish" width="250" height="250" loading="lazy" /><span>Formosa</span></div>
+  <div class="finish-swatch"><img src="/images/brands/vistora-finishes/kyushu.webp" alt="Kyushu finish" width="250" height="250" loading="lazy" /><span>Kyushu</span></div>
+  <div class="finish-swatch"><img src="/images/brands/vistora-finishes/monterey.webp" alt="Monterey finish" width="250" height="250" loading="lazy" /><span>Monterey</span></div>
+  <div class="finish-swatch"><img src="/images/brands/vistora-finishes/ontano.webp" alt="Ontano finish" width="250" height="250" loading="lazy" /><span>Ontano</span></div>
+  <div class="finish-swatch"><img src="/images/brands/vistora-finishes/pepperdust.webp" alt="Pepperdust finish" width="250" height="250" loading="lazy" /><span>Pepperdust</span></div>
+  <div class="finish-swatch"><img src="/images/brands/vistora-finishes/siberian.webp" alt="Siberian finish" width="250" height="250" loading="lazy" /><span>Siberian</span></div>
+</div>
 
 <h2>Dynamic Design Gallery</h2>
 <p>Vistora's online gallery at <a href="https://vistoraclosets.com" target="_blank" rel="noopener">vistoraclosets.com</a> features select closet designs with interactive feature buttons that reveal specific product information for each item in the design — helping dealers and homeowners plan their perfect closet with confidence.</p>
@@ -61,4 +72,29 @@ const schema = {"@context":"https://schema.org","@type":"Product","name":"Vistor
   }
   .product-line h3 { margin-top: 0; }
   .product-line p { margin-bottom: 0; }
+  .finish-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 1.25rem;
+    margin: 1.5rem 0 2rem;
+  }
+  .finish-swatch {
+    text-align: center;
+  }
+  .finish-swatch img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+  .finish-swatch span {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text);
+    letter-spacing: 0.02em;
+  }
 </style>
