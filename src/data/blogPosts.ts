@@ -24,7 +24,7 @@ export const blogPosts = [
     author: 'Ben Miller',
     date: '2026-02-08',
     category: 'Product Education',
-    image: '/images/pronorm-logo.webp'
+    image: '/images/hero-kitchen.webp'
   },
   {
     slug: 'eclipse-merchandiser-display',
@@ -69,7 +69,7 @@ export const blogPosts = [
     author: 'Ben Miller',
     date: '2025-12-09',
     category: 'Product Updates',
-    image: '/images/pronorm-logo.webp'
+    image: '/images/gallery-4.webp'
   },
   {
     slug: 'shiloh-furniture-vanities',
@@ -78,7 +78,7 @@ export const blogPosts = [
     author: 'Ceadrick Kivare',
     date: '2025-12-09',
     category: 'Product Education',
-    image: '/images/shiloh-logo.webp'
+    image: '/images/brands/shiloh-hero.webp'
   },
   {
     slug: 'greenwood-kitchens-factory-visit',
@@ -96,7 +96,7 @@ export const blogPosts = [
     author: 'Ceadrick Kivare',
     date: '2025-11-17',
     category: 'Product Updates',
-    image: '/images/pronorm-logo.webp'
+    image: '/images/brands/eclipse-hero.webp'
   },
   {
     slug: 'modern-inset',
@@ -123,7 +123,7 @@ export const blogPosts = [
     author: 'Ben Miller',
     date: '2025-07-22',
     category: 'Product Updates',
-    image: '/images/blog/ww-wood-logo.webp'
+    image: '/images/brands/eclipse-walnut.webp'
   },
   {
     slug: 'custom-paint-sherwin-williams',

@@ -78,10 +78,10 @@ const categories = [...new Set(blogPosts.map(p => p.category))];
   }
   .post-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
   .post-card-image {
-    display: block; width: 100%; height: 200px; overflow: hidden; background: #f3f4f6;
+    display: block; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #f3f4f6;
   }
   .post-card-image img {
-    width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s;
+    width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.3s;
   }
   .post-card:hover .post-card-image img { transform: scale(1.03); }
   .post-card-body { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
