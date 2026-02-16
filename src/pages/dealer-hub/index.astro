@@ -65,6 +65,25 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   });
 </script>
 
+<!-- Hidden form for Netlify form detection (must be visible to Netlify's build bot) -->
+<form name="dealer-request" netlify netlify-honeypot="bot-field" hidden method="POST" enctype="multipart/form-data">
+  <input name="form-name" type="hidden" value="dealer-request" />
+  <input name="bot-field" />
+  <input name="request-type" />
+  <input name="dealer-company" />
+  <input name="contact-name" />
+  <input name="contact-email" />
+  <input name="contact-phone" />
+  <input name="brand" />
+  <input name="project-name" />
+  <input name="files" type="file" />
+  <input name="urgency" />
+  <input name="topics" />
+  <input name="team-size" />
+  <input name="preferred-date" />
+  <input name="notes" />
+</form>
+
 </BaseLayout>
 
 <style>

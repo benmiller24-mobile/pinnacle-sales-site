@@ -6,8 +6,9 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
 <h1>Submit a Request</h1>
 <p class="page-subtitle">Send us a design for review, an order to check before submission, or request a Zoom training session for your team.</p>
 
-<form id="request-form" class="request-form" name="dealer-request" method="POST" data-netlify="true" enctype="multipart/form-data">
+<form id="request-form" class="request-form" name="dealer-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data">
   <input type="hidden" name="form-name" value="dealer-request" />
+  <p hidden><label>Don't fill this out: <input name="bot-field" /></label></p>
 
   <div class="field">
     <label for="request-type">What do you need?</label>
