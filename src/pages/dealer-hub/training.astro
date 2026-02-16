@@ -10,18 +10,21 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
 <p>Every new dealer receives a structured training program delivered in-person at your showroom or virtually. Training is customized to the brands you carry and your team's experience level.</p>
 
 <div class="card-grid">
-  <div class="hub-card">
+  <a href="/dealer-hub/training-product-deep-dive" class="hub-card hub-card-link">
     <h3>Product Deep-Dive</h3>
     <p>Construction methods, finish options, pricing structure, lead times, and key differentiators for each brand.</p>
-  </div>
-  <div class="hub-card">
+    <span class="card-action">View Module &rarr;</span>
+  </a>
+  <a href="/dealer-hub/training-competitive-positioning" class="hub-card hub-card-link">
     <h3>Competitive Positioning</h3>
     <p>How to sell Shiloh vs. competitors, Eclipse vs. other frameless lines, and positioning across price points.</p>
-  </div>
-  <div class="hub-card">
+    <span class="card-action">View Module &rarr;</span>
+  </a>
+  <a href="/dealer-hub/training-2020-prokitchen" class="hub-card hub-card-link">
     <h3>20/20 / ProKitchen Software</h3>
     <p>Hands-on catalog navigation, quoting workflows, specification best practices, and common error avoidance.</p>
-  </div>
+    <span class="card-action">View Module &rarr;</span>
+  </a>
 </div>
 
 <h2>Ongoing Training Topics</h2>
@@ -63,3 +66,25 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
 <p>Ready to schedule a training session for your team? <a href="/dealer-hub/submit">Submit a request here</a>, or contact your Pinnacle Sales territory rep at <a href="mailto:marketing@pinnaclesales.biz">marketing@pinnaclesales.biz</a> with your preferred dates, topics, and whether you'd like in-person or virtual delivery.</p>
 
 </DealerHubLayout>
+<style>
+  .hub-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    cursor: pointer;
+  }
+  .hub-card-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  }
+  .hub-card-link h3 { color: var(--color-accent); }
+  .card-action {
+    display: inline-block;
+    margin-top: 0.75rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    font-size: 0.9rem;
+  }
+  .hub-card-link:hover .card-action { text-decoration: underline; }
+</style>
