@@ -1,0 +1,79 @@
+---
+import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
+---
+<DealerHubLayout title="New Designer Onboarding | Pinnacle Sales" activeSection="Designer Onboarding">
+
+<h1>New Designer Onboarding</h1>
+<p class="page-subtitle">Your training roadmap from product orientation to placing your first orders with confidence.</p>
+
+<h2>Step 1 — Onboarding Training Session 1 (In-Person)</h2>
+<ul class="checklist">
+  <li><span class="check-box" data-key="do-1">✓</span><div><strong>Product & sales orientation (~90 min)</strong><br><span style="color:var(--color-muted);font-size:0.88rem;">Your territory manager will schedule an in-person session at your showroom. Covers cabinet construction and SKUs, finish overview, quoting tips, and competitive positioning. Target: within 10 days of receiving your samples.</span></div></li>
+</ul>
+
+<h2>Step 2 — Onboarding Training Session 2 (Live 2020 Webinar)</h2>
+<ul class="checklist">
+  <li><span class="check-box" data-key="do-2">✓</span><div><strong>Hands-on 2020 Design catalog walkthrough (~90 min)</strong><br><span style="color:var(--color-muted);font-size:0.88rem;">Live webinar covering WW Wood 2020 Design catalogs: catalog setup, spec rules, pricing, and order-form export. Our Dealer Success & 2020 Specialist will reach out to schedule. Target: 1 week after your in-person session.</span></div></li>
+</ul>
+
+<h2>Step 3 — Placing Your First Orders</h2>
+<ul class="checklist">
+  <li><span class="check-box" data-key="do-3">✓</span><div><strong>Submit your first order for review</strong><br><span style="color:var(--color-muted);font-size:0.88rem;">Your first 3-4 projects require a pre-order review before being sent to the factory. Email your order to our Dealer Success Specialist for review — expect a 48-hour turnaround. After your first few projects, you're cleared to order independently with <a href="/dealer-hub/submit">design reviews</a> available as needed.</span></div></li>
+</ul>
+
+<h2>Your Pinnacle Sales Support Team</h2>
+<div class="team-table">
+  <table>
+    <thead>
+      <tr><th>Name</th><th>Role</th><th>Mobile</th><th>Email</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Scott Miller</td><td>President & Territory Mgr. (NorCal/AZ/ID/MT)</td><td><a href="tel:3035503284">(303) 550-3284</a></td><td><a href="mailto:scott@pinnaclesales.biz">scott@pinnaclesales.biz</a></td></tr>
+      <tr><td>Ben Miller</td><td>Partner & Territory Mgr. (Cal/NV)</td><td><a href="tel:4809939224">(480) 993-9224</a></td><td><a href="mailto:ben@pinnaclesales.biz">ben@pinnaclesales.biz</a></td></tr>
+      <tr><td>Anna Fisher</td><td>Territory Mgr. (NM/CO)</td><td><a href="tel:7196668248">(719) 666-8248</a></td><td><a href="mailto:anna@pinnaclesales.biz">anna@pinnaclesales.biz</a></td></tr>
+      <tr><td>Gillian Patriquin</td><td>Dealer Success & 2020 Specialist</td><td><a href="tel:7208628068">(720) 862-8068</a></td><td><a href="mailto:gillian@pinnaclesales.biz">gillian@pinnaclesales.biz</a></td></tr>
+      <tr><td>Josh Polvogt</td><td>Territory Mgr. (OR/WA)</td><td><a href="tel:5037525939">(503) 752-5939</a></td><td><a href="mailto:josh@pinnaclesales.biz">josh@pinnaclesales.biz</a></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p style="margin-top:2rem;color:var(--color-muted);font-size:0.92rem;">If you have any questions — whether it's configuring your first inset order or fine-tuning a 2020 presentation — call, text, or email us. We're here to help.</p>
+
+<script is:inline>
+  document.querySelectorAll('.check-box').forEach(function(box) {
+    var key = box.getAttribute('data-key');
+    if (localStorage.getItem('ps_' + key) === 'checked') {
+      box.classList.add('checked');
+    }
+    box.addEventListener('click', function() {
+      box.classList.toggle('checked');
+      if (box.classList.contains('checked')) {
+        localStorage.setItem('ps_' + key, 'checked');
+      } else {
+        localStorage.removeItem('ps_' + key);
+      }
+    });
+  });
+</script>
+
+</DealerHubLayout>
+
+<style>
+  .team-table { overflow-x: auto; margin: 1rem 0; }
+  .team-table table {
+    width: 100%; border-collapse: collapse; font-size: 0.88rem;
+  }
+  .team-table th {
+    text-align: left; padding: 0.6rem 0.75rem;
+    border-bottom: 2px solid var(--color-dark); font-size: 0.78rem;
+    text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-muted);
+  }
+  .team-table td {
+    padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--color-border);
+  }
+  .team-table a { color: var(--color-dark); }
+  @media (max-width: 600px) {
+    .team-table { font-size: 0.8rem; }
+    .team-table th, .team-table td { padding: 0.4rem 0.5rem; }
+  }
+</style>
