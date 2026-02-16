@@ -1,0 +1,60 @@
+---
+import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
+---
+<DealerHubLayout title="Dealer Onboarding Checklist | Pinnacle Sales" activeSection="Onboarding">
+
+<h1>Dealer Onboarding Checklist</h1>
+<p class="page-subtitle">Your roadmap from signed agreement to first order and beyond. Each phase builds on the last.</p>
+
+<h2>Phase 1 — Account Setup (Week 1-2)</h2>
+<ul class="checklist" id="phase1">
+  <li><span class="check-box" data-key="ob-1">✓</span><div><strong>Sign dealer agreement</strong><br><span style="color:var(--color-muted);font-size:0.88rem;">Complete and return the Pinnacle Sales dealer agreement for your selected brands.</span></div></li>
+  <li><span class="check-box" data-key="ob-2">✓</span><div><strong>WW Wood account creation</strong><br><span style="color:var(--color-muted);font-size:0.88rem;">Submit credit application and tax exemption certificate. Pinnacle Sales initiates your WW Wood dealer account. Allow 3-5 business days.</span></div></li>
+  <li><span class="check-box" data-key="ob-3">✓</span><div><strong>Receive 2020/Winner design credentials</strong><br><span style="color:var(--color-muted);font-size:0.88rem;">Pinnacle Sales will coordinate your 2020 Design or Winner catalog access for Shiloh, Eclipse, and/or Aspect.</span></div></li>
+  <li><span class="check-box" data-key="ob-4">✓</span><div><strong>Join dealer communication channels</strong><br><span style="color:var(--color-muted);font-size:0.88rem;">Get added to email distribution for product updates, price changes, promotions, and training invitations.</span></div></li>
+  <li><span class="check-box" data-key="ob-5">✓</span><div><strong>Confirm territory and brand assignments</strong><br><span style="color:var(--color-muted);font-size:0.88rem;">Review your authorized brands, territory boundaries, and any exclusivity arrangements.</span></div></li>
+</ul>
+
+<h2>Phase 2 — Product Training (Week 2-4)</h2>
+<ul class="checklist" id="phase2">
+  <li><span class="check-box" data-key="ob-6">✓</span><div><strong>Initial product training session</strong><br><span style="color:var(--color-muted);font-size:0.88rem;">In-person or virtual deep-dive on your primary brands. Covers construction, finish options, pricing tiers, and competitive positioning.</span></div></li>
+  <li><span class="check-box" data-key="ob-7">✓</span><div><strong>Review sample program</strong><br><span style="color:var(--color-muted);font-size:0.88rem;">Select door samples, finish chips, and display materials. Discuss Eclipse Merchandiser and/or Shiloh sample racks.</span></div></li>
+  <li><span class="check-box" data-key="ob-8">✓</span><div><strong>2020/Winner software training</strong><br><span style="color:var(--color-muted);font-size:0.88rem;">Hands-on session covering catalog navigation, quoting workflow, specification best practices, and common pitfalls.</span></div></li>
+  <li><span class="check-box" data-key="ob-9">✓</span><div><strong>Ordering process walkthrough</strong><br><span style="color:var(--color-muted);font-size:0.88rem;">Complete review of the order-to-delivery process. See <a href="/dealer-hub/ordering">Ordering SOPs</a> for full documentation.</span></div></li>
+  <li><span class="check-box" data-key="ob-10">✓</span><div><strong>Warranty & service orientation</strong><br><span style="color:var(--color-muted);font-size:0.88rem;">How to handle claims, replacements, parts, and the escalation process. See <a href="/dealer-hub/support">Support & Escalation</a>.</span></div></li>
+</ul>
+
+<h2>Phase 3 — Showroom & Marketing (Week 3-6)</h2>
+<ul class="checklist" id="phase3">
+  <li><span class="check-box" data-key="ob-11">✓</span><div><strong>Showroom display plan</strong><br><span style="color:var(--color-muted);font-size:0.88rem;">Work with Pinnacle Sales to plan displays that match <a href="/dealer-hub/showroom">showroom standards</a>. Includes layout, signage, and sample positioning.</span></div></li>
+  <li><span class="check-box" data-key="ob-12">✓</span><div><strong>Order samples & merchandising materials</strong><br><span style="color:var(--color-muted);font-size:0.88rem;">Place initial sample order for door styles, finish chips, hardware, and brand signage.</span></div></li>
+  <li><span class="check-box" data-key="ob-13">✓</span><div><strong>Download marketing assets</strong><br><span style="color:var(--color-muted);font-size:0.88rem;">Access brand logos, lifestyle photography, social content, and brochure templates from the <a href="/dealer-hub/marketing">Marketing Kit</a>.</span></div></li>
+  <li><span class="check-box" data-key="ob-14">✓</span><div><strong>Update your website</strong><br><span style="color:var(--color-muted);font-size:0.88rem;">Add brand logos, product descriptions, and links to manufacturer sites. Pinnacle Sales can provide SEO-optimized copy.</span></div></li>
+</ul>
+
+<h2>Phase 4 — First Order & Launch (Week 4-8)</h2>
+<ul class="checklist" id="phase4">
+  <li><span class="check-box" data-key="ob-15">✓</span><div><strong>Submit first project for review</strong><br><span style="color:var(--color-muted);font-size:0.88rem;">Send your first real project specification to Pinnacle Sales for review before submitting to WW Wood. We'll check for errors and optimize the order.</span></div></li>
+  <li><span class="check-box" data-key="ob-16">✓</span><div><strong>Place first order</strong><br><span style="color:var(--color-muted);font-size:0.88rem;">Submit your first production order through the WW Wood portal. Pinnacle Sales monitors the order through delivery.</span></div></li>
+  <li><span class="check-box" data-key="ob-17">✓</span><div><strong>Schedule 30-day check-in</strong><br><span style="color:var(--color-muted);font-size:0.88rem;">Your Pinnacle Sales rep will schedule a follow-up to review your experience, address any issues, and plan ongoing training.</span></div></li>
+  <li><span class="check-box" data-key="ob-18">✓</span><div><strong>Join ongoing training program</strong><br><span style="color:var(--color-muted);font-size:0.88rem;">Enroll in recurring product updates, seasonal promotions, and advanced sales training sessions. See <a href="/dealer-hub/training">Training</a>.</span></div></li>
+</ul>
+
+<script is:inline>
+  document.querySelectorAll('.check-box').forEach(function(box) {
+    var key = box.getAttribute('data-key');
+    if (localStorage.getItem('ps_' + key) === 'checked') {
+      box.classList.add('checked');
+    }
+    box.addEventListener('click', function() {
+      box.classList.toggle('checked');
+      if (box.classList.contains('checked')) {
+        localStorage.setItem('ps_' + key, 'checked');
+      } else {
+        localStorage.removeItem('ps_' + key);
+      }
+    });
+  });
+</script>
+
+</DealerHubLayout>

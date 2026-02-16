@@ -1,0 +1,320 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SEOHead from '../components/SEOHead.astro';
+
+export interface Props {
+  title: string;
+  description?: string;
+  activeSection?: string;
+}
+
+const { title, description = 'Pinnacle Sales Dealer Hub — resources, training, and support for authorized dealers.', activeSection } = Astro.props;
+
+const navItems = [
+  { href: '/dealer-hub/dashboard', label: 'Dashboard', icon: '◻' },
+  { href: '/dealer-hub/onboarding', label: 'Onboarding', icon: '✓' },
+  { href: '/dealer-hub/ordering', label: 'Ordering SOPs', icon: '📋' },
+  { href: '/dealer-hub/training', label: 'Training', icon: '🎓' },
+  { href: '/dealer-hub/marketing', label: 'Marketing Kit', icon: '📣' },
+  { href: '/dealer-hub/showroom', label: 'Showroom Standards', icon: '🏠' },
+  { href: '/dealer-hub/support', label: 'Support & Escalation', icon: '🔧' },
+];
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <SEOHead title={title} description={description} />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+  <style is:global>
+    :root {
+      --color-black: #000000;
+      --color-dark: #1a1a1a;
+      --color-body: #333333;
+      --color-muted: #666666;
+      --color-light-text: #999999;
+      --color-border: #e5e7eb;
+      --color-bg-alt: #f8f8f8;
+      --color-accent: #2a2a2a;
+      --color-white: #ffffff;
+      --font-body: 'Questrial', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-body); color: var(--color-body); line-height: 1.7; font-size: 16px; }
+    a { color: var(--color-dark); transition: opacity 0.2s; }
+    a:hover { opacity: 0.7; }
+  </style>
+</head>
+<body>
+  <Header />
+
+  <!-- Auth gate — hides content until verified -->
+  <div id="auth-gate" style="display:none;">
+    <div class="hub-layout">
+      <aside class="hub-sidebar">
+        <div class="sidebar-header">
+          <span class="sidebar-badge">DEALER HUB</span>
+          <p class="sidebar-welcome" id="dealer-name-display"></p>
+        </div>
+        <nav class="sidebar-nav">
+          {navItems.map(item => (
+            <a href={item.href} class={`sidebar-link ${activeSection === item.label ? 'active' : ''}`}>
+              <span class="sidebar-icon">{item.icon}</span>
+              {item.label}
+            </a>
+          ))}
+        </nav>
+        <div class="sidebar-footer">
+          <button id="logout-btn" class="sidebar-link logout-link">Sign Out</button>
+        </div>
+      </aside>
+      <main class="hub-main">
+        <slot />
+      </main>
+    </div>
+  </div>
+
+  <!-- Shown while checking auth -->
+  <div id="auth-loading" class="auth-loading">
+    <p>Verifying access…</p>
+  </div>
+
+  <Footer />
+
+  <script is:inline>
+    (function() {
+      const session = sessionStorage.getItem('pinnacle_dealer_auth');
+      const gate = document.getElementById('auth-gate');
+      const loading = document.getElementById('auth-loading');
+
+      if (session === 'authenticated') {
+        gate.style.display = 'block';
+        loading.style.display = 'none';
+        const name = sessionStorage.getItem('pinnacle_dealer_name') || 'Dealer';
+        const el = document.getElementById('dealer-name-display');
+        if (el) el.textContent = 'Welcome, ' + name;
+      } else {
+        window.location.href = '/dealer-hub/?redirect=' + encodeURIComponent(window.location.pathname);
+      }
+
+      const logoutBtn = document.getElementById('logout-btn');
+      if (logoutBtn) {
+        logoutBtn.addEventListener('click', function() {
+          sessionStorage.removeItem('pinnacle_dealer_auth');
+          sessionStorage.removeItem('pinnacle_dealer_name');
+          window.location.href = '/dealer-hub/';
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
+
+<style>
+  .auth-loading {
+    display: flex; align-items: center; justify-content: center;
+    min-height: 60vh; color: var(--color-muted); font-size: 0.95rem;
+  }
+  .hub-layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    min-height: calc(100vh - 160px);
+  }
+  .hub-sidebar {
+    background: var(--color-dark);
+    color: #ccc;
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    height: calc(100vh - 80px);
+    overflow-y: auto;
+  }
+  .sidebar-header {
+    padding: 0 1.5rem 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 0.5rem;
+  }
+  .sidebar-badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #fff;
+    background: rgba(255,255,255,0.1);
+    padding: 0.25rem 0.6rem;
+    border-radius: 3px;
+    margin-bottom: 0.5rem;
+  }
+  .sidebar-welcome {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    margin: 0;
+  }
+  .sidebar-nav {
+    flex: 1;
+    padding: 0.5rem 0;
+  }
+  .sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.7rem 1.5rem;
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.15s;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    font-family: var(--font-body);
+  }
+  .sidebar-link:hover {
+    color: #fff;
+    background: rgba(255,255,255,0.06);
+    opacity: 1;
+  }
+  .sidebar-link.active {
+    color: #fff;
+    background: rgba(255,255,255,0.1);
+    border-left: 3px solid #fff;
+  }
+  .sidebar-icon { font-size: 1rem; width: 1.25rem; text-align: center; }
+  .sidebar-footer {
+    padding: 1rem 0;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .logout-link { color: rgba(255,255,255,0.4) !important; font-size: 0.82rem !important; }
+  .logout-link:hover { color: rgba(255,255,255,0.8) !important; }
+
+  .hub-main {
+    padding: 3rem 3.5rem;
+    max-width: 900px;
+  }
+  .hub-main :global(h1) {
+    font-size: 1.6rem;
+    color: var(--color-black);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+  .hub-main :global(.page-subtitle) {
+    color: var(--color-muted);
+    font-size: 0.95rem;
+    margin-bottom: 2.5rem;
+  }
+  .hub-main :global(h2) {
+    font-size: 1.15rem;
+    color: var(--color-black);
+    margin: 2.5rem 0 1rem;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+  .hub-main :global(h3) {
+    font-size: 1rem;
+    color: var(--color-black);
+    margin: 1.5rem 0 0.5rem;
+  }
+  .hub-main :global(p) { margin-bottom: 1rem; color: var(--color-body); }
+  .hub-main :global(ul), .hub-main :global(ol) { margin: 0 0 1.5rem 1.25rem; }
+  .hub-main :global(li) { margin-bottom: 0.4rem; }
+  .hub-main :global(a) { text-decoration: underline; text-underline-offset: 2px; }
+
+  .hub-main :global(.card-grid) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin: 1.5rem 0;
+  }
+  .hub-main :global(.hub-card) {
+    border: 1px solid var(--color-border);
+    padding: 1.5rem;
+    border-radius: 6px;
+    text-decoration: none !important;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .hub-main :global(.hub-card:hover) {
+    border-color: #aaa;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    opacity: 1;
+  }
+  .hub-main :global(.hub-card h3) {
+    margin: 0 0 0.35rem;
+    font-size: 1rem;
+  }
+  .hub-main :global(.hub-card p) {
+    margin: 0;
+    font-size: 0.88rem;
+    color: var(--color-muted);
+  }
+  .hub-main :global(.hub-card .card-icon) {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .hub-main :global(.checklist) { list-style: none; margin-left: 0; padding: 0; }
+  .hub-main :global(.checklist li) {
+    display: flex; align-items: flex-start; gap: 0.75rem;
+    padding: 0.75rem 0; border-bottom: 1px solid var(--color-border);
+  }
+  .hub-main :global(.checklist li:last-child) { border-bottom: none; }
+  .hub-main :global(.check-box) {
+    width: 20px; height: 20px; border: 2px solid var(--color-border);
+    border-radius: 4px; flex-shrink: 0; margin-top: 2px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.7rem; color: transparent; transition: all 0.15s;
+  }
+  .hub-main :global(.check-box.checked) {
+    background: var(--color-dark); border-color: var(--color-dark); color: #fff;
+  }
+
+  .hub-main :global(.support-card) {
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .hub-main :global(.support-card h3) { margin: 0 0 0.25rem; }
+  .hub-main :global(.support-card .contact) {
+    font-size: 0.88rem; color: var(--color-muted); margin: 0.5rem 0 0;
+  }
+  .hub-main :global(.support-card .contact a) { color: var(--color-dark); }
+
+  .hub-main :global(.step-list) { list-style: none; margin-left: 0; padding: 0; counter-reset: step; }
+  .hub-main :global(.step-list li) {
+    counter-increment: step;
+    padding: 1rem 0 1rem 3.5rem;
+    border-bottom: 1px solid var(--color-border);
+    position: relative;
+  }
+  .hub-main :global(.step-list li::before) {
+    content: counter(step);
+    position: absolute; left: 0; top: 1rem;
+    width: 2rem; height: 2rem;
+    background: var(--color-dark); color: #fff;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; font-weight: 700;
+  }
+
+  @media (max-width: 860px) {
+    .hub-layout { grid-template-columns: 1fr; }
+    .hub-sidebar {
+      position: static; height: auto;
+      flex-direction: row; flex-wrap: wrap;
+      padding: 1rem;
+    }
+    .sidebar-header { border-bottom: none; padding: 0 0.5rem; margin-bottom: 0; }
+    .sidebar-nav { display: flex; flex-wrap: wrap; gap: 0; padding: 0; }
+    .sidebar-link { padding: 0.5rem 0.75rem; font-size: 0.82rem; }
+    .sidebar-footer { padding: 0.5rem 0; border-top: none; }
+    .hub-main { padding: 2rem 1.25rem; }
+    .hub-main :global(.card-grid) { grid-template-columns: 1fr; }
+  }
+</style>

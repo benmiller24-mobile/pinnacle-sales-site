@@ -1,0 +1,158 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Dealer Hub Login | Pinnacle Sales" description="Sign in to the Pinnacle Sales Dealer Hub for onboarding resources, training, ordering SOPs, and support.">
+
+<div class="login-page">
+  <div class="login-card">
+    <div class="login-header">
+      <span class="login-badge">DEALER HUB</span>
+      <h1>Welcome Back</h1>
+      <p>Sign in to access dealer resources, onboarding checklists, ordering guides, and support.</p>
+    </div>
+
+    <form id="login-form" class="login-form" autocomplete="off">
+      <div class="field">
+        <label for="dealer-name">Your Name or Dealership</label>
+        <input type="text" id="dealer-name" name="dealer-name" placeholder="e.g. Castle Vision Design" required autocomplete="off" />
+      </div>
+      <div class="field">
+        <label for="dealer-password">Password</label>
+        <input type="password" id="dealer-password" name="dealer-password" placeholder="Enter dealer password" required autocomplete="off" />
+      </div>
+      <p id="login-error" class="login-error" style="display:none;">Incorrect password. Contact your Pinnacle Sales rep if you need access.</p>
+      <button type="submit" class="login-btn">Sign In</button>
+    </form>
+
+    <div class="login-footer">
+      <p>Don't have access? <a href="/become-a-dealer">Become a dealer</a> or contact <a href="mailto:marketing@pinnaclesales.biz">marketing@pinnaclesales.biz</a></p>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  // Simple shared-password auth
+  // Change this password to whatever you'd like dealers to use
+  const DEALER_PASSWORD = 'pinnacle2025';
+
+  // If already authenticated, redirect to dashboard
+  if (sessionStorage.getItem('pinnacle_dealer_auth') === 'authenticated') {
+    const params = new URLSearchParams(window.location.search);
+    const redirect = params.get('redirect') || '/dealer-hub/dashboard';
+    window.location.href = redirect;
+  }
+
+  document.getElementById('login-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('dealer-name').value.trim();
+    const password = document.getElementById('dealer-password').value;
+    const errorEl = document.getElementById('login-error');
+
+    if (password === DEALER_PASSWORD) {
+      sessionStorage.setItem('pinnacle_dealer_auth', 'authenticated');
+      sessionStorage.setItem('pinnacle_dealer_name', name);
+      const params = new URLSearchParams(window.location.search);
+      const redirect = params.get('redirect') || '/dealer-hub/dashboard';
+      window.location.href = redirect;
+    } else {
+      errorEl.style.display = 'block';
+      document.getElementById('dealer-password').value = '';
+      document.getElementById('dealer-password').focus();
+    }
+  });
+</script>
+
+</BaseLayout>
+
+<style>
+  .login-page {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1.5rem;
+    background: var(--color-bg-alt);
+  }
+  .login-card {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 3rem;
+    width: 100%;
+    max-width: 440px;
+  }
+  .login-header { text-align: center; margin-bottom: 2rem; }
+  .login-badge {
+    display: inline-block;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    border: 1px solid var(--color-border);
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    margin-bottom: 1rem;
+  }
+  .login-header h1 {
+    font-size: 1.5rem;
+    margin: 0 0 0.5rem;
+    color: var(--color-black);
+  }
+  .login-header p {
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    margin: 0;
+  }
+  .login-form { display: flex; flex-direction: column; gap: 1.25rem; }
+  .field label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-bottom: 0.35rem;
+    letter-spacing: 0.02em;
+  }
+  .field input {
+    width: 100%;
+    padding: 0.7rem 0.9rem;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-family: var(--font-body);
+    transition: border-color 0.15s;
+  }
+  .field input:focus {
+    outline: none;
+    border-color: var(--color-dark);
+  }
+  .login-error {
+    color: #b91c1c;
+    font-size: 0.85rem;
+    margin: 0;
+  }
+  .login-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--color-dark);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .login-btn:hover { background: #000; }
+  .login-footer {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+  }
+  .login-footer p {
+    font-size: 0.82rem;
+    color: var(--color-muted);
+    margin: 0;
+  }
+  .login-footer a { color: var(--color-dark); }
+</style>
