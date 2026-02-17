@@ -1,0 +1,444 @@
+---
+import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
+---
+<DealerHubLayout title="Order Samples | Pinnacle Sales Dealer Hub" activeSection="Order Samples">
+
+<h1>Order Samples</h1>
+<p class="page-subtitle">Sample doors help your customers see and feel the quality of Shiloh, Eclipse, and Aspect cabinetry before committing to a full order. Use the tools below to determine the right order form and process for your sample request.</p>
+
+<div class="featured-tool">
+  <div class="featured-tool-header">
+    <span class="tool-badge">INTERACTIVE TOOL</span>
+    <h2 style="margin-top:0.5rem;">Sample Door Order Form Selector</h2>
+    <p>Not sure which form to use? This decision tree walks you through a series of quick questions — door style, drawer front, special finishes, and express options — to identify the exact order form you need.</p>
+  </div>
+  <div id="decision-tree-container"></div>
+</div>
+
+<h2>Sample Door Order Forms</h2>
+<p>Download the correct sample door order form for your brand. If you're unsure which form to use, run through the decision tree above first.</p>
+
+<div class="card-grid">
+  <div class="hub-card">
+    <span class="card-icon">🚪</span>
+    <h3>Shiloh Cabinetry</h3>
+    <p>Face-frame sample doors, drawer fronts, and finish samples</p>
+  </div>
+  <div class="hub-card">
+    <span class="card-icon">🚪</span>
+    <h3>Eclipse Cabinetry</h3>
+    <p>Frameless full-access sample doors, drawer fronts, and finish samples</p>
+  </div>
+  <div class="hub-card">
+    <span class="card-icon">🚪</span>
+    <h3>Aspect Cabinetry</h3>
+    <p>Value-tier sample doors and finish samples</p>
+  </div>
+</div>
+
+<h2>Tips for Ordering Samples</h2>
+<ul>
+  <li><strong>Order early in the design process</strong> — Give your customer something to hold and compare during the initial consultation. Physical samples close more deals than catalog images.</li>
+  <li><strong>Request the exact finish and door style</strong> — Generic samples don't build confidence. Match the sample to the spec you're presenting.</li>
+  <li><strong>Keep a showroom sample library</strong> — Maintain a curated set of your most-ordered styles and finishes so you have them on hand for walk-ins.</li>
+  <li><strong>Use samples to upsell</strong> — Show the difference between standard and premium finishes side by side. Let the quality speak for itself.</li>
+</ul>
+
+<h2>Need Help?</h2>
+<p>If you have questions about sample ordering, availability, or which form to use, reach out to your Pinnacle Sales rep or visit the <a href="/dealer-hub/ordering">Ordering SOPs</a> page for complete ordering procedures.</p>
+
+<div class="card-grid">
+  <div class="hub-card">
+    <h3>Pinnacle Sales</h3>
+    <p>Sample questions, specifications, availability<br>480-993-9224</p>
+  </div>
+  <div class="hub-card">
+    <h3>WW Wood Customer Service</h3>
+    <p>Sample order status, tracking<br>573-624-7090</p>
+  </div>
+</div>
+
+</DealerHubLayout>
+
+<style>
+  .featured-tool {
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 1.75rem;
+    margin: 1.5rem 0 2.5rem;
+  }
+  .featured-tool-header {
+    margin-bottom: 1.25rem;
+  }
+  .tool-badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+  }
+  #decision-tree-container {
+    font-family: var(--font-body);
+  }
+  .dt-progress-bar {
+    width: 100%;
+    margin-bottom: 1.25rem;
+  }
+  .dt-progress-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    margin-bottom: 0.4rem;
+  }
+  .dt-progress-track {
+    height: 4px;
+    border-radius: 10px;
+    background: var(--color-border);
+    overflow: hidden;
+  }
+  .dt-progress-fill {
+    height: 100%;
+    border-radius: 10px;
+    background: var(--color-dark);
+    transition: width 0.5s ease;
+  }
+  .dt-progress-fill.complete {
+    background: #0B6E4F;
+  }
+  .dt-breadcrumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 1.25rem;
+  }
+  .dt-crumb {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .dt-crumb-pill {
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.68rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+  .dt-crumb-pill.yes {
+    background: #D1FAE5;
+    color: #065F46;
+  }
+  .dt-crumb-pill.no {
+    background: #FEE2E2;
+    color: #991B1B;
+  }
+  .dt-crumb-arrow {
+    color: #C4C6CC;
+    font-size: 0.75rem;
+  }
+  .dt-question-card {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: all 0.4s ease;
+  }
+  .dt-question-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .dt-question {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--color-black);
+    margin: 0 0 0.5rem;
+    line-height: 1.3;
+  }
+  .dt-subtitle {
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    margin: 0 0 1.5rem;
+    line-height: 1.6;
+  }
+  .dt-buttons {
+    display: flex;
+    gap: 0.75rem;
+  }
+  .dt-btn {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.7rem 2rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.15s;
+    letter-spacing: 0.01em;
+  }
+  .dt-btn-yes {
+    background: var(--color-dark);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(26,29,35,0.15);
+  }
+  .dt-btn-yes:hover { background: #333; }
+  .dt-btn-no {
+    background: #F3F4F6;
+    color: var(--color-dark);
+  }
+  .dt-btn-no:hover { background: #E5E7EB; }
+  .dt-result-card {
+    opacity: 0;
+    transform: scale(0.97);
+    transition: all 0.5s ease;
+    border-radius: 14px;
+    padding: 2rem 1.75rem;
+    color: #fff;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.12);
+  }
+  .dt-result-card.visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+  .dt-result-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border-radius: 8px;
+    padding: 4px 12px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .dt-result-form {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 0 0.4rem;
+    line-height: 1.25;
+  }
+  .dt-result-part {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    margin-bottom: 1rem;
+    font-family: monospace;
+    letter-spacing: 0.02em;
+  }
+  .dt-result-notes {
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+  .dt-reset-btn {
+    margin-top: 1rem;
+    width: 100%;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.75rem 0;
+    border-radius: 8px;
+    border: 2px solid var(--color-border);
+    background: transparent;
+    color: var(--color-dark);
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+  .dt-reset-btn:hover { border-color: var(--color-dark); }
+  .dt-nav-buttons {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    justify-content: flex-end;
+  }
+  .dt-nav-btn {
+    background: #F3F4F6;
+    border: none;
+    border-radius: 8px;
+    padding: 0.4rem 0.85rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-muted);
+    font-family: var(--font-body);
+    transition: background 0.15s;
+  }
+  .dt-nav-btn:hover { background: #E5E7EB; }
+</style>
+
+<script is:inline>
+(function() {
+  var STEPS = {
+    start: {
+      question: "Door styling on the sample required?",
+      subtitle: "Does the customer need a particular door style, or are they browsing options?",
+      yes: "drawer_head",
+      no: "special_material"
+    },
+    drawer_head: {
+      question: "Is a drawer head attached?",
+      subtitle: "Will the sample include an attached drawer front?",
+      yes: "express_with_drawer",
+      no: "express_no_drawer"
+    },
+    special_material: {
+      question: "Special material or finish?",
+      subtitle: "Metro Door, Rustic Species, Rift White Oak, Quarter Sawn White Oak, Walnut, Weathered, or Olde World finishes?",
+      yes: "express_special_yes",
+      no: "express_special_no"
+    },
+    express_with_drawer: {
+      question: "Express shipping with 5-day production?",
+      subtitle: "Does the customer need expedited 5-day production and express shipping?",
+      yes: "result_sample_door_drawer",
+      no: "result_standard_sample"
+    },
+    express_no_drawer: {
+      question: "Express shipping with 5-day production?",
+      subtitle: "Does the customer need expedited 5-day production and express shipping?",
+      yes: "result_sample_12x15",
+      no: "result_standard_sd"
+    },
+    express_special_no: {
+      question: "Express shipping needed?",
+      subtitle: "Does the customer need express parcel shipping?",
+      yes: "result_express_parcel",
+      no: "result_standard_8x11"
+    },
+    express_special_yes: {
+      question: "Express shipping needed?",
+      subtitle: "Does the customer need express shipping for this special material?",
+      yes: "result_sample_12x15_special",
+      no: "result_standard_sd_special"
+    },
+    result_sample_door_drawer: {
+      result: true,
+      form: "Sample Door and Drawer Front Form",
+      part: "Sample",
+      notes: "Includes attached drawer head with express production",
+      color: "#0B6E4F"
+    },
+    result_standard_sample: {
+      result: true,
+      form: "Standard Order Form",
+      part: "Sample",
+      notes: "Standard production timeline, specific style with drawer head",
+      color: "#2563EB"
+    },
+    result_sample_12x15: {
+      result: true,
+      form: "Sample 12\u00BD \u00D7 15\u00BD Door Form",
+      part: "SD12\u00BDX15\u00BD",
+      notes: "Express production, no drawer head attached",
+      color: "#0B6E4F"
+    },
+    result_standard_sd: {
+      result: true,
+      form: "Standard Order Form",
+      part: "SD12\u00BDX15\u00BD",
+      notes: "Standard production timeline, specific style, no drawer head",
+      color: "#2563EB"
+    },
+    result_express_parcel: {
+      result: true,
+      form: "Express Parcel Form",
+      part: "8\u00BD \u00D7 11",
+      notes: "Up to 3 doors of any species & finish per order",
+      color: "#0B6E4F"
+    },
+    result_standard_8x11: {
+      result: true,
+      form: "Standard Order Form",
+      part: "8\u00BD \u00D7 11",
+      notes: "Any species & finish per order",
+      color: "#2563EB"
+    },
+    result_sample_12x15_special: {
+      result: true,
+      form: "Sample 12\u00BD \u00D7 15\u00BD Door Form",
+      part: "SD12\u00BDX15\u00BD",
+      notes: "Express shipping for specialty material/finish",
+      color: "#0B6E4F"
+    },
+    result_standard_sd_special: {
+      result: true,
+      form: "Standard Order Form",
+      part: "SD12\u00BDX15\u00BD",
+      notes: "Standard shipping for specialty material/finish",
+      color: "#2563EB"
+    }
+  };
+
+  var currentStep = "start";
+  var history = [];
+  var container = document.getElementById("decision-tree-container");
+  var maxDepth = 4;
+
+  function render() {
+    var step = STEPS[currentStep];
+    var isResult = step.result;
+    var depth = history.length;
+    var pct = isResult ? 100 : (depth / maxDepth) * 100;
+    var html = "";
+    if (history.length > 0) {
+      html += '<div class="dt-nav-buttons">';
+      html += '<button class="dt-nav-btn" id="dt-back">\u2190 Back</button>';
+      html += '<button class="dt-nav-btn" id="dt-reset">Reset</button>';
+      html += '</div>';
+    }
+    html += '<div class="dt-progress-bar"><div class="dt-progress-meta"><span>' + (isResult ? "Complete" : "Step " + (depth + 1)) + '</span><span>' + Math.round(pct) + '%</span></div><div class="dt-progress-track"><div class="dt-progress-fill' + (isResult ? ' complete' : '') + '" style="width:' + pct + '%"></div></div></div>';
+    if (history.length > 0) {
+      html += '<div class="dt-breadcrumbs">';
+      history.forEach(function(h) {
+        html += '<span class="dt-crumb"><span class="dt-crumb-pill ' + h.answer + '">' + h.answer + '</span><span class="dt-crumb-arrow">\u2192</span></span>';
+      });
+      html += '</div>';
+    }
+    if (isResult) {
+      html += '<div class="dt-result-card" id="dt-animate" style="background:linear-gradient(135deg,' + step.color + ',' + step.color + 'DD)"><div class="dt-result-badge">\u2713 Order Form Identified</div><div class="dt-result-form">' + step.form + '</div><div class="dt-result-part">Part: ' + step.part + '</div><div class="dt-result-notes">' + step.notes + '</div></div>';
+      html += '<button class="dt-reset-btn" id="dt-new-lookup">Start New Lookup</button>';
+    } else {
+      html += '<div class="dt-question-card" id="dt-animate"><div class="dt-question">' + step.question + '</div><div class="dt-subtitle">' + step.subtitle + '</div><div class="dt-buttons"><button class="dt-btn dt-btn-yes" id="dt-yes">Yes</button><button class="dt-btn dt-btn-no" id="dt-no">No</button></div></div>';
+    }
+    container.innerHTML = html;
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        var el = document.getElementById("dt-animate");
+        if (el) el.classList.add("visible");
+      });
+    });
+    var yesBtn = document.getElementById("dt-yes");
+    var noBtn = document.getElementById("dt-no");
+    var backBtn = document.getElementById("dt-back");
+    var resetBtn = document.getElementById("dt-reset");
+    var newBtn = document.getElementById("dt-new-lookup");
+    if (yesBtn) yesBtn.addEventListener("click", function() { handleAnswer("yes"); });
+    if (noBtn) noBtn.addEventListener("click", function() { handleAnswer("no"); });
+    if (backBtn) backBtn.addEventListener("click", handleBack);
+    if (resetBtn) resetBtn.addEventListener("click", handleReset);
+    if (newBtn) newBtn.addEventListener("click", handleReset);
+  }
+  function handleAnswer(answer) {
+    var step = STEPS[currentStep];
+    var nextStep = step[answer];
+    history.push({ step: currentStep, answer: answer, nextStep: nextStep });
+    currentStep = nextStep;
+    render();
+  }
+  function handleBack() {
+    if (history.length === 0) return;
+    var prev = history.pop();
+    currentStep = prev.step;
+    render();
+  }
+  function handleReset() {
+    currentStep = "start";
+    history = [];
+    render();
+  }
+  render();
+})();
+</script>
