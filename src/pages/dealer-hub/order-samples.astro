@@ -60,7 +60,7 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
 
 </DealerHubLayout>
 
-<style>
+<style is:global>
   .featured-tool {
     border: 1px solid var(--color-border);
     border-radius: 8px;
@@ -330,43 +330,43 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
     },
     result_sample_12x15: {
       result: true,
-      form: "Sample 12\u00BD \u00D7 15\u00BD Door Form",
-      part: "SD12\u00BDX15\u00BD",
+      form: "Sample 12½ × 15½ Door Form",
+      part: "SD12½X15½",
       notes: "Express production, no drawer head attached",
       color: "#0B6E4F"
     },
     result_standard_sd: {
       result: true,
       form: "Standard Order Form",
-      part: "SD12\u00BDX15\u00BD",
+      part: "SD12½X15½",
       notes: "Standard production timeline, specific style, no drawer head",
       color: "#2563EB"
     },
     result_express_parcel: {
       result: true,
       form: "Express Parcel Form",
-      part: "8\u00BD \u00D7 11",
+      part: "8½ × 11",
       notes: "Up to 3 doors of any species & finish per order",
       color: "#0B6E4F"
     },
     result_standard_8x11: {
       result: true,
       form: "Standard Order Form",
-      part: "8\u00BD \u00D7 11",
+      part: "8½ × 11",
       notes: "Any species & finish per order",
       color: "#2563EB"
     },
     result_sample_12x15_special: {
       result: true,
-      form: "Sample 12\u00BD \u00D7 15\u00BD Door Form",
-      part: "SD12\u00BDX15\u00BD",
+      form: "Sample 12½ × 15½ Door Form",
+      part: "SD12½X15½",
       notes: "Express shipping for specialty material/finish",
       color: "#0B6E4F"
     },
     result_standard_sd_special: {
       result: true,
       form: "Standard Order Form",
-      part: "SD12\u00BDX15\u00BD",
+      part: "SD12½X15½",
       notes: "Standard shipping for specialty material/finish",
       color: "#2563EB"
     }
@@ -385,7 +385,7 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
     var html = "";
     if (history.length > 0) {
       html += '<div class="dt-nav-buttons">';
-      html += '<button class="dt-nav-btn" id="dt-back">\u2190 Back</button>';
+      html += '<button class="dt-nav-btn" id="dt-back">← Back</button>';
       html += '<button class="dt-nav-btn" id="dt-reset">Reset</button>';
       html += '</div>';
     }
@@ -393,12 +393,12 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
     if (history.length > 0) {
       html += '<div class="dt-breadcrumbs">';
       history.forEach(function(h) {
-        html += '<span class="dt-crumb"><span class="dt-crumb-pill ' + h.answer + '">' + h.answer + '</span><span class="dt-crumb-arrow">\u2192</span></span>';
+        html += '<span class="dt-crumb"><span class="dt-crumb-pill ' + h.answer + '">' + h.answer + '</span><span class="dt-crumb-arrow">→</span></span>';
       });
       html += '</div>';
     }
     if (isResult) {
-      html += '<div class="dt-result-card" id="dt-animate" style="background:linear-gradient(135deg,' + step.color + ',' + step.color + 'DD)"><div class="dt-result-badge">\u2713 Order Form Identified</div><div class="dt-result-form">' + step.form + '</div><div class="dt-result-part">Part: ' + step.part + '</div><div class="dt-result-notes">' + step.notes + '</div></div>';
+      html += '<div class="dt-result-card" id="dt-animate" style="background:linear-gradient(135deg,' + step.color + ',' + step.color + 'DD)"><div class="dt-result-badge">✓ Order Form Identified</div><div class="dt-result-form">' + step.form + '</div><div class="dt-result-part">Part: ' + step.part + '</div><div class="dt-result-notes">' + step.notes + '</div></div>';
       html += '<button class="dt-reset-btn" id="dt-new-lookup">Start New Lookup</button>';
     } else {
       html += '<div class="dt-question-card" id="dt-animate"><div class="dt-question">' + step.question + '</div><div class="dt-subtitle">' + step.subtitle + '</div><div class="dt-buttons"><button class="dt-btn dt-btn-yes" id="dt-yes">Yes</button><button class="dt-btn dt-btn-no" id="dt-no">No</button></div></div>';
@@ -422,7 +422,7 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
     if (newBtn) newBtn.addEventListener("click", handleReset);
   }
   function handleAnswer(answer) {
-    var step = STEPS[currentStep];
+    var step = STEPS[currentStep]
     var nextStep = step[answer];
     history.push({ step: currentStep, answer: answer, nextStep: nextStep });
     currentStep = nextStep;
