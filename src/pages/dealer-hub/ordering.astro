@@ -10,6 +10,20 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
 
 <ol class="step-list">
   <li><strong>Design & Specification</strong> — Create the project in 20/20 Design or ProKitchen using the appropriate Shiloh, Eclipse, or Aspect catalog. Verify door style, finish, wood species, modifications, and accessories. Export a preliminary quote for client review.</li>
+  <li><strong>Complete the Cover Sheet & Standard Order Form</strong> — Every order requires a completed cover sheet and the correct standard order form for your brand. Download the appropriate form below and watch the walkthrough video to see how to fill it out correctly.
+    <div class="custom-quote-resources">
+      <a href="/downloads/standard-order-form-shiloh.pdf" class="download-btn" download>Shiloh Order Form (PDF)</a>
+      <a href="/downloads/standard-order-form-eclipse.pdf" class="download-btn" download>Eclipse Order Form (PDF)</a>
+      <a href="/downloads/standard-order-form-aspect.pdf" class="download-btn" download>Aspect Order Form (PDF)</a>
+    </div>
+    <div class="video-embed">
+      <video controls preload="metadata" playsinline>
+        <source src="/videos/how-to-fill-out-shiloh-cabinetry-cover-sheet.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <p class="video-caption">How to Fill Out the Shiloh Cabinetry Cover Sheet</p>
+    </div>
+  </li>
   <li><strong>Custom Quotes</strong> — For any items requiring custom pricing — such as non-standard sizes, special modifications, or unique configurations — please fill out our Custom Quote Worksheet and email the completed form to Billy Rhea at <a href="mailto:quotes@wwinc.com">quotes@wwinc.com</a>. Download the form below, and watch the walkthrough video to learn how to complete it.
     <div class="custom-quote-resources">
       <a href="/downloads/custom-quote-worksheet-form.pdf" class="download-btn" download>Download Custom Quote Worksheet (PDF)</a>
@@ -87,5 +101,8 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
   }
   .download-btn:hover {
     background: #333;
+  }
+  .custom-quote-resources .download-btn + .download-btn {
+    margin-left: 0.5rem;
   }
 </style>
