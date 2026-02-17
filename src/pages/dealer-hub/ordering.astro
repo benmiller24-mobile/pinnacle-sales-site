@@ -86,10 +86,15 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
     font-style: italic;
   }
   .custom-quote-resources {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
     margin: 1rem 0;
   }
   .download-btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     padding: 0.6rem 1.2rem;
     background: #1a1a1a;
     color: #fff;
@@ -101,8 +106,5 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
   }
   .download-btn:hover {
     background: #333;
-  }
-  .custom-quote-resources .download-btn + .download-btn {
-    margin-left: 0.5rem;
   }
 </style>
