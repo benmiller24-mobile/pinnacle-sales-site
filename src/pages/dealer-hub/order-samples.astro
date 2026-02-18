@@ -18,21 +18,33 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
 <h2>Sample Door Order Forms</h2>
 <p>Download the correct sample door order form for your brand. If you're unsure which form to use, run through the decision tree above first.</p>
 
-<div class="card-grid">
-  <div class="hub-card">
-    <span class="card-icon">🚪</span>
-    <h3>Shiloh Cabinetry</h3>
-    <p>Face-frame sample doors, drawer fronts, and finish samples</p>
+<div class="brand-forms-section">
+  <div class="brand-forms-group">
+    <h3 class="brand-label">Aspect</h3>
+    <div class="download-list">
+      <a href="/downloads/Sample Face Frame and Door Form (Aspect).pdf" target="_blank" class="download-btn">Sample Face Frame &amp; Door Form</a>
+      <a href="/downloads/Sample 12½ x 15½ Door Form (Aspect).pdf" target="_blank" class="download-btn">Sample 12½ × 15½ Door Form</a>
+      <a href="/downloads/Replacement Color Chip Samples Form (Aspect).pdf" target="_blank" class="download-btn">Replacement Color Chip Samples Form</a>
+      <a href="/downloads/Replacement Color Block Samples Form (Aspect).pdf" target="_blank" class="download-btn">Replacement Color Block Samples Form</a>
+    </div>
   </div>
-  <div class="hub-card">
-    <span class="card-icon">🚪</span>
-    <h3>Eclipse Cabinetry</h3>
-    <p>Frameless full-access sample doors, drawer fronts, and finish samples</p>
+  <div class="brand-forms-group">
+    <h3 class="brand-label">Shiloh</h3>
+    <div class="download-list">
+      <a href="/downloads/Sample Face Frame and Door Form (Shiloh).pdf" target="_blank" class="download-btn">Sample Face Frame &amp; Door Form</a>
+      <a href="/downloads/Sample 12½ x 15½ Door Form (Shiloh).pdf" target="_blank" class="download-btn">Sample 12½ × 15½ Door Form</a>
+      <a href="/downloads/Replacement Color Chip Samples Form (Shiloh).pdf" target="_blank" class="download-btn">Replacement Color Chip Samples Form</a>
+      <a href="/downloads/Replacement Color Block Samples Form (Shiloh).pdf" target="_blank" class="download-btn">Replacement Color Block Samples Form</a>
+    </div>
   </div>
-  <div class="hub-card">
-    <span class="card-icon">🚪</span>
-    <h3>Aspect Cabinetry</h3>
-    <p>Value-tier sample doors and finish samples</p>
+  <div class="brand-forms-group">
+    <h3 class="brand-label">Eclipse</h3>
+    <div class="download-list">
+      <a href="/downloads/Sample Door and Drawer Front Form (Eclipse).pdf" target="_blank" class="download-btn">Sample Door &amp; Drawer Front Form</a>
+      <a href="/downloads/Sample 12½ x 15½ Door Form (Eclipse).pdf" target="_blank" class="download-btn">Sample 12½ × 15½ Door Form</a>
+      <a href="/downloads/Replacement Color Chip Samples Form (Eclipse).pdf" target="_blank" class="download-btn">Replacement Color Chip Samples Form</a>
+      <a href="/downloads/Replacement Color Block Samples Form (Eclipse).pdf" target="_blank" class="download-btn">Replacement Color Block Samples Form</a>
+    </div>
   </div>
 </div>
 
@@ -267,6 +279,53 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
     transition: background 0.15s;
   }
   .dt-nav-btn:hover { background: #E5E7EB; }
+  .brand-forms-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0 2.5rem;
+  }
+  .brand-forms-group {
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+  }
+  .brand-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-muted);
+    margin: 0 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .download-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 0.85rem;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--color-dark);
+    text-decoration: none;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .download-btn::before {
+    content: "⬇";
+    font-size: 0.75rem;
+  }
+  .download-btn:hover {
+    border-color: var(--color-dark);
+    background: var(--color-bg-alt);
+  }
 </style>
 
 <script is:inline>
