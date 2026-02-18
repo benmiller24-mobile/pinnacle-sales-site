@@ -1,0 +1,372 @@
+---
+import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
+---
+<DealerHubLayout title="Downloads & Forms | Pinnacle Sales Dealer Hub" activeSection="Downloads & Forms">
+
+<h1>Downloads & Forms</h1>
+<p class="page-subtitle">Every downloadable form, template, and asset in one place. Use the category tabs or search to find what you need.</p>
+
+<div class="dl-controls">
+  <div class="dl-tabs" id="dl-tabs">
+    <button class="dl-tab active" data-cat="all">All</button>
+    <button class="dl-tab" data-cat="order-forms">Order Forms</button>
+    <button class="dl-tab" data-cat="sample-forms">Sample Forms</button>
+    <button class="dl-tab" data-cat="cutout-sheets">Cutout Sheets</button>
+    <button class="dl-tab" data-cat="warranty">Warranty</button>
+    <button class="dl-tab" data-cat="logos">Logos</button>
+    <button class="dl-tab" data-cat="other">Other</button>
+  </div>
+  <div class="dl-search-wrap">
+    <input type="text" class="dl-search" id="dl-search" placeholder="Search forms…" />
+  </div>
+</div>
+
+<div class="dl-count" id="dl-count"></div>
+
+<div class="dl-grid" id="dl-grid">
+
+  <!-- ORDER FORMS -->
+  <a href="/downloads/standard-order-form-aspect.pdf" target="_blank" class="dl-card" data-cat="order-forms" data-brand="aspect">
+    <span class="dl-icon">📋</span>
+    <span class="dl-info"><span class="dl-name">Standard Order Form</span><span class="dl-meta">Aspect</span></span>
+  </a>
+  <a href="/downloads/standard-order-form-shiloh.pdf" target="_blank" class="dl-card" data-cat="order-forms" data-brand="shiloh">
+    <span class="dl-icon">📋</span>
+    <span class="dl-info"><span class="dl-name">Standard Order Form</span><span class="dl-meta">Shiloh</span></span>
+  </a>
+  <a href="/downloads/standard-order-form-eclipse.pdf" target="_blank" class="dl-card" data-cat="order-forms" data-brand="eclipse">
+    <span class="dl-icon">📋</span>
+    <span class="dl-info"><span class="dl-name">Standard Order Form</span><span class="dl-meta">Eclipse</span></span>
+  </a>
+  <a href="/downloads/custom-quote-worksheet-form.pdf" target="_blank" class="dl-card" data-cat="order-forms" data-brand="all">
+    <span class="dl-icon">📋</span>
+    <span class="dl-info"><span class="dl-name">Custom Quote Worksheet</span><span class="dl-meta">All Brands</span></span>
+  </a>
+
+  <!-- SAMPLE FORMS — Aspect -->
+  <a href="/downloads/Sample Face Frame and Door Form (Aspect).pdf" target="_blank" class="dl-card" data-cat="sample-forms" data-brand="aspect">
+    <span class="dl-icon">🚪</span>
+    <span class="dl-info"><span class="dl-name">Sample Face Frame & Door Form</span><span class="dl-meta">Aspect</span></span>
+  </a>
+  <a href="/downloads/Sample 12½ x 15½ Door Form (Aspect).pdf" target="_blank" class="dl-card" data-cat="sample-forms" data-brand="aspect">
+    <span class="dl-icon">🚪</span>
+    <span class="dl-info"><span class="dl-name">Sample 12½ × 15½ Door Form</span><span class="dl-meta">Aspect</span></span>
+  </a>
+  <a href="/downloads/Replacement Color Chip Samples Form (Aspect).pdf" target="_blank" class="dl-card" data-cat="sample-forms" data-brand="aspect">
+    <span class="dl-icon">🎨</span>
+    <span class="dl-info"><span class="dl-name">Replacement Color Chip Samples Form</span><span class="dl-meta">Aspect</span></span>
+  </a>
+  <a href="/downloads/Replacement Color Block Samples Form (Aspect).pdf" target="_blank" class="dl-card" data-cat="sample-forms" data-brand="aspect">
+    <span class="dl-icon">🎨</span>
+    <span class="dl-info"><span class="dl-name">Replacement Color Block Samples Form</span><span class="dl-meta">Aspect</span></span>
+  </a>
+
+  <!-- SAMPLE FORMS — Shiloh -->
+  <a href="/downloads/Sample Face Frame and Door Form (Shiloh).pdf" target="_blank" class="dl-card" data-cat="sample-forms" data-brand="shiloh">
+    <span class="dl-icon">🚪</span>
+    <span class="dl-info"><span class="dl-name">Sample Face Frame & Door Form</span><span class="dl-meta">Shiloh</span></span>
+  </a>
+  <a href="/downloads/Sample 12½ x 15½ Door Form (Shiloh).pdf" target="_blank" class="dl-card" data-cat="sample-forms" data-brand="shiloh">
+    <span class="dl-icon">🚪</span>
+    <span class="dl-info"><span class="dl-name">Sample 12½ × 15½ Door Form</span><span class="dl-meta">Shiloh</span></span>
+  </a>
+  <a href="/downloads/Replacement Color Chip Samples Form (Shiloh).pdf" target="_blank" class="dl-card" data-cat="sample-forms" data-brand="shiloh">
+    <span class="dl-icon">🎨</span>
+    <span class="dl-info"><span class="dl-name">Replacement Color Chip Samples Form</span><span class="dl-meta">Shiloh</span></span>
+  </a>
+  <a href="/downloads/Replacement Color Block Samples Form (Shiloh).pdf" target="_blank" class="dl-card" data-cat="sample-forms" data-brand="shiloh">
+    <span class="dl-icon">🎨</span>
+    <span class="dl-info"><span class="dl-name">Replacement Color Block Samples Form</span><span class="dl-meta">Shiloh</span></span>
+  </a>
+
+  <!-- SAMPLE FORMS — Eclipse -->
+  <a href="/downloads/Sample Door and Drawer Front Form (Eclipse).pdf" target="_blank" class="dl-card" data-cat="sample-forms" data-brand="eclipse">
+    <span class="dl-icon">🚪</span>
+    <span class="dl-info"><span class="dl-name">Sample Door & Drawer Front Form</span><span class="dl-meta">Eclipse</span></span>
+  </a>
+  <a href="/downloads/Sample 12½ x 15½ Door Form (Eclipse).pdf" target="_blank" class="dl-card" data-cat="sample-forms" data-brand="eclipse">
+    <span class="dl-icon">🚪</span>
+    <span class="dl-info"><span class="dl-name">Sample 12½ × 15½ Door Form</span><span class="dl-meta">Eclipse</span></span>
+  </a>
+  <a href="/downloads/Replacement Color Chip Samples Form (Eclipse).pdf" target="_blank" class="dl-card" data-cat="sample-forms" data-brand="eclipse">
+    <span class="dl-icon">🎨</span>
+    <span class="dl-info"><span class="dl-name">Replacement Color Chip Samples Form</span><span class="dl-meta">Eclipse</span></span>
+  </a>
+  <a href="/downloads/Replacement Color Block Samples Form (Eclipse).pdf" target="_blank" class="dl-card" data-cat="sample-forms" data-brand="eclipse">
+    <span class="dl-icon">🎨</span>
+    <span class="dl-info"><span class="dl-name">Replacement Color Block Samples Form</span><span class="dl-meta">Eclipse</span></span>
+  </a>
+
+  <!-- CUTOUT SHEETS — Aspect -->
+  <a href="/downloads/oven-cutout-spec-aspect.pdf" target="_blank" class="dl-card" data-cat="cutout-sheets" data-brand="aspect">
+    <span class="dl-icon">📐</span>
+    <span class="dl-info"><span class="dl-name">Oven Cutout Spec</span><span class="dl-meta">Aspect</span></span>
+  </a>
+  <a href="/downloads/oven-microwave-cutout-spec-aspect.pdf" target="_blank" class="dl-card" data-cat="cutout-sheets" data-brand="aspect">
+    <span class="dl-icon">📐</span>
+    <span class="dl-info"><span class="dl-name">Oven/Microwave Cutout Spec</span><span class="dl-meta">Aspect</span></span>
+  </a>
+  <a href="/downloads/base-oven-cutout-spec-aspect.pdf" target="_blank" class="dl-card" data-cat="cutout-sheets" data-brand="aspect">
+    <span class="dl-icon">📐</span>
+    <span class="dl-info"><span class="dl-name">Base Oven Cutout Spec</span><span class="dl-meta">Aspect</span></span>
+  </a>
+  <a href="/downloads/base-warming-drawer-cutout-spec-aspect.pdf" target="_blank" class="dl-card" data-cat="cutout-sheets" data-brand="aspect">
+    <span class="dl-icon">📐</span>
+    <span class="dl-info"><span class="dl-name">Base Warming Drawer Cutout Spec</span><span class="dl-meta">Aspect</span></span>
+  </a>
+
+  <!-- CUTOUT SHEETS — Shiloh -->
+  <a href="/downloads/oven-cutout-spec-shiloh.pdf" target="_blank" class="dl-card" data-cat="cutout-sheets" data-brand="shiloh">
+    <span class="dl-icon">📐</span>
+    <span class="dl-info"><span class="dl-name">Oven Cutout Spec</span><span class="dl-meta">Shiloh</span></span>
+  </a>
+  <a href="/downloads/oven-microwave-cutout-spec-shiloh.pdf" target="_blank" class="dl-card" data-cat="cutout-sheets" data-brand="shiloh">
+    <span class="dl-icon">📐</span>
+    <span class="dl-info"><span class="dl-name">Oven/Microwave Cutout Spec</span><span class="dl-meta">Shiloh</span></span>
+  </a>
+  <a href="/downloads/base-oven-cutout-spec-shiloh.pdf" target="_blank" class="dl-card" data-cat="cutout-sheets" data-brand="shiloh">
+    <span class="dl-icon">📐</span>
+    <span class="dl-info"><span class="dl-name">Base Oven Cutout Spec</span><span class="dl-meta">Shiloh</span></span>
+  </a>
+  <a href="/downloads/base-warming-drawer-cutout-spec-shiloh.pdf" target="_blank" class="dl-card" data-cat="cutout-sheets" data-brand="shiloh">
+    <span class="dl-icon">📐</span>
+    <span class="dl-info"><span class="dl-name">Base Warming Drawer Cutout Spec</span><span class="dl-meta">Shiloh</span></span>
+  </a>
+  <a href="/downloads/wall-microwave-cutout-spec-shiloh.pdf" target="_blank" class="dl-card" data-cat="cutout-sheets" data-brand="shiloh">
+    <span class="dl-icon">📐</span>
+    <span class="dl-info"><span class="dl-name">Wall Microwave Cutout Spec</span><span class="dl-meta">Shiloh</span></span>
+  </a>
+  <a href="/downloads/wall-microwave-custom-cutout-spec-shiloh.pdf" target="_blank" class="dl-card" data-cat="cutout-sheets" data-brand="shiloh">
+    <span class="dl-icon">📐</span>
+    <span class="dl-info"><span class="dl-name">Wall Microwave Custom Cutout Spec</span><span class="dl-meta">Shiloh</span></span>
+  </a>
+  <a href="/downloads/flush-inset-oven-cutout-spec-shiloh.pdf" target="_blank" class="dl-card" data-cat="cutout-sheets" data-brand="shiloh">
+    <span class="dl-icon">📐</span>
+    <span class="dl-info"><span class="dl-name">Flush Inset Oven Cutout Spec</span><span class="dl-meta">Shiloh</span></span>
+  </a>
+  <a href="/downloads/flush-inset-oven-microwave-cutout-spec-shiloh.pdf" target="_blank" class="dl-card" data-cat="cutout-sheets" data-brand="shiloh">
+    <span class="dl-icon">📐</span>
+    <span class="dl-info"><span class="dl-name">Flush Inset Oven/Microwave Cutout Spec</span><span class="dl-meta">Shiloh</span></span>
+  </a>
+  <a href="/downloads/flush-inset-base-oven-cutout-spec-shiloh.pdf" target="_blank" class="dl-card" data-cat="cutout-sheets" data-brand="shiloh">
+    <span class="dl-icon">📐</span>
+    <span class="dl-info"><span class="dl-name">Flush Inset Base Oven Cutout Spec</span><span class="dl-meta">Shiloh</span></span>
+  </a>
+  <a href="/downloads/flush-inset-base-warming-drawer-cutout-spec-shiloh.pdf" target="_blank" class="dl-card" data-cat="cutout-sheets" data-brand="shiloh">
+    <span class="dl-icon">📐</span>
+    <span class="dl-info"><span class="dl-name">Flush Inset Base Warming Drawer Cutout Spec</span><span class="dl-meta">Shiloh</span></span>
+  </a>
+
+  <!-- CUTOUT SHEETS — Eclipse -->
+  <a href="/downloads/oven-cutout-spec-eclipse.pdf" target="_blank" class="dl-card" data-cat="cutout-sheets" data-brand="eclipse">
+    <span class="dl-icon">📐</span>
+    <span class="dl-info"><span class="dl-name">Oven Cutout Spec</span><span class="dl-meta">Eclipse</span></span>
+  </a>
+  <a href="/downloads/oven-microwave-cutout-spec-eclipse.pdf" target="_blank" class="dl-card" data-cat="cutout-sheets" data-brand="eclipse">
+    <span class="dl-icon">📐</span>
+    <span class="dl-info"><span class="dl-name">Oven/Microwave Cutout Spec</span><span class="dl-meta">Eclipse</span></span>
+  </a>
+  <a href="/downloads/base-oven-cutout-spec-eclipse.pdf" target="_blank" class="dl-card" data-cat="cutout-sheets" data-brand="eclipse">
+    <span class="dl-icon">📐</span>
+    <span class="dl-info"><span class="dl-name">Base Oven Cutout Spec</span><span class="dl-meta">Eclipse</span></span>
+  </a>
+  <a href="/downloads/base-warming-drawer-cutout-spec-eclipse.pdf" target="_blank" class="dl-card" data-cat="cutout-sheets" data-brand="eclipse">
+    <span class="dl-icon">📐</span>
+    <span class="dl-info"><span class="dl-name">Base Warming Drawer Cutout Spec</span><span class="dl-meta">Eclipse</span></span>
+  </a>
+  <a href="/downloads/wall-microwave-custom-cutout-spec-eclipse.pdf" target="_blank" class="dl-card" data-cat="cutout-sheets" data-brand="eclipse">
+    <span class="dl-icon">📐</span>
+    <span class="dl-info"><span class="dl-name">Wall Microwave Custom Cutout Spec</span><span class="dl-meta">Eclipse</span></span>
+  </a>
+  <a href="/downloads/flush-inset-oven-cutout-spec-eclipse.pdf" target="_blank" class="dl-card" data-cat="cutout-sheets" data-brand="eclipse">
+    <span class="dl-icon">📐</span>
+    <span class="dl-info"><span class="dl-name">Flush Inset Oven Cutout Spec</span><span class="dl-meta">Eclipse</span></span>
+  </a>
+  <a href="/downloads/flush-inset-oven-microwave-cutout-spec-eclipse.pdf" target="_blank" class="dl-card" data-cat="cutout-sheets" data-brand="eclipse">
+    <span class="dl-icon">📐</span>
+    <span class="dl-info"><span class="dl-name">Flush Inset Oven/Microwave Cutout Spec</span><span class="dl-meta">Eclipse</span></span>
+  </a>
+  <a href="/downloads/flush-inset-base-oven-cutout-spec-eclipse.pdf" target="_blank" class="dl-card" data-cat="cutout-sheets" data-brand="eclipse">
+    <span class="dl-icon">📐</span>
+    <span class="dl-info"><span class="dl-name">Flush Inset Base Oven Cutout Spec</span><span class="dl-meta">Eclipse</span></span>
+  </a>
+  <a href="/downloads/flush-inset-base-warming-drawer-cutout-spec-eclipse.pdf" target="_blank" class="dl-card" data-cat="cutout-sheets" data-brand="eclipse">
+    <span class="dl-icon">📐</span>
+    <span class="dl-info"><span class="dl-name">Flush Inset Base Warming Drawer Cutout Spec</span><span class="dl-meta">Eclipse</span></span>
+  </a>
+
+  <!-- WARRANTY FORMS -->
+  <a href="/downloads/warranty-request-form-aspect.pdf" target="_blank" class="dl-card" data-cat="warranty" data-brand="aspect">
+    <span class="dl-icon">🛡</span>
+    <span class="dl-info"><span class="dl-name">Warranty Request Form</span><span class="dl-meta">Aspect</span></span>
+  </a>
+  <a href="/downloads/warranty-request-form-shiloh.pdf" target="_blank" class="dl-card" data-cat="warranty" data-brand="shiloh">
+    <span class="dl-icon">🛡</span>
+    <span class="dl-info"><span class="dl-name">Warranty Request Form</span><span class="dl-meta">Shiloh</span></span>
+  </a>
+  <a href="/downloads/warranty-request-form-eclipse.pdf" target="_blank" class="dl-card" data-cat="warranty" data-brand="eclipse">
+    <span class="dl-icon">🛡</span>
+    <span class="dl-info"><span class="dl-name">Warranty Request Form</span><span class="dl-meta">Eclipse</span></span>
+  </a>
+
+  <!-- LOGOS -->
+  <a href="/images/logos/aspect-logo.png" download class="dl-card" data-cat="logos" data-brand="aspect">
+    <span class="dl-icon">🏷</span>
+    <span class="dl-info"><span class="dl-name">Logo — PNG (Web)</span><span class="dl-meta">Aspect</span></span>
+  </a>
+  <a href="/downloads/Aspect Cabinetry TM Color.pdf" target="_blank" class="dl-card" data-cat="logos" data-brand="aspect">
+    <span class="dl-icon">🏷</span>
+    <span class="dl-info"><span class="dl-name">Logo — PDF (Vector)</span><span class="dl-meta">Aspect</span></span>
+  </a>
+  <a href="/images/logos/shiloh-logo.png" download class="dl-card" data-cat="logos" data-brand="shiloh">
+    <span class="dl-icon">🏷</span>
+    <span class="dl-info"><span class="dl-name">Logo — PNG (Web)</span><span class="dl-meta">Shiloh</span></span>
+  </a>
+  <a href="/downloads/Shiloh Cabinetry TM Color.pdf" target="_blank" class="dl-card" data-cat="logos" data-brand="shiloh">
+    <span class="dl-icon">🏷</span>
+    <span class="dl-info"><span class="dl-name">Logo — PDF (Vector)</span><span class="dl-meta">Shiloh</span></span>
+  </a>
+  <a href="/images/logos/eclipse-logo.png" download class="dl-card" data-cat="logos" data-brand="eclipse">
+    <span class="dl-icon">🏷</span>
+    <span class="dl-info"><span class="dl-name">Logo — PNG (Web)</span><span class="dl-meta">Eclipse</span></span>
+  </a>
+  <a href="/downloads/Eclipse Cabinetry TM Color.pdf" target="_blank" class="dl-card" data-cat="logos" data-brand="eclipse">
+    <span class="dl-icon">🏷</span>
+    <span class="dl-info"><span class="dl-name">Logo — PDF (Vector)</span><span class="dl-meta">Eclipse</span></span>
+  </a>
+
+</div>
+
+</DealerHubLayout>
+
+<style is:global>
+  .dl-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    margin: 1.5rem 0 0.75rem;
+  }
+  .dl-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    flex: 1;
+  }
+  .dl-tab {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.35rem 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 20px;
+    background: transparent;
+    color: var(--color-muted);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .dl-tab:hover { border-color: var(--color-dark); color: var(--color-dark); }
+  .dl-tab.active {
+    background: var(--color-dark);
+    border-color: var(--color-dark);
+    color: #fff;
+  }
+  .dl-search-wrap { flex-shrink: 0; }
+  .dl-search {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    padding: 0.4rem 0.85rem;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    width: 200px;
+    transition: border-color 0.15s;
+  }
+  .dl-search:focus { outline: none; border-color: var(--color-dark); }
+  .dl-count {
+    font-size: 0.78rem;
+    color: var(--color-muted);
+    margin-bottom: 0.75rem;
+  }
+  .dl-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 0.5rem;
+  }
+  .dl-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.7rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--color-dark);
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .dl-card:hover {
+    border-color: var(--color-dark);
+    background: var(--color-bg-alt);
+    opacity: 1;
+  }
+  .dl-card.hidden { display: none; }
+  .dl-icon { font-size: 1.1rem; flex-shrink: 0; }
+  .dl-info { display: flex; flex-direction: column; gap: 0.1rem; min-width: 0; }
+  .dl-name {
+    font-size: 0.84rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .dl-meta {
+    font-size: 0.7rem;
+    color: var(--color-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  @media (max-width: 600px) {
+    .dl-search { width: 100%; }
+    .dl-controls { flex-direction: column; align-items: stretch; }
+  }
+</style>
+
+<script is:inline>
+(function() {
+  var tabs = document.querySelectorAll('.dl-tab');
+  var cards = document.querySelectorAll('.dl-card');
+  var searchInput = document.getElementById('dl-search');
+  var countEl = document.getElementById('dl-count');
+  var activeCat = 'all';
+
+  function update() {
+    var query = searchInput.value.toLowerCase().trim();
+    var visible = 0;
+    cards.forEach(function(card) {
+      var cat = card.getAttribute('data-cat');
+      var name = card.querySelector('.dl-name').textContent.toLowerCase();
+      var brand = (card.getAttribute('data-brand') || '').toLowerCase();
+      var matchCat = activeCat === 'all' || cat === activeCat;
+      var matchSearch = !query || name.indexOf(query) !== -1 || brand.indexOf(query) !== -1 || cat.indexOf(query) !== -1;
+      if (matchCat && matchSearch) {
+        card.classList.remove('hidden');
+        visible++;
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+    countEl.textContent = visible + ' form' + (visible !== 1 ? 's' : '');
+  }
+
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      tabs.forEach(function(t) { t.classList.remove('active'); });
+      tab.classList.add('active');
+      activeCat = tab.getAttribute('data-cat');
+      update();
+    });
+  });
+
+  searchInput.addEventListener('input', update);
+  update();
+})();
+</script>
