@@ -67,6 +67,15 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
   <li><span class="check-box" data-key="ob-6">✓</span><div><strong>Submit your first order for review</strong><br><span style="color:var(--color-muted);font-size:0.88rem;">Your first 3-4 projects require a pre-order review before being sent to the factory. Email your order to our Dealer Success Specialist for review — expect a 48-hour turnaround. After your first few projects, you're cleared to order independently with <a href="/dealer-hub/submit">design reviews</a> available as needed. Follow the step-by-step process on the <a href="/dealer-hub/ordering">Ordering SOPs</a> page.</span></div></li>
 </ul>
 
+<div class="featured-tool" style="margin:2rem 0;">
+  <div class="featured-tool-header">
+    <span class="tool-badge">GUIDED WALKTHROUGH</span>
+    <h2 style="margin-top:0.5rem;">Your First Order — Step by Step</h2>
+    <p>New to ordering? Walk through each step below. Click a step to expand it and see exactly what to do, what forms you need, and where to go.</p>
+  </div>
+  <div id="first-order-walkthrough"></div>
+</div>
+
 <h2>Additional Setup</h2>
 <ul class="checklist">
   <li><span class="check-box" data-key="ob-7">✓</span><div><strong>Showroom display plan</strong><br><span style="color:var(--color-muted);font-size:0.88rem;">Work with Pinnacle Sales to plan displays that match <a href="/dealer-hub/showroom">showroom standards</a>. Includes layout, signage, and sample positioning.</span></div></li>
@@ -110,9 +119,141 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
   });
 </script>
 
+<script is:inline>
+(function() {
+  var WALKTHROUGH = [
+    {
+      title: "Design the project in 2020 / ProKitchen",
+      body: "Open the appropriate Shiloh, Eclipse, or Aspect catalog in 2020 Design or ProKitchen. Specify door style, finish, wood species, modifications, and accessories. Export a preliminary quote for client review.",
+      links: [
+        { label: "2020 Software Training", href: "/dealer-hub/training-2020-prokitchen" },
+        { label: "Product Deep-Dive", href: "/dealer-hub/training-product-deep-dive" }
+      ]
+    },
+    {
+      title: "Fill out the Cover Sheet & Order Form",
+      body: "Every order requires a completed cover sheet and the correct standard order form for your brand. Watch the cover sheet walkthrough video on the Ordering SOPs page.",
+      links: [
+        { label: "Ordering SOPs & Forms", href: "/dealer-hub/ordering" },
+        { label: "Order Form Selector", href: "/dealer-hub/ordering#order-form-selector" }
+      ]
+    },
+    {
+      title: "Add Custom Quote items (if needed)",
+      body: "For non-standard sizes, special modifications, or unique configurations, fill out the Custom Quote Worksheet and email to quotes@wwinc.com. Skip this step if your order is entirely standard catalog items.",
+      links: [
+        { label: "Custom Quote Worksheet", href: "/downloads/custom-quote-worksheet-form.pdf" }
+      ]
+    },
+    {
+      title: "Complete Appliance Cutout Sheets (if needed)",
+      body: "If the project includes built-in appliances, submit the correct appliance cutout specification form with your order. Download the right form for your brand from the Ordering SOPs page.",
+      links: [
+        { label: "Appliance Cut Sheets", href: "/dealer-hub/ordering" }
+      ]
+    },
+    {
+      title: "Email order to Pinnacle Sales for pre-order review",
+      body: "For your first 3-4 projects, email the complete order package (project file, cover sheet, order form, any cutout sheets) to your Pinnacle Sales Dealer Success Specialist. Expect a 48-hour turnaround.",
+      links: [
+        { label: "Submit for Review", href: "/dealer-hub/submit" }
+      ]
+    },
+    {
+      title: "Submit order through WW Wood portal",
+      body: "Once approved, submit the order through the WW Wood online ordering portal. Include your PO number, ship-to address, and any special instructions.",
+      links: []
+    },
+    {
+      title: "Review your Order Acknowledgment",
+      body: "WW Wood sends an acknowledgment confirming specs, pricing, and estimated ship date. You have 1 business day to review and flag changes. Send corrections to orders@wwinc.com.",
+      links: []
+    },
+    {
+      title: "Track production & prepare for delivery",
+      body: "Standard lead time is approximately 6 weeks. Track order status through the WW Wood portal or email customer.service@wwinc.com with your order number. Inspect all cabinets upon delivery and note any damage on the carrier's bill of lading.",
+      links: [
+        { label: "Warranty Forms", href: "/dealer-hub/ordering" },
+        { label: "Support & Escalation", href: "/dealer-hub/support" }
+      ]
+    }
+  ];
+
+  var container = document.getElementById("first-order-walkthrough");
+  if (!container) return;
+
+  var doneSteps = {};
+  WALKTHROUGH.forEach(function(_, i) {
+    if (localStorage.getItem("fow_" + i) === "done") doneSteps[i] = true;
+  });
+  var activeIndex = -1;
+
+  function render() {
+    var doneCount = Object.keys(doneSteps).length;
+    var pct = Math.round((doneCount / WALKTHROUGH.length) * 100);
+    var html = "";
+
+    WALKTHROUGH.forEach(function(step, i) {
+      var isDone = doneSteps[i];
+      var isActive = i === activeIndex;
+      var cls = "fow-step" + (isActive ? " active" : "") + (isDone ? " done" : "");
+      html += '<div class="' + cls + '" data-fow="' + i + '">';
+      html += '<div class="fow-header"><span class="fow-number">' + (isDone ? "✓" : (i + 1)) + '</span>';
+      html += '<span class="fow-title">' + step.title + '</span>';
+      html += '<span class="fow-chevron">▶</span></div>';
+      html += '<div class="fow-body"><div class="fow-content">';
+      html += '<p style="margin:0 0 0.5rem;">' + step.body + '</p>';
+      if (step.links.length > 0 || !isDone) {
+        html += '<div class="fow-actions">';
+        step.links.forEach(function(link) {
+          html += '<a href="' + link.href + '" class="fow-action-btn">' + link.label + ' →</a>';
+        });
+        if (!isDone) {
+          html += '<button class="fow-done-btn" data-fow-done="' + i + '">Mark Complete</button>';
+        }
+        html += '</div>';
+      }
+      html += '</div></div></div>';
+    });
+
+    html += '<div class="fow-progress-summary">';
+    html += '<div class="fow-progress-track"><div class="fow-progress-fill" style="width:' + pct + '%"></div></div>';
+    html += '<span class="fow-progress-text">' + doneCount + ' / ' + WALKTHROUGH.length + ' complete</span>';
+    html += '</div>';
+
+    container.innerHTML = html;
+
+    container.querySelectorAll(".fow-header").forEach(function(header) {
+      header.addEventListener("click", function() {
+        var idx = parseInt(header.parentElement.getAttribute("data-fow"));
+        activeIndex = activeIndex === idx ? -1 : idx;
+        render();
+      });
+    });
+
+    container.querySelectorAll(".fow-done-btn").forEach(function(btn) {
+      btn.addEventListener("click", function(e) {
+        e.stopPropagation();
+        var idx = parseInt(btn.getAttribute("data-fow-done"));
+        doneSteps[idx] = true;
+        localStorage.setItem("fow_" + idx, "done");
+        var next = -1;
+        for (var j = idx + 1; j < WALKTHROUGH.length; j++) {
+          if (!doneSteps[j]) { next = j; break; }
+        }
+        activeIndex = next;
+        render();
+      });
+    });
+  }
+
+  render();
+})();
+</script>
+
 </DealerHubLayout>
 
-<style>
+<style is:global>
   .timeline-overview {
     border: 1px solid var(--color-border);
     border-radius: 8px;
@@ -176,5 +317,159 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
   @media (max-width: 600px) {
     .team-table { font-size: 0.8rem; }
     .team-table th, .team-table td { padding: 0.4rem 0.5rem; }
+  }
+  .featured-tool {
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 1.75rem;
+  }
+  .featured-tool-header { margin-bottom: 1.25rem; }
+  .tool-badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+  }
+  .fow-step {
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .fow-step.active { border-color: var(--color-dark); }
+  .fow-step.done { border-color: #D1FAE5; }
+  .fow-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s;
+  }
+  .fow-header:hover { background: var(--color-bg-alt); }
+  .fow-number {
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;
+    font-weight: 700;
+    border: 2px solid var(--color-border);
+    color: var(--color-muted);
+    transition: all 0.2s;
+  }
+  .fow-step.active .fow-number {
+    border-color: var(--color-dark);
+    color: #fff;
+    background: var(--color-dark);
+  }
+  .fow-step.done .fow-number {
+    border-color: #0B6E4F;
+    color: #fff;
+    background: #0B6E4F;
+  }
+  .fow-title {
+    flex: 1;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-dark);
+  }
+  .fow-step.done .fow-title {
+    color: var(--color-muted);
+    text-decoration: line-through;
+  }
+  .fow-chevron {
+    font-size: 0.75rem;
+    color: var(--color-muted);
+    transition: transform 0.2s;
+  }
+  .fow-step.active .fow-chevron { transform: rotate(90deg); }
+  .fow-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+  .fow-step.active .fow-body { max-height: 600px; }
+  .fow-content {
+    padding: 0 1rem 1rem 3rem;
+    font-size: 0.88rem;
+    color: var(--color-muted);
+    line-height: 1.65;
+  }
+  .fow-content a {
+    color: var(--color-dark);
+    font-weight: 600;
+  }
+  .fow-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .fow-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 0.85rem;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--color-dark);
+    text-decoration: none;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .fow-action-btn:hover {
+    border-color: var(--color-dark);
+    background: var(--color-bg-alt);
+  }
+  .fow-done-btn {
+    font-family: var(--font-body);
+    padding: 0.4rem 1rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    background: var(--color-dark);
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .fow-done-btn:hover { background: #333; }
+  .fow-progress-summary {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    padding: 0.6rem 0;
+  }
+  .fow-progress-track {
+    flex: 1;
+    height: 4px;
+    border-radius: 10px;
+    background: var(--color-border);
+    overflow: hidden;
+  }
+  .fow-progress-fill {
+    height: 100%;
+    border-radius: 10px;
+    background: #0B6E4F;
+    transition: width 0.5s ease;
+  }
+  .fow-progress-text {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-muted);
+    white-space: nowrap;
   }
 </style>
