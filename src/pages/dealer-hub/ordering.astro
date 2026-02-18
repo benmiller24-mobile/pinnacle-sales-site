@@ -36,6 +36,32 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
       <p class="video-caption">Custom Quote Worksheet Overview for Shiloh and Eclipse Cabinetry</p>
     </div>
   </li>
+  <li><strong>Appliance Specs &amp; Cutout Sheets</strong> — If the project includes built-in appliances, you'll need to submit the correct appliance cutout specification forms and panel dimensions with your order. Download the appropriate cutout sheets for your brand below. Watch the walkthrough videos to learn how to spec appliance cutouts and appliance panels correctly.
+    <div class="custom-quote-resources">
+      <a href="/downloads/oven-cutout-spec-aspect.pdf" class="download-btn" download>Aspect Oven Cutout Sheet</a>
+      <a href="/downloads/oven-microwave-cutout-spec-aspect.pdf" class="download-btn" download>Aspect Oven/Microwave Cutout</a>
+      <a href="/downloads/base-oven-cutout-spec-aspect.pdf" class="download-btn" download>Aspect Base Oven Cutout</a>
+      <a href="/downloads/base-warming-drawer-cutout-spec-aspect.pdf" class="download-btn" download>Aspect Warming Drawer Cutout</a>
+    </div>
+    <div class="custom-quote-resources">
+      <a href="#" class="download-btn download-btn--pending">Shiloh Appliance Cut Sheets (Coming Soon)</a>
+      <a href="#" class="download-btn download-btn--pending">Eclipse Appliance Cut Sheets (Coming Soon)</a>
+    </div>
+    <div class="video-embed">
+      <video controls preload="metadata" playsinline>
+        <source src="/videos/appliance-cutouts.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <p class="video-caption">How to Spec Appliance Cutouts</p>
+    </div>
+    <div class="video-embed">
+      <video controls preload="metadata" playsinline>
+        <source src="/videos/appliance-panels.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <p class="video-caption">How to Spec Appliance Panels</p>
+    </div>
+  </li>
   <li><strong>Pre-Order Review (First 3-4 Projects)</strong> — For your first 3-4 projects, email the 20/20 / ProKitchen project file to your Pinnacle Sales rep for a full review before ordering. We check for spec errors, pricing optimization, modification feasibility, and lead-time items that could delay delivery. After that, you're cleared to order on your own — with design reviews by Pinnacle Sales available anytime you need a second set of eyes.</li>
   <li><strong>Submit Order to WW Wood</strong> — Once the client approves, submit the order through the WW Wood online ordering portal. Include PO number, ship-to address, and any special instructions.</li>
   <li><strong>Order Acknowledgment (1 Business Day to Review)</strong> — WW Wood sends an order acknowledgment confirming specs, pricing, and estimated ship date. You have 1 business day to review and flag any changes or error corrections. Mark corrections directly on the acknowledgment and resend to <a href="mailto:orders@wwinc.com">orders@wwinc.com</a>. Do not consider the order final until you receive a revised acknowledgment reflecting your changes. Changes after this window may incur charges or reset lead time.</li>
@@ -106,5 +132,11 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
   }
   .download-btn:hover {
     background: #333;
+  }
+  .download-btn--pending {
+    background: #888;
+    cursor: default;
+    pointer-events: none;
+    opacity: 0.7;
   }
 </style>
