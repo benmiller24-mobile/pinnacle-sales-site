@@ -9,20 +9,36 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
 <h2>Brand Logos & Assets</h2>
 <p>Use these official brand logos on your website, social media, print materials, and showroom signage. All logos should be used as provided without modification.</p>
 
-<div class="card-grid">
-  <div class="hub-card">
+<div class="logo-grid">
+  <div class="logo-card">
+    <div class="logo-preview"><img src="/images/logos/shiloh-logo.png" alt="Shiloh Cabinetry logo" /></div>
     <h3>Shiloh Cabinetry</h3>
-    <p>Logo files (PNG, SVG), brand guidelines, and approved color palette. Contact Pinnacle Sales for high-res files.</p>
+    <p>Face-frame cabinetry with custom finish options and traditional craftsmanship.</p>
+    <div class="logo-downloads">
+      <a href="/images/logos/shiloh-logo.png" download class="download-btn">PNG (Web)</a>
+      <a href="/downloads/Shiloh Cabinetry TM Color.pdf" target="_blank" class="download-btn">PDF (Vector)</a>
+    </div>
   </div>
-  <div class="hub-card">
+  <div class="logo-card">
+    <div class="logo-preview"><img src="/images/logos/eclipse-logo.png" alt="Eclipse Cabinetry logo" /></div>
     <h3>Eclipse Cabinetry</h3>
-    <p>Logo files, brand guidelines, and the Eclipse black/white logo variants. Contact Pinnacle Sales for high-res files.</p>
+    <p>Frameless full-access cabinetry with modern European construction.</p>
+    <div class="logo-downloads">
+      <a href="/images/logos/eclipse-logo.png" download class="download-btn">PNG (Web)</a>
+      <a href="/downloads/Eclipse Cabinetry TM Color.pdf" target="_blank" class="download-btn">PDF (Vector)</a>
+    </div>
   </div>
-  <div class="hub-card">
+  <div class="logo-card">
+    <div class="logo-preview"><img src="/images/logos/aspect-logo.png" alt="Aspect Cabinetry logo" /></div>
     <h3>Aspect Cabinetry</h3>
-    <p>Logo files and brand color specifications. Contact Pinnacle Sales for high-res files.</p>
+    <p>Value-tier cabinetry with competitive pricing and reliable quality.</p>
+    <div class="logo-downloads">
+      <a href="/images/logos/aspect-logo.png" download class="download-btn">PNG (Web)</a>
+      <a href="/downloads/Aspect Cabinetry TM Color.pdf" target="_blank" class="download-btn">PDF (Vector)</a>
+    </div>
   </div>
-  <div class="hub-card">
+  <div class="logo-card">
+    <div class="logo-preview" style="display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:600;color:var(--color-muted);">Pronorm</div>
     <h3>Pronorm German Kitchens</h3>
     <p>All Pronorm marketing assets and brand guidelines available at <a href="https://pronormusa.com" target="_blank" rel="noopener">PronormUSA.com</a>.</p>
   </div>
@@ -66,3 +82,67 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
 <p>To order print materials, contact your Pinnacle Sales territory rep.</p>
 
 </DealerHubLayout>
+
+<style>
+  .logo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0 2.5rem;
+  }
+  .logo-card {
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+  }
+  .logo-card h3 {
+    margin: 0.75rem 0 0.35rem;
+    font-size: 1rem;
+  }
+  .logo-card p {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    margin: 0 0 0.75rem;
+    line-height: 1.5;
+  }
+  .logo-preview {
+    background: #f9fafb;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 1rem;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo-preview img {
+    max-width: 100%;
+    max-height: 100px;
+    object-fit: contain;
+  }
+  .logo-downloads {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--color-dark);
+    text-decoration: none;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .download-btn::before {
+    content: "⬇";
+    font-size: 0.7rem;
+  }
+  .download-btn:hover {
+    border-color: var(--color-dark);
+    background: var(--color-bg-alt);
+  }
+</style>
