@@ -1,0 +1,327 @@
+---
+import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
+---
+<DealerHubLayout title="Video Library | Pinnacle Sales Dealer Hub" activeSection="Video Library">
+
+<h1>Video Library</h1>
+<p class="page-subtitle">All training videos in one place. Filter by category or search to find the tutorial you need.</p>
+
+<div class="vl-controls">
+  <div class="vl-tabs" id="vl-tabs">
+    <button class="vl-tab active" data-cat="all">All (11)</button>
+    <button class="vl-tab" data-cat="ordering">Ordering</button>
+    <button class="vl-tab" data-cat="software">2020 Software</button>
+    <button class="vl-tab" data-cat="product">Product Training</button>
+  </div>
+  <div class="vl-search-wrap">
+    <input type="text" class="vl-search" id="vl-search" placeholder="Search videos…" />
+  </div>
+</div>
+
+<div class="vl-grid" id="vl-grid">
+
+  <!-- ORDERING -->
+  <div class="vl-card" data-cat="ordering">
+    <div class="vl-video">
+      <video controls preload="metadata" playsinline>
+        <source src="/videos/how-to-fill-out-shiloh-cabinetry-cover-sheet.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="vl-info">
+      <h3 class="vl-title">How to Fill Out the Cover Sheet</h3>
+      <div class="vl-meta"><span class="vl-duration">2:37</span><span class="vl-category">Ordering</span></div>
+      <p class="vl-desc">Walkthrough of the Shiloh Cabinetry Standard Order Form — dealer info, project details, door style, finish, character technique and finish technique selection charts.</p>
+    </div>
+  </div>
+
+  <div class="vl-card" data-cat="ordering">
+    <div class="vl-video">
+      <video controls preload="metadata" playsinline>
+        <source src="/videos/custom-quote-worksheet-overview.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="vl-info">
+      <h3 class="vl-title">Custom Quote Worksheet Overview</h3>
+      <div class="vl-meta"><span class="vl-duration">0:59</span><span class="vl-category">Ordering</span></div>
+      <p class="vl-desc">How to complete the WW-CQW-SD Custom Quote Worksheet for non-standard sizes, special modifications, and unique configurations. Quotes valid for 90 days.</p>
+    </div>
+  </div>
+
+  <div class="vl-card" data-cat="ordering">
+    <div class="vl-video">
+      <video controls preload="metadata" playsinline>
+        <source src="/videos/lead-times.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="vl-info">
+      <h3 class="vl-title">Understanding Lead Times</h3>
+      <div class="vl-meta"><span class="vl-duration">1:06</span><span class="vl-category">Ordering</span></div>
+      <p class="vl-desc">Walkthrough of the WW Wood order confirmation — estimated ship dates, pricing breakdown, dealer discounts, and what to review before production begins.</p>
+    </div>
+  </div>
+
+  <div class="vl-card" data-cat="ordering">
+    <div class="vl-video">
+      <video controls preload="metadata" playsinline>
+        <source src="/videos/warranty-request-form-review.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="vl-info">
+      <h3 class="vl-title">How to Order Warranty Items</h3>
+      <div class="vl-meta"><span class="vl-duration">1:11</span><span class="vl-category">Ordering</span></div>
+      <p class="vl-desc">How to submit warranty claims for damaged or defective cabinets. Covers the warranty request form, required documentation, and submission process.</p>
+    </div>
+  </div>
+
+  <!-- 2020 SOFTWARE -->
+  <div class="vl-card" data-cat="software">
+    <div class="vl-video">
+      <video controls preload="metadata" playsinline>
+        <source src="/videos/painted-hardwood-selection-2020.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="vl-info">
+      <h3 class="vl-title">How to Select a Painted Hardwood in 2020</h3>
+      <div class="vl-meta"><span class="vl-duration">2:06</span><span class="vl-category">2020 Software</span></div>
+      <p class="vl-desc">Learn how to select Maple species and apply paint colors in 2020 Design when specifying Shiloh's painted hardwood finishes.</p>
+    </div>
+  </div>
+
+  <div class="vl-card" data-cat="software">
+    <div class="vl-video">
+      <video controls preload="metadata" playsinline>
+        <source src="/videos/fill-a-blind-base.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="vl-info">
+      <h3 class="vl-title">How to Fill a Blind Base Cabinet</h3>
+      <div class="vl-meta"><span class="vl-duration">0:50</span><span class="vl-category">2020 Software</span></div>
+      <p class="vl-desc">One of the most common spec questions — learn how to properly fill a blind base cabinet in 2020 Design.</p>
+    </div>
+  </div>
+
+  <div class="vl-card" data-cat="software">
+    <div class="vl-video">
+      <video controls preload="metadata" playsinline>
+        <source src="/videos/make-a-copy-of-2020-catalog.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="vl-info">
+      <h3 class="vl-title">How to Copy a 2020 Catalog</h3>
+      <div class="vl-meta"><span class="vl-duration">2:05</span><span class="vl-category">2020 Software</span></div>
+      <p class="vl-desc">Keep a clean master catalog by making a working copy for each project. Prevents accidentally modifying your original catalog files.</p>
+    </div>
+  </div>
+
+  <!-- PRODUCT TRAINING -->
+  <div class="vl-card" data-cat="product">
+    <div class="vl-video">
+      <video controls preload="metadata" playsinline>
+        <source src="/videos/appliance-cutouts.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="vl-info">
+      <h3 class="vl-title">Appliance Cabinet Cutouts</h3>
+      <div class="vl-meta"><span class="vl-duration">5:17</span><span class="vl-category">Product Training</span></div>
+      <p class="vl-desc">How to design and order appliance cutouts for Shiloh and Eclipse. Covers standard (¾" overlay) and flush inset construction for ovens, microwaves, and warming drawers.</p>
+    </div>
+  </div>
+
+  <div class="vl-card" data-cat="product">
+    <div class="vl-video">
+      <video controls preload="metadata" playsinline>
+        <source src="/videos/appliance-panels.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="vl-info">
+      <h3 class="vl-title">Appliance Panels</h3>
+      <div class="vl-meta"><span class="vl-duration">4:57</span><span class="vl-category">Product Training</span></div>
+      <p class="vl-desc">How to spec decorative appliance panels for refrigerators, dishwashers, and other exposed appliances to match your cabinetry.</p>
+    </div>
+  </div>
+
+  <div class="vl-card" data-cat="product">
+    <div class="vl-video">
+      <video controls preload="metadata" playsinline>
+        <source src="/videos/eclipse-standard-modifications.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="vl-info">
+      <h3 class="vl-title">Standard Modifications in Eclipse</h3>
+      <div class="vl-meta"><span class="vl-duration">11:55</span><span class="vl-category">Product Training</span></div>
+      <p class="vl-desc">Complete overview of available standard cabinet modifications for Eclipse frameless cabinetry — what's standard vs. custom-quoted.</p>
+    </div>
+  </div>
+
+  <div class="vl-card" data-cat="product">
+    <div class="vl-video">
+      <video controls preload="metadata" playsinline>
+        <source src="/videos/gola-channel-training-overview.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="vl-info">
+      <h3 class="vl-title">Eclipse GOLA Channel Collection</h3>
+      <div class="vl-meta"><span class="vl-duration">6:40</span><span class="vl-category">Product Training</span></div>
+      <p class="vl-desc">Eclipse's integrated aluminum channel handle system for a clean, handleless look. Covers options, spec requirements, and design applications.</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="vl-empty" id="vl-empty" style="display:none;">
+  <p>No videos match your search. Try a different term.</p>
+</div>
+
+</DealerHubLayout>
+
+<style is:global>
+  .vl-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    margin: 1.5rem 0 1.25rem;
+  }
+  .vl-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    flex: 1;
+  }
+  .vl-tab {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.35rem 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 20px;
+    background: transparent;
+    color: var(--color-muted);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .vl-tab:hover { border-color: var(--color-dark); color: var(--color-dark); }
+  .vl-tab.active {
+    background: var(--color-dark);
+    border-color: var(--color-dark);
+    color: #fff;
+  }
+  .vl-search-wrap { flex-shrink: 0; }
+  .vl-search {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    padding: 0.4rem 0.85rem;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    width: 200px;
+    transition: border-color 0.15s;
+  }
+  .vl-search:focus { outline: none; border-color: var(--color-dark); }
+  .vl-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.25rem;
+  }
+  .vl-card {
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .vl-card:hover {
+    border-color: var(--color-dark);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  }
+  .vl-card.hidden { display: none; }
+  .vl-video { background: #000; }
+  .vl-video video {
+    width: 100%;
+    display: block;
+    aspect-ratio: 16/9;
+    object-fit: contain;
+  }
+  .vl-info { padding: 1rem 1.25rem; }
+  .vl-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin: 0 0 0.4rem;
+    color: var(--color-dark);
+  }
+  .vl-meta {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+  .vl-duration {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--color-muted);
+    background: var(--color-bg-alt);
+    padding: 0.1rem 0.45rem;
+    border-radius: 4px;
+  }
+  .vl-category {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--color-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .vl-desc {
+    font-size: 0.82rem;
+    color: var(--color-muted);
+    line-height: 1.55;
+    margin: 0;
+  }
+  .vl-empty {
+    text-align: center;
+    padding: 2rem;
+    color: var(--color-muted);
+    font-size: 0.9rem;
+  }
+  @media (max-width: 600px) {
+    .vl-search { width: 100%; }
+    .vl-controls { flex-direction: column; align-items: stretch; }
+    .vl-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script is:inline>
+(function() {
+  var tabs = document.querySelectorAll('.vl-tab');
+  var cards = document.querySelectorAll('.vl-card');
+  var searchInput = document.getElementById('vl-search');
+  var emptyEl = document.getElementById('vl-empty');
+  var activeCat = 'all';
+
+  function update() {
+    var query = searchInput.value.toLowerCase().trim();
+    var visible = 0;
+    cards.forEach(function(card) {
+      var cat = card.getAttribute('data-cat');
+      var title = card.querySelector('.vl-title').textContent.toLowerCase();
+      var desc = card.querySelector('.vl-desc').textContent.toLowerCase();
+      var matchCat = activeCat === 'all' || cat === activeCat;
+      var matchSearch = !query || title.indexOf(query) !== -1 || desc.indexOf(query) !== -1 || cat.indexOf(query) !== -1;
+      if (matchCat && matchSearch) {
+        card.classList.remove('hidden');
+        visible++;
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+    emptyEl.style.display = visible === 0 ? 'block' : 'none';
+  }
+
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      tabs.forEach(function(t) { t.classList.remove('active'); });
+      tab.classList.add('active');
+      activeCat = tab.getAttribute('data-cat');
+      update();
+    });
+  });
+
+  searchInput.addEventListener('input', update);
+})();
+</script>
