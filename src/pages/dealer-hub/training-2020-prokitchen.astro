@@ -80,6 +80,44 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
   </ul>
 </div>
 
+<h2>Video Tutorials</h2>
+
+<div class="module-section">
+  <h3>How to Select a Painted Hardwood Other Than Maple</h3>
+  <p>When specifying a painted finish on a wood species other than Maple in 20/20 for Eclipse or Shiloh, the catalog requires a specific selection path. This walkthrough shows you exactly how to navigate it.</p>
+  <div class="video-embed">
+    <video controls preload="metadata" playsinline>
+      <source src="/videos/painted-hardwood-selection-2020.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <p class="video-caption">Selecting a Painted Hardwood Other Than Maple in 20/20</p>
+  </div>
+</div>
+
+<div class="module-section">
+  <h3>How to Fill a Blind Base</h3>
+  <p>Blind base cabinets require a specific fill configuration in 20/20 to ensure proper spacing and installation clearance. Watch this tutorial to learn the correct method.</p>
+  <div class="video-embed">
+    <video controls preload="metadata" playsinline>
+      <source src="/videos/fill-a-blind-base.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <p class="video-caption">How to Fill a Blind Base in 20/20</p>
+  </div>
+</div>
+
+<div class="module-section">
+  <h3>How to Make a Copy of a 20/20 Catalog</h3>
+  <p>Making a copy of your 20/20 catalog lets you preserve a working version before updates or experiment with settings without affecting your production catalog. Here's how to do it.</p>
+  <div class="video-embed">
+    <video controls preload="metadata" playsinline>
+      <source src="/videos/make-a-copy-of-2020-catalog.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <p class="video-caption">How to Make a Copy of a 20/20 Catalog</p>
+  </div>
+</div>
+
 <h2>Support Resources</h2>
 
 <div class="module-section">
@@ -143,4 +181,10 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
   }
   .training-cta h3 { color: #fff; margin-top: 0; }
   .training-cta a { color: #fff; font-weight: 700; text-decoration: underline; }
+  .video-embed { margin: 1rem 0 0.5rem; }
+  .video-embed video {
+    width: 100%; max-width: 640px; border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  }
+  .video-caption { font-size: 0.85rem; color: #666; margin-top: 0.4rem; font-style: italic; }
 </style>
