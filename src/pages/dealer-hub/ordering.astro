@@ -37,15 +37,41 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
     </div>
   </li>
   <li><strong>Appliance Specs &amp; Cutout Sheets</strong> — If the project includes built-in appliances, you'll need to submit the correct appliance cutout specification forms and panel dimensions with your order. Download the appropriate cutout sheets for your brand below. Watch the walkthrough videos to learn how to spec appliance cutouts and appliance panels correctly.
+    <p class="brand-label"><strong>Aspect Cut Sheets</strong></p>
     <div class="custom-quote-resources">
-      <a href="/downloads/oven-cutout-spec-aspect.pdf" class="download-btn" download>Aspect Oven Cutout Sheet</a>
-      <a href="/downloads/oven-microwave-cutout-spec-aspect.pdf" class="download-btn" download>Aspect Oven/Microwave Cutout</a>
-      <a href="/downloads/base-oven-cutout-spec-aspect.pdf" class="download-btn" download>Aspect Base Oven Cutout</a>
-      <a href="/downloads/base-warming-drawer-cutout-spec-aspect.pdf" class="download-btn" download>Aspect Warming Drawer Cutout</a>
+      <a href="/downloads/oven-cutout-spec-aspect.pdf" class="download-btn" download>Oven Cutout</a>
+      <a href="/downloads/oven-microwave-cutout-spec-aspect.pdf" class="download-btn" download>Oven/Microwave Cutout</a>
+      <a href="/downloads/base-oven-cutout-spec-aspect.pdf" class="download-btn" download>Base Oven Cutout</a>
+      <a href="/downloads/base-warming-drawer-cutout-spec-aspect.pdf" class="download-btn" download>Base Warming Drawer</a>
+    </div>
+    <p class="brand-label"><strong>Shiloh Cut Sheets</strong></p>
+    <div class="custom-quote-resources">
+      <a href="/downloads/oven-cutout-spec-shiloh.pdf" class="download-btn" download>Oven Cutout</a>
+      <a href="/downloads/oven-microwave-cutout-spec-shiloh.pdf" class="download-btn" download>Oven/Microwave Cutout</a>
+      <a href="/downloads/base-oven-cutout-spec-shiloh.pdf" class="download-btn" download>Base Oven Cutout</a>
+      <a href="/downloads/base-warming-drawer-cutout-spec-shiloh.pdf" class="download-btn" download>Base Warming Drawer</a>
+      <a href="/downloads/wall-microwave-cutout-spec-shiloh.pdf" class="download-btn" download>Wall Microwave Cutout</a>
+      <a href="/downloads/wall-microwave-custom-cutout-spec-shiloh.pdf" class="download-btn" download>Wall Microwave Custom</a>
     </div>
     <div class="custom-quote-resources">
-      <a href="#" class="download-btn download-btn--pending">Shiloh Appliance Cut Sheets (Coming Soon)</a>
-      <a href="#" class="download-btn download-btn--pending">Eclipse Appliance Cut Sheets (Coming Soon)</a>
+      <a href="/downloads/flush-inset-oven-cutout-spec-shiloh.pdf" class="download-btn" download>Flush Inset Oven</a>
+      <a href="/downloads/flush-inset-oven-microwave-cutout-spec-shiloh.pdf" class="download-btn" download>Flush Inset Oven/Microwave</a>
+      <a href="/downloads/flush-inset-base-oven-cutout-spec-shiloh.pdf" class="download-btn" download>Flush Inset Base Oven</a>
+      <a href="/downloads/flush-inset-base-warming-drawer-cutout-spec-shiloh.pdf" class="download-btn" download>Flush Inset Base Warming Drawer</a>
+    </div>
+    <p class="brand-label"><strong>Eclipse Cut Sheets</strong></p>
+    <div class="custom-quote-resources">
+      <a href="/downloads/oven-cutout-spec-eclipse.pdf" class="download-btn" download>Oven Cutout</a>
+      <a href="/downloads/oven-microwave-cutout-spec-eclipse.pdf" class="download-btn" download>Oven/Microwave Cutout</a>
+      <a href="/downloads/base-oven-cutout-spec-eclipse.pdf" class="download-btn" download>Base Oven Cutout</a>
+      <a href="/downloads/base-warming-drawer-cutout-spec-eclipse.pdf" class="download-btn" download>Base Warming Drawer</a>
+      <a href="/downloads/wall-microwave-custom-cutout-spec-eclipse.pdf" class="download-btn" download>Wall Microwave Custom</a>
+    </div>
+    <div class="custom-quote-resources">
+      <a href="/downloads/flush-inset-oven-cutout-spec-eclipse.pdf" class="download-btn" download>Flush Inset Oven</a>
+      <a href="/downloads/flush-inset-oven-microwave-cutout-spec-eclipse.pdf" class="download-btn" download>Flush Inset Oven/Microwave</a>
+      <a href="/downloads/flush-inset-base-oven-cutout-spec-eclipse.pdf" class="download-btn" download>Flush Inset Base Oven</a>
+      <a href="/downloads/flush-inset-base-warming-drawer-cutout-spec-eclipse.pdf" class="download-btn" download>Flush Inset Base Warming Drawer</a>
     </div>
     <div class="video-embed">
       <video controls preload="metadata" playsinline>
@@ -133,10 +159,9 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
   .download-btn:hover {
     background: #333;
   }
-  .download-btn--pending {
-    background: #888;
-    cursor: default;
-    pointer-events: none;
-    opacity: 0.7;
+  .brand-label {
+    margin: 1rem 0 0.25rem;
+    font-size: 0.95rem;
+    color: #333;
   }
 </style>
