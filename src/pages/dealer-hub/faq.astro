@@ -1,0 +1,416 @@
+---
+import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
+---
+<DealerHubLayout title="FAQ & Troubleshooting | Pinnacle Sales Dealer Hub" activeSection="FAQ">
+
+<h1>FAQ & Troubleshooting</h1>
+<p class="page-subtitle">Quick answers to the most common dealer questions. Can't find what you need? <a href="/dealer-hub/support">Contact support</a> or <a href="/dealer-hub/submit">submit a request</a>.</p>
+
+<div class="faq-controls">
+  <div class="faq-tabs" id="faq-tabs">
+    <button class="faq-tab active" data-cat="all">All</button>
+    <button class="faq-tab" data-cat="ordering">Ordering</button>
+    <button class="faq-tab" data-cat="software">Software</button>
+    <button class="faq-tab" data-cat="specs">Specs & Mods</button>
+    <button class="faq-tab" data-cat="warranty">Warranty & Claims</button>
+    <button class="faq-tab" data-cat="samples">Samples & Finishes</button>
+    <button class="faq-tab" data-cat="general">General</button>
+  </div>
+  <input type="text" class="faq-search" id="faq-search" placeholder="Search FAQs…" />
+</div>
+
+<div class="faq-list" id="faq-list"></div>
+<p class="faq-empty" id="faq-empty" style="display:none;">No matching questions found. Try a different search or <a href="/dealer-hub/submit">submit a request</a>.</p>
+
+<div class="faq-still-stuck">
+  <h2>Still stuck?</h2>
+  <div class="faq-stuck-grid">
+    <a href="/dealer-hub/support" class="faq-stuck-card">
+      <span class="faq-stuck-icon">🔧</span>
+      <strong>Support & Escalation Map</strong>
+      <span class="faq-stuck-desc">Find the right contact for your issue type</span>
+    </a>
+    <a href="/dealer-hub/submit" class="faq-stuck-card">
+      <span class="faq-stuck-icon">📨</span>
+      <strong>Submit a Request</strong>
+      <span class="faq-stuck-desc">Send a design review, training, or support request</span>
+    </a>
+    <a href="/dealer-hub/videos" class="faq-stuck-card">
+      <span class="faq-stuck-icon">🎬</span>
+      <strong>Video Library</strong>
+      <span class="faq-stuck-desc">Watch step-by-step training walkthroughs</span>
+    </a>
+    <a href="/dealer-hub/downloads" class="faq-stuck-card">
+      <span class="faq-stuck-icon">📥</span>
+      <strong>Downloads & Forms</strong>
+      <span class="faq-stuck-desc">All order forms, cutout sheets, and warranty docs</span>
+    </a>
+  </div>
+</div>
+
+</DealerHubLayout>
+
+<style is:global>
+  .faq-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  .faq-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    flex: 1;
+  }
+  .faq-tab {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.4rem 0.9rem;
+    border-radius: 20px;
+    border: 1px solid var(--color-border);
+    background: #fff;
+    color: var(--color-muted);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .faq-tab:hover { border-color: #aaa; color: var(--color-dark); }
+  .faq-tab.active {
+    background: var(--color-dark);
+    color: #fff;
+    border-color: var(--color-dark);
+  }
+  .faq-search {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    width: 220px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .faq-search:focus { border-color: var(--color-dark); }
+  .faq-list { margin-bottom: 2rem; }
+  .faq-item {
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .faq-item:hover { border-color: #ccc; }
+  .faq-question {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-dark);
+    line-height: 1.4;
+  }
+  .faq-question:hover { background: var(--color-bg-alt); }
+  .faq-cat-badge {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    flex-shrink: 0;
+    background: #f0f0f0;
+    color: #666;
+  }
+  .faq-chevron {
+    margin-left: auto;
+    flex-shrink: 0;
+    transition: transform 0.2s;
+    font-size: 0.8rem;
+    color: var(--color-muted);
+  }
+  .faq-item.open .faq-chevron { transform: rotate(90deg); }
+  .faq-answer {
+    display: none;
+    padding: 0 1.25rem 1.25rem 1.25rem;
+    font-size: 0.9rem;
+    color: var(--color-body);
+    line-height: 1.7;
+  }
+  .faq-item.open .faq-answer { display: block; }
+  .faq-answer p { margin-bottom: 0.75rem; }
+  .faq-answer p:last-child { margin-bottom: 0; }
+  .faq-answer a { color: var(--color-dark); font-weight: 600; }
+  .faq-answer ul { margin: 0.5rem 0 0.75rem 1.25rem; }
+  .faq-answer li { margin-bottom: 0.3rem; font-size: 0.9rem; }
+  .faq-empty {
+    text-align: center;
+    color: var(--color-muted);
+    padding: 2rem 0;
+    font-size: 0.95rem;
+  }
+  .faq-still-stuck { margin-top: 1rem; }
+  .faq-still-stuck h2 { margin-bottom: 1rem; }
+  .faq-stuck-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .faq-stuck-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 1.25rem;
+    text-decoration: none !important;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .faq-stuck-card:hover {
+    border-color: #aaa;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    opacity: 1;
+  }
+  .faq-stuck-icon { font-size: 1.5rem; }
+  .faq-stuck-card strong { font-size: 0.95rem; color: var(--color-dark); }
+  .faq-stuck-desc { font-size: 0.82rem; color: var(--color-muted); }
+  @media (max-width: 860px) {
+    .faq-controls { flex-direction: column; }
+    .faq-search { width: 100%; }
+    .faq-stuck-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script is:inline>
+(function() {
+  var FAQS = [
+    // — Ordering —
+    {
+      cat: "ordering",
+      q: "What is the standard lead time for Shiloh, Eclipse, and Aspect orders?",
+      a: "<p>Approximately <strong>6 weeks</strong> from order acknowledgment for Shiloh, Eclipse, Aspect, and Nevara orders. Lead times may vary slightly based on order complexity, finish selections, or seasonal demand. Check the <a href='/dealer-hub/ordering'>Ordering SOPs</a> page for the full process, or watch the <a href='/dealer-hub/videos'>lead times training video</a>.</p>"
+    },
+    {
+      cat: "ordering",
+      q: "How do I know which order form to use?",
+      a: "<p>Use the <strong>Order Form Selector</strong> tool on the <a href='/dealer-hub/ordering'>Ordering SOPs</a> page. Answer a few quick questions about your order (cabinets, express shipping, outsourced items, samples, loose doors) and it tells you exactly which form you need. You can also download all order forms from the <a href='/dealer-hub/downloads'>Downloads & Forms</a> page.</p>"
+    },
+    {
+      cat: "ordering",
+      q: "How long do I have to review an order acknowledgment?",
+      a: "<p><strong>1 business day.</strong> WW Wood sends an order acknowledgment confirming specs, pricing, and estimated ship date. Mark any corrections directly on the acknowledgment and resend to <a href='mailto:orders@wwinc.com'>orders@wwinc.com</a>. Do not consider the order final until you receive a revised acknowledgment. Changes after the 1-day review window may incur charges or reset lead time.</p>"
+    },
+    {
+      cat: "ordering",
+      q: "How do I submit a custom quote request?",
+      a: "<p>For non-standard sizes, special modifications, or unique configurations, fill out the <strong>Custom Quote Worksheet</strong> and email it to Billy Rhea at <a href='mailto:quotes@wwinc.com'>quotes@wwinc.com</a>. Download the form from the <a href='/dealer-hub/ordering'>Ordering SOPs</a> page or the <a href='/dealer-hub/downloads'>Downloads & Forms</a> page. There's also a walkthrough video showing how to complete it.</p>"
+    },
+    {
+      cat: "ordering",
+      q: "Can I expedite an order?",
+      a: "<p><strong>Contact Pinnacle Sales first</strong> at 480-993-9224. We coordinate directly with WW Wood production scheduling. Not all orders can be expedited, but we'll always push. For rush replacement parts, also contact WW Wood Customer Service at 573-624-7090 and request \"rush\" priority. Typical rush timeline is 2-3 weeks depending on complexity.</p>"
+    },
+    {
+      cat: "ordering",
+      q: "Where do I check order status?",
+      a: "<p>Check the <strong>WW Wood online portal</strong> or your delivery acknowledgment. You can also email <a href='mailto:customer.service@wwinc.com'>customer.service@wwinc.com</a> with your order number for a delivery ETA. If unresolved within 24 hours, contact Pinnacle Sales.</p>"
+    },
+    {
+      cat: "ordering",
+      q: "How do I order for Pronorm?",
+      a: "<p>All Pronorm design, ordering, and specification inquiries are handled through <a href='https://pronormusa.com' target='_blank' rel='noopener'>PronormUSA.com</a>. The Pronorm ordering process is separate from Shiloh/Eclipse/Aspect.</p>"
+    },
+    // — Software —
+    {
+      cat: "software",
+      q: "How do I install the Shiloh/Eclipse/Aspect catalogs in 20/20 or ProKitchen?",
+      a: "<p>Search for \"Shiloh,\" \"Eclipse,\" or \"Aspect\" in your 20/20 or ProKitchen <strong>catalog manager</strong>. Always ensure you're running the latest catalog version — outdated catalogs may be missing new door styles, finishes, or pricing. Your Pinnacle rep or Gillian Patriquin will notify you when a new version is available. See the full <a href='/dealer-hub/training-2020-prokitchen'>Software Training</a> page for details.</p>"
+    },
+    {
+      cat: "software",
+      q: "A door style or finish I need isn't showing up in the catalog. What should I do?",
+      a: "<p>First, check whether your <strong>catalog needs updating</strong> — outdated catalogs are the #1 cause of missing options. Update through your 20/20 or ProKitchen catalog manager. If the option is still missing after updating, contact Gillian Patriquin at <a href='tel:7208628068'>(720) 862-8068</a> or <a href='mailto:gillian@pinnaclesales.biz'>gillian@pinnaclesales.biz</a>.</p>"
+    },
+    {
+      cat: "software",
+      q: "How do I select a painted hardwood other than Maple in 20/20?",
+      a: "<p>The catalog requires a specific selection path for painted finishes on non-Maple wood species. Watch the <a href='/dealer-hub/training-2020-prokitchen'>training video</a> on this topic for a step-by-step walkthrough, or find it in the <a href='/dealer-hub/videos'>Video Library</a>.</p>"
+    },
+    {
+      cat: "software",
+      q: "Who do I contact for software training or questions?",
+      a: "<p><strong>Gillian Patriquin</strong> — <a href='tel:7208628068'>(720) 862-8068</a> — <a href='mailto:gillian@pinnaclesales.biz'>gillian@pinnaclesales.biz</a>. She handles all 20/20 and ProKitchen training, catalog questions, and live Zoom walkthroughs. You can also <a href='/dealer-hub/submit'>submit a training request</a> to schedule a session.</p>"
+    },
+    {
+      cat: "software",
+      q: "How does pricing work in the design software?",
+      a: "<p>Catalog pricing reflects <strong>current list prices</strong>. Your dealer multiplier is applied at the time of order submission — the software quote gives you the list price, which you then multiply by your dealer discount factor for your cost. Customer pricing is at your discretion.</p>"
+    },
+    // — Specs & Modifications —
+    {
+      cat: "specs",
+      q: "What appliance cutout forms do I need to submit with my order?",
+      a: "<p>If the project includes built-in appliances, submit the correct <strong>appliance cutout specification forms</strong> and panel dimensions with your order. Download the appropriate cutout sheets for Aspect, Shiloh, or Eclipse from the <a href='/dealer-hub/ordering'>Ordering SOPs</a> page or the <a href='/dealer-hub/downloads'>Downloads & Forms</a> page. Watch the appliance cutouts and appliance panels training videos for how to spec them correctly.</p>"
+    },
+    {
+      cat: "specs",
+      q: "What modifications are considered standard vs. custom for Eclipse?",
+      a: "<p>Eclipse supports a wide range of <strong>standard modifications</strong> — height changes, width adjustments, depth alterations — without requiring a custom quote. Watch the <a href='/dealer-hub/training-product-deep-dive'>Eclipse Standard Cabinet Modifications video</a> on the Product Deep-Dive page to learn what's available and which changes are standard vs. custom.</p>"
+    },
+    {
+      cat: "specs",
+      q: "I accidentally specified the wrong cabinet depth for a vanity. How do I fix it?",
+      a: "<p>This is one of the most common errors. Vanities should be <strong>21″ depth</strong>, not 24″ (kitchen base depth). If the order hasn't been submitted yet, correct it in your design software. If already submitted, send corrections immediately to <a href='mailto:orders@wwinc.com'>orders@wwinc.com</a> — the sooner you catch it, the easier it is to fix before production begins.</p>"
+    },
+    {
+      cat: "specs",
+      q: "What is GOLA and which brand offers it?",
+      a: "<p>GOLA is an <strong>integrated aluminum channel handle system</strong> routed directly into the cabinet door or drawer front, eliminating external hardware. It's available exclusively on <strong>Eclipse</strong> cabinetry. Multiple profiles and finishes are available. Watch the <a href='/dealer-hub/training-product-deep-dive'>GOLA Channel Training Overview</a> video on the Product Deep-Dive page.</p>"
+    },
+    {
+      cat: "specs",
+      q: "What's the difference between framed (Shiloh) and frameless (Eclipse)?",
+      a: "<p><strong>Framed cabinets (Shiloh)</strong> have a wood border around the cabinet opening — traditional look with visible frame between doors. <strong>Frameless cabinets (Eclipse)</strong> have doors that cover nearly the full cabinet face — sleek, contemporary European appearance with minimal gaps. Both use the same ¾″ plywood construction. The choice is aesthetic, not quality. See the <a href='/dealer-hub/training-product-deep-dive'>Product Deep-Dive</a> for the full comparison.</p>"
+    },
+    // — Warranty & Claims —
+    {
+      cat: "warranty",
+      q: "How do I report shipping damage?",
+      a: "<p><strong>Inspect all cabinets upon delivery.</strong> Note any damage on the carrier's bill of lading before signing. Report damage or missing items to WW Wood Customer Service at 573-624-7090 <strong>within 5 business days</strong> of delivery. Include photos of damage, order number, and a completed warranty form. Download forms from the <a href='/dealer-hub/downloads'>Downloads & Forms</a> page.</p>"
+    },
+    {
+      cat: "warranty",
+      q: "Where do I find the warranty claim forms?",
+      a: "<p>Download the brand-specific warranty form from the <a href='/dealer-hub/downloads'>Downloads & Forms</a> page or the <a href='/dealer-hub/ordering'>Ordering SOPs</a> page (Step 8). Forms are available for Shiloh, Eclipse, and Aspect. Watch the warranty request form walkthrough video to learn how to fill it out correctly.</p>"
+    },
+    {
+      cat: "warranty",
+      q: "What are the warranty terms for each brand?",
+      a: "<p><strong>Shiloh and Eclipse:</strong> 10-year warranty. <strong>Aspect:</strong> 5-year warranty. Covers manufacturing defects, finish issues, and hardware failures. Claims require a completed warranty form, original order number, install date, and detailed photos. Submit to WW Wood Customer Service at 573-624-7090.</p>"
+    },
+    {
+      cat: "warranty",
+      q: "My warranty claim was denied or hasn't been resolved. What do I do?",
+      a: "<p>Contact <strong>Pinnacle Sales</strong> at 480-993-9224 or <a href='mailto:marketing@pinnaclesales.biz'>marketing@pinnaclesales.biz</a>. We advocate directly with the factory on your behalf. The escalation path is: WW Wood Customer Service → allow 5 business days → escalate to Pinnacle Sales. See the <a href='/dealer-hub/support'>Support & Escalation Map</a> for full routing details.</p>"
+    },
+    // — Samples & Finishes —
+    {
+      cat: "samples",
+      q: "How do I order door samples?",
+      a: "<p>Download the sample request form for your brand (Aspect, Eclipse, or Shiloh) from the <a href='/dealer-hub/order-samples'>Order Samples</a> page or the <a href='/dealer-hub/downloads'>Downloads & Forms</a> page. Each brand has 4 forms available for different sample types.</p>"
+    },
+    {
+      cat: "samples",
+      q: "Can I get a custom paint color matched?",
+      a: "<p>Yes — Shiloh and Eclipse both offer <strong>custom paint matching to any Sherwin-Williams color</strong>. This is a major differentiator when designers need a specific color. Specify the Sherwin-Williams color code in your order.</p>"
+    },
+    {
+      cat: "samples",
+      q: "What wood species are available?",
+      a: "<p>Shiloh and Eclipse offer multiple wood species including <strong>Maple, Cherry, Hickory, Quartersawn White Oak, Rustic Alder</strong>, and more. The full selection with stains, paints, glazes, distressing, and specialty finishes is in the 20/20/ProKitchen catalogs. See the <a href='/dealer-hub/training-product-deep-dive'>Product Deep-Dive</a> for brand-specific details.</p>"
+    },
+    // — General —
+    {
+      cat: "general",
+      q: "I'm a new dealer. Where do I start?",
+      a: "<p>Start with the <a href='/dealer-hub/onboarding'>Onboarding</a> page — it has a 6-step program with a visual timeline covering your first 8+ weeks. For designers specifically, the <a href='/dealer-hub/designer-onboarding'>Designer Onboarding</a> roadmap is a structured 5-phase training plan from product knowledge through first orders.</p>"
+    },
+    {
+      cat: "general",
+      q: "Should my first few orders be reviewed before I submit them?",
+      a: "<p><strong>Yes.</strong> For your first 3-4 projects, email the 20/20 / ProKitchen project file to your Pinnacle Sales rep for a full review before ordering. We check for spec errors, pricing optimization, modification feasibility, and lead-time items. After that, you're cleared to order on your own — with design reviews available anytime.</p>"
+    },
+    {
+      cat: "general",
+      q: "How do I contact Pinnacle Sales?",
+      a: "<p><strong>Phone:</strong> 480-993-9224<br><strong>Email:</strong> <a href='mailto:marketing@pinnaclesales.biz'>marketing@pinnaclesales.biz</a><br>You can also <a href='/dealer-hub/submit'>submit a request</a> through the hub for training, design reviews, or support issues. See the <a href='/dealer-hub/support'>Support & Escalation Map</a> for issue-specific routing.</p>"
+    },
+    {
+      cat: "general",
+      q: "Where can I find all downloadable forms and documents?",
+      a: "<p>The <a href='/dealer-hub/downloads'>Downloads & Forms</a> page has every downloadable resource in one place — order forms, sample request forms, appliance cutout sheets, warranty documents, and brand logos. You can filter by category and search by name.</p>"
+    },
+    {
+      cat: "general",
+      q: "How do I position Shiloh and Eclipse against competitors like Kraftmaid?",
+      a: "<p>See the full <a href='/dealer-hub/training-competitive-positioning'>Competitive Positioning</a> training module. Key Shiloh advantages over Kraftmaid: full ¾″ plywood box (vs. particleboard), 6 inset options, custom Sherwin-Williams paint matching, dealer-direct pricing, and competitive lead times.</p>"
+    },
+    {
+      cat: "general",
+      q: "What is Vistora?",
+      a: "<p>Vistora is a <strong>fully assembled modular closet system</strong> built by W.W. Wood Products. Where typical closet systems need 20-30 individual parts per closet, Vistora uses 4-5 pre-assembled floor-mounted modules. Nine finish options, hardware in Matte Black and Matte Chrome. Great add-on for kitchen dealers capturing whole-home projects. See the <a href='/dealer-hub/training-product-deep-dive'>Product Deep-Dive</a> for more.</p>"
+    }
+  ];
+
+  var CAT_LABELS = {
+    ordering: "Ordering",
+    software: "Software",
+    specs: "Specs",
+    warranty: "Warranty",
+    samples: "Samples",
+    general: "General"
+  };
+
+  var activeCat = "all";
+  var searchQuery = "";
+  var openIndex = -1;
+
+  function render() {
+    var list = document.getElementById("faq-list");
+    var empty = document.getElementById("faq-empty");
+    var q = searchQuery.toLowerCase();
+    var html = "";
+    var count = 0;
+
+    FAQS.forEach(function(faq, i) {
+      var catMatch = activeCat === "all" || faq.cat === activeCat;
+      var searchMatch = !q || faq.q.toLowerCase().indexOf(q) !== -1 || faq.a.toLowerCase().indexOf(q) !== -1;
+      if (!catMatch || !searchMatch) return;
+      count++;
+      var isOpen = openIndex === i;
+      html += '<div class="faq-item' + (isOpen ? ' open' : '') + '" data-idx="' + i + '">';
+      html += '<button class="faq-question"><span class="faq-cat-badge">' + (CAT_LABELS[faq.cat] || faq.cat) + '</span>';
+      html += '<span>' + faq.q + '</span><span class="faq-chevron">▶</span></button>';
+      html += '<div class="faq-answer">' + faq.a + '</div></div>';
+    });
+
+    list.innerHTML = html;
+    empty.style.display = count === 0 ? "block" : "none";
+
+    list.querySelectorAll(".faq-question").forEach(function(btn) {
+      btn.addEventListener("click", function() {
+        var idx = parseInt(btn.parentElement.getAttribute("data-idx"));
+        openIndex = openIndex === idx ? -1 : idx;
+        render();
+      });
+    });
+  }
+
+  // Tab clicks
+  document.getElementById("faq-tabs").addEventListener("click", function(e) {
+    if (!e.target.classList.contains("faq-tab")) return;
+    document.querySelectorAll(".faq-tab").forEach(function(t) { t.classList.remove("active"); });
+    e.target.classList.add("active");
+    activeCat = e.target.getAttribute("data-cat");
+    openIndex = -1;
+    render();
+  });
+
+  // Search
+  document.getElementById("faq-search").addEventListener("input", function(e) {
+    searchQuery = e.target.value;
+    openIndex = -1;
+    render();
+  });
+
+  render();
+})();
+</script>
