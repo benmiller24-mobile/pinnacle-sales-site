@@ -8,20 +8,20 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
 
 <!-- Welcome Banner -->
 <div class="welcome-banner" id="welcome-banner">
-  <button class="banner-dismiss" id="banner-dismiss" aria-label="Dismiss">&times;</button>
+  <button class="banner-dismiss" id="dismiss-banner" aria-label="Dismiss">&times;</button>
   <div class="banner-content">
     <h2>Welcome to the Pinnacle Sales Dealer Hub</h2>
-    <p>Start with your <strong>Activation Plan</strong> — a personalized roadmap that walks you through onboarding, training, and your first order. You can also explore any section from the cards below.</p>
-    <a href="/dealer-hub/activation" class="banner-cta">Open Your Activation Plan &rarr;</a>
+    <p>We recommend starting with your <strong>Activation Plan</strong> — a 21-day guided path from setup to Certified Dealer.</p>
+    <a href="/dealer-hub/activation" class="banner-cta">Go to Activation Plan &rarr;</a>
   </div>
 </div>
 
 <div class="card-grid">
-  <a href="/dealer-hub/activation" class="hub-card hub-card-featured">
-    <span class="card-icon">🚀</span>
-    <h3>Activation Plan</h3>
-    <p>Your personalized onboarding roadmap — track progress, access resources, and schedule training.</p>
-  </a>
+  <div class="hub-card hub-card-featured">
+    <h3>🚀 Your Activation Plan</h3>
+    <p>New to Pinnacle Sales? Start here. Your personalized 21-day guide from account setup to Certified Dealer status.</p>
+    <a href="/dealer-hub/activation" class="featured-card-btn">Start Your Activation Plan &rarr;</a>
+  </div>
   <a href="/dealer-hub/onboarding" class="hub-card">
     <span class="card-icon">✓</span>
     <h3>Dealer Onboarding</h3>
@@ -81,27 +81,29 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
 <style>
   .welcome-banner {
     position: relative;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-    color: #fff;
+    background: #F5F0EB;
+    color: var(--color-body);
     border-radius: 8px;
     padding: 2rem 2.5rem;
     margin-bottom: 2rem;
   }
   .welcome-banner h2 {
-    color: #fff;
+    color: var(--color-dark);
     margin: 0 0 0.75rem;
     font-size: 1.25rem;
+    font-family: 'Questrial', sans-serif;
   }
   .welcome-banner p {
-    color: rgba(255,255,255,0.85);
+    color: var(--color-body);
     margin: 0 0 1.25rem;
     line-height: 1.6;
     max-width: 600px;
+    font-family: 'Assistant', sans-serif;
   }
   .banner-cta {
     display: inline-block;
-    background: #fff;
-    color: #1a1a2e;
+    background: var(--color-dark);
+    color: #fff;
     padding: 0.55rem 1.25rem;
     border-radius: 4px;
     font-weight: 600;
@@ -109,39 +111,61 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
     text-decoration: none;
     transition: background 0.15s;
   }
-  .banner-cta:hover { background: #e8e8e8; }
+  .banner-cta:hover { background: #000; }
   .banner-dismiss {
     position: absolute;
     top: 0.75rem;
     right: 1rem;
     background: none;
     border: none;
-    color: rgba(255,255,255,0.5);
+    color: var(--color-muted);
     font-size: 1.5rem;
     cursor: pointer;
     line-height: 1;
     padding: 0.25rem;
   }
-  .banner-dismiss:hover { color: #fff; }
+  .banner-dismiss:hover { color: var(--color-dark); }
 
   .hub-card-featured {
-    border: 2px solid var(--color-dark) !important;
-    background: rgba(0,0,0,0.02);
+    background: #4A4A4D !important;
+    border: none !important;
+    color: #fff;
+    grid-column: 1 / -1;
   }
+  .hub-card-featured h3 {
+    color: #fff !important;
+    font-size: 1.15rem;
+  }
+  .hub-card-featured p {
+    color: rgba(255,255,255,0.85) !important;
+  }
+  .featured-card-btn {
+    display: inline-block;
+    margin-top: 0.75rem;
+    background: #fff;
+    color: #4A4A4D;
+    padding: 0.5rem 1.2rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none !important;
+    transition: background 0.15s;
+  }
+  .featured-card-btn:hover { background: #e8e8e8; opacity: 1; }
 </style>
 
 <script is:inline>
   // Dismiss welcome banner with localStorage persistence
   (function() {
     var banner = document.getElementById('welcome-banner');
-    var dismiss = document.getElementById('banner-dismiss');
-    if (localStorage.getItem('ps_welcome_dismissed') === 'true' && banner) {
+    var dismiss = document.getElementById('dismiss-banner');
+    if (localStorage.getItem('pinnacle_welcome_dismissed') === 'true' && banner) {
       banner.style.display = 'none';
     }
     if (dismiss) {
       dismiss.addEventListener('click', function() {
         banner.style.display = 'none';
-        localStorage.setItem('ps_welcome_dismissed', 'true');
+        localStorage.setItem('pinnacle_welcome_dismissed', 'true');
       });
     }
   })();
