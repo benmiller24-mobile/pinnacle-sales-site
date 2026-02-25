@@ -3,82 +3,54 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
 ---
 <DealerHubLayout title="Activation Plan | Pinnacle Sales Dealer Hub" activeSection="Activation Plan">
 
-<h1>Dealer Activation Plan</h1>
-<p class="page-subtitle">Your 21-day Activation Plan guides you through everything you need to become a fully certified Pinnacle Sales dealer. Track your progress, complete each module, and book your Certification Call — all in one place.</p>
-
-<div class="activation-portal-wrapper">
-  <div class="portal-header">
-    <span class="portal-badge">INTERACTIVE PORTAL</span>
-    <p class="portal-note">This portal is personalized to your dealership. Work through each module at your own pace.</p>
-  </div>
-  <div class="portal-embed">
-    <iframe
-      id="activation-iframe"
-      src="https://showroom-atlas.netlify.app"
-      title="Dealer Activation Portal"
-      width="100%"
-      style="min-height: calc(100vh - 200px); border: none; border-radius: 0;"
-      frameborder="0"
-      loading="lazy"
-    ></iframe>
-  </div>
+<div class="activation-header">
+  <p class="activation-badge">Dealer Onboarding</p>
+  <h1>Your Activation Plan</h1>
+  <p class="activation-intro">Your 21-day guide from account setup to Certified Dealer status. Track your progress, complete each module, and book your Certification Call — all in one place.</p>
 </div>
 
-<h2>Need Help?</h2>
-<div class="card-grid">
-  <a href="/dealer-hub/submit" class="hub-card">
-    <span class="card-icon">📨</span>
-    <h3>Submit a Request</h3>
-    <p>Request a design review, order pre-check, or schedule a Zoom training session.</p>
-  </a>
-  <a href="/dealer-hub/onboarding" class="hub-card">
-    <span class="card-icon">✓</span>
-    <h3>Onboarding Checklist</h3>
-    <p>View the full step-by-step dealer onboarding checklist and track your progress.</p>
-  </a>
-  <a href="/dealer-hub/training" class="hub-card">
-    <span class="card-icon">🎓</span>
-    <h3>Training & Resources</h3>
-    <p>Access product training modules, sales scripts, and design tools.</p>
-  </a>
-  <a href="/dealer-hub/support" class="hub-card">
-    <span class="card-icon">🔧</span>
-    <h3>Support & Escalation</h3>
-    <p>Know exactly who to contact for design, warranty, rush orders, and more.</p>
-  </a>
+<div class="activation-iframe-wrapper">
+  <iframe
+    id="activation-iframe"
+    src="https://showroom-atlas.netlify.app"
+    title="Dealer Activation Portal"
+    allow="fullscreen"
+    style="width: 100%; height: 100%; border: none; display: block;"
+  ></iframe>
 </div>
 
 </DealerHubLayout>
 
 <style>
-  .activation-portal-wrapper {
-    margin: 1.5rem 0 2.5rem;
+  .activation-header {
+    padding: 0 0 0.75rem;
+    border-bottom: 1px solid #DFDFDB;
+    margin-bottom: 0;
   }
-  .portal-header {
-    margin-bottom: 1rem;
-  }
-  .portal-badge {
-    display: inline-block;
+  .activation-badge {
+    font-family: 'Questrial', sans-serif;
     font-size: 0.65rem;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--color-muted);
-    background: var(--color-bg-alt);
-    border: 1px solid var(--color-border);
-    padding: 0.2rem 0.6rem;
-    border-radius: 4px;
-    margin-bottom: 0.5rem;
+    color: #AFA497;
+    margin-bottom: 4px;
   }
-  .portal-note {
-    font-size: 0.88rem;
-    color: var(--color-muted);
-    margin: 0.25rem 0 0;
+  .activation-header h1 {
+    font-family: 'Questrial', sans-serif;
+    font-size: 1.5rem;
+    color: #000000;
+    margin: 0 0 6px 0;
   }
-  .portal-embed {
-    border-radius: 8px;
+  .activation-intro {
+    font-family: 'Assistant', sans-serif;
+    font-size: 0.875rem;
+    color: #4A4A4D;
+    margin: 0;
+    line-height: 1.6;
+  }
+  .activation-iframe-wrapper {
+    flex: 1;
     overflow: hidden;
-  }
-  .portal-embed iframe {
-    display: block;
+    min-height: calc(100vh - 280px);
   }
 </style>
