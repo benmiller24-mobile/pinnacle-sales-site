@@ -6,7 +6,22 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
 <h1>Dealer Hub</h1>
 <p class="page-subtitle">Everything you need to succeed as a Pinnacle Sales dealer partner.</p>
 
+<!-- Welcome Banner -->
+<div class="welcome-banner" id="welcome-banner">
+  <button class="banner-dismiss" id="banner-dismiss" aria-label="Dismiss">&times;</button>
+  <div class="banner-content">
+    <h2>Welcome to the Pinnacle Sales Dealer Hub</h2>
+    <p>Start with your <strong>Activation Plan</strong> — a personalized roadmap that walks you through onboarding, training, and your first order. You can also explore any section from the cards below.</p>
+    <a href="/dealer-hub/activation" class="banner-cta">Open Your Activation Plan &rarr;</a>
+  </div>
+</div>
+
 <div class="card-grid">
+  <a href="/dealer-hub/activation" class="hub-card hub-card-featured">
+    <span class="card-icon">🚀</span>
+    <h3>Activation Plan</h3>
+    <p>Your personalized onboarding roadmap — track progress, access resources, and schedule training.</p>
+  </a>
   <a href="/dealer-hub/onboarding" class="hub-card">
     <span class="card-icon">✓</span>
     <h3>Dealer Onboarding</h3>
@@ -62,3 +77,72 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
 </div>
 
 </DealerHubLayout>
+
+<style>
+  .welcome-banner {
+    position: relative;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #fff;
+    border-radius: 8px;
+    padding: 2rem 2.5rem;
+    margin-bottom: 2rem;
+  }
+  .welcome-banner h2 {
+    color: #fff;
+    margin: 0 0 0.75rem;
+    font-size: 1.25rem;
+  }
+  .welcome-banner p {
+    color: rgba(255,255,255,0.85);
+    margin: 0 0 1.25rem;
+    line-height: 1.6;
+    max-width: 600px;
+  }
+  .banner-cta {
+    display: inline-block;
+    background: #fff;
+    color: #1a1a2e;
+    padding: 0.55rem 1.25rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+  .banner-cta:hover { background: #e8e8e8; }
+  .banner-dismiss {
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.5);
+    font-size: 1.5rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0.25rem;
+  }
+  .banner-dismiss:hover { color: #fff; }
+
+  .hub-card-featured {
+    border: 2px solid var(--color-dark) !important;
+    background: rgba(0,0,0,0.02);
+  }
+</style>
+
+<script is:inline>
+  // Dismiss welcome banner with localStorage persistence
+  (function() {
+    var banner = document.getElementById('welcome-banner');
+    var dismiss = document.getElementById('banner-dismiss');
+    if (localStorage.getItem('ps_welcome_dismissed') === 'true' && banner) {
+      banner.style.display = 'none';
+    }
+    if (dismiss) {
+      dismiss.addEventListener('click', function() {
+        banner.style.display = 'none';
+        localStorage.setItem('ps_welcome_dismissed', 'true');
+      });
+    }
+  })();
+</script>
