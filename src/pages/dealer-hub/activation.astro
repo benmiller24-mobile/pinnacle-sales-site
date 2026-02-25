@@ -1,0 +1,85 @@
+---
+import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
+---
+<DealerHubLayout title="Activation Plan | Pinnacle Sales Dealer Hub" activeSection="Activation Plan">
+
+<h1>Dealer Activation Plan</h1>
+<p class="page-subtitle">Your personalized onboarding roadmap — track progress, access resources, and schedule training sessions.</p>
+
+<div class="activation-portal-wrapper">
+  <div class="portal-header">
+    <span class="portal-badge">INTERACTIVE PORTAL</span>
+    <p class="portal-note">This portal is personalized to your dealership. Work through each module at your own pace.</p>
+  </div>
+  <div class="portal-embed">
+    <iframe
+      id="activation-iframe"
+      src="https://showroom-atlas.netlify.app"
+      title="Dealer Activation Portal"
+      width="100%"
+      height="800"
+      frameborder="0"
+      style="border: 1px solid var(--color-border); border-radius: 6px;"
+      loading="lazy"
+    ></iframe>
+  </div>
+</div>
+
+<h2>Need Help?</h2>
+<div class="card-grid">
+  <a href="/dealer-hub/submit" class="hub-card">
+    <span class="card-icon">📨</span>
+    <h3>Submit a Request</h3>
+    <p>Request a design review, order pre-check, or schedule a Zoom training session.</p>
+  </a>
+  <a href="/dealer-hub/onboarding" class="hub-card">
+    <span class="card-icon">✓</span>
+    <h3>Onboarding Checklist</h3>
+    <p>View the full step-by-step dealer onboarding checklist and track your progress.</p>
+  </a>
+  <a href="/dealer-hub/training" class="hub-card">
+    <span class="card-icon">🎓</span>
+    <h3>Training & Resources</h3>
+    <p>Access product training modules, sales scripts, and design tools.</p>
+  </a>
+  <a href="/dealer-hub/support" class="hub-card">
+    <span class="card-icon">🔧</span>
+    <h3>Support & Escalation</h3>
+    <p>Know exactly who to contact for design, warranty, rush orders, and more.</p>
+  </a>
+</div>
+
+</DealerHubLayout>
+
+<style>
+  .activation-portal-wrapper {
+    margin: 1.5rem 0 2.5rem;
+  }
+  .portal-header {
+    margin-bottom: 1rem;
+  }
+  .portal-badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+  }
+  .portal-note {
+    font-size: 0.88rem;
+    color: var(--color-muted);
+    margin: 0.25rem 0 0;
+  }
+  .portal-embed {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .portal-embed iframe {
+    display: block;
+  }
+</style>
