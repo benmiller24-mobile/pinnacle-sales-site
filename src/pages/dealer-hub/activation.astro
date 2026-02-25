@@ -21,11 +21,24 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
 
 </DealerHubLayout>
 
+<style is:global>
+  /* Override hub-main constraints for activation page */
+  .hub-main:has(.activation-header) {
+    max-width: 100% !important;
+    padding: 1.5rem 2rem 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    height: calc(100vh - 80px) !important;
+    overflow: hidden !important;
+  }
+</style>
+
 <style>
   .activation-header {
     padding: 0 0 0.75rem;
     border-bottom: 1px solid #DFDFDB;
     margin-bottom: 0;
+    flex-shrink: 0;
   }
   .activation-badge {
     font-family: 'Questrial', sans-serif;
@@ -50,7 +63,7 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
   }
   .activation-iframe-wrapper {
     flex: 1;
+    min-height: 0;
     overflow: hidden;
-    min-height: calc(100vh - 280px);
   }
 </style>
