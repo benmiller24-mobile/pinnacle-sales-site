@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import DealerCTA from '../../components/DealerCTA.astro';
+
+const brands = [
+  {
+    name: 'Shiloh Cabinetry',
+    href: '/brands/shiloh-cabinetry',
+    tagline: 'American-made semi-custom cabinetry with unmatched customization options.',
+    img: '/images/brands/shiloh-hero.webp'
+  },
+  {
+    name: 'Eclipse Cabinetry',
+    href: '/brands/eclipse-cabinetry',
+    tagline: 'Full-access frameless cabinetry built for modern kitchens.',
+    img: '/images/brands/eclipse-hero.webp'
+  },
+  {
+    name: 'Aspect Cabinetry',
+    href: '/brands/aspect-cabinetry',
+    tagline: 'Stock cabinetry that ships fast without sacrificing quality.',
+    img: '/images/brands/aspect-hero.webp'
+  },
+  {
+    name: 'Pronorm German Kitchens',
+    href: '/brands/pronorm-german-kitchens',
+    tagline: 'Precision German engineering meets luxury kitchen design.',
+    img: '/images/brands/pronorm-hero.webp'
+  },
+  {
+    name: 'Vistora Closets',
+    href: '/brands/vistora-closets',
+    tagline: 'Custom closet and storage systems designed for modern living.',
+    img: '/images/brands/vistora-hero.webp'
+  }
+];
+---
+<BaseLayout title="Our Brands | Premium Cabinetry & Closet Lines | Pinnacle Sales" description="Explore the premium cabinetry and closet brands represented by Pinnacle Sales across 10 Western states. From semi-custom to German luxury kitchens.">
+<div class="page-header">
+  <h1>Our Brands</h1>
+  <p>Premium cabinetry and closet lines for every style, budget, and project scope.</p>
+</div>
+<div class="content-narrow section">
+<Breadcrumbs items={[{name:'Home',href:'/'},{name:'Brands'}]} />
+
+<div class="brands-grid">
+  {brands.map(brand => (
+    <a href={brand.href} class="brand-card">
+      <div class="brand-card-image">
+        <img src={brand.img} alt={brand.name} loading="lazy" />
+      </div>
+      <div class="brand-card-body">
+        <h2>{brand.name}</h2>
+        <p>{brand.tagline}</p>
+        <span class="brand-link">Learn more &rarr;</span>
+      </div>
+    </a>
+  ))}
+</div>
+
+<DealerCTA heading="Become a Dealer" text="Represent one or more of our premium brands across Arizona, California, Colorado, Idaho, Montana, Nevada, New Mexico, Oregon, Utah, and Washington." />
+</div>
+</BaseLayout>
+<style>
+  .brands-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+  .brand-card {
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid #e8e8e8;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .brand-card:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+  }
+  .brand-card-image img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    display: block;
+  }
+  .brand-card-body {
+    padding: 1.25rem;
+  }
+  .brand-card-body h2 {
+    font-size: 1.25rem;
+    margin: 0 0 0.5rem;
+  }
+  .brand-card-body p {
+    font-size: 0.95rem;
+    color: #555;
+    margin: 0 0 0.75rem;
+  }
+  .brand-link {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #2563eb;
+  }
+  @media (max-width: 640px) {
+    .brands-grid { grid-template-columns: 1fr; }
+  }
+</style>
