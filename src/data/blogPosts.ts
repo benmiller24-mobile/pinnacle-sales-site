@@ -6,7 +6,8 @@ export const blogPosts = [
     author: 'Ben Miller',
     date: '2026-02-08',
     category: 'Product Education',
-    image: '/images/gallery-1.webp'
+    image: '/images/gallery-1.webp',
+    recommended: true
   },
   {
     slug: 'how-to-become-kitchen-cabinet-dealer',
@@ -15,7 +16,8 @@ export const blogPosts = [
     author: 'Ben Miller',
     date: '2026-02-08',
     category: 'Business Growth',
-    image: '/images/gallery-2.webp'
+    image: '/images/gallery-2.webp',
+    recommended: true
   },
   {
     slug: 'pronorm-german-kitchens-usa',
@@ -24,7 +26,8 @@ export const blogPosts = [
     author: 'Ben Miller',
     date: '2026-02-08',
     category: 'Product Education',
-    image: '/images/hero-kitchen.webp'
+    image: '/images/hero-kitchen.webp',
+    recommended: true
   },
   {
     slug: 'eclipse-merchandiser-display',
@@ -33,7 +36,8 @@ export const blogPosts = [
     author: 'Ceadrick Kivare',
     date: '2026-02-05',
     category: 'Showroom Tools',
-    image: '/images/blog/eclipse-merchandiser-1.webp'
+    image: '/images/blog/eclipse-merchandiser-1.webp',
+    recommended: true
   },
   {
     slug: 'shiloh-edge-banded-shelf',
@@ -56,7 +60,7 @@ export const blogPosts = [
   {
     slug: 'japan-inspired-kitchens',
     title: 'Japan‑Inspired Kitchens: How to Sell the Trend and Still Win on Price',
-    excerpt: 'Turning "Japandi" buzz into real projects with Shiloh, Eclipse & Pronorm using a Good/Better/Best pricing strategy.',
+    excerpt: 'Turning “Japandi” buzz into real projects with Shiloh, Eclipse & Pronorm using a Good/Better/Best pricing strategy.',
     author: 'Ben Miller',
     date: '2025-12-09',
     category: 'Design Trends',
@@ -83,7 +87,7 @@ export const blogPosts = [
   {
     slug: 'greenwood-kitchens-factory-visit',
     title: 'Strengthening Partnerships: Greenwood Kitchens Visits WW Wood with Pinnacle Sales',
-    excerpt: 'Greenwood Kitchens toured WW Wood Products\' manufacturing operations alongside Pinnacle Sales to deepen collaborative ties.',
+    excerpt: "Greenwood Kitchens toured WW Wood Products' manufacturing operations alongside Pinnacle Sales to deepen collaborative ties.",
     author: 'Ceadrick Kivare',
     date: '2025-11-18',
     category: 'Dealer Success',
@@ -101,7 +105,7 @@ export const blogPosts = [
   {
     slug: 'modern-inset',
     title: 'Modern Inset: 6 No Upcharge Inset Variations from Shiloh Cabinetry',
-    excerpt: 'Shiloh\'s Inset Cabinetry is now available in six unique styles, all at nearly the same price point as True Full Overlay Frameless Eclipse.',
+    excerpt: "Shiloh's Inset Cabinetry is now available in six unique styles, all at nearly the same price point as True Full Overlay Frameless Eclipse.",
     author: 'Ben Miller',
     date: '2025-07-29',
     category: 'Product Education',
@@ -128,7 +132,7 @@ export const blogPosts = [
   {
     slug: 'custom-paint-sherwin-williams',
     title: 'Why Dealers Are Turning to Custom Paint with Sherwin-Williams Colors',
-    excerpt: 'Eclipse and Shiloh\'s Custom Paint Program unlocks limitless design potential with any Standard Sherwin-Williams color.',
+    excerpt: "Eclipse and Shiloh's Custom Paint Program unlocks limitless design potential with any Standard Sherwin-Williams color.",
     author: 'Ben Miller',
     date: '2025-07-18',
     category: 'Product Education',
@@ -137,7 +141,7 @@ export const blogPosts = [
   {
     slug: 'excelle-shiloh-inset',
     title: 'How Excelle Cabinets Delivered a Seamless, Standout Kitchen With Shiloh Inset',
-    excerpt: 'A case study in how Shiloh\'s Inset cabinetry in Evergreen Fog with Rift White Oak Clay accents brings design cohesion to life.',
+    excerpt: "A case study in how Shiloh's Inset cabinetry in Evergreen Fog with Rift White Oak Clay accents brings design cohesion to life.",
     author: 'Ben Miller',
     date: '2025-07-08',
     category: 'Dealer Success',
@@ -155,7 +159,7 @@ export const blogPosts = [
   {
     slug: 'dealer-spotlight-plum-kitchens',
     title: 'Dealer Spotlight: Plum Kitchens, Denver',
-    excerpt: 'Shiloh\'s Beaded Inset cabinetry in a Denver home nails the balance between period charm and fresh functionality.',
+    excerpt: "Shiloh's Beaded Inset cabinetry in a Denver home nails the balance between period charm and fresh functionality.",
     author: 'Ben Miller',
     date: '2025-06-01',
     category: 'Dealer Success',
