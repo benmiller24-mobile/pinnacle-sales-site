@@ -38,6 +38,20 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 </div>
 </div>
 
+<div class="social-proof">
+<h2>Trusted by Dealers Across the West</h2>
+<div class="stats-bar">
+<div class="stat"><span class="stat-number">23+</span><span class="stat-label">Years in Business</span></div>
+<div class="stat"><span class="stat-number">100+</span><span class="stat-label">Active Dealers</span></div>
+<div class="stat"><span class="stat-number">10</span><span class="stat-label">Western States</span></div>
+<div class="stat"><span class="stat-number">5</span><span class="stat-label">Premium Brands</span></div>
+</div>
+<blockquote class="testimonial">
+<p>&ldquo;Partnering with Pinnacle Sales transformed our showroom. Their hands-on training and brand portfolio gave us exactly what we needed to grow our business. They don&rsquo;t just sell product &mdash; they invest in your success.&rdquo;</p>
+<cite>&mdash; Kitchen &amp; Bath Showroom Owner, Arizona</cite>
+</blockquote>
+</div>
+
 <h2>Available Territories</h2>
 
 <p>We serve dealers in Arizona, California, Colorado, Idaho, Montana, Nevada, New Mexico, Oregon, Utah, and Washington. Pronorm German Kitchens are available nationwide with protected dealer territories.</p>
@@ -153,6 +167,16 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 .benefit{border:1px solid #e5e7eb;border-radius:8px;padding:1.25rem}
 .benefit h3{margin:0 0 .5rem;font-size:1.05rem;color:#1a1a2e}
 .benefit p{color:#4b5563;margin:0;font-size:.95rem}
+.social-proof{margin:2.5rem 0;text-align:center}
+.social-proof h2{margin-bottom:1.5rem}
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2rem}
+.stat{background:#f8fafc;border-radius:10px;padding:1.25rem .75rem}
+.stat-number{display:block;font-size:2rem;font-weight:700;color:#1a1a2e}
+.stat-label{display:block;font-size:.85rem;color:#6b7280;margin-top:.25rem}
+.testimonial{background:#f0f7ff;border-left:4px solid #2563eb;border-radius:8px;padding:1.5rem 2rem;margin:0 auto;max-width:640px;text-align:left;font-style:italic}
+.testimonial p{margin:0 0 .75rem;font-size:1.05rem;color:#1e293b;line-height:1.6}
+.testimonial cite{font-size:.9rem;color:#64748b;font-style:normal;font-weight:600}
+@media(max-width:600px){.stats-bar{grid-template-columns:repeat(2,1fr)}}
 .dealer-form{margin-top:1.5rem;max-width:640px}
 .form-group{margin-bottom:1.25rem}
 .form-group label{display:block;font-weight:600;margin-bottom:.4rem;font-size:.95rem;color:#1a1a2e}
