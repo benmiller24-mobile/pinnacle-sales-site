@@ -3,67 +3,357 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
 ---
 <DealerHubLayout title="Activation Plan | Pinnacle Sales Dealer Hub" activeSection="Activation Plan">
 
-<div class="activation-header">
-  <p class="activation-badge">Dealer Onboarding</p>
-  <h1>Your Activation Plan</h1>
-  <p class="activation-intro">Your 21-day guide from account setup to Certified Dealer status. Track your progress, complete each module, and book your Certification Call — all in one place.</p>
-</div>
+  <div class="activation-header">
+    <p class="activation-badge">Dealer Onboarding</p>
+    <h1>Your Activation Plan</h1>
+    <p class="activation-intro">Your 21-day guide from account setup to Certified Dealer status. Track your progress, complete each module, and book your Certification Call &mdash; all in one place.</p>
+  </div>
 
-<div class="activation-iframe-wrapper">
-  <iframe
-    id="activation-iframe"
-    src="https://pinnacleap-kwmuduy5.manus.space/"
-    title="Dealer Activation Portal"
-    allow="fullscreen"
-    style="width: 100%; height: 100%; border: none; display: block;"
-  ></iframe>
-</div>
+  <div class="activation-progress">
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <p class="progress-text"><span id="progressCount">0</span> of 14 steps completed</p>
+  </div>
 
-</DealerHubLayout>
+  <!-- MODULE 1: Getting Started -->
+  <div class="activation-module">
+    <div class="module-header">
+      <div class="module-icon">&#x1F680;</div>
+      <div>
+        <h2>Module 1: Getting Started</h2>
+        <p class="module-timeline">Days 1&ndash;4 &middot; Set up your team with the foundational tools and knowledge.</p>
+      </div>
+      <span class="module-count" data-module="1">0/4</span>
+    </div>
+    <div class="module-steps">
 
-<style is:global>
-  /* Override hub-main constraints for activation page */
-  .hub-main:has(.activation-header) {
-    max-width: 100% !important;
-    padding: 1.5rem 2rem 0 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    height: calc(100vh - 80px) !important;
-    overflow: hidden !important;
+      <label class="step-card">
+        <input type="checkbox" data-step="m1-1" />
+        <div class="step-check"></div>
+        <div class="step-content">
+          <strong>Watch: Welcome to Pinnacle Sales</strong>
+          <p>A personal welcome from your rep and a quick overview of what to expect over the next 21 days.</p>
+          <a href="/dealer-hub/videos/" class="step-link">&#9654; Watch Video (2 min)</a>
+        </div>
+      </label>
+
+      <label class="step-card">
+        <input type="checkbox" data-step="m1-2" />
+        <div class="step-check"></div>
+        <div class="step-content">
+          <strong>Book Your 90-Minute Live Product Training</strong>
+          <p>The most important meeting of your onboarding. Your rep will walk you through all three cabinet lines, construction, and key selling points.</p>
+          <a href="#zoom-placeholder" class="step-link">&#x1F4F9; Book via Zoom</a>
+        </div>
+      </label>
+
+      <label class="step-card">
+        <input type="checkbox" data-step="m1-3" />
+        <div class="step-check"></div>
+        <div class="step-content">
+          <strong>Install Cyncly Design Flex Catalogs</strong>
+          <p>Follow the video walkthrough to get the W.W. Wood Products catalogs installed for your design team in Cyncly Design Flex.</p>
+          <a href="/dealer-hub/videos/" class="step-link">&#9654; Watch Tutorial (3 min)</a>
+        </div>
+      </label>
+
+      <label class="step-card">
+        <input type="checkbox" data-step="m1-4" />
+        <div class="step-check"></div>
+        <div class="step-content">
+          <strong>Access the Dealer Portal</strong>
+          <p>Log in to the W.W. Wood dealer portal to access pricing, order forms, and your account dashboard.</p>
+          <a href="/dealer-hub/ordering/" class="step-link">&#x1F4E6; Open Ordering &amp; Portal</a>
+        </div>
+      </label>
+
+    </div>
+  </div>
+
+  <!-- MODULE 2: Product & Quoting -->
+  <div class="activation-module">
+    <div class="module-header">
+      <div class="module-icon">&#x1F4CB;</div>
+      <div>
+        <h2>Module 2: Product &amp; Quoting</h2>
+        <p class="module-timeline">Days 5&ndash;10 &middot; Learn the product lines and place your first practice order.</p>
+      </div>
+      <span class="module-count" data-module="2">0/4</span>
+    </div>
+    <div class="module-steps">
+
+      <label class="step-card">
+        <input type="checkbox" data-step="m2-1" />
+        <div class="step-check"></div>
+        <div class="step-content">
+          <strong>Review "Know Your Lines" Guide</strong>
+          <p>Deep-dive into Shiloh, Eclipse, and Aspect &mdash; learn what makes each line unique, pricing tiers, and ideal customer profiles.</p>
+          <a href="/dealer-hub/training/" class="step-link">&#x1F4D6; Open Training Hub</a>
+        </div>
+      </label>
+
+      <label class="step-card">
+        <input type="checkbox" data-step="m2-2" />
+        <div class="step-check"></div>
+        <div class="step-content">
+          <strong>Watch: How to Place Your First Order</strong>
+          <p>Step-by-step video covering the order cover sheet, pricing lookup, and submission process.</p>
+          <a href="/dealer-hub/ordering/" class="step-link">&#9654; Watch Order Guide</a>
+        </div>
+      </label>
+
+      <label class="step-card">
+        <input type="checkbox" data-step="m2-3" />
+        <div class="step-check"></div>
+        <div class="step-content">
+          <strong>Submit Your First Practice Order</strong>
+          <p>Send a practice order to your rep so they can review it with you before going live.</p>
+          <a href="mailto:ben@pinnaclesales.biz" class="step-link">&#x2709; Email Your Rep</a>
+        </div>
+      </label>
+
+      <label class="step-card">
+        <input type="checkbox" data-step="m2-4" />
+        <div class="step-check"></div>
+        <div class="step-content">
+          <strong>Rep Review Complete</strong>
+          <p>Your rep will confirm your practice order looks good and give you the green light to start placing real orders.</p>
+          <span class="step-status">&#x2705; Confirmed by your rep</span>
+        </div>
+      </label>
+
+    </div>
+  </div>
+
+  <!-- MODULE 3: Selling & Marketing -->
+  <div class="activation-module">
+    <div class="module-header">
+      <div class="module-icon">&#x1F4E3;</div>
+      <div>
+        <h2>Module 3: Selling &amp; Marketing</h2>
+        <p class="module-timeline">Days 11&ndash;16 &middot; Get your showroom and marketing materials ready to sell.</p>
+      </div>
+      <span class="module-count" data-module="3">0/3</span>
+    </div>
+    <div class="module-steps">
+
+      <label class="step-card">
+        <input type="checkbox" data-step="m3-1" />
+        <div class="step-check"></div>
+        <div class="step-content">
+          <strong>Schedule Your Showroom Merchandising Consult</strong>
+          <p>Book a call with your rep to plan your showroom display strategy, sample selection, and merchandising approach.</p>
+          <a href="#zoom-placeholder" class="step-link">&#x1F4F9; Book via Zoom</a>
+        </div>
+      </label>
+
+      <label class="step-card">
+        <input type="checkbox" data-step="m3-2" />
+        <div class="step-check"></div>
+        <div class="step-content">
+          <strong>Download Marketing Assets</strong>
+          <p>Access brochures, logos, lifestyle photography, social media templates, and co-branded materials.</p>
+          <a href="/dealer-hub/marketing/" class="step-link">&#x1F4E5; Open Marketing Kit</a>
+        </div>
+      </label>
+
+      <label class="step-card">
+        <input type="checkbox" data-step="m3-3" />
+        <div class="step-check"></div>
+        <div class="step-content">
+          <strong>Review the "Top Dealers" Playbook</strong>
+          <p>See what the most successful Pinnacle dealers are doing differently &mdash; strategies, habits, and real results.</p>
+          <a href="/playbook/" class="step-link">&#x1F4D6; Open Playbook</a>
+        </div>
+      </label>
+
+    </div>
+  </div>
+
+  <!-- MODULE 4: Certification -->
+  <div class="activation-module">
+    <div class="module-header">
+      <div class="module-icon">&#x1F3C6;</div>
+      <div>
+        <h2>Module 4: Certification</h2>
+        <p class="module-timeline">Days 17&ndash;21 &middot; Wrap up your onboarding and earn your Certified Dealer badge.</p>
+      </div>
+      <span class="module-count" data-module="4">0/3</span>
+    </div>
+    <div class="module-steps">
+
+      <label class="step-card">
+        <input type="checkbox" data-step="m4-1" />
+        <div class="step-check"></div>
+        <div class="step-content">
+          <strong>Review Warranty &amp; Claims Process</strong>
+          <p>Understand the warranty coverage, claims process, and escalation paths so you can confidently support your customers.</p>
+          <a href="/dealer-hub/support/" class="step-link">&#x1F4D6; Open Support Guide</a>
+        </div>
+      </label>
+
+      <label class="step-card">
+        <input type="checkbox" data-step="m4-2" />
+        <div class="step-check"></div>
+        <div class="step-content">
+          <strong>Book Your 20-Minute Certification Call</strong>
+          <p>A quick call with your rep to review everything, answer final questions, and officially certify you.</p>
+          <a href="#zoom-placeholder" class="step-link">&#x1F4F9; Book via Zoom</a>
+        </div>
+      </label>
+
+      <label class="step-card">
+        <input type="checkbox" data-step="m4-3" />
+        <div class="step-check"></div>
+        <div class="step-content">
+          <strong>Receive Your Certified Dealer Badge</strong>
+          <p>Congratulations! Your rep will confirm your certification and send your official Certified Dealer badge and materials.</p>
+          <span class="step-status">&#x1F3C5; Awarded by your rep</span>
+        </div>
+      </label>
+
+    </div>
+  </div>
+
+  <div class="activation-support">
+    <h3>Need Help?</h3>
+    <p>Your dedicated rep is here to guide you through every step. Reach out anytime:</p>
+    <p><strong>Ben Miller</strong> &middot; <a href="mailto:ben@pinnaclesales.biz">ben@pinnaclesales.biz</a> &middot; <a href="tel:4809939224">480-993-9224</a></p>
+  </div>
+
+<script>
+  // Load saved progress
+  function loadProgress() {
+    const saved = localStorage.getItem('activation-progress');
+    return saved ? JSON.parse(saved) : {};
   }
-</style>
+  function saveProgress(progress) {
+    localStorage.setItem('activation-progress', JSON.stringify(progress));
+  }
+  function updateUI() {
+    const progress = loadProgress();
+    const checkboxes = document.querySelectorAll('[data-step]');
+    let total = 0;
+    checkboxes.forEach(cb => {
+      if (progress[cb.dataset.step]) {
+        cb.checked = true;
+        total++;
+      }
+    });
+    document.getElementById('progressCount').textContent = total;
+    const pct = Math.round((total / 14) * 100);
+    document.getElementById('progressFill').style.width = pct + '%';
+    // Update module counts
+    const modules = { 1: [0,4], 2: [0,4], 3: [0,3], 4: [0,3] };
+    checkboxes.forEach(cb => {
+      const mod = parseInt(cb.dataset.step.charAt(1));
+      if (progress[cb.dataset.step]) modules[mod][0]++;
+    });
+    document.querySelectorAll('.module-count').forEach(el => {
+      const m = parseInt(el.dataset.module);
+      el.textContent = modules[m][0] + '/' + modules[m][1];
+      if (modules[m][0] === modules[m][1]) el.classList.add('complete');
+    });
+  }
+  document.querySelectorAll('[data-step]').forEach(cb => {
+    cb.addEventListener('change', () => {
+      const progress = loadProgress();
+      progress[cb.dataset.step] = cb.checked;
+      saveProgress(progress);
+      updateUI();
+    });
+  });
+  updateUI();
+</script>
 
 <style>
-  .activation-header {
-    padding: 0 0 0.75rem;
-    border-bottom: 1px solid #DFDFDB;
-    margin-bottom: 0;
-    flex-shrink: 0;
-  }
+  .activation-header { text-align: center; margin-bottom: 2rem; }
   .activation-badge {
-    font-family: 'Questrial', sans-serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: #AFA497;
-    margin-bottom: 4px;
+    display: inline-block; font-size: 0.75rem; text-transform: uppercase;
+    letter-spacing: 0.1em; border: 1px solid var(--color-border);
+    padding: 0.25rem 0.75rem; border-radius: 999px; margin-bottom: 0.5rem;
+    color: var(--color-muted);
   }
-  .activation-header h1 {
-    font-family: 'Questrial', sans-serif;
-    font-size: 1.5rem;
-    color: #000000;
-    margin: 0 0 6px 0;
+  .activation-header h1 { font-size: 2rem; margin: 0.5rem 0; }
+  .activation-intro { color: var(--color-muted); max-width: 700px; margin: 0 auto; line-height: 1.6; }
+
+  .activation-progress { margin-bottom: 2.5rem; text-align: center; }
+  .progress-bar {
+    height: 8px; background: var(--color-border); border-radius: 4px;
+    overflow: hidden; max-width: 500px; margin: 0 auto 0.5rem;
   }
-  .activation-intro {
-    font-family: 'Assistant', sans-serif;
-    font-size: 0.875rem;
-    color: #4A4A4D;
-    margin: 0;
-    line-height: 1.6;
+  .progress-fill {
+    height: 100%; background: #b8860b; border-radius: 4px;
+    width: 0%; transition: width 0.4s ease;
   }
-  .activation-iframe-wrapper {
-    flex: 1;
-    min-height: 0;
-    overflow: hidden;
+  .progress-text { font-size: 0.85rem; color: var(--color-muted); }
+
+  .activation-module {
+    background: white; border: 1px solid var(--color-border);
+    border-radius: 8px; margin-bottom: 1.5rem; overflow: hidden;
+  }
+  .module-header {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--color-border);
+    background: rgba(0,0,0,0.015);
+  }
+  .module-icon { font-size: 1.5rem; flex-shrink: 0; }
+  .module-header h2 { font-size: 1.1rem; margin: 0; }
+  .module-timeline { font-size: 0.82rem; color: var(--color-muted); margin: 0.15rem 0 0; }
+  .module-count {
+    margin-left: auto; font-size: 0.85rem; font-weight: 600;
+    color: var(--color-muted); white-space: nowrap;
+  }
+  .module-count.complete { color: #2e7d32; }
+  .module-steps { padding: 0.5rem; }
+
+  .step-card {
+    display: flex; align-items: flex-start; gap: 0.75rem;
+    padding: 1rem; border-radius: 6px; cursor: pointer;
+    transition: background 0.15s;
+  }
+  .step-card:hover { background: rgba(0,0,0,0.02); }
+  .step-card input[type="checkbox"] { display: none; }
+  .step-check {
+    width: 22px; height: 22px; border: 2px solid #ccc;
+    border-radius: 50%; flex-shrink: 0; margin-top: 2px;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+  }
+  .step-card input:checked ~ .step-check {
+    background: #b8860b; border-color: #b8860b;
+  }
+  .step-card input:checked ~ .step-check::after {
+    content: '\2713'; color: white; font-size: 0.75rem; font-weight: bold;
+  }
+  .step-card input:checked ~ .step-content strong {
+    text-decoration: line-through; color: var(--color-muted);
+  }
+  .step-content strong { display: block; margin-bottom: 0.25rem; font-size: 0.95rem; }
+  .step-content p { margin: 0 0 0.5rem; font-size: 0.85rem; color: var(--color-muted); line-height: 1.5; }
+  .step-link {
+    display: inline-block; font-size: 0.82rem; font-weight: 600;
+    color: var(--color-dark); padding: 0.35rem 0.75rem;
+    border: 1px solid var(--color-border); border-radius: 5px;
+    text-decoration: none; transition: all 0.15s;
+  }
+  .step-link:hover { background: var(--color-dark); color: white; }
+  .step-status { font-size: 0.82rem; color: var(--color-muted); font-style: italic; }
+
+  .activation-support {
+    text-align: center; padding: 2rem; margin-top: 1rem;
+    background: rgba(0,0,0,0.02); border-radius: 8px;
+    border: 1px solid var(--color-border);
+  }
+  .activation-support h3 { margin: 0 0 0.5rem; }
+  .activation-support p { margin: 0.25rem 0; color: var(--color-muted); font-size: 0.9rem; }
+  .activation-support a { color: var(--color-dark); }
+
+  @media (max-width: 600px) {
+    .module-header { flex-wrap: wrap; }
+    .module-count { width: 100%; text-align: right; }
   }
 </style>
+
+</DealerHubLayout>
