@@ -127,7 +127,7 @@ export const blogPosts = [
     author: 'Ben Miller',
     date: '2025-07-22',
     category: 'Product Updates',
-    image: '/images/brands/eclipse-walnut.webp'
+    image: '/images/blog/nevara-white-kitchen.webp'
   },
   {
     slug: 'custom-paint-sherwin-williams',
