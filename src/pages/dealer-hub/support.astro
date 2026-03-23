@@ -11,8 +11,7 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
   <h3>20/20 / ProKitchen Design Help</h3>
   <p>Catalog questions, specification errors, modification feasibility, quoting assistance, and design file review.</p>
   <p class="contact"><strong>Contact:</strong> Your Pinnacle Sales territory rep<br>
-  <strong>Email:</strong> <a href="mailto:marketing@pinnaclesales.biz">marketing@pinnaclesales.biz</a><br>
-  <strong>Phone:</strong> 480-993-9224<br>
+  <strong>Email:</strong> <a href="mailto:marketing@pinnaclesales.biz">marketing@pinnaclesales.biz</a> or your territory rep directly (see team table below)<br>
   <strong>Response time:</strong> Same business day</p>
 </div>
 
@@ -53,7 +52,7 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
   <p class="contact"><strong>Step 1:</strong> Fill out the brand-specific warranty claim form<br>
   <strong>Step 2:</strong> Submit to WW Wood Customer Service — 573-624-7090<br>
   <strong>What to include:</strong> Completed warranty form, original order number, install date, and detailed photos<br>
-  <strong>Escalation:</strong> Pinnacle Sales — 480-993-9224</p>
+  <strong>Escalation:</strong> Your Pinnacle Sales territory rep (see team table below)</p>
 </div>
 
 <h2>Rush Orders & Expedites</h2>
@@ -68,7 +67,7 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
 <div class="support-card">
   <h3>Expedited Full Orders</h3>
   <p>Builder deadlines, client emergencies, or time-sensitive projects requiring faster-than-standard production.</p>
-  <p class="contact"><strong>Contact:</strong> Pinnacle Sales first — 480-993-9224<br>
+  <p class="contact"><strong>Contact:</strong> Your Pinnacle Sales territory rep first (see team table below)<br>
   <strong>Note:</strong> We coordinate directly with WW Wood production scheduling. Not all orders can be expedited, but we'll always push.</p>
 </div>
 
@@ -87,15 +86,53 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
   <p class="contact"><strong>Contact:</strong> <a href="mailto:marketing@pinnaclesales.biz">marketing@pinnaclesales.biz</a></p>
 </div>
 
+<h2>Your Pinnacle Sales Team</h2>
+<p>Reach your territory rep directly by phone, text, or email.</p>
+<div class="team-table">
+  <table>
+    <thead>
+      <tr><th>Name</th><th>Role</th><th>Mobile</th><th>Email</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Scott Miller</td><td>President & Territory Mgr. (NorCal/AZ/ID/MT)</td><td><a href="tel:3035503284">(303) 550-3284</a></td><td><a href="mailto:scott@pinnaclesales.biz">scott@pinnaclesales.biz</a></td></tr>
+      <tr><td>Ben Miller</td><td>Partner & Territory Mgr. (Cal/NV/UT)</td><td><a href="tel:4809939224">(480) 993-9224</a></td><td><a href="mailto:ben@pinnaclesales.biz">ben@pinnaclesales.biz</a></td></tr>
+      <tr><td>Anna Fisher</td><td>Territory Mgr. (NM/CO)</td><td><a href="tel:7196668248">(719) 666-8248</a></td><td><a href="mailto:anna@pinnaclesales.biz">anna@pinnaclesales.biz</a></td></tr>
+      <tr><td>Gillian Patriquin</td><td>Dealer Success & 2020 Specialist</td><td><a href="tel:7208628068">(720) 862-8068</a></td><td><a href="mailto:gillian@pinnaclesales.biz">gillian@pinnaclesales.biz</a></td></tr>
+      <tr><td>Josh Polvogt</td><td>Territory Mgr. (OR/WA)</td><td><a href="tel:5037525939">(503) 752-5939</a></td><td><a href="mailto:josh@pinnaclesales.biz">josh@pinnaclesales.biz</a></td></tr>
+      <tr><td>Ceadrick Kivare</td><td>Sales & Support Assistant</td><td></td><td><a href="mailto:ceadrick@pinnaclesales.biz">ceadrick@pinnaclesales.biz</a></td></tr>
+    </tbody>
+  </table>
+</div>
+
 <h2>Escalation Flowchart</h2>
 <div style="background:var(--color-bg-alt);border-radius:6px;padding:2rem;margin:1rem 0;">
   <p style="margin:0 0 1rem;font-weight:600;">When in doubt, follow this path:</p>
   <ol style="margin-left:1.25rem;">
     <li style="margin-bottom:0.75rem;"><strong>Try the primary contact</strong> listed above for your issue type</li>
     <li style="margin-bottom:0.75rem;"><strong>Allow 24 hours</strong> for response (same-day for rush/urgent)</li>
-    <li style="margin-bottom:0.75rem;"><strong>Escalate to Pinnacle Sales</strong> at 480-993-9224 or <a href="mailto:marketing@pinnaclesales.biz">marketing@pinnaclesales.biz</a> if unresolved</li>
+    <li style="margin-bottom:0.75rem;"><strong>Escalate to your Pinnacle Sales territory rep</strong> (see team table above) if unresolved</li>
     <li style="margin-bottom:0;"><strong>We take it from here</strong> — Pinnacle Sales will coordinate with the factory, follow up, and keep you updated until resolution</li>
   </ol>
 </div>
 
 </DealerHubLayout>
+
+<style is:global>
+  .team-table { overflow-x: auto; margin: 1rem 0; }
+  .team-table table {
+    width: 100%; border-collapse: collapse; font-size: 0.88rem;
+  }
+  .team-table th {
+    text-align: left; padding: 0.6rem 0.75rem;
+    border-bottom: 2px solid var(--color-dark); font-size: 0.78rem;
+    text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-muted);
+  }
+  .team-table td {
+    padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--color-border);
+  }
+  .team-table a { color: var(--color-dark); }
+  @media (max-width: 600px) {
+    .team-table { font-size: 0.8rem; }
+    .team-table th, .team-table td { padding: 0.4rem 0.5rem; }
+  }
+</style>
