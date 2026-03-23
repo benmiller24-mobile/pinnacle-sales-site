@@ -8,6 +8,7 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
 
 <form id="request-form" class="request-form" name="dealer-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data">
   <input type="hidden" name="form-name" value="dealer-request" />
+  <input type="hidden" name="subject" value="New Dealer Request — Pinnacle Sales" />
   <p hidden><label>Don't fill this out: <input name="bot-field" /></label></p>
 
   <div class="field">
@@ -147,7 +148,7 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
   <div class="success-icon">✓</div>
   <h2>Request Submitted</h2>
   <p>Your request has been submitted to the Pinnacle Sales team along with any attached files. We'll respond within the timeline indicated.</p>
-  <p style="color:var(--color-muted);font-size:0.88rem;">If you don't hear back, contact us directly at 480-993-9224 or <a href="mailto:marketing@pinnaclesales.biz">marketing@pinnaclesales.biz</a>.</p>
+  <p style="color:var(--color-muted);font-size:0.88rem;">If you don't hear back, contact Gillian directly at <a href="tel:7208628068">(720) 862-8068</a> or <a href="mailto:gillian@pinnaclesales.biz">gillian@pinnaclesales.biz</a>.</p>
   <a href="/dealer-hub/dashboard" class="back-link">← Back to Dashboard</a>
 </div>
 
@@ -207,7 +208,7 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
     .catch(function(error) {
       btn.disabled = false;
       btn.textContent = 'Submit Request';
-      alert('Something went wrong. Please try again or email marketing@pinnaclesales.biz directly.');
+      alert('Something went wrong. Please try again or email gillian@pinnaclesales.biz directly.');
     });
   });
 </script>
