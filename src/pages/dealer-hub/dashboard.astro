@@ -17,11 +17,6 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
 </div>
 
 <div class="card-grid">
-  <div class="hub-card hub-card-featured">
-    <h3>🚀 Your Activation Plan</h3>
-    <p>New to Pinnacle Sales? Start here. Your personalized 21-day guide from account setup to Certified Dealer status.</p>
-    <a href="/dealer-hub/activation" class="featured-card-btn">Start Your Activation Plan &rarr;</a>
-  </div>
   <a href="/dealer-hub/onboarding" class="hub-card">
     <span class="card-icon">✓</span>
     <h3>Dealer Onboarding</h3>
@@ -126,32 +121,6 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
   }
   .banner-dismiss:hover { color: var(--color-dark); }
 
-  .hub-card-featured {
-    background: #4A4A4D !important;
-    border: none !important;
-    color: #fff;
-    grid-column: 1 / -1;
-  }
-  .hub-card-featured h3 {
-    color: #fff !important;
-    font-size: 1.15rem;
-  }
-  .hub-card-featured p {
-    color: rgba(255,255,255,0.85) !important;
-  }
-  .featured-card-btn {
-    display: inline-block;
-    margin-top: 0.75rem;
-    background: #fff;
-    color: #4A4A4D;
-    padding: 0.5rem 1.2rem;
-    border-radius: 4px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    text-decoration: none !important;
-    transition: background 0.15s;
-  }
-  .featured-card-btn:hover { background: #e8e8e8; opacity: 1; }
 </style>
 
 <script is:inline>
