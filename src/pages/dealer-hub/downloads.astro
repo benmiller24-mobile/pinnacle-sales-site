@@ -237,6 +237,531 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
 
 </div>
 
+
+<!-- DEALER PHOTOS -->
+<h2 class="photos-heading">Dealer Photos</h2>
+<p class="photos-subtitle">High-quality project and showroom photos for your marketing. Click any photo to download.</p>
+
+<div class="photo-filters" id="photo-filters">
+  <button class="photo-filter active" data-photocat="all">All</button>
+  <button class="photo-filter" data-photocat="ajo">Ajo</button>
+  <button class="photo-filter" data-photocat="aster">Aster</button>
+  <button class="photo-filter" data-photocat="boulder">Boulder</button>
+  <button class="photo-filter" data-photocat="ckd">CKD Kitchen</button>
+  <button class="photo-filter" data-photocat="carbondale">Carbondale</button>
+  <button class="photo-filter" data-photocat="caruso">Caruso</button>
+  <button class="photo-filter" data-photocat="excelle">Excelle</button>
+  <button class="photo-filter" data-photocat="img">Gallery</button>
+  <button class="photo-filter" data-photocat="kai">Kai</button>
+  <button class="photo-filter" data-photocat="kitchen-detail">Kitchen Details</button>
+  <button class="photo-filter" data-photocat="nevara">Nevara</button>
+  <button class="photo-filter" data-photocat="other">Other</button>
+  <button class="photo-filter" data-photocat="plum">Plum Kitchens</button>
+  <button class="photo-filter" data-photocat="portfolio">Portfolio</button>
+  <button class="photo-filter" data-photocat="screenshot">Screenshots</button>
+  <button class="photo-filter" data-photocat="showroom">Showroom</button>
+</div>
+<div class="photo-count" id="photo-count"></div>
+
+<div class="photo-grid" id="photo-grid">
+  <a href="/downloads/dealer-photos/0004-04-ajo.webp" download class="photo-card" data-photocat="ajo">
+    <img src="/images/dealer-photos/thumbs/0004-04-ajo.webp" alt="0004 04 Ajo" loading="lazy" />
+    <span class="photo-label">0004 04 Ajo</span>
+  </a>
+  <a href="/downloads/dealer-photos/0006-06-ajo.webp" download class="photo-card" data-photocat="ajo">
+    <img src="/images/dealer-photos/thumbs/0006-06-ajo.webp" alt="0006 06 Ajo" loading="lazy" />
+    <span class="photo-label">0006 06 Ajo</span>
+  </a>
+  <a href="/downloads/dealer-photos/0008-08-ajo.webp" download class="photo-card" data-photocat="ajo">
+    <img src="/images/dealer-photos/thumbs/0008-08-ajo.webp" alt="0008 08 Ajo" loading="lazy" />
+    <span class="photo-label">0008 08 Ajo</span>
+  </a>
+  <a href="/downloads/dealer-photos/0013-13-ajo.webp" download class="photo-card" data-photocat="ajo">
+    <img src="/images/dealer-photos/thumbs/0013-13-ajo.webp" alt="0013 13 Ajo" loading="lazy" />
+    <span class="photo-label">0013 13 Ajo</span>
+  </a>
+  <a href="/downloads/dealer-photos/0014-14-ajo.webp" download class="photo-card" data-photocat="ajo">
+    <img src="/images/dealer-photos/thumbs/0014-14-ajo.webp" alt="0014 14 Ajo" loading="lazy" />
+    <span class="photo-label">0014 14 Ajo</span>
+  </a>
+  <a href="/downloads/dealer-photos/0016-16-ajo.webp" download class="photo-card" data-photocat="ajo">
+    <img src="/images/dealer-photos/thumbs/0016-16-ajo.webp" alt="0016 16 Ajo" loading="lazy" />
+    <span class="photo-label">0016 16 Ajo</span>
+  </a>
+  <a href="/downloads/dealer-photos/0017-17-ajo.webp" download class="photo-card" data-photocat="ajo">
+    <img src="/images/dealer-photos/thumbs/0017-17-ajo.webp" alt="0017 17 Ajo" loading="lazy" />
+    <span class="photo-label">0017 17 Ajo</span>
+  </a>
+  <a href="/downloads/dealer-photos/08-aster.webp" download class="photo-card" data-photocat="aster">
+    <img src="/images/dealer-photos/thumbs/08-aster.webp" alt="08 Aster" loading="lazy" />
+    <span class="photo-label">08 Aster</span>
+  </a>
+  <a href="/downloads/dealer-photos/1.webp" download class="photo-card" data-photocat="other">
+    <img src="/images/dealer-photos/thumbs/1.webp" alt="1" loading="lazy" />
+    <span class="photo-label">1</span>
+  </a>
+  <a href="/downloads/dealer-photos/11-aster.webp" download class="photo-card" data-photocat="aster">
+    <img src="/images/dealer-photos/thumbs/11-aster.webp" alt="11 Aster" loading="lazy" />
+    <span class="photo-label">11 Aster</span>
+  </a>
+  <a href="/downloads/dealer-photos/12-aster.webp" download class="photo-card" data-photocat="aster">
+    <img src="/images/dealer-photos/thumbs/12-aster.webp" alt="12 Aster" loading="lazy" />
+    <span class="photo-label">12 Aster</span>
+  </a>
+  <a href="/downloads/dealer-photos/13-aster.webp" download class="photo-card" data-photocat="aster">
+    <img src="/images/dealer-photos/thumbs/13-aster.webp" alt="13 Aster" loading="lazy" />
+    <span class="photo-label">13 Aster</span>
+  </a>
+  <a href="/downloads/dealer-photos/14-aster.webp" download class="photo-card" data-photocat="aster">
+    <img src="/images/dealer-photos/thumbs/14-aster.webp" alt="14 Aster" loading="lazy" />
+    <span class="photo-label">14 Aster</span>
+  </a>
+  <a href="/downloads/dealer-photos/15-aster.webp" download class="photo-card" data-photocat="aster">
+    <img src="/images/dealer-photos/thumbs/15-aster.webp" alt="15 Aster" loading="lazy" />
+    <span class="photo-label">15 Aster</span>
+  </a>
+  <a href="/downloads/dealer-photos/16-aster.webp" download class="photo-card" data-photocat="aster">
+    <img src="/images/dealer-photos/thumbs/16-aster.webp" alt="16 Aster" loading="lazy" />
+    <span class="photo-label">16 Aster</span>
+  </a>
+  <a href="/downloads/dealer-photos/17-aster.webp" download class="photo-card" data-photocat="aster">
+    <img src="/images/dealer-photos/thumbs/17-aster.webp" alt="17 Aster" loading="lazy" />
+    <span class="photo-label">17 Aster</span>
+  </a>
+  <a href="/downloads/dealer-photos/18-aster.webp" download class="photo-card" data-photocat="aster">
+    <img src="/images/dealer-photos/thumbs/18-aster.webp" alt="18 Aster" loading="lazy" />
+    <span class="photo-label">18 Aster</span>
+  </a>
+  <a href="/downloads/dealer-photos/2-boulder-kitchen-2.webp" download class="photo-card" data-photocat="boulder">
+    <img src="/images/dealer-photos/thumbs/2-boulder-kitchen-2.webp" alt="2 Boulder Kitchen 2" loading="lazy" />
+    <span class="photo-label">2 Boulder Kitchen 2</span>
+  </a>
+  <a href="/downloads/dealer-photos/2-boulder-kitchen-3.webp" download class="photo-card" data-photocat="boulder">
+    <img src="/images/dealer-photos/thumbs/2-boulder-kitchen-3.webp" alt="2 Boulder Kitchen 3" loading="lazy" />
+    <span class="photo-label">2 Boulder Kitchen 3</span>
+  </a>
+  <a href="/downloads/dealer-photos/2-boulder-kitchen-4.webp" download class="photo-card" data-photocat="boulder">
+    <img src="/images/dealer-photos/thumbs/2-boulder-kitchen-4.webp" alt="2 Boulder Kitchen 4" loading="lazy" />
+    <span class="photo-label">2 Boulder Kitchen 4</span>
+  </a>
+  <a href="/downloads/dealer-photos/2-boulder-kitchen-5.webp" download class="photo-card" data-photocat="boulder">
+    <img src="/images/dealer-photos/thumbs/2-boulder-kitchen-5.webp" alt="2 Boulder Kitchen 5" loading="lazy" />
+    <span class="photo-label">2 Boulder Kitchen 5</span>
+  </a>
+  <a href="/downloads/dealer-photos/2-boulder-kitchen-6.webp" download class="photo-card" data-photocat="boulder">
+    <img src="/images/dealer-photos/thumbs/2-boulder-kitchen-6.webp" alt="2 Boulder Kitchen 6" loading="lazy" />
+    <span class="photo-label">2 Boulder Kitchen 6</span>
+  </a>
+  <a href="/downloads/dealer-photos/2-boulder-kitchen-7.webp" download class="photo-card" data-photocat="boulder">
+    <img src="/images/dealer-photos/thumbs/2-boulder-kitchen-7.webp" alt="2 Boulder Kitchen 7" loading="lazy" />
+    <span class="photo-label">2 Boulder Kitchen 7</span>
+  </a>
+  <a href="/downloads/dealer-photos/2-boulder-kitchen-8.webp" download class="photo-card" data-photocat="boulder">
+    <img src="/images/dealer-photos/thumbs/2-boulder-kitchen-8.webp" alt="2 Boulder Kitchen 8" loading="lazy" />
+    <span class="photo-label">2 Boulder Kitchen 8</span>
+  </a>
+  <a href="/downloads/dealer-photos/2-boulder-laundry-1.webp" download class="photo-card" data-photocat="boulder">
+    <img src="/images/dealer-photos/thumbs/2-boulder-laundry-1.webp" alt="2 Boulder Laundry 1" loading="lazy" />
+    <span class="photo-label">2 Boulder Laundry 1</span>
+  </a>
+  <a href="/downloads/dealer-photos/2-boulder-laundry-2.webp" download class="photo-card" data-photocat="boulder">
+    <img src="/images/dealer-photos/thumbs/2-boulder-laundry-2.webp" alt="2 Boulder Laundry 2" loading="lazy" />
+    <span class="photo-label">2 Boulder Laundry 2</span>
+  </a>
+  <a href="/downloads/dealer-photos/2-boulder-laundry-3.webp" download class="photo-card" data-photocat="boulder">
+    <img src="/images/dealer-photos/thumbs/2-boulder-laundry-3.webp" alt="2 Boulder Laundry 3" loading="lazy" />
+    <span class="photo-label">2 Boulder Laundry 3</span>
+  </a>
+  <a href="/downloads/dealer-photos/2.webp" download class="photo-card" data-photocat="other">
+    <img src="/images/dealer-photos/thumbs/2.webp" alt="2" loading="lazy" />
+    <span class="photo-label">2</span>
+  </a>
+  <a href="/downloads/dealer-photos/20-aster.webp" download class="photo-card" data-photocat="aster">
+    <img src="/images/dealer-photos/thumbs/20-aster.webp" alt="20 Aster" loading="lazy" />
+    <span class="photo-label">20 Aster</span>
+  </a>
+  <a href="/downloads/dealer-photos/21-aster.webp" download class="photo-card" data-photocat="aster">
+    <img src="/images/dealer-photos/thumbs/21-aster.webp" alt="21 Aster" loading="lazy" />
+    <span class="photo-label">21 Aster</span>
+  </a>
+  <a href="/downloads/dealer-photos/2boulder-kitchen-1.webp" download class="photo-card" data-photocat="boulder">
+    <img src="/images/dealer-photos/thumbs/2boulder-kitchen-1.webp" alt="2boulder Kitchen 1" loading="lazy" />
+    <span class="photo-label">2boulder Kitchen 1</span>
+  </a>
+  <a href="/downloads/dealer-photos/3-boulder-kitchen-walnut-interior-2.webp" download class="photo-card" data-photocat="boulder">
+    <img src="/images/dealer-photos/thumbs/3-boulder-kitchen-walnut-interior-2.webp" alt="3 Boulder Kitchen Walnut Interior 2" loading="lazy" />
+    <span class="photo-label">3 Boulder Kitchen Walnut Interior 2</span>
+  </a>
+  <a href="/downloads/dealer-photos/3-boulder-kitchen-walnut-interior.webp" download class="photo-card" data-photocat="boulder">
+    <img src="/images/dealer-photos/thumbs/3-boulder-kitchen-walnut-interior.webp" alt="3 Boulder Kitchen Walnut Interior" loading="lazy" />
+    <span class="photo-label">3 Boulder Kitchen Walnut Interior</span>
+  </a>
+  <a href="/downloads/dealer-photos/3-boulder-laundry-1.webp" download class="photo-card" data-photocat="boulder">
+    <img src="/images/dealer-photos/thumbs/3-boulder-laundry-1.webp" alt="3 Boulder Laundry 1" loading="lazy" />
+    <span class="photo-label">3 Boulder Laundry 1</span>
+  </a>
+  <a href="/downloads/dealer-photos/3-boulder-laundry-2.webp" download class="photo-card" data-photocat="boulder">
+    <img src="/images/dealer-photos/thumbs/3-boulder-laundry-2.webp" alt="3 Boulder Laundry 2" loading="lazy" />
+    <span class="photo-label">3 Boulder Laundry 2</span>
+  </a>
+  <a href="/downloads/dealer-photos/3-boulder-laundry-3.webp" download class="photo-card" data-photocat="boulder">
+    <img src="/images/dealer-photos/thumbs/3-boulder-laundry-3.webp" alt="3 Boulder Laundry 3" loading="lazy" />
+    <span class="photo-label">3 Boulder Laundry 3</span>
+  </a>
+  <a href="/downloads/dealer-photos/3-boulder-lower-level-1.webp" download class="photo-card" data-photocat="boulder">
+    <img src="/images/dealer-photos/thumbs/3-boulder-lower-level-1.webp" alt="3 Boulder Lower Level 1" loading="lazy" />
+    <span class="photo-label">3 Boulder Lower Level 1</span>
+  </a>
+  <a href="/downloads/dealer-photos/3-boulder-powder-1.webp" download class="photo-card" data-photocat="boulder">
+    <img src="/images/dealer-photos/thumbs/3-boulder-powder-1.webp" alt="3 Boulder Powder 1" loading="lazy" />
+    <span class="photo-label">3 Boulder Powder 1</span>
+  </a>
+  <a href="/downloads/dealer-photos/3.webp" download class="photo-card" data-photocat="other">
+    <img src="/images/dealer-photos/thumbs/3.webp" alt="3" loading="lazy" />
+    <span class="photo-label">3</span>
+  </a>
+  <a href="/downloads/dealer-photos/5showroom-4.webp" download class="photo-card" data-photocat="showroom">
+    <img src="/images/dealer-photos/thumbs/5showroom-4.webp" alt="5showroom 4" loading="lazy" />
+    <span class="photo-label">5showroom 4</span>
+  </a>
+  <a href="/downloads/dealer-photos/bk-showroom-1.webp" download class="photo-card" data-photocat="showroom">
+    <img src="/images/dealer-photos/thumbs/bk-showroom-1.webp" alt="Bk Showroom 1" loading="lazy" />
+    <span class="photo-label">Bk Showroom 1</span>
+  </a>
+  <a href="/downloads/dealer-photos/bk-showroom-2.webp" download class="photo-card" data-photocat="showroom">
+    <img src="/images/dealer-photos/thumbs/bk-showroom-2.webp" alt="Bk Showroom 2" loading="lazy" />
+    <span class="photo-label">Bk Showroom 2</span>
+  </a>
+  <a href="/downloads/dealer-photos/bk-showroom-3.webp" download class="photo-card" data-photocat="showroom">
+    <img src="/images/dealer-photos/thumbs/bk-showroom-3.webp" alt="Bk Showroom 3" loading="lazy" />
+    <span class="photo-label">Bk Showroom 3</span>
+  </a>
+  <a href="/downloads/dealer-photos/bk-showroom-4.webp" download class="photo-card" data-photocat="showroom">
+    <img src="/images/dealer-photos/thumbs/bk-showroom-4.webp" alt="Bk Showroom 4" loading="lazy" />
+    <span class="photo-label">Bk Showroom 4</span>
+  </a>
+  <a href="/downloads/dealer-photos/boulder-1.webp" download class="photo-card" data-photocat="boulder">
+    <img src="/images/dealer-photos/thumbs/boulder-1.webp" alt="Boulder 1" loading="lazy" />
+    <span class="photo-label">Boulder 1</span>
+  </a>
+  <a href="/downloads/dealer-photos/boulder-closet-1.webp" download class="photo-card" data-photocat="boulder">
+    <img src="/images/dealer-photos/thumbs/boulder-closet-1.webp" alt="Boulder Closet 1" loading="lazy" />
+    <span class="photo-label">Boulder Closet 1</span>
+  </a>
+  <a href="/downloads/dealer-photos/boulder-dining-1.webp" download class="photo-card" data-photocat="boulder">
+    <img src="/images/dealer-photos/thumbs/boulder-dining-1.webp" alt="Boulder Dining 1" loading="lazy" />
+    <span class="photo-label">Boulder Dining 1</span>
+  </a>
+  <a href="/downloads/dealer-photos/boulder-kitchen-1.webp" download class="photo-card" data-photocat="boulder">
+    <img src="/images/dealer-photos/thumbs/boulder-kitchen-1.webp" alt="Boulder Kitchen 1" loading="lazy" />
+    <span class="photo-label">Boulder Kitchen 1</span>
+  </a>
+  <a href="/downloads/dealer-photos/boulder-kitchen-3.webp" download class="photo-card" data-photocat="boulder">
+    <img src="/images/dealer-photos/thumbs/boulder-kitchen-3.webp" alt="Boulder Kitchen 3" loading="lazy" />
+    <span class="photo-label">Boulder Kitchen 3</span>
+  </a>
+  <a href="/downloads/dealer-photos/boulder-kitchen-4.webp" download class="photo-card" data-photocat="boulder">
+    <img src="/images/dealer-photos/thumbs/boulder-kitchen-4.webp" alt="Boulder Kitchen 4" loading="lazy" />
+    <span class="photo-label">Boulder Kitchen 4</span>
+  </a>
+  <a href="/downloads/dealer-photos/boulder-kitchen-5.webp" download class="photo-card" data-photocat="boulder">
+    <img src="/images/dealer-photos/thumbs/boulder-kitchen-5.webp" alt="Boulder Kitchen 5" loading="lazy" />
+    <span class="photo-label">Boulder Kitchen 5</span>
+  </a>
+  <a href="/downloads/dealer-photos/boulder-kitchen-6.webp" download class="photo-card" data-photocat="boulder">
+    <img src="/images/dealer-photos/thumbs/boulder-kitchen-6.webp" alt="Boulder Kitchen 6" loading="lazy" />
+    <span class="photo-label">Boulder Kitchen 6</span>
+  </a>
+  <a href="/downloads/dealer-photos/boulder-kitchen-7.webp" download class="photo-card" data-photocat="boulder">
+    <img src="/images/dealer-photos/thumbs/boulder-kitchen-7.webp" alt="Boulder Kitchen 7" loading="lazy" />
+    <span class="photo-label">Boulder Kitchen 7</span>
+  </a>
+  <a href="/downloads/dealer-photos/boulder-kitchen-8.webp" download class="photo-card" data-photocat="boulder">
+    <img src="/images/dealer-photos/thumbs/boulder-kitchen-8.webp" alt="Boulder Kitchen 8" loading="lazy" />
+    <span class="photo-label">Boulder Kitchen 8</span>
+  </a>
+  <a href="/downloads/dealer-photos/boulder-laundry-1.webp" download class="photo-card" data-photocat="boulder">
+    <img src="/images/dealer-photos/thumbs/boulder-laundry-1.webp" alt="Boulder Laundry 1" loading="lazy" />
+    <span class="photo-label">Boulder Laundry 1</span>
+  </a>
+  <a href="/downloads/dealer-photos/boulder-laundry-2.webp" download class="photo-card" data-photocat="boulder">
+    <img src="/images/dealer-photos/thumbs/boulder-laundry-2.webp" alt="Boulder Laundry 2" loading="lazy" />
+    <span class="photo-label">Boulder Laundry 2</span>
+  </a>
+  <a href="/downloads/dealer-photos/boulder-laundry-3.webp" download class="photo-card" data-photocat="boulder">
+    <img src="/images/dealer-photos/thumbs/boulder-laundry-3.webp" alt="Boulder Laundry 3" loading="lazy" />
+    <span class="photo-label">Boulder Laundry 3</span>
+  </a>
+  <a href="/downloads/dealer-photos/boulder-laundry-4.webp" download class="photo-card" data-photocat="boulder">
+    <img src="/images/dealer-photos/thumbs/boulder-laundry-4.webp" alt="Boulder Laundry 4" loading="lazy" />
+    <span class="photo-label">Boulder Laundry 4</span>
+  </a>
+  <a href="/downloads/dealer-photos/boulder-powder-bath-1.webp" download class="photo-card" data-photocat="boulder">
+    <img src="/images/dealer-photos/thumbs/boulder-powder-bath-1.webp" alt="Boulder Powder Bath 1" loading="lazy" />
+    <span class="photo-label">Boulder Powder Bath 1</span>
+  </a>
+  <a href="/downloads/dealer-photos/carbondale-1.webp" download class="photo-card" data-photocat="carbondale">
+    <img src="/images/dealer-photos/thumbs/carbondale-1.webp" alt="Carbondale 1" loading="lazy" />
+    <span class="photo-label">Carbondale 1</span>
+  </a>
+  <a href="/downloads/dealer-photos/caruso-l-showroom-1.webp" download class="photo-card" data-photocat="caruso">
+    <img src="/images/dealer-photos/thumbs/caruso-l-showroom-1.webp" alt="Caruso L Showroom 1" loading="lazy" />
+    <span class="photo-label">Caruso L Showroom 1</span>
+  </a>
+  <a href="/downloads/dealer-photos/caruso-l-showroom-2.webp" download class="photo-card" data-photocat="caruso">
+    <img src="/images/dealer-photos/thumbs/caruso-l-showroom-2.webp" alt="Caruso L Showroom 2" loading="lazy" />
+    <span class="photo-label">Caruso L Showroom 2</span>
+  </a>
+  <a href="/downloads/dealer-photos/caruso-showroom-1.webp" download class="photo-card" data-photocat="caruso">
+    <img src="/images/dealer-photos/thumbs/caruso-showroom-1.webp" alt="Caruso Showroom 1" loading="lazy" />
+    <span class="photo-label">Caruso Showroom 1</span>
+  </a>
+  <a href="/downloads/dealer-photos/caruso-showroom-2.webp" download class="photo-card" data-photocat="caruso">
+    <img src="/images/dealer-photos/thumbs/caruso-showroom-2.webp" alt="Caruso Showroom 2" loading="lazy" />
+    <span class="photo-label">Caruso Showroom 2</span>
+  </a>
+  <a href="/downloads/dealer-photos/caruso-showroom-3.webp" download class="photo-card" data-photocat="caruso">
+    <img src="/images/dealer-photos/thumbs/caruso-showroom-3.webp" alt="Caruso Showroom 3" loading="lazy" />
+    <span class="photo-label">Caruso Showroom 3</span>
+  </a>
+  <a href="/downloads/dealer-photos/caruso-showroom-4.webp" download class="photo-card" data-photocat="caruso">
+    <img src="/images/dealer-photos/thumbs/caruso-showroom-4.webp" alt="Caruso Showroom 4" loading="lazy" />
+    <span class="photo-label">Caruso Showroom 4</span>
+  </a>
+  <a href="/downloads/dealer-photos/caruso-showroom-5.webp" download class="photo-card" data-photocat="caruso">
+    <img src="/images/dealer-photos/thumbs/caruso-showroom-5.webp" alt="Caruso Showroom 5" loading="lazy" />
+    <span class="photo-label">Caruso Showroom 5</span>
+  </a>
+  <a href="/downloads/dealer-photos/ckd-kitchen-1.webp" download class="photo-card" data-photocat="ckd">
+    <img src="/images/dealer-photos/thumbs/ckd-kitchen-1.webp" alt="Ckd Kitchen 1" loading="lazy" />
+    <span class="photo-label">Ckd Kitchen 1</span>
+  </a>
+  <a href="/downloads/dealer-photos/ckd-kitchen-2.webp" download class="photo-card" data-photocat="ckd">
+    <img src="/images/dealer-photos/thumbs/ckd-kitchen-2.webp" alt="Ckd Kitchen 2" loading="lazy" />
+    <span class="photo-label">Ckd Kitchen 2</span>
+  </a>
+  <a href="/downloads/dealer-photos/ckd-kitchen-3.webp" download class="photo-card" data-photocat="ckd">
+    <img src="/images/dealer-photos/thumbs/ckd-kitchen-3.webp" alt="Ckd Kitchen 3" loading="lazy" />
+    <span class="photo-label">Ckd Kitchen 3</span>
+  </a>
+  <a href="/downloads/dealer-photos/ckd-kitchen-4.webp" download class="photo-card" data-photocat="ckd">
+    <img src="/images/dealer-photos/thumbs/ckd-kitchen-4.webp" alt="Ckd Kitchen 4" loading="lazy" />
+    <span class="photo-label">Ckd Kitchen 4</span>
+  </a>
+  <a href="/downloads/dealer-photos/ckd-kitchen-5.webp" download class="photo-card" data-photocat="ckd">
+    <img src="/images/dealer-photos/thumbs/ckd-kitchen-5.webp" alt="Ckd Kitchen 5" loading="lazy" />
+    <span class="photo-label">Ckd Kitchen 5</span>
+  </a>
+  <a href="/downloads/dealer-photos/ckd-kitchen-6.webp" download class="photo-card" data-photocat="ckd">
+    <img src="/images/dealer-photos/thumbs/ckd-kitchen-6.webp" alt="Ckd Kitchen 6" loading="lazy" />
+    <span class="photo-label">Ckd Kitchen 6</span>
+  </a>
+  <a href="/downloads/dealer-photos/cooktop-hood-close-up.webp" download class="photo-card" data-photocat="kitchen-detail">
+    <img src="/images/dealer-photos/thumbs/cooktop-hood-close-up.webp" alt="Cooktop Hood Close Up" loading="lazy" />
+    <span class="photo-label">Cooktop Hood Close Up</span>
+  </a>
+  <a href="/downloads/dealer-photos/excelle-unlabeled.webp" download class="photo-card" data-photocat="excelle">
+    <img src="/images/dealer-photos/thumbs/excelle-unlabeled.webp" alt="Excelle Unlabeled" loading="lazy" />
+    <span class="photo-label">Excelle Unlabeled</span>
+  </a>
+  <a href="/downloads/dealer-photos/fridge-and-glass-cabinet-wall.webp" download class="photo-card" data-photocat="kitchen-detail">
+    <img src="/images/dealer-photos/thumbs/fridge-and-glass-cabinet-wall.webp" alt="Fridge And Glass Cabinet Wall" loading="lazy" />
+    <span class="photo-label">Fridge And Glass Cabinet Wall</span>
+  </a>
+  <a href="/downloads/dealer-photos/img_1176.webp" download class="photo-card" data-photocat="img">
+    <img src="/images/dealer-photos/thumbs/img_1176.webp" alt="Img 1176" loading="lazy" />
+    <span class="photo-label">Img 1176</span>
+  </a>
+  <a href="/downloads/dealer-photos/img_1177.webp" download class="photo-card" data-photocat="img">
+    <img src="/images/dealer-photos/thumbs/img_1177.webp" alt="Img 1177" loading="lazy" />
+    <span class="photo-label">Img 1177</span>
+  </a>
+  <a href="/downloads/dealer-photos/img_1178.webp" download class="photo-card" data-photocat="img">
+    <img src="/images/dealer-photos/thumbs/img_1178.webp" alt="Img 1178" loading="lazy" />
+    <span class="photo-label">Img 1178</span>
+  </a>
+  <a href="/downloads/dealer-photos/img_1180.webp" download class="photo-card" data-photocat="img">
+    <img src="/images/dealer-photos/thumbs/img_1180.webp" alt="Img 1180" loading="lazy" />
+    <span class="photo-label">Img 1180</span>
+  </a>
+  <a href="/downloads/dealer-photos/img_1181.webp" download class="photo-card" data-photocat="img">
+    <img src="/images/dealer-photos/thumbs/img_1181.webp" alt="Img 1181" loading="lazy" />
+    <span class="photo-label">Img 1181</span>
+  </a>
+  <a href="/downloads/dealer-photos/img_1182.webp" download class="photo-card" data-photocat="img">
+    <img src="/images/dealer-photos/thumbs/img_1182.webp" alt="Img 1182" loading="lazy" />
+    <span class="photo-label">Img 1182</span>
+  </a>
+  <a href="/downloads/dealer-photos/img_1183.webp" download class="photo-card" data-photocat="img">
+    <img src="/images/dealer-photos/thumbs/img_1183.webp" alt="Img 1183" loading="lazy" />
+    <span class="photo-label">Img 1183</span>
+  </a>
+  <a href="/downloads/dealer-photos/island-2.webp" download class="photo-card" data-photocat="kitchen-detail">
+    <img src="/images/dealer-photos/thumbs/island-2.webp" alt="Island 2" loading="lazy" />
+    <span class="photo-label">Island 2</span>
+  </a>
+  <a href="/downloads/dealer-photos/kai_1980.webp" download class="photo-card" data-photocat="kai">
+    <img src="/images/dealer-photos/thumbs/kai_1980.webp" alt="Kai 1980" loading="lazy" />
+    <span class="photo-label">Kai 1980</span>
+  </a>
+  <a href="/downloads/dealer-photos/kai_1981.webp" download class="photo-card" data-photocat="kai">
+    <img src="/images/dealer-photos/thumbs/kai_1981.webp" alt="Kai 1981" loading="lazy" />
+    <span class="photo-label">Kai 1981</span>
+  </a>
+  <a href="/downloads/dealer-photos/kai_1987.webp" download class="photo-card" data-photocat="kai">
+    <img src="/images/dealer-photos/thumbs/kai_1987.webp" alt="Kai 1987" loading="lazy" />
+    <span class="photo-label">Kai 1987</span>
+  </a>
+  <a href="/downloads/dealer-photos/kai_2007-2.webp" download class="photo-card" data-photocat="kai">
+    <img src="/images/dealer-photos/thumbs/kai_2007-2.webp" alt="Kai 2007 2" loading="lazy" />
+    <span class="photo-label">Kai 2007 2</span>
+  </a>
+  <a href="/downloads/dealer-photos/kai_2018-2.webp" download class="photo-card" data-photocat="kai">
+    <img src="/images/dealer-photos/thumbs/kai_2018-2.webp" alt="Kai 2018 2" loading="lazy" />
+    <span class="photo-label">Kai 2018 2</span>
+  </a>
+  <a href="/downloads/dealer-photos/kai_2023.webp" download class="photo-card" data-photocat="kai">
+    <img src="/images/dealer-photos/thumbs/kai_2023.webp" alt="Kai 2023" loading="lazy" />
+    <span class="photo-label">Kai 2023</span>
+  </a>
+  <a href="/downloads/dealer-photos/kai_2037.webp" download class="photo-card" data-photocat="kai">
+    <img src="/images/dealer-photos/thumbs/kai_2037.webp" alt="Kai 2037" loading="lazy" />
+    <span class="photo-label">Kai 2037</span>
+  </a>
+  <a href="/downloads/dealer-photos/kai_2060-2.webp" download class="photo-card" data-photocat="kai">
+    <img src="/images/dealer-photos/thumbs/kai_2060-2.webp" alt="Kai 2060 2" loading="lazy" />
+    <span class="photo-label">Kai 2060 2</span>
+  </a>
+  <a href="/downloads/dealer-photos/kai_2068.webp" download class="photo-card" data-photocat="kai">
+    <img src="/images/dealer-photos/thumbs/kai_2068.webp" alt="Kai 2068" loading="lazy" />
+    <span class="photo-label">Kai 2068</span>
+  </a>
+  <a href="/downloads/dealer-photos/miele-coffee-flush-install.webp" download class="photo-card" data-photocat="kitchen-detail">
+    <img src="/images/dealer-photos/thumbs/miele-coffee-flush-install.webp" alt="Miele Coffee Flush Install" loading="lazy" />
+    <span class="photo-label">Miele Coffee Flush Install</span>
+  </a>
+  <a href="/downloads/dealer-photos/overall-from-angle-different-size.webp" download class="photo-card" data-photocat="kitchen-detail">
+    <img src="/images/dealer-photos/thumbs/overall-from-angle-different-size.webp" alt="Overall From Angle Different Size" loading="lazy" />
+    <span class="photo-label">Overall From Angle Different Size</span>
+  </a>
+  <a href="/downloads/dealer-photos/overall-straight-on-different-size.webp" download class="photo-card" data-photocat="kitchen-detail">
+    <img src="/images/dealer-photos/thumbs/overall-straight-on-different-size.webp" alt="Overall Straight On Different Size" loading="lazy" />
+    <span class="photo-label">Overall Straight On Different Size</span>
+  </a>
+  <a href="/downloads/dealer-photos/overall-view.webp" download class="photo-card" data-photocat="kitchen-detail">
+    <img src="/images/dealer-photos/thumbs/overall-view.webp" alt="Overall View" loading="lazy" />
+    <span class="photo-label">Overall View</span>
+  </a>
+  <a href="/downloads/dealer-photos/plumkitchens_cookst_kitchen_plvphoto-2.webp" download class="photo-card" data-photocat="plum">
+    <img src="/images/dealer-photos/thumbs/plumkitchens_cookst_kitchen_plvphoto-2.webp" alt="Plumkitchens Cookst Kitchen Plvphoto 2" loading="lazy" />
+    <span class="photo-label">Plumkitchens Cookst Kitchen Plvphoto 2</span>
+  </a>
+  <a href="/downloads/dealer-photos/plumkitchens_cookst_kitchen_plvphoto-3-cropped.webp" download class="photo-card" data-photocat="plum">
+    <img src="/images/dealer-photos/thumbs/plumkitchens_cookst_kitchen_plvphoto-3-cropped.webp" alt="Plumkitchens Cookst Kitchen Plvphoto 3 Cropped" loading="lazy" />
+    <span class="photo-label">Plumkitchens Cookst Kitchen Plvphoto 3 Cropped</span>
+  </a>
+  <a href="/downloads/dealer-photos/plumkitchens_cookst_kitchen_plvphoto-4-vs.2-fav.webp" download class="photo-card" data-photocat="plum">
+    <img src="/images/dealer-photos/thumbs/plumkitchens_cookst_kitchen_plvphoto-4-vs.2-fav.webp" alt="Plumkitchens Cookst Kitchen Plvphoto 4 Vs.2 Fav" loading="lazy" />
+    <span class="photo-label">Plumkitchens Cookst Kitchen Plvphoto 4 Vs.2 Fav</span>
+  </a>
+  <a href="/downloads/dealer-photos/plumkitchens_cookst_kitchen_plvphoto-5.webp" download class="photo-card" data-photocat="plum">
+    <img src="/images/dealer-photos/thumbs/plumkitchens_cookst_kitchen_plvphoto-5.webp" alt="Plumkitchens Cookst Kitchen Plvphoto 5" loading="lazy" />
+    <span class="photo-label">Plumkitchens Cookst Kitchen Plvphoto 5</span>
+  </a>
+  <a href="/downloads/dealer-photos/plumkitchens_cookst_kitchen_plvphoto-6-cropped.webp" download class="photo-card" data-photocat="plum">
+    <img src="/images/dealer-photos/thumbs/plumkitchens_cookst_kitchen_plvphoto-6-cropped.webp" alt="Plumkitchens Cookst Kitchen Plvphoto 6 Cropped" loading="lazy" />
+    <span class="photo-label">Plumkitchens Cookst Kitchen Plvphoto 6 Cropped</span>
+  </a>
+  <a href="/downloads/dealer-photos/plumkitchens_cookst_kitchen_plvphoto-7.webp" download class="photo-card" data-photocat="plum">
+    <img src="/images/dealer-photos/thumbs/plumkitchens_cookst_kitchen_plvphoto-7.webp" alt="Plumkitchens Cookst Kitchen Plvphoto 7" loading="lazy" />
+    <span class="photo-label">Plumkitchens Cookst Kitchen Plvphoto 7</span>
+  </a>
+  <a href="/downloads/dealer-photos/plumkitchens_cookst_kitchen_plvphoto-8.webp" download class="photo-card" data-photocat="plum">
+    <img src="/images/dealer-photos/thumbs/plumkitchens_cookst_kitchen_plvphoto-8.webp" alt="Plumkitchens Cookst Kitchen Plvphoto 8" loading="lazy" />
+    <span class="photo-label">Plumkitchens Cookst Kitchen Plvphoto 8</span>
+  </a>
+  <a href="/downloads/dealer-photos/portfolio-1.webp" download class="photo-card" data-photocat="portfolio">
+    <img src="/images/dealer-photos/thumbs/portfolio-1.webp" alt="Portfolio 1" loading="lazy" />
+    <span class="photo-label">Portfolio 1</span>
+  </a>
+  <a href="/downloads/dealer-photos/portfolio-2.webp" download class="photo-card" data-photocat="portfolio">
+    <img src="/images/dealer-photos/thumbs/portfolio-2.webp" alt="Portfolio 2" loading="lazy" />
+    <span class="photo-label">Portfolio 2</span>
+  </a>
+  <a href="/downloads/dealer-photos/rs-chase-denver-walnut-drawers.webp" download class="photo-card" data-photocat="other">
+    <img src="/images/dealer-photos/thumbs/rs-chase-denver-walnut-drawers.webp" alt="Rs Chase Denver Walnut Drawers" loading="lazy" />
+    <span class="photo-label">Rs Chase Denver Walnut Drawers</span>
+  </a>
+  <a href="/downloads/dealer-photos/s2-kitchen-1.webp" download class="photo-card" data-photocat="other">
+    <img src="/images/dealer-photos/thumbs/s2-kitchen-1.webp" alt="S2 Kitchen 1" loading="lazy" />
+    <span class="photo-label">S2 Kitchen 1</span>
+  </a>
+  <a href="/downloads/dealer-photos/screenshot-2025-04-23-122347-edited.webp" download class="photo-card" data-photocat="screenshot">
+    <img src="/images/dealer-photos/thumbs/screenshot-2025-04-23-122347-edited.webp" alt="Screenshot 2025 04 23 122347 Edited" loading="lazy" />
+    <span class="photo-label">Screenshot 2025 04 23 122347 Edited</span>
+  </a>
+  <a href="/downloads/dealer-photos/screenshot-2025-04-23-122406-edited.webp" download class="photo-card" data-photocat="screenshot">
+    <img src="/images/dealer-photos/thumbs/screenshot-2025-04-23-122406-edited.webp" alt="Screenshot 2025 04 23 122406 Edited" loading="lazy" />
+    <span class="photo-label">Screenshot 2025 04 23 122406 Edited</span>
+  </a>
+  <a href="/downloads/dealer-photos/screenshot-2025-04-23-122423-edited.webp" download class="photo-card" data-photocat="screenshot">
+    <img src="/images/dealer-photos/thumbs/screenshot-2025-04-23-122423-edited.webp" alt="Screenshot 2025 04 23 122423 Edited" loading="lazy" />
+    <span class="photo-label">Screenshot 2025 04 23 122423 Edited</span>
+  </a>
+  <a href="/downloads/dealer-photos/screenshot-2025-04-23-122510-edited.webp" download class="photo-card" data-photocat="screenshot">
+    <img src="/images/dealer-photos/thumbs/screenshot-2025-04-23-122510-edited.webp" alt="Screenshot 2025 04 23 122510 Edited" loading="lazy" />
+    <span class="photo-label">Screenshot 2025 04 23 122510 Edited</span>
+  </a>
+  <a href="/downloads/dealer-photos/screenshot-2025-04-23-122527-edited.webp" download class="photo-card" data-photocat="screenshot">
+    <img src="/images/dealer-photos/thumbs/screenshot-2025-04-23-122527-edited.webp" alt="Screenshot 2025 04 23 122527 Edited" loading="lazy" />
+    <span class="photo-label">Screenshot 2025 04 23 122527 Edited</span>
+  </a>
+  <a href="/downloads/dealer-photos/screenshot-2025-04-23-122542-edited.webp" download class="photo-card" data-photocat="screenshot">
+    <img src="/images/dealer-photos/thumbs/screenshot-2025-04-23-122542-edited.webp" alt="Screenshot 2025 04 23 122542 Edited" loading="lazy" />
+    <span class="photo-label">Screenshot 2025 04 23 122542 Edited</span>
+  </a>
+  <a href="/downloads/dealer-photos/screenshot-2025-04-23-122556-edited.webp" download class="photo-card" data-photocat="screenshot">
+    <img src="/images/dealer-photos/thumbs/screenshot-2025-04-23-122556-edited.webp" alt="Screenshot 2025 04 23 122556 Edited" loading="lazy" />
+    <span class="photo-label">Screenshot 2025 04 23 122556 Edited</span>
+  </a>
+  <a href="/downloads/dealer-photos/screenshot-2025-04-23-122608-edited.webp" download class="photo-card" data-photocat="screenshot">
+    <img src="/images/dealer-photos/thumbs/screenshot-2025-04-23-122608-edited.webp" alt="Screenshot 2025 04 23 122608 Edited" loading="lazy" />
+    <span class="photo-label">Screenshot 2025 04 23 122608 Edited</span>
+  </a>
+  <a href="/downloads/dealer-photos/screenshot-2025-04-23-122622-edited.webp" download class="photo-card" data-photocat="screenshot">
+    <img src="/images/dealer-photos/thumbs/screenshot-2025-04-23-122622-edited.webp" alt="Screenshot 2025 04 23 122622 Edited" loading="lazy" />
+    <span class="photo-label">Screenshot 2025 04 23 122622 Edited</span>
+  </a>
+  <a href="/downloads/dealer-photos/shkrwhitenevaracanoykitchen1-1.webp" download class="photo-card" data-photocat="nevara">
+    <img src="/images/dealer-photos/thumbs/shkrwhitenevaracanoykitchen1-1.webp" alt="Shkrwhitenevaracanoykitchen1 1" loading="lazy" />
+    <span class="photo-label">Shkrwhitenevaracanoykitchen1 1</span>
+  </a>
+  <a href="/downloads/dealer-photos/showroom-1.webp" download class="photo-card" data-photocat="showroom">
+    <img src="/images/dealer-photos/thumbs/showroom-1.webp" alt="Showroom 1" loading="lazy" />
+    <span class="photo-label">Showroom 1</span>
+  </a>
+  <a href="/downloads/dealer-photos/showroom-2.webp" download class="photo-card" data-photocat="showroom">
+    <img src="/images/dealer-photos/thumbs/showroom-2.webp" alt="Showroom 2" loading="lazy" />
+    <span class="photo-label">Showroom 2</span>
+  </a>
+  <a href="/downloads/dealer-photos/showroom-3.webp" download class="photo-card" data-photocat="showroom">
+    <img src="/images/dealer-photos/thumbs/showroom-3.webp" alt="Showroom 3" loading="lazy" />
+    <span class="photo-label">Showroom 3</span>
+  </a>
+  <a href="/downloads/dealer-photos/showroom-4.webp" download class="photo-card" data-photocat="showroom">
+    <img src="/images/dealer-photos/thumbs/showroom-4.webp" alt="Showroom 4" loading="lazy" />
+    <span class="photo-label">Showroom 4</span>
+  </a>
+  <a href="/downloads/dealer-photos/sink-wall-from-corner.webp" download class="photo-card" data-photocat="kitchen-detail">
+    <img src="/images/dealer-photos/thumbs/sink-wall-from-corner.webp" alt="Sink Wall From Corner" loading="lazy" />
+    <span class="photo-label">Sink Wall From Corner</span>
+  </a>
+  <a href="/downloads/dealer-photos/sink-wall-view.webp" download class="photo-card" data-photocat="kitchen-detail">
+    <img src="/images/dealer-photos/thumbs/sink-wall-view.webp" alt="Sink Wall View" loading="lazy" />
+    <span class="photo-label">Sink Wall View</span>
+  </a>
+</div>
+
 </DealerHubLayout>
 
 <style is:global>
@@ -328,6 +853,86 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
     .dl-search { width: 100%; }
     .dl-controls { flex-direction: column; align-items: stretch; }
   }
+
+  /* Dealer Photos Gallery */
+  .photos-heading {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+  }
+  .photos-subtitle {
+    color: var(--color-muted);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  .photo-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-bottom: 0.5rem;
+  }
+  .photo-filter {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.35rem 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 20px;
+    background: transparent;
+    color: var(--color-muted);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .photo-filter:hover { border-color: var(--color-dark); color: var(--color-dark); }
+  .photo-filter.active {
+    background: var(--color-dark);
+    border-color: var(--color-dark);
+    color: #fff;
+  }
+  .photo-count {
+    font-size: 0.78rem;
+    color: var(--color-muted);
+    margin-bottom: 0.75rem;
+  }
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.75rem;
+  }
+  .photo-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--color-dark);
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .photo-card:hover {
+    border-color: var(--color-dark);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    opacity: 1;
+  }
+  .photo-card.hidden { display: none; }
+  .photo-card img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+  }
+  .photo-label {
+    padding: 0.5rem 0.6rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--color-muted);
+  }
+  @media (max-width: 600px) {
+    .photo-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+  }
 </style>
 
 <script is:inline>
@@ -368,5 +973,39 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
 
   searchInput.addEventListener('input', update);
   update();
+})();
+
+
+// Dealer Photos filter
+(function() {
+  var filters = document.querySelectorAll('.photo-filter');
+  var photos = document.querySelectorAll('.photo-card');
+  var photoCount = document.getElementById('photo-count');
+  var activePcat = 'all';
+
+  function updatePhotos() {
+    var visible = 0;
+    photos.forEach(function(card) {
+      var cat = card.getAttribute('data-photocat');
+      if (activePcat === 'all' || cat === activePcat) {
+        card.classList.remove('hidden');
+        visible++;
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+    photoCount.textContent = visible + ' photo' + (visible !== 1 ? 's' : '');
+  }
+
+  filters.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      filters.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      activePcat = btn.getAttribute('data-photocat');
+      updatePhotos();
+    });
+  });
+
+  updatePhotos();
 })();
 </script>
