@@ -1,5 +1,14 @@
 export const blogPosts = [
   {
+    slug: 'grain-matched-white-oak-metro-straw',
+    title: 'Grain Matched White Oak Veneer in Metro Door Style with Straw Finish',
+    excerpt: "A showroom walkthrough from Greenwood Cabinet & Stone featuring Eclipse's grain matched white oak veneer — and why dealers must be making their own content.",
+    author: 'Ben Miller',
+    date: '2026-04-15',
+    category: 'Product Updates',
+    image: '/images/blog/greenwood-grain-matched-oak.webp'
+  },
+  {
     slug: 'frameless-vs-face-frame-cabinets',
     title: 'Frameless vs Face-Frame Cabinets: Which Construction Method Is Right for Your Kitchen?',
     excerpt: 'Understanding the differences between frameless and face-frame construction is essential for any dealer looking to guide their clients toward the right solution.',
