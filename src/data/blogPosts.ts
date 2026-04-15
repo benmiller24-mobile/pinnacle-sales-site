@@ -1,5 +1,14 @@
 export const blogPosts = [
   {
+    slug: 'caruso-kitchens-eclipse-showroom',
+    title: 'Caruso Kitchens + Eclipse Cabinetry: A Showroom That Sells Itself',
+    excerpt: "A behind-the-scenes look at Caruso Kitchens' Eclipse showroom — and why producing your own video content is now non-negotiable for serious dealers.",
+    author: 'Ben Miller',
+    date: '2026-04-15',
+    category: 'Dealer Spotlights',
+    image: '/images/blog/caruso-eclipse-kitchen-hero.webp'
+  },
+  {
     slug: 'grain-matched-white-oak-metro-straw',
     title: 'Grain Matched White Oak Veneer in Metro Door Style with Straw Finish',
     excerpt: "A showroom walkthrough from Greenwood Cabinet & Stone featuring Eclipse's grain matched white oak veneer — and why dealers must be making their own content.",
