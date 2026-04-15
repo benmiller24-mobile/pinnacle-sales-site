@@ -64,7 +64,7 @@ export const blogPosts = [
     author: 'Ben Miller',
     date: '2025-12-09',
     category: 'Design Trends',
-    image: '/images/hero-kitchen.webp'
+    image: '/images/blog/pronorm-japandi-kitchen.webp'
   },
   {
     slug: 'pronorm-boho-textured-white-oak',
