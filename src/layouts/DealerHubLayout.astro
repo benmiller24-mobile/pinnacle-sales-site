@@ -70,7 +70,6 @@ const navItems = [
         <nav class="sidebar-nav">
           {navItems.map(item => (
             <a href={item.href} class={`sidebar-link ${activeSection === item.label ? 'active' : ''}`}>
-              <span class="sidebar-icon">{item.icon}</span>
               {item.label}
             </a>
           ))}
