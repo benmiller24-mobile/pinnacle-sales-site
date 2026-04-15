@@ -73,7 +73,7 @@ export const blogPosts = [
     author: 'Ben Miller',
     date: '2025-12-09',
     category: 'Product Updates',
-    image: '/images/gallery-4.webp'
+    image: '/images/blog/pronorm-boho-kitchen.webp'
   },
   {
     slug: 'shiloh-furniture-vanities',
