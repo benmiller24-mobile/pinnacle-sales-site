@@ -100,7 +100,7 @@ export const blogPosts = [
     author: 'Ceadrick Kivare',
     date: '2025-11-17',
     category: 'Product Updates',
-    image: '/images/brands/eclipse-hero.webp'
+    image: '/images/blog/pronorm-modern-shaker.webp'
   },
   {
     slug: 'modern-inset',
