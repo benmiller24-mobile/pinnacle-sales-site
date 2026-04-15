@@ -44,7 +44,7 @@ export const blogPosts = [
     author: 'Ben Miller',
     date: '2026-02-08',
     category: 'Product Education',
-    image: '/images/hero-kitchen.webp',
+    image: '/images/blog/pronorm-pink-kitchen-hero.webp',
     recommended: true
   },
   {
