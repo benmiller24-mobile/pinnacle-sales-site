@@ -13,7 +13,7 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
     <div class="progress-bar">
       <div class="progress-fill" id="progressFill"></div>
     </div>
-    <p class="progress-text"><span id="progressCount">0</span> of 13 steps completed</p>
+    <p class="progress-text"><span id="progressCount">0</span> of 12 steps completed</p>
   </div>
 
   <!-- MODULE 1: Getting Started -->
@@ -169,7 +169,7 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
         <h2>Module 4: Certification</h2>
         <p class="module-timeline">Days 17&ndash;21 &middot; Wrap up your onboarding and earn your Certified Dealer badge.</p>
       </div>
-      <span class="module-count" data-module="4">0/3</span>
+      <span class="module-count" data-module="4">0/2</span>
     </div>
     <div class="module-steps">
 
@@ -190,16 +190,6 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
           <strong>Book Your 20-Minute Certification Call</strong>
           <p>A quick call with your rep to review everything, answer final questions, and officially certify you.</p>
           <a href="#zoom-placeholder" class="step-link">&#x1F4F9; Book via Zoom</a>
-        </div>
-      </label>
-
-      <label class="step-card">
-        <input type="checkbox" data-step="m4-3" />
-        <div class="step-check"></div>
-        <div class="step-content">
-          <strong>Receive Your Certified Dealer Badge</strong>
-          <p>Congratulations! Your rep will confirm your certification and send your official Certified Dealer badge and materials.</p>
-          <span class="step-status">&#x1F3C5; Awarded by your rep</span>
         </div>
       </label>
 
@@ -232,10 +222,10 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
       }
     });
     document.getElementById('progressCount').textContent = total;
-    const pct = Math.round((total / 13) * 100);
+    const pct = Math.round((total / 12) * 100);
     document.getElementById('progressFill').style.width = pct + '%';
     // Update module counts
-    const modules = { 1: [0,3], 2: [0,4], 3: [0,3], 4: [0,3] };
+    const modules = { 1: [0,3], 2: [0,4], 3: [0,3], 4: [0,2] };
     checkboxes.forEach(cb => {
       const mod = parseInt(cb.dataset.step.charAt(1));
       if (progress[cb.dataset.step]) modules[mod][0]++;
