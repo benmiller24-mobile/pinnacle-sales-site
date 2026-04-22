@@ -1,5 +1,15 @@
 export const blogPosts = [
   {
+    slug: 'pronorm-linear-oak-santa-barbara',
+    title: 'Warm Modernism Under the Beams: A Linear Oak Pronorm Kitchen in Santa Barbara',
+    excerpt: "Designer Gillian Amery (The Kitchen Company) pairs Pronorm's Linear oak door with a beamed Santa Barbara ranch — a case study in selling German cabinetry into warm architecture.",
+    author: 'Ben Miller',
+    date: '2026-04-22',
+    category: 'Dealer Success',
+    image: '/images/blog/pronorm-linear-oak/01-kitchen-overview-wide.webp',
+    recommended: true
+  },
+  {
     slug: 'caruso-kitchens-eclipse-showroom',
     title: 'Caruso Kitchens + Eclipse Cabinetry: A Showroom That Sells Itself',
     excerpt: "A behind-the-scenes look at Caruso Kitchens' Eclipse showroom — and why producing your own video content is now non-negotiable for serious dealers.",
