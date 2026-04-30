@@ -11,8 +11,8 @@ export const blogPosts = [
   },
   {
     slug: 'caruso-kitchens-eclipse-showroom',
-    title: 'Caruso Kitchens + Eclipse Cabinetry: A Showroom That Sells Itself',
-    excerpt: "A behind-the-scenes look at Caruso Kitchens' Eclipse showroom — and why producing your own video content is now non-negotiable for serious dealers.",
+    title: 'Caruso Kitchens + Eclipse Cabinetry: An Installed Kitchen That Sells Itself',
+    excerpt: "See how Caruso Kitchens captured one of their real installed Eclipse kitchens on video — and why filming finished projects in real homes, not just showrooms, is the highest-converting content a dealer can make in 2026.",
     author: 'Ben Miller',
     date: '2026-04-15',
     category: 'Dealer Spotlights',
