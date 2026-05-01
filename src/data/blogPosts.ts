@@ -1,5 +1,15 @@
 export const blogPosts = [
   {
+    slug: 'designing-pronorm-in-winner-5blox-san-pedro',
+    title: 'Designing Pronorm in Winner: A 5 Blox San Pedro Display',
+    excerpt: "How Pinnacle Sales designs every Pronorm kitchen for our dealers in Winner CAD by Cyncly — what's in the package and why it matters. Inside: the brushed-brass-handleless display we just drew up for 5 Blox in San Pedro.",
+    author: 'Ben Miller',
+    date: '2026-05-01',
+    category: 'Showroom Tools',
+    image: '/images/blog/pronorm-5blox-san-pedro/01-render-overall.webp',
+    recommended: true
+  },
+  {
     slug: 'pronorm-linear-oak-santa-barbara',
     title: 'Warm Modernism Under the Beams: A Linear Oak Pronorm Kitchen in Santa Barbara',
     excerpt: "Designer Gillian Amery (The Kitchen Company) pairs Pronorm's Linear oak door with a beamed Santa Barbara ranch — a case study in selling German cabinetry into warm architecture.",
