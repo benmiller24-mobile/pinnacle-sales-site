@@ -71,7 +71,7 @@ export const blogPosts = [
     slug: 'eclipse-merchandiser-display',
     title: 'Meet the Eclipse Merchandiser: A Smarter, Showroom-Ready Display for Sample Libraries',
     excerpt: 'A practical, elegant solution for organizing and presenting door samples, color decks and chip samples in one compact footprint.',
-    author: 'Ceadrick Kivare',
+    author: 'Ben Miller',
     date: '2026-02-05',
     category: 'Showroom Tools',
     image: '/images/blog/eclipse-merchandiser-1.webp',
@@ -81,7 +81,7 @@ export const blogPosts = [
     slug: 'shiloh-edge-banded-shelf',
     title: 'New from Shiloh — 1¼″ Edge-Banded Shelf',
     excerpt: 'A clean, high-quality plywood shelf solution for open cabinetry and display applications with finished edges on all four sides.',
-    author: 'Ceadrick Kivare',
+    author: 'Ben Miller',
     date: '2026-02-05',
     category: 'Product Updates',
     image: '/images/blog/shiloh-edge-banded-shelf-1.webp'
@@ -90,7 +90,7 @@ export const blogPosts = [
     slug: 'showcasing-installed-projects',
     title: 'How Showcasing Installed Projects Helps Dealers Stand Out',
     excerpt: 'Showing is more powerful than telling. See how Caruso Kitchen Designs created a compelling video showcase with Eclipse Cabinetry.',
-    author: 'Ceadrick Kivare',
+    author: 'Ben Miller',
     date: '2026-01-15',
     category: 'Marketing',
     image: '/images/gallery-3.webp'
@@ -117,7 +117,7 @@ export const blogPosts = [
     slug: 'shiloh-furniture-vanities',
     title: 'Handcrafted Quality: Shiloh Cabinetry Furniture Vanities',
     excerpt: 'Every furniture vanity is built from scratch by a skilled craftsman, available in all solid wood species and any Shiloh finish.',
-    author: 'Ceadrick Kivare',
+    author: 'Ben Miller',
     date: '2025-12-09',
     category: 'Product Education',
     image: '/images/brands/shiloh-hero.webp'
@@ -126,7 +126,7 @@ export const blogPosts = [
     slug: 'greenwood-kitchens-factory-visit',
     title: 'Strengthening Partnerships: Greenwood Kitchens Visits WW Wood with Pinnacle Sales',
     excerpt: "Greenwood Kitchens toured WW Wood Products' manufacturing operations alongside Pinnacle Sales to deepen collaborative ties.",
-    author: 'Ceadrick Kivare',
+    author: 'Ben Miller',
     date: '2025-11-18',
     category: 'Dealer Success',
     image: '/images/blog/greenwood-visit-1.webp'
@@ -135,7 +135,7 @@ export const blogPosts = [
     slug: 'pronorm-modern-shaker-lf',
     title: 'Introducing the New "Modern Shaker LF" Door Style',
     excerpt: 'A refined reinterpretation of a classic silhouette made for modern living with ultra-thin stiles and rails.',
-    author: 'Ceadrick Kivare',
+    author: 'Ben Miller',
     date: '2025-11-17',
     category: 'Product Updates',
     image: '/images/blog/pronorm-modern-shaker.webp'
