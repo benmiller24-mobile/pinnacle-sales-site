@@ -44,7 +44,7 @@ export const blogPosts = [
     author: 'Ben Miller',
     date: '2026-04-02',
     category: 'Dealer Success',
-    image: '/images/blog/5blox-shiloh-eclipse-yosemite-brown-display/01-hero.webp'
+    image: '/images/blog/5blox-shiloh-eclipse-yosemite-brown-display/listing-card.webp'
   },
   {
     slug: 'frameless-vs-face-frame-cabinets',
