@@ -13,7 +13,7 @@ export interface Project {
   dealerWebsite?: string;
   brand: 'Shiloh' | 'Eclipse' | 'Aspect' | 'Pronorm' | 'Vistora' | 'Multiple';
   brandSlug: 'shiloh-cabinetry' | 'eclipse-cabinetry' | 'aspect-cabinetry' | 'pronorm-german-kitchens' | 'vistora-closets' | null;
-  spaceType: 'Kitchen' | 'Whole Home' | 'Showroom';
+  spaceType: 'Kitchen' | 'Bath' | 'Whole Home' | 'Showroom';
   location: string;
   state: string;
   blurb: string;
@@ -25,6 +25,26 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    slug: 'stutler-cabinets-walnut-rye-bath',
+    title: 'Walnut Rye Master Bath — Stutler Cabinets',
+    dealer: 'Stutler Cabinets',
+    brand: 'Shiloh',
+    brandSlug: 'shiloh-cabinetry',
+    spaceType: 'Bath',
+    location: 'Portland, OR',
+    state: 'Oregon',
+    blurb: "A master bath by Stutler Cabinets in Portland — Shiloh on the Malibu door style in Walnut with the Rye finish, executed as flush inset. Designed by Liz Stutler.",
+    body: "Stutler Cabinets is a Portland, Oregon dealer who consistently delivers some of the most refined Shiloh work in the Pacific Northwest. This master bath is a study in restraint: Shiloh's Malibu door style in walnut, finished in Rye, built as flush inset — the cleaner, harder-to-execute cousin to beaded inset, with pencil-thin reveals. Mixed black-and-brass hardware, a tall walnut linen tower flanking the double-sink vanity, frameless shower, and globe pendants framing the mirror. Designed by Liz Stutler.",
+    hero: '01-hero.webp',
+    images: [
+      { src: '01-hero.webp',         alt: 'Stutler Cabinets master bath — wide view with tall walnut linen tower and double-sink vanity in Shiloh Malibu walnut Rye, framed mirror and globe pendants' },
+      { src: '02-vanity-side.webp',  alt: 'Stutler Cabinets master bath — side angle showing the linen tower in profile and the full double vanity run' },
+      { src: '03-vanity-front.webp', alt: 'Stutler Cabinets master bath — straight-on view of the vanity with brass faucet, pampas in a turned wood vase, frameless shower visible in the mirror' },
+      { src: '04-sink-detail.webp',  alt: "Stutler Cabinets master bath — single sink detail with brass faucet, globe pendants, and walnut Malibu flush-inset cabinetry below" },
+    ],
+    featured: true,
+  },
   {
     slug: 'plum-kitchens-cook-street',
     title: 'Cook Street Kitchen — Plum Kitchens',
