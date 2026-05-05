@@ -11,11 +11,83 @@ export function getStaticPaths() {
 interface Props { project: Project }
 const { project: p } = Astro.props;
 const heroAlt = p.images.find(i => i.src === p.hero)?.alt || p.title;
+
+const siteUrl = 'https://www.pinnaclesales.biz';
+const projectUrl = `${siteUrl}/projects/${p.slug}`;
+
+// CreativeWork schema for the installed project itself, with each
+// gallery image as an associated ImageObject.
+const creativeWorkSchema = {
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "@id": `${projectUrl}#project`,
+  "name": p.title,
+  "url": projectUrl,
+  "description": p.blurb,
+  "image": p.images.map(img => ({
+    "@type": "ImageObject",
+    "contentUrl": `${siteUrl}/images/projects/${p.slug}/${img.src}`,
+    "name": img.alt,
+    "description": img.alt,
+  })),
+  "creator": {
+    "@type": "LocalBusiness",
+    "@id": `${projectUrl}#dealer`,
+    "name": p.dealer,
+    ...(p.dealerWebsite ? { "url": p.dealerWebsite } : {}),
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": p.location,
+      "addressRegion": p.state,
+      "addressCountry": "US",
+    },
+  },
+  "locationCreated": {
+    "@type": "Place",
+    "name": p.location,
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": p.location,
+      "addressRegion": p.state,
+      "addressCountry": "US",
+    },
+  },
+  "keywords": [p.brand, p.spaceType, p.dealer, p.location, p.state, "Pinnacle Sales"]
+    .filter(Boolean).join(", "),
+};
+
+// Standalone LocalBusiness schema for the dealer (separate node so
+// search engines can match it as an organization in its own right).
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": `${projectUrl}#dealer`,
+  "name": p.dealer,
+  ...(p.dealerWebsite ? { "url": p.dealerWebsite } : {}),
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": p.location,
+    "addressRegion": p.state,
+    "addressCountry": "US",
+  },
+  "areaServed": p.state,
+  "makesOffer": {
+    "@type": "Offer",
+    "itemOffered": {
+      "@type": "Product",
+      "name": `${p.brand} Cabinetry`,
+      ...(p.brandSlug ? { "url": `${siteUrl}/brands/${p.brandSlug}` } : {}),
+    },
+  },
+};
+
+const projectSchemas = [creativeWorkSchema, localBusinessSchema];
 ---
 <BaseLayout
   title={`${p.title} | Pinnacle Sales Projects`}
   description={p.blurb}
   ogImage={`/images/projects/${p.slug}/${p.hero}`}
+  schema={projectSchemas}
 >
 
 <div class="hero">

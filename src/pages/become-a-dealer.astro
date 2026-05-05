@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Testimonials from '../components/Testimonials.astro';
 ---
 <BaseLayout title="Become a Dealer | Partner with Pinnacle Sales" description="Apply to become a Pinnacle Sales dealer partner. Access Shiloh, Eclipse, Aspect, Pronorm & Vistora cabinetry with training, showroom support, and territory protection.">
 <div class="page-header"><h1>Become a Pinnacle Sales Dealer</h1><p>Partner with the leading cabinetry rep firm in the Western US. Five premium brands, one trusted partnership.</p></div>
@@ -37,6 +38,12 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 <p>Direct relationships with WW Wood Products and Pronorm factory teams. We coordinate factory tours, technical consultations, and custom project support at the manufacturing level.</p>
 </div>
 </div>
+
+<Testimonials
+  heading="What Pinnacle Sales Dealers Say"
+  subhead="Why showroom owners across the Western US trust us as their cabinetry rep firm."
+  limit={3}
+/>
 
 <div class="social-proof">
 <h2>Trusted by Dealers Across the West</h2>
