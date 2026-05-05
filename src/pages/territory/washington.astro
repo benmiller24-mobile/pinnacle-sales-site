@@ -2,6 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import DealerCTA from '../../components/DealerCTA.astro';
+import { projects } from '../../data/projects';
+const stateProjects = projects.filter(p => p.state === 'Washington');
 const breadcrumbs = [{name:'Home',href:'/'},{name:'Territory'},{name:'Washington'}];
 ---
 <BaseLayout title="Kitchen Cabinet Dealer Rep in Washington | Pinnacle Sales" description="Pinnacle Sales represents Shiloh, Eclipse, Aspect, Pronorm & Vistora cabinetry for kitchen dealers in Washington. Training, showroom support & design services in Seattle, Bellevue, Tacoma, Spokane, Olympia, and the San Juan Islands.">
@@ -29,6 +31,27 @@ const breadcrumbs = [{name:'Home',href:'/'},{name:'Territory'},{name:'Washington
 <h2>Local Dealer Support</h2>
 <p>Pinnacle Sales maintains strong dealer relationships throughout the Puget Sound region, with growing partnerships in Spokane, the Tri-Cities, and Bellingham. Our team provides regular in-person training and showroom support across the state.</p>
 
+{stateProjects.length > 0 && (
+<>
+<h2>Recent Projects in Washington</h2>
+<p>Real installs by Pinnacle Sales dealer partners in Washington. See the full <a href="/projects">project gallery</a> for more.</p>
+<div class="state-projects">
+  {stateProjects.map((p) => (
+    <a href={`/projects/${p.slug}`} class="state-project-card">
+      <div class="state-project-image">
+        <img src={`/images/projects/${p.slug}/${p.hero}`} alt={p.title} loading="lazy" width="600" height="400" />
+        <span class="state-project-brand">{p.brand}</span>
+      </div>
+      <div class="state-project-body">
+        <h3>{p.title}</h3>
+        <p class="state-project-meta">{p.dealer} &middot; {p.location}</p>
+      </div>
+    </a>
+  ))}
+</div>
+</>
+)}
+
 <h2>Dealer Support Services in Washington</h2>
 <ul>
 <li><strong>In-person sales training</strong> — Product knowledge, competitive positioning, and closing strategies in your showroom</li>
@@ -49,4 +72,61 @@ const breadcrumbs = [{name:'Home',href:'/'},{name:'Territory'},{name:'Washington
 
 <DealerCTA heading="Become a Dealer in Washington" text="Ready to partner with the leading cabinetry rep firm in Washington? Let us know about your showroom and market." />
 </div>
+
+<style>
+  .state-projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.25rem;
+    margin: 1.25rem 0 2rem;
+  }
+  .state-project-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid var(--color-border, #e0e0e0);
+    background: #fff;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .state-project-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+    opacity: 1;
+  }
+  .state-project-image {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--color-bg-alt, #f7f7f7);
+  }
+  .state-project-image img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .state-project-brand {
+    position: absolute;
+    bottom: 0.5rem; left: 0.5rem;
+    background: rgba(0,0,0,0.75); color: #fff;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.55rem;
+  }
+  .state-project-body { padding: 0.9rem 1rem 1.1rem; }
+  .state-project-body h3 {
+    font-size: 0.98rem;
+    line-height: 1.3;
+    font-weight: 500;
+    margin: 0 0 0.3rem;
+  }
+  .state-project-meta {
+    font-size: 0.78rem;
+    color: var(--color-light-text, #999);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0;
+  }
+</style>
 </BaseLayout>
