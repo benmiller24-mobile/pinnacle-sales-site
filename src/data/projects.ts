@@ -26,6 +26,29 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: 'silverstone-queen-creek-whole-home',
+    title: 'Queen Creek Whole Home — Silverstone',
+    dealer: 'Silverstone',
+    brand: 'Shiloh',
+    brandSlug: 'shiloh-cabinetry',
+    spaceType: 'Whole Home',
+    location: 'Queen Creek, AZ',
+    state: 'Arizona',
+    blurb: "A whole-home Shiloh inset install on the Scottsdale door — stained white oak and a creamy paint, executed across the kitchen, butler's pantry, family room, and primary bath.",
+    body: "Silverstone delivered a layered, two-tone Shiloh inset program for this Queen Creek residence: stained white oak on the island, the fridge surround, the butler's pantry display hutch, the family room built-ins, and the primary bath vanities; a soft painted finish on the perimeter run, the wall-oven cabinet, and the wet-bar millwork. The Scottsdale door — Shiloh's mitered, double-bead inset profile — keeps the painted side from going flat and gives the white oak an architectural edge that reads as built-in furniture, not stock cabinetry. The result is a house that feels coordinated without being matched: the same door, the same construction, the same hardware family — but two finishes that let each room have its own center of gravity.",
+    hero: '01-hero.webp',
+    images: [
+      { src: '01-hero.webp',                  alt: "Silverstone Queen Creek kitchen — overall view, two-tone Shiloh inset Scottsdale with stained white oak island, painted perimeter, plaster hood, and double pendants" },
+      { src: '02-island-detail.webp',         alt: "Silverstone Queen Creek kitchen — island detail in stained white oak with paneled dishwasher, microwave drawer, and warming drawer" },
+      { src: '03-painted-base-detail.webp',   alt: "Silverstone Queen Creek kitchen — painted Shiloh inset base detail with brass hardware and Wolf cooktop knobs" },
+      { src: '04-fridge-wall-ovens.webp',     alt: "Silverstone Queen Creek kitchen — built-in side-by-side fridge with white oak uppers and adjacent painted double-oven cabinet" },
+      { src: '05-butlers-pantry.webp',        alt: "Silverstone Queen Creek butler's pantry — arched opening with herringbone tile and white oak display hutch alongside" },
+      { src: '06-living-room-fireplace.webp', alt: "Silverstone Queen Creek family room — stone fireplace flanked by white oak built-in cabinetry and shiplap walls" },
+      { src: '07-master-bath.webp',           alt: "Silverstone Queen Creek primary bath — Shiloh white oak vanities and linen tower with freestanding tub and gold sphere chandelier" },
+    ],
+    featured: true,
+  },
+  {
     slug: 'stutler-cabinets-hanover-kitchen',
     title: 'Hanover Kitchen — Stutler Cabinets',
     dealer: 'Stutler Cabinets',
