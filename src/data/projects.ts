@@ -26,6 +26,30 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: 'stutler-cabinets-two-tone-shaker-kitchen',
+    title: 'Two-Tone Kitchen & Living Room — Stutler Cabinets',
+    dealer: 'Stutler Cabinets',
+    brand: 'Shiloh',
+    brandSlug: 'shiloh-cabinetry',
+    spaceType: 'Whole Home',
+    location: 'Portland, OR',
+    state: 'Oregon',
+    blurb: "A third Stutler Cabinets project in Portland — a two-tone Shiloh kitchen with a painted greige perimeter, a dark stained white oak island, and matching painted built-ins flanking a black-brick fireplace in the adjacent living room. Designed by Liz Stutler.",
+    body: "Liz Stutler's third feature in the gallery shows the range of the same brand and door style across two finishes and two rooms. The kitchen perimeter is Shiloh on a clean Shaker door, painted in a soft greige with brass hardware; the island is the same door in stained white oak — much darker, richer, with bar pulls in a matching brass. The cooktop wall is finished with a tight herringbone wood-look tile and a plaster vent hood that quiets the symmetry of the painted run. Across the open plan, the living room carries the painted perimeter cabinet program out as built-in bookshelves with cabinet bases, flanking a fireplace that's been treated with a black painted-brick wall and a chunky white oak mantel. Same dealer, same cabinetmaker, same door — three rooms, two finishes, one cohesive house.",
+    hero: '01-hero.webp',
+    images: [
+      { src: '01-hero.webp',                       alt: "Stutler Cabinets two-tone kitchen — wide hero with dark stained island, chevron tile cooktop wall, plaster hood, and cane bar stools" },
+      { src: '02-kitchen-overall.webp',            alt: "Stutler Cabinets kitchen — overall view with painted Shaker perimeter, marble island, and stainless side-by-side fridge" },
+      { src: '03-island-microwave-drawer.webp',    alt: "Stutler Cabinets kitchen island — dark stained oak with microwave drawer, glass beverage fridge, and painted pantry tower beyond" },
+      { src: '04-island-detail.webp',              alt: "Stutler Cabinets kitchen — close detail of dark stained oak island drawers with brass pulls beside two glass beverage refrigerators" },
+      { src: '05-perimeter-detail.webp',           alt: "Stutler Cabinets kitchen — painted Shaker perimeter run with brass cup pulls, herringbone tile backsplash, and stainless fridge" },
+      { src: '06-pantry-tower.webp',               alt: "Stutler Cabinets kitchen — full-height painted pantry tower adjacent to the side-by-side fridge, viewed across the dark island" },
+      { src: '07-living-room-overall.webp',        alt: "Stutler Cabinets living room — black painted-brick fireplace flanked by white oak mantel and matching painted built-ins on both sides" },
+      { src: '08-living-room-shelf-detail.webp',   alt: "Stutler Cabinets living room — built-in shelving detail with turntable, vinyl, family frames, and base cabinet below" },
+    ],
+    featured: true,
+  },
+  {
     slug: 'silverstone-queen-creek-whole-home',
     title: 'Queen Creek Whole Home — Silverstone',
     dealer: 'Silverstone',
