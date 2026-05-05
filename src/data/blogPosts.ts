@@ -38,6 +38,15 @@ export const blogPosts = [
     image: '/images/blog/greenwood-grain-matched-oak.webp'
   },
   {
+    slug: '5blox-shiloh-eclipse-yosemite-brown-display',
+    title: "5 Blox's New Display Win: Shiloh and Eclipse in White Oak Yosemite Brown",
+    excerpt: "5 Blox's latest showroom win brings Shiloh in Square Beaded Inset and Flush Inset together with Eclipse in the Napa door style — all in WW Wood's White Oak Yosemite Brown finish. Designed by Calinia Henry.",
+    author: 'Ben Miller',
+    date: '2026-04-02',
+    category: 'Dealer Success',
+    image: '/images/blog/5blox-shiloh-eclipse-yosemite-brown-display/01-hero.webp'
+  },
+  {
     slug: 'frameless-vs-face-frame-cabinets',
     title: 'Frameless vs Face-Frame Cabinets: Which Construction Method Is Right for Your Kitchen?',
     excerpt: 'Understanding the differences between frameless and face-frame construction is essential for any dealer looking to guide their clients toward the right solution.',
