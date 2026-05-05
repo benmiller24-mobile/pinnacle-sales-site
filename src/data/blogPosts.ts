@@ -10,6 +10,15 @@ export const blogPosts = [
     recommended: true
   },
   {
+    slug: 'colorado-modern-kitchens-2026-product-update',
+    title: '2026 Product Update: A Day at Colorado Modern Kitchens',
+    excerpt: "Pinnacle Sales spent the day with Colorado Modern Kitchens walking through three big 2026 updates: the new Pinnacle Sales dealer portal, Pronorm's new American base and tall depths, and Pronorm PG3 White Oak Veneers. Notes from the meeting.",
+    author: 'Ben Miller',
+    date: '2026-04-23',
+    category: 'Dealer Success',
+    image: '/images/blog/colorado-modern-kitchens-2026-update/listing-card.webp'
+  },
+  {
     slug: 'pronorm-linear-oak-santa-barbara',
     title: 'Warm Modernism Under the Beams: A Linear Oak Pronorm Kitchen in Santa Barbara',
     excerpt: "Designer Gillian Amery (The Kitchen Company) pairs Pronorm's Linear oak door with a beamed Santa Barbara ranch — a case study in selling German cabinetry into warm architecture.",
