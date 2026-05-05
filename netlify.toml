@@ -152,3 +152,8 @@
   from = "/projects/greenwood-cabinetry-betsy"
   to = "/projects/greenwood-cabinetry"
   status = 301
+
+[[redirects]]
+  from = "/projects/caruso-kitchen-designs-showroom"
+  to = "/playbook/caruso-kitchens-eclipse-showroom"
+  status = 301
