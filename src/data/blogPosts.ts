@@ -12,7 +12,7 @@ export const blogPosts = [
   {
     slug: 'colorado-modern-kitchens-2026-product-update',
     title: '2026 Product Update: A Day at Colorado Modern Kitchens',
-    excerpt: "Pinnacle Sales spent the day with Colorado Modern Kitchens walking through three big 2026 updates: the new Pinnacle Sales dealer portal, Pronorm's new American base and tall depths, and Pronorm PG3 White Oak Veneers. Notes from the meeting.",
+    excerpt: "Pinnacle Sales spent the day with Colorado Modern Kitchens walking through three big 2026 updates: the new Pronorm USA portal, Pronorm's new American base and tall depths, and Pronorm PG3 White Oak Veneers. Notes from the meeting.",
     author: 'Ben Miller',
     date: '2026-04-23',
     category: 'Dealer Success',
