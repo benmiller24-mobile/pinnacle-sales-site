@@ -41,6 +41,15 @@ const orgSchema = {
 const allSchemas = [orgSchema, ...(Array.isArray(schema) ? schema : schema ? [schema] : [])];
 ---
 
+<!-- Google tag (gtag.js) — GA4 property pinnaclesales.biz -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F8STEE6JZM"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-F8STEE6JZM');
+</script>
+
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>{title}</title>
