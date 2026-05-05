@@ -1,0 +1,197 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import DealerCTA from '../../components/DealerCTA.astro';
+import { projects, type Project } from '../../data/projects';
+
+export function getStaticPaths() {
+  return projects.map(p => ({ params: { slug: p.slug }, props: { project: p } }));
+}
+
+interface Props { project: Project }
+const { project: p } = Astro.props;
+const heroAlt = p.images.find(i => i.src === p.hero)?.alt || p.title;
+---
+<BaseLayout
+  title={`${p.title} | Pinnacle Sales Projects`}
+  description={p.blurb}
+  ogImage={`/images/projects/${p.slug}/${p.hero}`}
+>
+
+<div class="hero">
+  <img src={`/images/projects/${p.slug}/${p.hero}`} alt={heroAlt} width="1600" height="1200" />
+  <div class="hero-overlay">
+    <div class="hero-content">
+      <div class="hero-tags">
+        <span class="tag">{p.brand}</span>
+        <span class="tag">{p.spaceType}</span>
+        <span class="tag">{p.location}</span>
+      </div>
+      <h1>{p.title}</h1>
+      <p class="hero-dealer">By {p.dealer}</p>
+    </div>
+  </div>
+</div>
+
+<div class="container narrow section">
+  <Breadcrumbs items={[
+    { name: 'Home', href: '/' },
+    { name: 'Projects', href: '/projects' },
+    { name: p.title }
+  ]} />
+
+  <p class="lead">{p.blurb}</p>
+
+  {p.body && <p>{p.body}</p>}
+
+  {p.relatedPostSlug && (
+    <p class="related-post">
+      <a href={`/playbook/${p.relatedPostSlug}`}>Read the full Playbook story &rarr;</a>
+    </p>
+  )}
+
+  <div class="meta-row">
+    <div><span class="meta-label">Dealer</span><span class="meta-value">{p.dealer}</span></div>
+    {p.brandSlug ? (
+      <div><span class="meta-label">Brand</span><span class="meta-value"><a href={`/brands/${p.brandSlug}`}>{p.brand}</a></span></div>
+    ) : (
+      <div><span class="meta-label">Brand</span><span class="meta-value">{p.brand}</span></div>
+    )}
+    <div><span class="meta-label">Space</span><span class="meta-value">{p.spaceType}</span></div>
+    <div><span class="meta-label">Location</span><span class="meta-value">{p.location}</span></div>
+  </div>
+</div>
+
+<div class="container section">
+  <div class="lookbook">
+    {p.images.map((img, i) => (
+      <figure
+        class={`shot${i === 0 || (p.images.length > 4 && i % 5 === 0) ? ' wide' : ''}`}
+      >
+        <img
+          src={`/images/projects/${p.slug}/${img.src}`}
+          alt={img.alt}
+          loading="lazy"
+          width="1600" height="1200"
+        />
+      </figure>
+    ))}
+  </div>
+</div>
+
+<DealerCTA />
+
+</BaseLayout>
+
+<style>
+  .hero {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    max-height: 70vh;
+    overflow: hidden;
+    background: #000;
+  }
+  .hero img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0) 100%);
+    display: flex;
+    align-items: flex-end;
+  }
+  .hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem;
+    color: #fff;
+    width: 100%;
+  }
+  .hero-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.8rem; }
+  .tag {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.7rem;
+  }
+  .hero-content h1 {
+    color: #fff;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: 400;
+    margin: 0 0 0.4rem;
+    line-height: 1.15;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.4);
+  }
+  .hero-dealer {
+    color: rgba(255,255,255,0.85);
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+  .container.narrow { max-width: 800px; }
+  .section { padding: 3rem 0; }
+
+  .lead { font-size: 1.15rem; line-height: 1.7; margin-bottom: 1rem; color: var(--color-body, #333); }
+  .related-post { margin: 1rem 0 2rem; }
+  .related-post a {
+    display: inline-block;
+    border-bottom: 1px solid currentColor;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    padding-bottom: 2px;
+  }
+
+  .meta-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+    border-top: 1px solid var(--color-border, #e0e0e0);
+    border-bottom: 1px solid var(--color-border, #e0e0e0);
+    padding: 1.25rem 0;
+    margin-top: 2rem;
+  }
+  .meta-row > div { display: flex; flex-direction: column; gap: 0.25rem; }
+  .meta-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-light-text, #999);
+  }
+  .meta-value { font-size: 0.95rem; }
+  .meta-value a { text-decoration: none; border-bottom: 1px solid currentColor; }
+
+  .lookbook {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .shot { margin: 0; overflow: hidden; }
+  .shot img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease, opacity 0.3s ease;
+    cursor: zoom-in;
+  }
+  .shot.wide { grid-column: 1 / -1; }
+  .shot:hover img { transform: scale(1.02); opacity: 0.95; }
+
+  @media (max-width: 700px) {
+    .lookbook { grid-template-columns: 1fr; gap: 0.75rem; }
+    .hero { aspect-ratio: 4 / 3; }
+  }
+</style>

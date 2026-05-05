@@ -1,0 +1,244 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import DealerCTA from '../../components/DealerCTA.astro';
+import { projects } from '../../data/projects';
+
+const brands = Array.from(new Set(projects.map(p => p.brand))).sort();
+const spaces = Array.from(new Set(projects.map(p => p.spaceType))).sort();
+const states = Array.from(new Set(projects.map(p => p.state))).sort();
+---
+<BaseLayout
+  title="Dealer Projects | Pinnacle Sales Gallery"
+  description="A curated gallery of installed kitchen, bath, and whole-home projects by Pinnacle Sales dealer partners across the Western US — Shiloh, Eclipse, Aspect, and Pronorm German Kitchens."
+>
+<div class="page-header">
+  <h1>Dealer Projects</h1>
+  <p>Real installs by real Pinnacle Sales dealer partners. Curated from kitchens, bath rooms, closets, and showrooms across our 10-state Western US territory.</p>
+</div>
+
+<div class="container section">
+  <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Projects' }]} />
+
+  <div class="filters">
+    <span class="filter-label">Filter</span>
+    <button class="filter-tag active" data-filter-key="all" data-filter-value="all" type="button">All</button>
+    <span class="filter-divider" aria-hidden="true">·</span>
+    <span class="filter-group">
+      <span class="filter-group-label">Brand:</span>
+      {brands.map(b => (
+        <button class="filter-tag" data-filter-key="brand" data-filter-value={b} type="button">{b}</button>
+      ))}
+    </span>
+    <span class="filter-divider" aria-hidden="true">·</span>
+    <span class="filter-group">
+      <span class="filter-group-label">Space:</span>
+      {spaces.map(s => (
+        <button class="filter-tag" data-filter-key="space" data-filter-value={s} type="button">{s}</button>
+      ))}
+    </span>
+    <span class="filter-divider" aria-hidden="true">·</span>
+    <span class="filter-group">
+      <span class="filter-group-label">State:</span>
+      {states.map(s => (
+        <button class="filter-tag" data-filter-key="state" data-filter-value={s} type="button">{s}</button>
+      ))}
+    </span>
+  </div>
+
+  <div class="project-grid">
+    {projects.map(p => (
+      <a
+        class={`project-card${p.featured ? ' featured' : ''}`}
+        href={`/projects/${p.slug}`}
+        data-brand={p.brand}
+        data-space={p.spaceType}
+        data-state={p.state}
+      >
+        <div class="card-image">
+          <img
+            src={`/images/projects/${p.slug}/${p.hero}`}
+            alt={p.images[0]?.alt || p.title}
+            loading="lazy"
+            width="800" height="600"
+          />
+          <span class="card-brand">{p.brand}</span>
+        </div>
+        <div class="card-body">
+          <h2>{p.title}</h2>
+          <p class="card-meta">{p.dealer} &middot; {p.location}</p>
+          <p class="card-blurb">{p.blurb}</p>
+          <span class="card-cta">View project &rarr;</span>
+        </div>
+      </a>
+    ))}
+  </div>
+
+  <p class="empty-state" hidden>No projects match those filters yet — try clearing a tag.</p>
+</div>
+
+<DealerCTA
+  heading="Want Your Installs Featured Here?"
+  text="If you're a current Pinnacle Sales dealer with a finished install you're proud of, send photos to your territory rep. We're always curating new work for this gallery."
+/>
+
+</BaseLayout>
+
+<script>
+  const cards = Array.from(document.querySelectorAll<HTMLAnchorElement>('.project-card'));
+  const tags = Array.from(document.querySelectorAll<HTMLButtonElement>('.filter-tag'));
+  const empty = document.querySelector<HTMLParagraphElement>('.empty-state');
+  const active: Record<string, string> = { brand: 'all', space: 'all', state: 'all' };
+
+  function applyFilters() {
+    let visible = 0;
+    cards.forEach(card => {
+      const matches = (
+        (active.brand === 'all' || card.dataset.brand === active.brand) &&
+        (active.space === 'all' || card.dataset.space === active.space) &&
+        (active.state === 'all' || card.dataset.state === active.state)
+      );
+      card.style.display = matches ? '' : 'none';
+      if (matches) visible++;
+    });
+    if (empty) empty.hidden = visible !== 0;
+  }
+
+  tags.forEach(tag => {
+    tag.addEventListener('click', () => {
+      const key = tag.dataset.filterKey!;
+      const value = tag.dataset.filterValue!;
+      if (key === 'all') {
+        active.brand = 'all'; active.space = 'all'; active.state = 'all';
+      } else {
+        active[key] = active[key] === value ? 'all' : value;
+      }
+      tags.forEach(t => {
+        const k = t.dataset.filterKey!;
+        const v = t.dataset.filterValue!;
+        const isActive = (k === 'all')
+          ? (active.brand === 'all' && active.space === 'all' && active.state === 'all')
+          : (active[k] === v);
+        t.classList.toggle('active', isActive);
+      });
+      applyFilters();
+    });
+  });
+</script>
+
+<style>
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+  .section { padding: 3rem 0 4rem; }
+  .page-header {
+    background: var(--color-bg-warm, #faf8f5);
+    text-align: center;
+    padding: 4rem 2rem 3rem;
+    border-bottom: 1px solid var(--color-border, #e0e0e0);
+  }
+  .page-header h1 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+    font-weight: 400;
+  }
+  .page-header p { max-width: 640px; margin: 0 auto; color: var(--color-muted, #666); }
+
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem 0.6rem;
+    margin: 1.5rem 0 2.5rem;
+    font-size: 0.85rem;
+  }
+  .filter-label, .filter-group-label {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-light-text, #999);
+    margin-right: 0.4rem;
+    font-size: 0.7rem;
+  }
+  .filter-group { display: inline-flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; }
+  .filter-divider { color: var(--color-light-text, #999); margin: 0 0.4rem; }
+  .filter-tag {
+    background: transparent;
+    border: 1px solid var(--color-border, #e0e0e0);
+    color: var(--color-body, #333);
+    padding: 0.3rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+  }
+  .filter-tag:hover { border-color: var(--color-black, #000); }
+  .filter-tag.active { background: var(--color-black, #000); border-color: var(--color-black, #000); color: #fff; }
+
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid var(--color-border, #e0e0e0);
+    background: #fff;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .project-card:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(0,0,0,0.08); opacity: 1; }
+  .project-card.featured { border-color: var(--color-accent, #c8a96e); }
+  .project-card.featured::before {
+    content: 'Featured';
+    position: absolute;
+    margin: 0.75rem;
+    background: var(--color-accent, #c8a96e);
+    color: #fff;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.55rem;
+    z-index: 2;
+  }
+  .card-image {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--color-bg-alt, #f7f7f7);
+  }
+  .card-image img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .project-card:hover .card-image img { transform: scale(1.04); }
+  .card-brand {
+    position: absolute;
+    bottom: 0.75rem;
+    left: 0.75rem;
+    background: rgba(0,0,0,0.75);
+    color: #fff;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+  }
+  .card-body { padding: 1.25rem 1.25rem 1.5rem; flex: 1; display: flex; flex-direction: column; gap: 0.5rem; }
+  .card-body h2 { font-size: 1.1rem; line-height: 1.3; margin: 0; font-weight: 500; }
+  .card-meta { font-size: 0.78rem; color: var(--color-light-text, #999); text-transform: uppercase; letter-spacing: 0.06em; margin: 0; }
+  .card-blurb { font-size: 0.9rem; color: var(--color-muted, #666); flex: 1; line-height: 1.55; margin: 0; }
+  .card-cta { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; margin-top: 0.4rem; }
+
+  .empty-state { text-align: center; color: var(--color-muted, #666); padding: 2rem 0; font-style: italic; }
+
+  @media (max-width: 600px) {
+    .filters { font-size: 0.78rem; }
+    .filter-divider { display: none; }
+    .filter-group { width: 100%; }
+  }
+</style>
