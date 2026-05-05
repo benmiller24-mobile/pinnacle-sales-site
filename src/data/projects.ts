@@ -158,8 +158,8 @@ export const projects: Project[] = [
     brand: 'Multiple',
     brandSlug: null,
     spaceType: 'Kitchen',
-    location: 'Western US',
-    state: 'Western US',
+    location: 'Denver, CO',
+    state: 'Colorado',
     blurb: 'A short selection from the Timberline dealer portfolio.',
     hero: '01-hero.webp',
     images: [
