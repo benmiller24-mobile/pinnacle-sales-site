@@ -26,6 +26,28 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: 'stutler-cabinets-hanover-kitchen',
+    title: 'Hanover Kitchen — Stutler Cabinets',
+    dealer: 'Stutler Cabinets',
+    brand: 'Shiloh',
+    brandSlug: 'shiloh-cabinetry',
+    spaceType: 'Kitchen',
+    location: 'Portland, OR',
+    state: 'Oregon',
+    blurb: "A two-tone Hanover kitchen by Stutler Cabinets in Portland — Shiloh perimeter in Soft White paired with a Straw white oak island, brass hardware throughout. Designed by Liz Stutler.",
+    body: "A second project from Stutler Cabinets in Portland, also designed by Liz Stutler — this time a kitchen built around two-tone restraint. Shiloh on the Hanover door style, with the perimeter painted Soft White and the island stained in Straw on white oak. Brass hardware (knobs on the perimeter doors, bar pulls on the drawers), marble counters and full-height marble back, an arched-mirror sightline into the adjacent room, and a breakfast nook with a drum pendant on the right. The two cabinet finishes do all the work — same Shiloh box, two materials, one cohesive room.",
+    hero: '01-hero.webp',
+    images: [
+      { src: '01-hero.webp',  alt: "Stutler Cabinets Hanover kitchen — wide view with Shiloh Soft White perimeter, Straw white oak island, brass hardware, and breakfast nook with drum pendant" },
+      { src: '02.webp',       alt: "Stutler Cabinets Hanover kitchen — straight-on view of the white oak island with vase of branches and the Soft White perimeter behind" },
+      { src: '03.webp',       alt: "Stutler Cabinets Hanover kitchen — corner detail with brass-faucet sink under window, Soft White Hanover doors, marble backsplash, framed art" },
+      { src: '04-island.webp', alt: "Stutler Cabinets Hanover kitchen — close-up of the Hanover door style on the Straw white oak island, brass bar pulls and knobs" },
+      { src: '05.webp',       alt: "Stutler Cabinets Hanover kitchen — Soft White Hanover uppers with brass knobs over a marble counter, framed art and fern detail" },
+      { src: '06.webp',       alt: "Stutler Cabinets Hanover kitchen — Soft White Hanover door close-up with marble back, artichokes in a pedestal bowl, taper candles" },
+    ],
+    featured: true,
+  },
+  {
     slug: 'stutler-cabinets-walnut-rye-bath',
     title: 'Walnut Rye Master Bath — Stutler Cabinets',
     dealer: 'Stutler Cabinets',
