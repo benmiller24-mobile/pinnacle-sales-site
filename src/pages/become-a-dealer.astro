@@ -157,6 +157,20 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 <p style="margin-top:2rem;color:#6b7280;font-size:.9rem;">Prefer to talk first? Call <a href="tel:+14809939224">480-993-9224</a> or email <a href="mailto:marketing@pinnaclesales.biz">marketing@pinnaclesales.biz</a>.</p>
 
 </div>
+
+<script is:inline>
+  // GA4 conversion: dealer application submit -> generate_lead
+  document.querySelector('form[name="dealer-application"]')?.addEventListener('submit', function() {
+    if (typeof gtag === 'function') {
+      gtag('event', 'generate_lead', {
+        currency: 'USD',
+        value: 1.0,
+        form_name: 'dealer-application'
+      });
+    }
+  });
+</script>
+
 </BaseLayout>
 <style>
 .benefits-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin:1.5rem 0}
