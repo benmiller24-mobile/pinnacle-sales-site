@@ -1,5 +1,15 @@
 export const blogPosts = [
   {
+    slug: 'wolf-renovations-grand-opening',
+    title: 'Ribbon Cutting at Wolf Renovations: A New Shiloh + Eclipse Showroom in the Bay Area',
+    excerpt: "Wolf Renovations just opened their new San Francisco Bay Area showroom — multiple full-scale Shiloh and Eclipse kitchen and bath vignettes, including a dedicated Eclipse door-style display. A walkthrough of the room.",
+    author: 'Ben Miller',
+    date: '2026-05-05',
+    category: 'Dealer Success',
+    image: '/images/blog/wolf-renovations-grand-opening/listing-card.webp',
+    recommended: true
+  },
+  {
     slug: 'designing-pronorm-in-winner-5blox-san-pedro',
     title: 'Designing Pronorm in Winner: A 5 Blox San Pedro Display',
     excerpt: "How Pinnacle Sales designs every Pronorm kitchen for our dealers in Winner CAD by Cyncly — what's in the package and why it matters. Inside: the brushed-brass-handleless display we just drew up for 5 Blox in San Pedro.",
