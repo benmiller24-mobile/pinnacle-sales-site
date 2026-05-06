@@ -28,7 +28,7 @@ export const projects: Project[] = [
   {
     slug: 'boulder-whole-home',
     title: 'Boulder Whole Home',
-    dealer: 'Pinnacle Sales Dealer Partner',
+    dealer: 'Chase Cabinetry',
     brand: 'Multiple',
     brandSlug: null,
     spaceType: 'Whole Home',
