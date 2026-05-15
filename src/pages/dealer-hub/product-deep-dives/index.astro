@@ -33,13 +33,6 @@ const dives = [
 <h1>Product Deep Dives</h1>
 <p class="page-subtitle">A guided tour through Shiloh, Eclipse, and Aspect — designed for a Pinnacle rep to walk a designer through brand by brand, and built to live on as a reference the designer can revisit between projects.</p>
 
-<div class="how-to-use">
-  <h2 style="margin-top:0;">How to use these pages</h2>
-  <p><strong>For the rep:</strong> Each deep dive is structured like a meeting flow — brand story up top, construction and specs in the middle, door styles and finishes at the bottom, designer talking points beside each section. Share your screen, scroll top-to-bottom, and answer questions in the order they come.</p>
-  <p><strong>For the designer:</strong> Bookmark the page after the call. The spec tables, finish ranges, and "when to specify" notes are written so you can come back to them mid-project without re-watching the walkthrough.</p>
-  <p style="margin-bottom:0;"><strong>Average walkthrough time:</strong> 20–25 minutes per brand if you cover everything. 10 minutes if you skip the specs anatomy and focus on positioning + finishes.</p>
-</div>
-
 <h2>Pick a brand to dive into</h2>
 <div class="dive-grid">
   {dives.map(dive => (
@@ -172,16 +165,6 @@ const dives = [
 
 <style>
   .page-subtitle { color: var(--color-muted); font-size: 1.05rem; max-width: 70ch; margin-top: -0.5rem; }
-  .how-to-use {
-    background: var(--color-bg-alt);
-    border-left: 3px solid var(--color-accent);
-    padding: 1.5rem 1.75rem;
-    border-radius: 0 6px 6px 0;
-    margin: 2rem 0 2.5rem;
-  }
-  .how-to-use p { margin: 0 0 0.75rem; font-size: 0.95rem; }
-  .how-to-use p:last-child { margin-bottom: 0; }
-
   .dive-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
