@@ -33,12 +33,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 <script is:inline>
   // Authorized credentials — add new dealers as { username, password, displayName }
   const CREDENTIALS = [
-    { username: 'BSM9981', password: 'pinnacle2025', displayName: 'Ben Miller' },
     { username: 'ben@pinnaclesales.biz', password: 'pinnacle2025', displayName: 'Ben Miller' },
-    { username: 'gillian@pinnaclesales.biz', password: 'pinnacle2025', displayName: 'Gillian' },
-    { username: 'scott@pinnaclesales.biz', password: 'pinnacle2025', displayName: 'Scott' },
-    { username: 'josh@pinnaclesales.biz', password: 'pinnacle2025', displayName: 'Josh' },
-    { username: 'anna@pinnaclesales.biz', password: 'pinnacle2025', displayName: 'Anna' },
+    { username: 'scott@pinnaclesales.biz', password: 'pinnacle2025', displayName: 'Scott Miller' },
+    { username: 'gillian@pinnaclesales.biz', password: 'pinnacle2025', displayName: 'Gillian Patriquin' },
+    { username: 'josh@pinnaclesales.biz', password: 'pinnacle2025', displayName: 'Josh Polvogt' },
+    { username: 'anna@pinnaclesales.biz', password: 'pinnacle2025', displayName: 'Anna Fisher' },
   ];
 
   // If already authenticated, redirect to dashboard
@@ -54,7 +53,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     const password = document.getElementById('dealer-password').value;
     const errorEl = document.getElementById('login-error');
 
-    const match = CREDENTIALS.find(c => c.username === username && c.password === password);
+    const normalizedUsername = username.toLowerCase();
+    const match = CREDENTIALS.find(c => c.username.toLowerCase() === normalizedUsername && c.password === password);
 
     if (match) {
       sessionStorage.setItem('pinnacle_dealer_auth', 'authenticated');
