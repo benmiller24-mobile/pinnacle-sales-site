@@ -77,6 +77,21 @@ import DealerHubLayout from '../../../layouts/DealerHubLayout.astro';
   <li><strong>Mitered &amp; specialty</strong> — Bradford, Dalton, Essex, Glenbrook, Asherville and the rest of Group B for transitional and traditional kitchens that want a mitered corner detail.</li>
   <li><strong>Beaded / glass / mullion</strong> — Beaded Century plus the modern beaded inset family for traditional and historic restoration work; glass-frame doors pair with any door family.</li>
 </ul>
+
+<h3>Door construction</h3>
+<p>All 5-piece door styles in the Shiloh program have <strong>solid wood center panels</strong> — except <strong>Napa</strong> and <strong>Metro</strong>, which use a different center-panel construction designed for their flat, contemporary aesthetic. Solid center panels matter on stained doors because the panel takes stain at the same depth and grain pattern as the surrounding rails and stiles.</p>
+
+<h3>Door samples</h3>
+<div class="door-samples">
+  <figure>
+    <img src="https://prizekitchens.com/cdn/shop/files/Shiloh_Cabinetry-Full_Overlay-Napa_Horizontal-Paintable-Amazing_Gray_e164e7f9-d977-46da-b89e-0f3b3920cf67.webp" alt="Shiloh Napa Horizontal door — Amazing Gray paint on maple" loading="lazy" />
+    <figcaption><strong>Napa Horizontal</strong> — Amazing Gray paint on maple. A contemporary flat-panel door with horizontal grain; uses Shiloh's alternate (non-solid) center-panel construction.</figcaption>
+  </figure>
+  <figure>
+    <img src="https://prizekitchens.com/cdn/shop/files/Shiloh_Cabinetry-Full_Overlay-Lancaster-Walnut-Plain_Cut-Bison_7df9408c-761d-43b0-b1b3-e3a9044fa715.webp" alt="Shiloh Lancaster door — Bison stain on walnut" loading="lazy" />
+    <figcaption><strong>Lancaster</strong> — Bison stain on walnut. A modern narrow-stile shaker with mortise-and-tenon joinery and a solid wood recessed center panel.</figcaption>
+  </figure>
+</div>
 </section>
 
 <section id="finishes">
@@ -181,6 +196,12 @@ import DealerHubLayout from '../../../layouts/DealerHubLayout.astro';
   .finish-card p { font-size: 0.92rem; margin: 0 0 0.6rem; }
   .finish-card .small { font-size: 0.82rem; color: var(--color-muted); margin: 0; }
   @media (max-width: 900px) { .finish-grid { grid-template-columns: 1fr; } }
+
+  .door-samples { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0 2rem; }
+  .door-samples figure { margin: 0; border: 1px solid var(--color-border); border-radius: 8px; overflow: hidden; background: #fff; }
+  .door-samples img { width: 100%; display: block; aspect-ratio: 1 / 1; object-fit: cover; background: var(--color-bg-alt); }
+  .door-samples figcaption { padding: 0.85rem 1.1rem; font-size: 0.88rem; color: var(--color-body); line-height: 1.5; }
+  @media (max-width: 640px) { .door-samples { grid-template-columns: 1fr; } }
 
   .rule-card {
     border: 1px solid var(--color-border); border-radius: 8px;
