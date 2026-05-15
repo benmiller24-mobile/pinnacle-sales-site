@@ -1,0 +1,259 @@
+---
+import DealerHubLayout from '../../../layouts/DealerHubLayout.astro';
+
+const dives = [
+  {
+    name: 'Shiloh Cabinetry',
+    href: '/dealer-hub/product-deep-dives/shiloh',
+    tier: 'Premium semi-custom',
+    construction: 'Framed face-frame · 9 overlay/inset variants',
+    sweetSpot: 'Designers who need the widest door, finish, and inset program in the Pinnacle lineup on a 6-week lead time.',
+    img: '/images/brands/shiloh-hero.webp',
+  },
+  {
+    name: 'Eclipse Cabinetry',
+    href: '/dealer-hub/product-deep-dives/eclipse',
+    tier: 'Modern semi-custom · "by Shiloh"',
+    construction: 'Frameless full-access',
+    sweetSpot: 'Contemporary kitchens that want acrylic, HPL, TFL, or PV fronts at a US-made price.',
+    img: '/images/brands/eclipse-hero.webp',
+  },
+  {
+    name: 'Aspect Cabinetry',
+    href: '/dealer-hub/product-deep-dives/aspect',
+    tier: 'Value / fast-turn',
+    construction: 'Framed face-frame · curated 17-door program',
+    sweetSpot: 'Builder and budget-driven projects where the designer needs reliable WW Wood quality and lead time without the full Shiloh price.',
+    img: '/images/gallery-1.webp',
+  },
+];
+---
+<DealerHubLayout title="Product Deep Dives | Pinnacle Sales Dealer Hub" activeSection="Product Deep Dives">
+
+<h1>Product Deep Dives</h1>
+<p class="page-subtitle">A guided tour through Shiloh, Eclipse, and Aspect — designed for a Pinnacle rep to walk a designer through brand by brand, and built to live on as a reference the designer can revisit between projects.</p>
+
+<div class="how-to-use">
+  <h2 style="margin-top:0;">How to use these pages</h2>
+  <p><strong>For the rep:</strong> Each deep dive is structured like a meeting flow — brand story up top, construction and specs in the middle, door styles and finishes at the bottom, designer talking points beside each section. Share your screen, scroll top-to-bottom, and answer questions in the order they come.</p>
+  <p><strong>For the designer:</strong> Bookmark the page after the call. The spec tables, finish ranges, and "when to specify" notes are written so you can come back to them mid-project without re-watching the walkthrough.</p>
+  <p style="margin-bottom:0;"><strong>Average walkthrough time:</strong> 20–25 minutes per brand if you cover everything. 10 minutes if you skip the specs anatomy and focus on positioning + finishes.</p>
+</div>
+
+<h2>Pick a brand to dive into</h2>
+<div class="dive-grid">
+  {dives.map(dive => (
+    <a href={dive.href} class="dive-card">
+      <div class="dive-card-image">
+        <img src={dive.img} alt={dive.name} loading="lazy" />
+      </div>
+      <div class="dive-card-body">
+        <span class="dive-tier">{dive.tier}</span>
+        <h3>{dive.name}</h3>
+        <p class="dive-construction">{dive.construction}</p>
+        <p class="dive-sweet-spot"><strong>Sweet spot:</strong> {dive.sweetSpot}</p>
+        <span class="dive-link">Open deep dive &rarr;</span>
+      </div>
+    </a>
+  ))}
+</div>
+
+<h2>Quick brand comparison</h2>
+<p>A one-screen reference for "which brand fits this project?" If you only have five minutes with a designer, screen-share this table.</p>
+<div class="compare-wrap">
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Shiloh</th>
+        <th scope="col">Eclipse</th>
+        <th scope="col">Aspect</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Tier</th>
+        <td>Premium semi-custom</td>
+        <td>Modern semi-custom · "by Shiloh"</td>
+        <td>Value / fast-turn</td>
+      </tr>
+      <tr>
+        <th scope="row">Construction</th>
+        <td>Framed face-frame · 9 overlay/inset types</td>
+        <td>Frameless full-access</td>
+        <td>Framed face-frame, standard or full overlay</td>
+      </tr>
+      <tr>
+        <th scope="row">Cabinet box</th>
+        <td>1/2" plywood</td>
+        <td>3/4" particleboard (plywood +10%)</td>
+        <td>1/2" particleboard</td>
+      </tr>
+      <tr>
+        <th scope="row">Drawer box</th>
+        <td>5/8" hardwood dovetail standard (3/4" + walnut available)</td>
+        <td>5/8" or 3/4" hardwood dovetail · simulated metal · Blum LEGRABOX</td>
+        <td>5/8" hardwood dovetail (only option)</td>
+      </tr>
+      <tr>
+        <th scope="row">Hardware</th>
+        <td>Blum TANDEM guides · Blum CLIP top BLUMOTION hinges</td>
+        <td>Blum TANDEM guides · Blum CLIP top BLUMOTION hinges</td>
+        <td>Blum TANDEM guides · Blum COMPACT BLUMOTION hinges</td>
+      </tr>
+      <tr>
+        <th scope="row">Wood species</th>
+        <td>19 — full range incl. walnut, cherry, hickory, alder, white oak (plain/rift/quarter), poplar</td>
+        <td>Same 19 as Shiloh + reconstituted oak &amp; walnut veneers</td>
+        <td>3 only — American Poplar, Red Oak, Maple</td>
+      </tr>
+      <tr>
+        <th scope="row">Paints</th>
+        <td>25 standard SW colors + entire SW palette via custom match</td>
+        <td>Same as Shiloh</td>
+        <td>~10 standard paints, no custom match</td>
+      </tr>
+      <tr>
+        <th scope="row">Specialty materials</th>
+        <td>Olde World, Aged, Weathered stains, glazes</td>
+        <td>Acrylic, HPL, matte noir RAUVISIO, TFL, PV, reconstituted veneers (all Metropolitan slab only)</td>
+        <td>Standard paints/stains + 3 glazes only</td>
+      </tr>
+      <tr>
+        <th scope="row">Door styles</th>
+        <td>50+</td>
+        <td>50+ (same as Shiloh) plus Metropolitan slab</td>
+        <td>17 in three pricing groups</td>
+      </tr>
+      <tr>
+        <th scope="row">Lead time</th>
+        <td>~6 weeks</td>
+        <td>~6 weeks</td>
+        <td>~6 weeks</td>
+      </tr>
+      <tr>
+        <th scope="row">Warranty</th>
+        <td>10 years (KCMA/ESP)</td>
+        <td>10 years</td>
+        <td>5 years</td>
+      </tr>
+      <tr>
+        <th scope="row">Made in</th>
+        <td>Dudley, MO</td>
+        <td>Dudley, MO</td>
+        <td>Dudley, MO</td>
+      </tr>
+      <tr>
+        <th scope="row">Spec when…</th>
+        <td>Traditional / transitional / inset / custom finish</td>
+        <td>Contemporary / handleless aesthetic / specialty materials</td>
+        <td>Budget-driven remodel / builder spec / fast turnaround</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>What's the same across all three</h2>
+<p>All three brands are built by <strong>W.W. Wood Products</strong> in Dudley, Missouri (10411 Brenda St., Dudley, MO 63936), ship on the same ~6 week production cycle, and share Pinnacle Sales' design, ordering, and claims support. WW Wood is family-owned, founded in 1977, with 6 plants and ~800 employees — one of the top three privately held cabinet manufacturers in the United States.</p>
+
+<p>That means a designer running a job with two of the three brands gets one delivery, one acknowledgment, one rep on call, and one warranty process. The dealer portal is the same (my.wwinc.com), the Blum TANDEM drawer guide is the same, the catalyzed conversion varnish topcoat is the same.</p>
+
+<p>This is one of the strongest things a rep can lead with: "You can mix Shiloh and Eclipse in the same house — primary kitchen and a contemporary basement bar — and they ship together on one acknowledgment."</p>
+
+<h2>Next steps after a walkthrough</h2>
+<ul class="next-steps">
+  <li><strong>Request samples:</strong> Door samples and color chips go out from the WW Wood sample program — ask your rep to place the order during or right after the call.</li>
+  <li><strong>Showroom display:</strong> If the dealer doesn't have brand merchandising yet, point them at the <a href="/playbook/eclipse-merchandiser-display">Eclipse Merchandiser Display</a> and <a href="/playbook/profitable-kitchen-showroom-display">profitable showroom display</a> playbook articles.</li>
+  <li><strong>Spec & quote:</strong> Pinnacle's 2020/ProKitchen support team can review the first design — see <a href="/dealer-hub/support">Support & Escalation</a>.</li>
+  <li><strong>Train the rest of the team:</strong> Schedule a recorded virtual walkthrough so newer designers can watch on demand. Contact <a href="mailto:marketing@pinnaclesales.biz">marketing@pinnaclesales.biz</a>.</li>
+</ul>
+
+</DealerHubLayout>
+
+<style>
+  .page-subtitle { color: var(--color-muted); font-size: 1.05rem; max-width: 70ch; margin-top: -0.5rem; }
+  .how-to-use {
+    background: var(--color-bg-alt);
+    border-left: 3px solid var(--color-accent);
+    padding: 1.5rem 1.75rem;
+    border-radius: 0 6px 6px 0;
+    margin: 2rem 0 2.5rem;
+  }
+  .how-to-use p { margin: 0 0 0.75rem; font-size: 0.95rem; }
+  .how-to-use p:last-child { margin-bottom: 0; }
+
+  .dive-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 1.5rem 0 2.5rem;
+  }
+  .dive-card {
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+    transition: box-shadow 0.2s, transform 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+  .dive-card:hover {
+    box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+  }
+  .dive-card-image img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    display: block;
+  }
+  .dive-card-body { padding: 1.1rem 1.25rem 1.25rem; flex: 1; display: flex; flex-direction: column; }
+  .dive-tier {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    margin-bottom: 0.4rem;
+  }
+  .dive-card-body h3 { font-size: 1.2rem; margin: 0 0 0.35rem; }
+  .dive-construction { font-size: 0.88rem; color: var(--color-muted); margin: 0 0 0.75rem; }
+  .dive-sweet-spot { font-size: 0.9rem; margin: 0 0 1rem; flex: 1; }
+  .dive-link { font-size: 0.88rem; font-weight: 600; color: var(--color-dark); border-bottom: 1px solid var(--color-accent); align-self: flex-start; }
+
+  .compare-wrap { overflow-x: auto; margin: 1rem 0 2.5rem; }
+  .compare-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  .compare-table th, .compare-table td {
+    text-align: left; padding: 0.75rem 0.9rem;
+    border-bottom: 1px solid var(--color-border); vertical-align: top;
+  }
+  .compare-table thead th {
+    background: var(--color-bg-alt); font-weight: 700;
+    font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--color-black);
+  }
+  .compare-table tbody th {
+    font-weight: 700; font-size: 0.82rem; letter-spacing: 0.05em;
+    text-transform: uppercase; color: var(--color-muted); width: 9rem;
+  }
+  .verify {
+    display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em;
+    color: #b45309; background: #fef3c7; padding: 0.1rem 0.4rem;
+    border-radius: 3px; margin-left: 0.3rem; vertical-align: middle;
+  }
+
+  .next-steps { margin: 1rem 0 2rem; }
+  .next-steps li { margin-bottom: 0.6rem; }
+
+  @media (max-width: 900px) {
+    .dive-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    .dive-grid { grid-template-columns: 1fr; }
+    .compare-table { font-size: 0.82rem; }
+    .compare-table th, .compare-table td { padding: 0.55rem 0.5rem; }
+    .compare-table tbody th { width: auto; }
+  }
+</style>
