@@ -41,13 +41,34 @@ const orgSchema = {
 const allSchemas = [orgSchema, ...(Array.isArray(schema) ? schema : schema ? [schema] : [])];
 ---
 
-<!-- Google tag (gtag.js) — GA4 property pinnaclesales.biz -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-F8STEE6JZM"></script>
+<!-- Google tag (gtag.js) — GA4 property pinnaclesales.biz.
+     Deferred until first user interaction (or 5s timeout) so it doesn't
+     block the main thread on initial page load. dataLayer + config still
+     run immediately so any pre-load tracking calls queue correctly. -->
 <script is:inline>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-F8STEE6JZM');
+
+  (function() {
+    var GA_SRC = 'https://www.googletagmanager.com/gtag/js?id=G-F8STEE6JZM';
+    var loaded = false;
+    function loadGA() {
+      if (loaded) return;
+      loaded = true;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = GA_SRC;
+      document.head.appendChild(s);
+    }
+    var EVENTS = ['scroll','mousemove','mousedown','touchstart','keydown'];
+    var opts = { once: true, passive: true };
+    EVENTS.forEach(function(ev) { window.addEventListener(ev, loadGA, opts); });
+    // Fallback: load anyway after 5 seconds, even if the user never
+    // interacts, so we don't lose tracking entirely on idle tabs.
+    setTimeout(loadGA, 5000);
+  })();
 </script>
 
 <meta charset="UTF-8" />
