@@ -6,7 +6,16 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
 <h1>Submit a Request</h1>
 <p class="page-subtitle">Send us a design for review, an order to check before submission, or request a Zoom training session for your team.</p>
 
-<form id="request-form" class="request-form" name="dealer-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data">
+<form
+  id="request-form"
+  class="request-form"
+  name="dealer-request"
+  method="POST"
+  action="/dealer-hub/submit/?success=1"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  enctype="multipart/form-data"
+>
   <input type="hidden" name="form-name" value="dealer-request" />
   <input type="hidden" name="subject" value="New Dealer Request — Pinnacle Sales" />
   <p hidden><label>Don't fill this out: <input name="bot-field" /></label></p>
@@ -153,6 +162,19 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
 </div>
 
 <script is:inline>
+  // If Netlify redirected back here after a successful submission,
+  // hide the form and show the confirmation block instead.
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    if (params.has('success')) {
+      var form = document.getElementById('request-form');
+      var success = document.getElementById('success-message');
+      if (form) form.style.display = 'none';
+      if (success) success.style.display = 'block';
+      window.scrollTo(0, 0);
+    }
+  })();
+
   // Show/hide conditional fields based on request type
   document.querySelectorAll('input[name="request-type"]').forEach(function(radio) {
     radio.addEventListener('change', function() {
@@ -168,49 +190,37 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
     });
   });
 
-  // File upload display
-  document.getElementById('file-upload').addEventListener('change', function() {
-    var list = document.getElementById('file-list');
-    if (this.files.length > 0) {
-      var names = Array.from(this.files).map(function(f) {
-        return f.name + ' (' + (f.size / 1024 / 1024).toFixed(1) + 'MB)';
-      });
-      list.textContent = names.join(', ');
-    } else {
-      list.textContent = '';
-    }
-  });
-
-  // Form submission via Netlify Forms
-  document.getElementById('request-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    var btn = document.getElementById('submit-btn');
-    btn.disabled = true;
-    btn.textContent = 'Sending…';
-
-    var form = this;
-    var formData = new FormData(form);
-
-    fetch('/', {
-      method: 'POST',
-      body: formData
-    })
-    .then(function(response) {
-      if (response.ok) {
-        form.style.display = 'none';
-        document.getElementById('success-message').style.display = 'block';
-        window.scrollTo(0, 0);
+  // File upload — show selected file names in the drop zone
+  var fileInput = document.getElementById('file-upload');
+  if (fileInput) {
+    fileInput.addEventListener('change', function() {
+      var list = document.getElementById('file-list');
+      if (!list) return;
+      if (this.files.length > 0) {
+        var names = Array.from(this.files).map(function(f) {
+          return f.name + ' (' + (f.size / 1024 / 1024).toFixed(1) + 'MB)';
+        });
+        list.textContent = names.join(', ');
       } else {
-        throw new Error('Submission failed');
+        list.textContent = '';
       }
-    })
-    .catch(function(error) {
-      btn.disabled = false;
-      btn.textContent = 'Submit Request';
-      alert('Something went wrong. Please try again or email gillian@pinnaclesales.biz directly.');
     });
-  });
+  }
+
+  // Submit button — give it a "Sending…" state while the native form
+  // submission and Netlify's redirect complete. No preventDefault here,
+  // so the browser submits to action="/dealer-hub/submit/?success=1"
+  // and Netlify captures the form before redirecting us back.
+  var form = document.getElementById('request-form');
+  if (form) {
+    form.addEventListener('submit', function() {
+      var btn = document.getElementById('submit-btn');
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+      }
+    });
+  }
 </script>
 
 </DealerHubLayout>
