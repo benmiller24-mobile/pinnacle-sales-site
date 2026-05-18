@@ -44,7 +44,15 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
         <span class="radio-content">
           <span class="radio-icon">🎥</span>
           <span class="radio-label">Zoom Training Session</span>
-          <span class="radio-desc">Schedule a live training session for your team — product knowledge, 20/20 / ProKitchen software, or any topic you need.</span>
+          <span class="radio-desc">Schedule a live virtual training session for your team — product knowledge, 20/20 / ProKitchen software, or any topic you need.</span>
+        </span>
+      </label>
+      <label class="radio-card">
+        <input type="radio" name="request-type" value="showroom-consult" />
+        <span class="radio-content">
+          <span class="radio-icon">🏠</span>
+          <span class="radio-label">Showroom Visit / In-Person Consult</span>
+          <span class="radio-desc">Schedule an in-person visit from your Pinnacle rep — showroom merchandising, sample-wall planning, display strategy, or any consult that's better in person than on Zoom. Tell us preferred dates in the notes below.</span>
         </span>
       </label>
     </div>
@@ -183,6 +191,11 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
       if (this.value === 'zoom-training') {
         designFields.style.display = 'none';
         trainingFields.style.display = 'block';
+      } else if (this.value === 'showroom-consult') {
+        // In-person showroom visits don't need design files or training topics —
+        // dealer puts preferred dates / focus areas in the always-visible Notes field.
+        designFields.style.display = 'none';
+        trainingFields.style.display = 'none';
       } else {
         designFields.style.display = 'block';
         trainingFields.style.display = 'none';
@@ -190,9 +203,9 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
     });
   });
 
-  // Pre-select a request type from the URL (?type=design-review|order-check|zoom-training).
-  // Used by the Activation Plan's "Book via Zoom" buttons and could be used by any other
-  // deep-link CTA in the hub.
+  // Pre-select a request type from the URL (?type=design-review|order-check|zoom-training|showroom-consult).
+  // Used by the Activation Plan's "Book via Zoom" and "Schedule In-Person Visit" buttons
+  // and any other deep-link CTA in the hub.
   (function() {
     var typeParam = new URLSearchParams(window.location.search).get('type');
     if (!typeParam) return;
