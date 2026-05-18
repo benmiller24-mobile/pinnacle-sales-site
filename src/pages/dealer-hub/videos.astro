@@ -8,10 +8,11 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
 
 <div class="vl-controls">
   <div class="vl-tabs" id="vl-tabs">
-    <button class="vl-tab active" data-cat="all">All (11)</button>
+    <button class="vl-tab active" data-cat="all">All (13)</button>
     <button class="vl-tab" data-cat="ordering">Ordering</button>
     <button class="vl-tab" data-cat="software">2020 Software</button>
     <button class="vl-tab" data-cat="product">Product Training</button>
+    <button class="vl-tab" data-cat="dealer-spotlight">Dealer Spotlights</button>
   </div>
   <div class="vl-search-wrap">
     <input type="text" class="vl-search" id="vl-search" placeholder="Search videos…" />
@@ -163,6 +164,33 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
       <h3 class="vl-title">Eclipse GOLA Channel Collection</h3>
       <div class="vl-meta"><span class="vl-duration">6:40</span><span class="vl-category">Product Training</span></div>
       <p class="vl-desc">Eclipse's integrated aluminum channel handle system for a clean, handleless look. Covers options, spec requirements, and design applications.</p>
+    </div>
+  </div>
+
+  <!-- DEALER SPOTLIGHTS -->
+  <div class="vl-card" data-cat="dealer-spotlight">
+    <div class="vl-video">
+      <video controls preload="metadata" playsinline>
+        <source src="/videos/caruso-eclipse-kitchen.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="vl-info">
+      <h3 class="vl-title">Caruso Kitchen Designs — Eclipse Installed Kitchen</h3>
+      <div class="vl-meta"><span class="vl-category">Dealer Spotlights</span></div>
+      <p class="vl-desc">Walkthrough of a real installed Eclipse kitchen by Caruso Kitchen Designs. Real home, not a showroom — the kind of content homeowners convert on. Eclipse-only branding, downloadable from the <a href="/dealer-hub/marketing#videos">Marketing Kit</a>.</p>
+    </div>
+  </div>
+
+  <div class="vl-card" data-cat="dealer-spotlight">
+    <div class="vl-video">
+      <video controls preload="metadata" playsinline>
+        <source src="/videos/greenwood-eclipse-grain-matched-oak.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="vl-info">
+      <h3 class="vl-title">Greenwood Cabinetry — Eclipse Grain-Matched White Oak</h3>
+      <div class="vl-meta"><span class="vl-category">Dealer Spotlights</span></div>
+      <p class="vl-desc">Showroom walkthrough of Eclipse's grain-matched white oak veneer on the Metro door style with Straw finish — the seamless continuous grain that's the headline feature of Metropolitan. Eclipse-only branding, downloadable from the <a href="/dealer-hub/marketing#videos">Marketing Kit</a>.</p>
     </div>
   </div>
 

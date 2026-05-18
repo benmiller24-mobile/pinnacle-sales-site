@@ -12,12 +12,13 @@ const galleryProjects = [...projects].sort((a, b) => {
 <DealerHubLayout title="Marketing Kit | Pinnacle Sales Dealer Hub" activeSection="Marketing Kit">
 
 <h1>Marketing Kit</h1>
-<p class="page-subtitle">Brand logos, a downloadable project photo library, ready-to-post social captions, and print collateral — everything you need to market your cabinetry brands in one place.</p>
+<p class="page-subtitle">Brand logos, a downloadable project photo library, dealer-spotlight video assets, ready-to-post social captions, and print collateral — everything you need to market your cabinetry brands in one place.</p>
 
 <nav class="mk-toc" aria-label="On this page">
   <strong>Jump to:</strong>
   <a href="#logos">Brand Logos</a>
   <a href="#photos">Project Photo Library</a>
+  <a href="#videos">Video Assets</a>
   <a href="#social">Social Media Content</a>
   <a href="#print">Print Materials</a>
 </nav>
@@ -112,6 +113,57 @@ const galleryProjects = [...projects].sort((a, b) => {
 </div>
 
 <p class="mk-format-note"><strong>File format note:</strong> Images are served as <code>.webp</code> for performance. If you need JPG or PNG for a platform that doesn't accept WebP (rare in 2026, but it happens), open the file in Preview / Photos / Photoshop and re-export.</p>
+
+<h2 id="videos" class="mk-section-header">Video Assets</h2>
+<p>Dealer-spotlight videos that show Eclipse Cabinetry in real installed kitchens. Preview here, then download for your website, YouTube channel, or social posts. Both videos are cut with Eclipse-only branding so you can co-mark them with your dealership without competing logos.</p>
+
+<div class="mk-usage-note">
+  <strong>Usage rights:</strong> Pinnacle Sales dealers may use these videos for marketing as long as the Eclipse Cabinetry brand stays intact and Pinnacle Sales is credited or tagged when posted. Don't re-cut or overlay the video with competing brand marks. <a href="mailto:marketing@pinnaclesales.biz">Email marketing@pinnaclesales.biz</a> for higher-resolution master files or to request a co-branded edit.
+</div>
+
+<div class="video-library">
+  <div class="video-card">
+    <div class="video-player">
+      <video controls preload="metadata" playsinline>
+        <source src="/videos/caruso-eclipse-kitchen.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="video-meta">
+      <span class="video-badge">Eclipse</span>
+      <h3>Caruso Kitchen Designs — Eclipse Installed Kitchen</h3>
+      <p class="video-desc">Walkthrough of a real installed Eclipse kitchen by Caruso Kitchen Designs. Shows the brand in a finished home, not a showroom — the highest-converting kind of content a dealer can post.</p>
+      <a
+        href="/videos/caruso-eclipse-kitchen.mp4"
+        download="pinnacle-caruso-eclipse-kitchen.mp4"
+        class="photo-btn photo-btn-primary"
+      >
+        &darr; Download Video (~13 MB)
+      </a>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <div class="video-player">
+      <video controls preload="metadata" playsinline>
+        <source src="/videos/greenwood-eclipse-grain-matched-oak.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="video-meta">
+      <span class="video-badge">Eclipse</span>
+      <h3>Greenwood Cabinetry — Eclipse Grain-Matched White Oak</h3>
+      <p class="video-desc">Showroom walkthrough of Eclipse's grain-matched white oak veneer in the Metro door style with Straw finish — featuring the seamless continuous grain across a long run of slab fronts that's the headline feature of Metropolitan.</p>
+      <a
+        href="/videos/greenwood-eclipse-grain-matched-oak.mp4"
+        download="pinnacle-greenwood-eclipse-grain-matched-oak.mp4"
+        class="photo-btn photo-btn-primary"
+      >
+        &darr; Download Video (~12 MB)
+      </a>
+    </div>
+  </div>
+</div>
 
 <h2 id="social" class="mk-section-header">Social Media Content</h2>
 <p>Pair the photos above with the captions below. Edit any of these to fit your dealership's voice and the specifics of the project you're posting.</p>
@@ -393,6 +445,54 @@ const galleryProjects = [...projects].sort((a, b) => {
   .mk-format-note code {
     background: rgba(0,0,0,0.05); padding: 0.05rem 0.3rem;
     border-radius: 3px; font-size: 0.85em;
+  }
+
+  /* Video Assets — paired-card grid with inline player + download */
+  .video-library {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.25rem;
+    margin: 1.25rem 0 2rem;
+  }
+  .video-card {
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+  .video-player {
+    aspect-ratio: 16 / 9;
+    background: #000;
+  }
+  .video-player video {
+    width: 100%; height: 100%; display: block;
+  }
+  .video-meta {
+    padding: 0.9rem 1.1rem 1.1rem;
+    flex: 1; display: flex; flex-direction: column;
+  }
+  .video-badge {
+    display: inline-block;
+    align-self: flex-start;
+    font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--color-muted);
+    border: 1px solid var(--color-border);
+    padding: 0.1rem 0.45rem; border-radius: 3px;
+    margin-bottom: 0.5rem;
+  }
+  .video-card h3 {
+    font-size: 0.98rem !important;
+    margin: 0 0 0.4rem !important;
+    line-height: 1.3;
+  }
+  .video-desc {
+    font-size: 0.85rem;
+    color: var(--color-body);
+    line-height: 1.5;
+    margin: 0 0 0.85rem !important;
+    flex: 1;
   }
 
   .caption-list {
