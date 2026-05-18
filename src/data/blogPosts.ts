@@ -1,5 +1,15 @@
 export const blogPosts = [
   {
+    slug: 'shiloh-eclipse-bifold-doors',
+    title: 'New Door Option: Bifold (BFD) Doors Now Available in Shiloh and Eclipse',
+    excerpt: "W.W. Wood Products has released Bifold Doors (BFD) for Shiloh and Eclipse — production-ready and orderable today on most stock wall cabinets 21″–48″ wide. Soft-close hinges, $672 per set. The catch: the SKUs aren't in 20/20, ProKitchens, or Interactive catalogs yet, so you'll need to add it as a modification line.",
+    author: 'Ben Miller',
+    date: '2026-05-18',
+    category: 'Product Updates',
+    image: '/images/blog/shiloh-eclipse-bifold/listing-card.webp',
+    recommended: true
+  },
+  {
     slug: 'wolf-renovations-grand-opening',
     title: 'Ribbon Cutting at Wolf Renovations: A New Shiloh + Eclipse Showroom in the Bay Area',
     excerpt: "Wolf Renovations just opened their new San Francisco Bay Area showroom — multiple full-scale Shiloh and Eclipse kitchen and bath vignettes, including a dedicated Eclipse door-style display. A walkthrough of the room.",
