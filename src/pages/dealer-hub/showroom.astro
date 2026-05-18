@@ -19,12 +19,19 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
 <h2>Shiloh & Eclipse Displays</h2>
 
 <h3>Shiloh Merchandiser</h3>
+
+<figure class="merchandiser-photo">
+  <img src="/images/blog/shiloh-merchandiser.webp" alt="Shiloh Merchandiser display unit — a white oak hutch with the Shiloh Cabinetry sign at top, two rows of vertical door samples in painted and stained finishes, finish chips on the lower shelf, and a small Shiloh shaker base cabinet with quartz counter underneath" loading="lazy" />
+  <figcaption>The Shiloh Merchandiser in a dealer showroom — white oak hutch frame holds the full door and finish library above a working Shiloh shaker base cabinet on quartz.</figcaption>
+</figure>
+
 <p>The Shiloh Merchandiser is a showroom-ready display unit that presents Shiloh's full door style and finish library in an organized, client-friendly format. Ideal for showcasing Shiloh's breadth — from painted and stained finishes to inset construction options.</p>
 <ul>
   <li>Recommended for all Shiloh dealers</li>
   <li>Showcases door styles, finish chips, and construction types</li>
   <li>Organized for easy client walk-through</li>
-  <li>Contact Pinnacle Sales to order</li>
+  <li>White oak hutch frame doubles as a working sample of a Shiloh shaker base cabinet — clients see the actual product holding the display</li>
+  <li><a href="/dealer-hub/submit/?type=showroom-consult">Contact Pinnacle Sales</a> to order, or to schedule an in-person merchandising consult</li>
 </ul>
 
 <h3>Eclipse Merchandiser</h3>
@@ -107,5 +114,27 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
     margin: 0.75rem 0 0;
     font-size: 0.85rem;
     color: var(--color-muted);
+  }
+  .merchandiser-photo {
+    margin: 1.25rem 0 1.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+  }
+  .merchandiser-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 720px;
+    object-fit: cover;
+  }
+  .merchandiser-photo figcaption {
+    padding: 0.7rem 1rem 0.85rem;
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    background: var(--color-bg-alt);
+    border-top: 1px solid var(--color-border);
+    line-height: 1.5;
   }
 </style>
