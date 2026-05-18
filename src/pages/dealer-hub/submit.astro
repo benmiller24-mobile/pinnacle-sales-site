@@ -190,6 +190,19 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
     });
   });
 
+  // Pre-select a request type from the URL (?type=design-review|order-check|zoom-training).
+  // Used by the Activation Plan's "Book via Zoom" buttons and could be used by any other
+  // deep-link CTA in the hub.
+  (function() {
+    var typeParam = new URLSearchParams(window.location.search).get('type');
+    if (!typeParam) return;
+    var radio = document.querySelector('input[name="request-type"][value="' + typeParam + '"]');
+    if (radio) {
+      radio.checked = true;
+      radio.dispatchEvent(new Event('change'));
+    }
+  })();
+
   // File upload — show selected file names in the drop zone
   var fileInput = document.getElementById('file-upload');
   if (fileInput) {

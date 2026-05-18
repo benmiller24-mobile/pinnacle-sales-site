@@ -11,47 +11,92 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
   <button class="banner-dismiss" id="dismiss-banner" aria-label="Dismiss">&times;</button>
   <div class="banner-content">
     <h2>Welcome to the Pinnacle Sales Dealer Hub</h2>
-    <p>We recommend starting with your <strong>Activation Plan</strong> — a 21-day guided path from setup to Certified Dealer.</p>
+    <p>New here? Start with your <strong>Activation Plan</strong> — a 21-day guided path from setup to Certified Dealer.</p>
     <a href="/dealer-hub/activation" class="banner-cta">Go to Activation Plan &rarr;</a>
   </div>
 </div>
 
+<h2 class="section-header">Get Started</h2>
+<p class="section-subtitle">First-time dealers and new designers — start here.</p>
 <div class="card-grid">
+  <a href="/dealer-hub/activation" class="hub-card">
+    <h3>Activation Plan</h3>
+    <p>21-day guided onboarding from account setup to Certified Dealer. Track your progress through 4 modules and 12 steps.</p>
+  </a>
   <a href="/dealer-hub/onboarding" class="hub-card">
     <h3>Dealer Onboarding</h3>
-    <p>Step-by-step guide from account activation to first order. Track your progress.</p>
+    <p>Step-by-step onboarding checklist for the dealership — account setup, sample shipment, first-order workflow.</p>
   </a>
   <a href="/dealer-hub/designer-onboarding" class="hub-card">
     <h3>Designer Onboarding</h3>
-    <p>Training roadmap for new designers — product orientation, 2020 training, and first orders.</p>
-  </a>
-  <a href="/dealer-hub/ordering" class="hub-card">
-    <h3>Ordering SOPs</h3>
-    <p>Standard operating procedures for every brand — from quoting to delivery.</p>
+    <p>Five-phase training roadmap for new designers — product orientation, 2020 / ProKitchen training, and first orders.</p>
   </a>
   <a href="/dealer-hub/training" class="hub-card">
     <h3>Training & Resources</h3>
-    <p>Product training, sales scripts, competitive positioning, and design tools.</p>
+    <p>Structured product and software training plus on-demand modules. Request a Zoom session for your team.</p>
   </a>
+</div>
+
+<h2 class="section-header">Sell & Spec</h2>
+<p class="section-subtitle">References designers use while quoting and presenting to clients.</p>
+<div class="card-grid">
+  <a href="/dealer-hub/product-deep-dives" class="hub-card">
+    <h3>Product Deep Dives</h3>
+    <p>Shiloh, Eclipse, and Aspect — full construction, finish, and door-style references for designer walkthroughs.</p>
+  </a>
+  <a href="/dealer-hub/finishes" class="hub-card">
+    <h3>Finish Gallery</h3>
+    <p>Every installed kitchen and bath in the Pinnacle portfolio, filterable by brand, door style, species, and finish.</p>
+  </a>
+  <a href="/dealer-hub/order-samples" class="hub-card">
+    <h3>Order Samples</h3>
+    <p>Sample door forms for Shiloh, Eclipse, and Aspect. Interactive decision tree picks the right form for your request.</p>
+  </a>
+</div>
+
+<h2 class="section-header">Run Your Showroom</h2>
+<p class="section-subtitle">Display, merchandising, and marketing.</p>
+<div class="card-grid">
   <a href="/dealer-hub/marketing" class="hub-card">
     <h3>Marketing Kit</h3>
-    <p>Brand assets, social media content, showroom signage, and marketing resources.</p>
+    <p>Brand logos and assets, lifestyle photography, social content, and print materials.</p>
   </a>
   <a href="/dealer-hub/showroom" class="hub-card">
     <h3>Showroom Standards</h3>
     <p>Display requirements, merchandiser specs, sample programs, and visual guidelines.</p>
   </a>
+  <a href="/dealer-hub/downloads" class="hub-card">
+    <h3>Downloads & Forms</h3>
+    <p>Order forms, sample request forms, warranty documents, brand logos, and appliance cutout sheets in one place.</p>
+  </a>
+</div>
+
+<h2 class="section-header">Daily Operations</h2>
+<p class="section-subtitle">Day-to-day reference for ordering, support, and answers.</p>
+<div class="card-grid">
+  <a href="/dealer-hub/ordering" class="hub-card">
+    <h3>Ordering SOPs</h3>
+    <p>Standard operating procedures for every brand — quoting, submitting, acknowledgment review, delivery.</p>
+  </a>
   <a href="/dealer-hub/support" class="hub-card">
     <h3>Support & Escalation</h3>
-    <p>Know exactly who to contact for design, warranty, rush orders, and more.</p>
+    <p>Know exactly who to contact for design help, warranty claims, rush orders, and order status.</p>
   </a>
   <a href="/dealer-hub/submit" class="hub-card">
     <h3>Submit a Request</h3>
     <p>Send a design for review, an order for pre-check, or request a Zoom training session.</p>
   </a>
+  <a href="/dealer-hub/videos" class="hub-card">
+    <h3>Video Library</h3>
+    <p>Training videos covering ordering workflows, 2020 software tips, and product specification deep-dives.</p>
+  </a>
+  <a href="/dealer-hub/faq" class="hub-card">
+    <h3>FAQ</h3>
+    <p>Quick answers to the questions dealers ask most — ordering, lead times, claims, finishes, hardware.</p>
+  </a>
 </div>
 
-<h2>Quick Contacts</h2>
+<h2 class="section-header">Quick Contacts</h2>
 <div class="card-grid">
   <div class="hub-card">
     <h3>General Support</h3>
@@ -113,6 +158,23 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
   }
   .banner-dismiss:hover { color: var(--color-dark); }
 
+  /* Section headers within the dashboard */
+  .section-header {
+    margin-top: 2.75rem !important;
+    margin-bottom: 0.35rem !important;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.78rem !important;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-muted) !important;
+    font-weight: 700;
+  }
+  .section-subtitle {
+    color: var(--color-muted);
+    font-size: 0.88rem;
+    margin: 0 0 1rem !important;
+  }
 </style>
 
 <script is:inline>
