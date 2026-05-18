@@ -10,9 +10,10 @@ export interface Props {
   publishedDate: string;
   modifiedDate?: string;
   ogImage?: string;
+  heroImage?: string;  // body LCP image — preloaded in head
 }
 
-const { title, description, author, publishedDate, modifiedDate, ogImage } = Astro.props;
+const { title, description, author, publishedDate, modifiedDate, ogImage, heroImage } = Astro.props;
 
 const articleSchema = {
   "@context": "https://schema.org",
@@ -35,6 +36,7 @@ const articleSchema = {
   description={description}
   schema={articleSchema}
   ogImage={ogImage}
+  heroImage={heroImage}
   article={{ publishedTime: publishedDate, modifiedTime: modifiedDate, author: 'Pinnacle Sales' }}
 >
   <div class="content-narrow" style="padding-top: 2rem;">

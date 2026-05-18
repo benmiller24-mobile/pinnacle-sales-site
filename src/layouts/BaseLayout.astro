@@ -8,16 +8,17 @@ export interface Props {
   description: string;
   schema?: object | object[];
   ogImage?: string;
+  heroImage?: string;  // LCP candidate — preloaded in head via SEOHead
   article?: { publishedTime: string; modifiedTime?: string; author: string; };
 }
 
-const { title, description, schema, ogImage, article } = Astro.props;
+const { title, description, schema, ogImage, heroImage, article } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <SEOHead title={title} description={description} schema={schema} ogImage={ogImage} article={article} />
+  <SEOHead title={title} description={description} schema={schema} ogImage={ogImage} heroImage={heroImage} article={article} />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
