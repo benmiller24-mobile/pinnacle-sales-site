@@ -35,12 +35,18 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
 </ul>
 
 <h3>Eclipse Merchandiser</h3>
+
+<figure class="merchandiser-photo">
+  <img src="/images/blog/eclipse-merchandiser-1.webp" alt="Eclipse Merchandiser display — a compact black-framed sample organizer holding 44 Eclipse door samples and finish chips in a small showroom footprint" loading="lazy" />
+  <figcaption>The Eclipse Merchandiser (ECL-M-DISP2 / model 5570) — 64″ W × 84″ H × 24″ D, holds 44 door samples plus finish chips.</figcaption>
+</figure>
+
 <p>The <a href="/playbook/eclipse-merchandiser-display">Eclipse Merchandiser</a> is a compact, showroom-ready display unit designed to showcase Eclipse's full finish library in a small footprint. It holds door samples, finish chips, and hardware options in an organized, client-friendly format.</p>
 <ul>
   <li>Recommended for all Eclipse dealers</li>
   <li>Compact footprint — fits in most showroom configurations</li>
   <li>Organized by finish category for easy client navigation</li>
-  <li>Contact Pinnacle Sales to order</li>
+  <li><a href="/dealer-hub/submit/?type=showroom-consult">Contact Pinnacle Sales</a> to order, or to schedule an in-person merchandising consult</li>
 </ul>
 
 <h3>Door Sample Racks</h3>
@@ -116,7 +122,8 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
     color: var(--color-muted);
   }
   .merchandiser-photo {
-    margin: 1.25rem 0 1.5rem;
+    margin: 1.25rem auto 1.5rem;
+    max-width: 520px;
     border: 1px solid var(--color-border);
     border-radius: 8px;
     overflow: hidden;
@@ -126,8 +133,8 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
     display: block;
     width: 100%;
     height: auto;
-    max-height: 720px;
-    object-fit: cover;
+    /* No max-height / object-fit so portrait photos show in full
+       aspect ratio without cropping the logo or base cabinet. */
   }
   .merchandiser-photo figcaption {
     padding: 0.7rem 1rem 0.85rem;
