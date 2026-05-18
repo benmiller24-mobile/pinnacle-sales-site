@@ -1,0 +1,319 @@
+---
+import DealerHubLayout from '../../../layouts/DealerHubLayout.astro';
+import { projects, type FinishCategory } from '../../../data/projects';
+
+// Build filter-option sets from the tagged data (so the lists grow as more
+// projects get tags added).
+const allBrands = Array.from(new Set(projects.map(p => p.brand))).sort();
+const allDoorStyles = Array.from(new Set(
+  projects.flatMap(p => (p.doorStyle ? [p.doorStyle] : []))
+)).sort();
+const allSpecies = Array.from(new Set(
+  projects.flatMap(p => p.species ?? [])
+)).sort();
+const allInsetTypes = Array.from(new Set(
+  projects.flatMap(p => (p.insetType ? [p.insetType] : []))
+)).sort();
+const allFinishCategories: FinishCategory[] = ['Painted', 'Stained', 'Two-Tone', 'Specialty Material'];
+
+const taggedCount = projects.filter(p =>
+  p.doorStyle || (p.species && p.species.length) || (p.finishCategory && p.finishCategory.length) || p.insetType
+).length;
+---
+<DealerHubLayout title="Finish Gallery | Pinnacle Sales Dealer Hub" activeSection="Finish Gallery">
+
+<h1>Finish Gallery</h1>
+<p class="page-subtitle">Every installed kitchen and bath in the Pinnacle Sales portfolio, filterable by brand, door style, species, finish category, and inset type. Use it when you need to show a client what a specific combination looks like on a real island — not on a sample door. Currently {taggedCount} of {projects.length} projects are tagged; the rest will appear in the grid until a filter is applied.</p>
+
+<div class="fg-filters">
+  <div class="fg-filter-row">
+    <span class="fg-label">Brand</span>
+    <div class="fg-chips">
+      {allBrands.map(b => <button type="button" class="fg-chip" data-dim="brand" data-value={b}>{b}</button>)}
+    </div>
+  </div>
+  <div class="fg-filter-row">
+    <span class="fg-label">Door Style</span>
+    <div class="fg-chips">
+      {allDoorStyles.map(d => <button type="button" class="fg-chip" data-dim="doorStyle" data-value={d}>{d}</button>)}
+    </div>
+  </div>
+  <div class="fg-filter-row">
+    <span class="fg-label">Species</span>
+    <div class="fg-chips">
+      {allSpecies.map(s => <button type="button" class="fg-chip" data-dim="species" data-value={s}>{s}</button>)}
+    </div>
+  </div>
+  <div class="fg-filter-row">
+    <span class="fg-label">Finish</span>
+    <div class="fg-chips">
+      {allFinishCategories.map(f => <button type="button" class="fg-chip" data-dim="finishCategory" data-value={f}>{f}</button>)}
+    </div>
+  </div>
+  {allInsetTypes.length > 0 && (
+    <div class="fg-filter-row">
+      <span class="fg-label">Inset Type</span>
+      <div class="fg-chips">
+        {allInsetTypes.map(i => <button type="button" class="fg-chip" data-dim="insetType" data-value={i}>{i}</button>)}
+      </div>
+    </div>
+  )}
+  <button type="button" id="fg-clear" class="fg-clear">Clear filters</button>
+</div>
+
+<div class="fg-status">
+  Showing <span id="fg-visible-count">{projects.length}</span> of {projects.length} projects
+</div>
+
+<div class="fg-grid" id="fg-grid">
+  {projects.map(p => (
+    <a
+      href={`/projects/${p.slug}`}
+      class="fg-card"
+      data-brand={p.brand}
+      data-door-style={p.doorStyle ?? ''}
+      data-species={(p.species ?? []).join('|')}
+      data-finish-category={(p.finishCategory ?? []).join('|')}
+      data-inset-type={p.insetType ?? ''}
+      data-tagged={(p.doorStyle || (p.species?.length ?? 0) > 0 || (p.finishCategory?.length ?? 0) > 0 || p.insetType) ? '1' : '0'}
+    >
+      <div class="fg-card-img">
+        <img src={`/images/projects/${p.slug}/${p.hero}`} alt={p.title} loading="lazy" />
+      </div>
+      <div class="fg-card-body">
+        <span class="fg-brand-badge">{p.brand}</span>
+        <h3>{p.title}</h3>
+        <p class="fg-location">{p.location}</p>
+        <div class="fg-tags">
+          {p.doorStyle && <span class="fg-tag">{p.doorStyle}</span>}
+          {(p.species ?? []).map(s => <span class="fg-tag">{s}</span>)}
+          {(p.finishCategory ?? []).map(f => <span class="fg-tag fg-tag-finish">{f}</span>)}
+          {p.insetType && <span class="fg-tag fg-tag-inset">{p.insetType}</span>}
+        </div>
+      </div>
+    </a>
+  ))}
+</div>
+
+<p id="fg-empty" class="fg-empty" style="display:none;">
+  No projects match these filters. <button type="button" id="fg-empty-clear">Clear filters</button>
+</p>
+
+<script is:inline>
+  (function() {
+    const chips = Array.from(document.querySelectorAll('.fg-chip'));
+    const cards = Array.from(document.querySelectorAll('.fg-card'));
+    const countEl = document.getElementById('fg-visible-count');
+    const emptyEl = document.getElementById('fg-empty');
+    const clearBtn = document.getElementById('fg-clear');
+    const emptyClearBtn = document.getElementById('fg-empty-clear');
+
+    const state = {
+      brand: new Set(),
+      doorStyle: new Set(),
+      species: new Set(),
+      finishCategory: new Set(),
+      insetType: new Set(),
+    };
+
+    function anyFilterActive() {
+      return Object.values(state).some(s => s.size > 0);
+    }
+
+    function applyFilters() {
+      let visible = 0;
+      const filtering = anyFilterActive();
+      cards.forEach(card => {
+        const brand = card.dataset.brand || '';
+        const doorStyle = card.dataset.doorStyle || '';
+        const species = (card.dataset.species || '').split('|').filter(Boolean);
+        const finish = (card.dataset.finishCategory || '').split('|').filter(Boolean);
+        const inset = card.dataset.insetType || '';
+        const tagged = card.dataset.tagged === '1';
+
+        // When ANY filter is active, untagged projects are hidden by default.
+        if (filtering && !tagged) {
+          card.style.display = 'none';
+          return;
+        }
+
+        const brandMatch = state.brand.size === 0 || state.brand.has(brand);
+        const doorMatch = state.doorStyle.size === 0 || (doorStyle && state.doorStyle.has(doorStyle));
+        const speciesMatch = state.species.size === 0 || species.some(s => state.species.has(s));
+        const finishMatch = state.finishCategory.size === 0 || finish.some(f => state.finishCategory.has(f));
+        const insetMatch = state.insetType.size === 0 || (inset && state.insetType.has(inset));
+
+        const show = brandMatch && doorMatch && speciesMatch && finishMatch && insetMatch;
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      countEl.textContent = visible;
+      emptyEl.style.display = visible === 0 ? 'block' : 'none';
+    }
+
+    chips.forEach(chip => {
+      chip.addEventListener('click', function() {
+        const dim = this.dataset.dim;
+        const val = this.dataset.value;
+        if (!dim || !val) return;
+        if (state[dim].has(val)) {
+          state[dim].delete(val);
+          this.classList.remove('active');
+        } else {
+          state[dim].add(val);
+          this.classList.add('active');
+        }
+        applyFilters();
+      });
+    });
+
+    function clearAll() {
+      Object.values(state).forEach(s => s.clear());
+      chips.forEach(c => c.classList.remove('active'));
+      applyFilters();
+    }
+    clearBtn.addEventListener('click', clearAll);
+    if (emptyClearBtn) emptyClearBtn.addEventListener('click', clearAll);
+  })();
+</script>
+
+</DealerHubLayout>
+
+<style>
+  .fg-filters { margin: 1rem 0 1.5rem; }
+  .fg-filter-row {
+    display: flex; align-items: flex-start; gap: 1rem;
+    margin-bottom: 0.6rem; flex-wrap: wrap;
+  }
+  .fg-label {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--color-muted);
+    min-width: 90px; padding-top: 0.35rem;
+  }
+  .fg-chips { display: flex; gap: 0.35rem; flex-wrap: wrap; flex: 1; }
+  .fg-chip {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    padding: 0.3rem 0.85rem;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: var(--font-body);
+    color: var(--color-body);
+  }
+  .fg-chip:hover { border-color: var(--color-dark); }
+  .fg-chip.active {
+    background: var(--color-dark);
+    color: #fff;
+    border-color: var(--color-dark);
+  }
+  .fg-clear {
+    margin-top: 0.4rem;
+    background: none;
+    border: none;
+    color: var(--color-muted);
+    font-size: 0.82rem;
+    text-decoration: underline;
+    cursor: pointer;
+    font-family: var(--font-body);
+    padding: 0;
+  }
+  .fg-clear:hover { color: var(--color-dark); }
+
+  .fg-status {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    margin: 1rem 0;
+  }
+
+  .fg-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  .fg-card {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none !important;
+    color: inherit;
+    transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+  }
+  .fg-card:hover {
+    border-color: #aaa;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+    opacity: 1;
+  }
+  .fg-card-img {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--color-bg-alt);
+  }
+  .fg-card-img img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .fg-card-body { padding: 0.9rem 1.1rem 1.1rem; }
+  .fg-brand-badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    border: 1px solid var(--color-border);
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    margin-bottom: 0.5rem;
+  }
+  .fg-card h3 {
+    font-size: 0.95rem !important;
+    margin: 0 0 0.2rem !important;
+    color: var(--color-dark);
+    line-height: 1.3;
+  }
+  .fg-location {
+    font-size: 0.78rem;
+    color: var(--color-muted);
+    margin: 0 0 0.6rem !important;
+  }
+  .fg-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
+  .fg-tag {
+    font-size: 0.72rem;
+    background: var(--color-bg-alt);
+    color: var(--color-body);
+    padding: 0.15rem 0.55rem;
+    border-radius: 3px;
+    line-height: 1.4;
+  }
+  .fg-tag-finish { background: #f3efe7; color: #5a4f33; }
+  .fg-tag-inset { background: #efe9d8; color: #6b5d2a; }
+
+  .fg-empty {
+    text-align: center;
+    color: var(--color-muted);
+    padding: 3rem 1rem;
+    font-size: 0.95rem;
+  }
+  .fg-empty button {
+    background: none; border: 1px solid var(--color-border);
+    padding: 0.3rem 0.85rem; border-radius: 4px;
+    cursor: pointer; font-family: var(--font-body);
+    margin-left: 0.5rem;
+  }
+  .fg-empty button:hover { border-color: var(--color-dark); }
+
+  @media (max-width: 700px) {
+    .fg-grid { grid-template-columns: 1fr; }
+    .fg-filter-row { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
+    .fg-label { min-width: 0; padding-top: 0; }
+  }
+</style>

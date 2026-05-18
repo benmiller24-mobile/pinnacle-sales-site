@@ -6,6 +6,9 @@ export interface ProjectImage {
   alt: string;
 }
 
+export type FinishCategory = 'Painted' | 'Stained' | 'Two-Tone' | 'Specialty Material';
+export type InsetType = 'Inset' | 'Flush Inset' | 'Modern Inset' | 'Beaded Inset';
+
 export interface Project {
   slug: string;
   title: string;
@@ -22,6 +25,13 @@ export interface Project {
   hero: string;             // path under /images/projects/<slug>/
   images: ProjectImage[];
   featured?: boolean;
+  // --- Finish Gallery filter metadata (optional, used by /dealer-hub/finishes) ---
+  doorStyle?: string;                 // e.g. 'Lancaster', 'Hanover', 'Metropolitan', 'Shaker'
+  species?: string[];                 // e.g. ['Walnut'], ['White Oak'], ['White Oak (Rift-cut)']
+  finishCategory?: FinishCategory[];  // dominant finish pattern(s)
+  insetType?: InsetType;              // if applicable
+  paintColors?: string[];             // free-text, e.g. ['Soft White']
+  stainColors?: string[];             // free-text, e.g. ['Rye']
 }
 
 export const projects: Project[] = [
@@ -66,6 +76,11 @@ export const projects: Project[] = [
       { src: '04-cooktop-wall.webp',     alt: "Distinctive Cabinetry Walnut Creek kitchen — Wolf rangetop wall with paneled walnut vent hood, matte Smoke Stack HPL flat-front uppers, textured white tile back, and adjacent walnut Wolf double wall ovens; the deep-blue island return visible across the room" },
     ],
     featured: true,
+    doorStyle: 'Metropolitan',
+    species: ['Walnut'],
+    finishCategory: ['Two-Tone', 'Specialty Material'],
+    stainColors: ['Natural Walnut'],
+    paintColors: ['Custom Deep Blue'],
   },
   {
     slug: 'stutler-cabinets-two-tone-shaker-kitchen',
@@ -90,6 +105,10 @@ export const projects: Project[] = [
       { src: '08-living-room-shelf-detail.webp',   alt: "Stutler Cabinets living room — built-in shelving detail with turntable, vinyl, family frames, and base cabinet below" },
     ],
     featured: true,
+    doorStyle: 'Shaker',
+    species: ['White Oak'],
+    finishCategory: ['Two-Tone'],
+    paintColors: ['Greige'],
   },
   {
     slug: 'silverstone-queen-creek-whole-home',
@@ -113,6 +132,10 @@ export const projects: Project[] = [
       { src: '07-master-bath.webp',           alt: "Silverstone Queen Creek primary bath — Shiloh white oak vanities and linen tower with freestanding tub and gold sphere chandelier" },
     ],
     featured: true,
+    doorStyle: 'Scottsdale',
+    species: ['White Oak'],
+    finishCategory: ['Two-Tone'],
+    insetType: 'Inset',
   },
   {
     slug: 'plum-kitchens-cook-street',
@@ -155,6 +178,9 @@ export const projects: Project[] = [
       { src: '04-butlers-pantry.webp', alt: "RPN Design La Cañada Flintridge — Eclipse butler's pantry with white oak floating shelves over a marble back, Razmik Hovsepian on site" },
     ],
     featured: true,
+    doorStyle: 'Shaker',
+    species: ['White Oak (Rift-cut)'],
+    finishCategory: ['Stained', 'Painted'],
   },
   {
     slug: 'greenwood-cabinetry',
@@ -198,6 +224,8 @@ export const projects: Project[] = [
       { src: '05.webp',      alt: 'Excelle Shiloh inset kitchen — full perspective' },
     ],
     featured: true,
+    finishCategory: ['Painted'],
+    insetType: 'Inset',
   },
   {
     slug: 'stutler-cabinets-hanover-kitchen',
@@ -219,6 +247,11 @@ export const projects: Project[] = [
       { src: '05.webp',       alt: "Stutler Cabinets Hanover kitchen — Soft White Hanover uppers with brass knobs over a marble counter, framed art and fern detail" },
       { src: '06.webp',       alt: "Stutler Cabinets Hanover kitchen — Soft White Hanover door close-up with marble back, artichokes in a pedestal bowl, taper candles" },
     ],
+    doorStyle: 'Hanover',
+    species: ['White Oak'],
+    finishCategory: ['Two-Tone'],
+    paintColors: ['Soft White'],
+    stainColors: ['Straw'],
   },
   {
     slug: 'stutler-cabinets-walnut-rye-bath',
@@ -238,6 +271,11 @@ export const projects: Project[] = [
       { src: '03-vanity-front.webp', alt: 'Stutler Cabinets master bath — straight-on view of the vanity with brass faucet, pampas in a turned wood vase, frameless shower visible in the mirror' },
       { src: '04-sink-detail.webp',  alt: "Stutler Cabinets master bath — single sink detail with brass faucet, globe pendants, and walnut Malibu flush-inset cabinetry below" },
     ],
+    doorStyle: 'Malibu',
+    species: ['Walnut'],
+    finishCategory: ['Stained'],
+    insetType: 'Flush Inset',
+    stainColors: ['Rye'],
   },
   {
     slug: 'kitchens-by-good-guys-aster',
