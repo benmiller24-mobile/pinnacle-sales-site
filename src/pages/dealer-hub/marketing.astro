@@ -1,13 +1,29 @@
 ---
 import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
+import { projects } from '../../data/projects';
+
+// Sort projects: featured first, then by brand
+const galleryProjects = [...projects].sort((a, b) => {
+  if (a.featured && !b.featured) return -1;
+  if (!a.featured && b.featured) return 1;
+  return 0;
+});
 ---
 <DealerHubLayout title="Marketing Kit | Pinnacle Sales Dealer Hub" activeSection="Marketing Kit">
 
 <h1>Marketing Kit</h1>
-<p class="page-subtitle">Brand assets, social content, and resources to help you market your cabinetry brands effectively.</p>
+<p class="page-subtitle">Brand logos, a downloadable project photo library, ready-to-post social captions, and print collateral — everything you need to market your cabinetry brands in one place.</p>
 
-<h2>Brand Logos & Assets</h2>
-<p>Use these official brand logos on your website, social media, print materials, and showroom signage. All logos should be used as provided without modification.</p>
+<nav class="mk-toc" aria-label="On this page">
+  <strong>Jump to:</strong>
+  <a href="#logos">Brand Logos</a>
+  <a href="#photos">Project Photo Library</a>
+  <a href="#social">Social Media Content</a>
+  <a href="#print">Print Materials</a>
+</nav>
+
+<h2 id="logos" class="mk-section-header">Brand Logos &amp; Assets</h2>
+<p>Official brand logos for your website, social media, print materials, and showroom signage. Use them as provided — no modifications, color changes, or composite marks. Add Pinnacle Sales as a co-mark wherever you co-brand.</p>
 
 <div class="logo-grid">
   <div class="logo-card">
@@ -38,52 +54,227 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
     </div>
   </div>
   <div class="logo-card">
-    <div class="logo-preview" style="display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:600;color:var(--color-muted);">Pronorm</div>
+    <div class="logo-preview placeholder-preview">Pronorm</div>
     <h3>Pronorm German Kitchens</h3>
     <p>All Pronorm marketing assets and brand guidelines available at <a href="https://pronormusa.com" target="_blank" rel="noopener">PronormUSA.com</a>.</p>
   </div>
+  <div class="logo-card">
+    <div class="logo-preview placeholder-preview">Nevara</div>
+    <h3>Nevara Cabinetry</h3>
+    <p>Newer addition to the W.W. Wood Products lineup. Marketing collateral coming soon — request the current Nevara logo and assets from your Pinnacle rep.</p>
+    <div class="logo-downloads">
+      <a href="/dealer-hub/submit/?type=showroom-consult" class="download-btn">Request Assets &rarr;</a>
+    </div>
+  </div>
+  <div class="logo-card">
+    <div class="logo-preview placeholder-preview">Vistora</div>
+    <h3>Vistora Closets</h3>
+    <p>Made-to-order closets by W.W. Wood Products. Brand page at <a href="/brands/vistora-closets">/brands/vistora-closets</a>. Logo files coming soon — request from your rep in the meantime.</p>
+    <div class="logo-downloads">
+      <a href="/dealer-hub/submit/?type=showroom-consult" class="download-btn">Request Assets &rarr;</a>
+    </div>
+  </div>
 </div>
 
-<h2>Lifestyle Photography</h2>
-<p>High-resolution kitchen and bath photography available for your website, social media, and print materials. Images feature real installations with Shiloh and Eclipse cabinetry.</p>
+<h2 id="photos" class="mk-section-header">Project Photo Library</h2>
+<p>Every installed dealer project we've documented, available for use in your own marketing. Click any card to view the full project gallery and additional photos. Click <strong>Download Image</strong> to save the hero shot for your website, social media, or pitch decks.</p>
 
-<p>To request specific images or custom photography for your showroom installations, email <a href="mailto:marketing@pinnaclesales.biz">marketing@pinnaclesales.biz</a>.</p>
+<div class="mk-usage-note">
+  <strong>Usage rights:</strong> Pinnacle Sales dealers may use these photos for marketing as long as (1) the cabinetry brand is credited in the caption or alt text, (2) the photo is not heavily cropped or edited beyond standard color/exposure adjustments, and (3) Pinnacle Sales is tagged when posted on Instagram or LinkedIn. <a href="mailto:marketing@pinnaclesales.biz">Email marketing@pinnaclesales.biz</a> for higher-resolution originals or special usage requests.
+</div>
 
-<h2>Social Media Content</h2>
-<p>Ready-to-post content for your dealership's social channels. Follow and share from our brand pages:</p>
+<div class="photo-library">
+  {galleryProjects.map(p => (
+    <div class="photo-card">
+      <a href={`/projects/${p.slug}`} class="photo-thumb">
+        <img src={`/images/projects/${p.slug}/${p.hero}`} alt={p.title} loading="lazy" />
+      </a>
+      <div class="photo-meta">
+        <div class="photo-meta-row">
+          <span class="photo-brand-badge">{p.brand}</span>
+          <span class="photo-location">{p.location}</span>
+        </div>
+        <h3>{p.title}</h3>
+        <p class="photo-dealer">{p.dealer}</p>
+        <div class="photo-actions">
+          <a
+            href={`/images/projects/${p.slug}/${p.hero}`}
+            download={`pinnacle-${p.slug}-hero.webp`}
+            class="photo-btn photo-btn-primary"
+          >
+            &darr; Download Image
+          </a>
+          <a href={`/projects/${p.slug}`} class="photo-btn">View Full Gallery &rarr;</a>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
 
+<p class="mk-format-note"><strong>File format note:</strong> Images are served as <code>.webp</code> for performance. If you need JPG or PNG for a platform that doesn't accept WebP (rare in 2026, but it happens), open the file in Preview / Photos / Photoshop and re-export.</p>
+
+<h2 id="social" class="mk-section-header">Social Media Content</h2>
+<p>Pair the photos above with the captions below. Edit any of these to fit your dealership's voice and the specifics of the project you're posting.</p>
+
+<h3>Follow Pinnacle Sales</h3>
+<p><a href="https://www.linkedin.com/company/pinnacle-sales-kbi" target="_blank" rel="noopener"><strong>LinkedIn → linkedin.com/company/pinnacle-sales-kbi</strong></a> — product launches, dealer spotlights, industry insights. Share or repost anything we publish.</p>
+
+<h3>Caption Library — Shiloh</h3>
+<div class="caption-list">
+  <div class="caption-card">
+    <p class="caption-text">"Shiloh Cabinetry delivers premium semi-custom craftsmanship in 50+ door styles and a 19-species wood program — all built in Dudley, Missouri on a 6-week lead time. See it in our showroom. #ShilohCabinetry"</p>
+    <button type="button" class="copy-btn" data-copy-target>Copy</button>
+  </div>
+  <div class="caption-card">
+    <p class="caption-text">"Inset cabinetry, built right, looks like furniture. This Shiloh inset project shows what tight reveals, mortise-and-tenon doors, and a clean conversion-varnish finish do for a real install. #ShilohCabinetry #InsetCabinetry"</p>
+    <button type="button" class="copy-btn" data-copy-target>Copy</button>
+  </div>
+  <div class="caption-card">
+    <p class="caption-text">"Bring your Sherwin-Williams paint chip — we'll match it. Shiloh's custom paint program reads the swatch, mixes it in their conversion-varnish topcoat, and ships it on the same six-week lead time as a standard finish. #ShilohCabinetry #CustomPaint"</p>
+    <button type="button" class="copy-btn" data-copy-target>Copy</button>
+  </div>
+  <div class="caption-card">
+    <p class="caption-text">"Two-tone done right: a stained white oak island anchoring a painted perimeter, both on the same Shiloh door style. One factory, one finish line, one delivery — built to feel like one room. #ShilohCabinetry #TwoToneKitchen"</p>
+    <button type="button" class="copy-btn" data-copy-target>Copy</button>
+  </div>
+</div>
+
+<h3>Caption Library — Eclipse</h3>
+<div class="caption-list">
+  <div class="caption-card">
+    <p class="caption-text">"Eclipse Cabinetry — eclipse by Shiloh. Frameless full-overlay cabinetry built in the same Dudley, Missouri factory as Shiloh, on the same six-week lead time, with an exclusive specialty-materials library (acrylic, HPL, RAUVISIO matte noir, TFL, PV). European look at a domestic price. #EclipseCabinetry"</p>
+    <button type="button" class="copy-btn" data-copy-target>Copy</button>
+  </div>
+  <div class="caption-card">
+    <p class="caption-text">"Automatic grain matching on Metropolitan slab fronts — across wood, veneer, and laminate — at no upcharge. Long runs of slab cabinetry without the seams. #EclipseCabinetry #Metropolitan #FramelessCabinetry"</p>
+    <button type="button" class="copy-btn" data-copy-target>Copy</button>
+  </div>
+  <div class="caption-card">
+    <p class="caption-text">"GOLA handleless. Integrated aluminum channel routed into the door — no pulls, no knobs, just a clean continuous front. Eclipse delivers it on a six-week lead time, US-made. #EclipseCabinetry #HandlelessKitchen #ModernKitchen"</p>
+    <button type="button" class="copy-btn" data-copy-target>Copy</button>
+  </div>
+  <div class="caption-card">
+    <p class="caption-text">"Same factory, same hardware, two boxes. Shiloh face-frame for the traditional primary, Eclipse frameless for the contemporary butler's pantry — one delivery, one acknowledgment, one rep. #EclipseCabinetry #ShilohCabinetry"</p>
+    <button type="button" class="copy-btn" data-copy-target>Copy</button>
+  </div>
+</div>
+
+<h3>Caption Library — Aspect</h3>
+<div class="caption-list">
+  <div class="caption-card">
+    <p class="caption-text">"Aspect Cabinetry — American-made, value-tier, six-week lead time. Same factory as Shiloh and Eclipse, value-engineered for builder spec, secondary kitchens, rental remodels, and ADUs. #AspectCabinetry"</p>
+    <button type="button" class="copy-btn" data-copy-target>Copy</button>
+  </div>
+  <div class="caption-card">
+    <p class="caption-text">"A tight palette is the point. Aspect's 17-door, 3-species, ~10-paint program is built for repeatable spec across many units. One sheet, one quote, every unit identical. #AspectCabinetry #BuilderSpec"</p>
+    <button type="button" class="copy-btn" data-copy-target>Copy</button>
+  </div>
+</div>
+
+<h3>Hashtag Bank</h3>
+<p>Mix and match — most posts work with 5–10 hashtags total.</p>
+<div class="hashtag-grid">
+  <div class="hashtag-card">
+    <strong>General</strong>
+    <p>#KitchenDesign #BathDesign #InteriorDesign #KitchenDealer #CabinetryDesign #CustomKitchens #KitchenRemodel #BathRemodel #LuxuryHomes #KitchenInspo</p>
+  </div>
+  <div class="hashtag-card">
+    <strong>Shiloh</strong>
+    <p>#ShilohCabinetry #SemiCustomCabinets #PaintedCabinets #InsetCabinetry #CustomPaint #WhiteOakKitchen #TraditionalKitchen #TransitionalKitchen</p>
+  </div>
+  <div class="hashtag-card">
+    <strong>Eclipse</strong>
+    <p>#EclipseCabinetry #FramelessCabinetry #ModernKitchen #ContemporaryKitchen #SlabCabinets #HandlelessKitchen #EuropeanKitchen #Metropolitan</p>
+  </div>
+  <div class="hashtag-card">
+    <strong>Aspect</strong>
+    <p>#AspectCabinetry #BuilderGrade #ValueTier #FullOverlay #SpecHomes #ADU</p>
+  </div>
+</div>
+
+<h3>Posting Cadence</h3>
 <ul>
-  <li><strong>Pinnacle Sales LinkedIn:</strong> <a href="https://www.linkedin.com/company/pinnacle-sales-kbi" target="_blank" rel="noopener">linkedin.com/company/pinnacle-sales-kbi</a> — Industry insights, product launches, and dealer success stories</li>
-  <li><strong>Shiloh Cabinetry:</strong> Follow for product launches, finish spotlights, and installation showcases</li>
-  <li><strong>Eclipse Cabinetry:</strong> Modern frameless design inspiration and new product features</li>
+  <li><strong>Frequency:</strong> 2–4 posts per week per platform. Quality over quantity — one strong install photo beats five filler shots.</li>
+  <li><strong>Best times:</strong> Tuesday–Thursday, late morning (10am–noon local) or early evening (6–8pm local). LinkedIn skews mornings; Instagram skews evenings.</li>
+  <li><strong>Mix:</strong> Aim for ~60% installed-project photos, ~20% process / behind-the-scenes (showroom, install crews, design sessions), ~20% educational (door styles, finish stories, brand differentiators).</li>
+  <li><strong>Tag your suppliers:</strong> Tag <a href="https://www.linkedin.com/company/pinnacle-sales-kbi" target="_blank" rel="noopener">@PinnacleSales</a>, the brand (e.g. @ShilohCabinetry), and your installer / designer. Cross-tagging multiplies reach without extra effort.</li>
+  <li><strong>Story / Reel mix:</strong> Stories work for in-progress and showroom shots; Reels work for finished walkthroughs. Both feed the main grid algorithm.</li>
 </ul>
 
-<p>Pinnacle Sales can also create custom social content featuring your showroom or installed projects. Reach out to discuss co-branded content opportunities.</p>
-
-<h2>Website Content</h2>
-<p>Recommended content for your dealership website to maximize SEO and client conversion:</p>
+<h2 id="print" class="mk-section-header">Print Materials</h2>
+<p>Brand brochures, finish-chip cards, and door-style sample boards are available through Pinnacle Sales and W.W. Wood. Logo trademark PDFs are downloadable directly from the Brand Logos section above.</p>
 
 <ul>
-  <li><strong>Brand pages</strong> — Dedicated pages for each brand you carry with descriptions, key features, and sample photography</li>
-  <li><strong>Project galleries</strong> — Showcase your best installations with before/after photos and project details</li>
-  <li><strong>Blog content</strong> — Pinnacle Sales can provide SEO-optimized articles for your blog. See our <a href="/playbook">Kitchen Dealer Playbook</a> for content you can reference and share</li>
+  <li><strong>Shiloh Cabinetry brochure</strong> — current product brochure, 50+ door styles, finish program. <em>Request from your rep.</em></li>
+  <li><strong>Eclipse Cabinetry brochure</strong> — full frameless line, Metropolitan and specialty materials. <em>Request from your rep.</em></li>
+  <li><strong>Aspect Cabinetry brochure</strong> — value-tier product overview. <em>Request from your rep.</em></li>
+  <li><strong>Finish chip display cards</strong> — physical Sherwin-Williams chips on a Shiloh-branded card stock. <em>Pinnacle ships, no charge for first run.</em></li>
+  <li><strong>Door-style sample boards</strong> — full-size painted or stained door samples mounted on a showroom-ready board. <em>Request specific styles when you order.</em></li>
 </ul>
 
-<h2>Print Materials</h2>
-<p>Available from WW Wood and Pinnacle Sales:</p>
-
-<ul>
-  <li>Shiloh Cabinetry product brochure</li>
-  <li>Eclipse Cabinetry product brochure</li>
-  <li>Finish chip display cards</li>
-  <li>Door style sample boards</li>
-</ul>
-
-<p>To order print materials, contact your Pinnacle Sales territory rep.</p>
+<p>For any of the above, <a href="/dealer-hub/submit/?type=showroom-consult">submit a request</a> or contact your Pinnacle Sales territory rep directly.</p>
 
 </DealerHubLayout>
 
+<script is:inline>
+  // Copy-to-clipboard for caption library
+  document.querySelectorAll('.copy-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var card = btn.closest('.caption-card');
+      if (!card) return;
+      var text = card.querySelector('.caption-text');
+      if (!text) return;
+      var raw = text.textContent.replace(/^"|"$/g, '').trim();
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(raw).then(function() {
+          var original = btn.textContent;
+          btn.textContent = 'Copied ✓';
+          btn.classList.add('copied');
+          setTimeout(function() {
+            btn.textContent = original;
+            btn.classList.remove('copied');
+          }, 1500);
+        });
+      } else {
+        // Fallback: select the text so the dealer can Cmd/Ctrl+C
+        var range = document.createRange();
+        range.selectNodeContents(text);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+      }
+    });
+  });
+</script>
+
 <style>
+  .mk-toc {
+    background: var(--color-bg-alt);
+    border-radius: 6px;
+    padding: 0.85rem 1.25rem;
+    margin: 0.5rem 0 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    align-items: center;
+    font-size: 0.88rem;
+  }
+  .mk-toc strong {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+  .mk-toc a { color: var(--color-dark); text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 1px; }
+  .mk-toc a:hover { border-bottom-color: var(--color-dark); opacity: 1; }
+
+  .mk-section-header {
+    margin-top: 3rem !important;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border);
+    scroll-margin-top: 1rem;
+  }
+
   .logo-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -94,17 +285,10 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
     border: 1px solid var(--color-border);
     border-radius: 8px;
     padding: 1.25rem 1.5rem;
+    background: #fff;
   }
-  .logo-card h3 {
-    margin: 0.75rem 0 0.35rem;
-    font-size: 1rem;
-  }
-  .logo-card p {
-    font-size: 0.85rem;
-    color: var(--color-muted);
-    margin: 0 0 0.75rem;
-    line-height: 1.5;
-  }
+  .logo-card h3 { margin: 0.75rem 0 0.35rem; font-size: 1rem; }
+  .logo-card p { font-size: 0.85rem; color: var(--color-muted); margin: 0 0 0.75rem; line-height: 1.5; }
   .logo-preview {
     background: #f9fafb;
     border: 1px solid var(--color-border);
@@ -115,34 +299,169 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
     align-items: center;
     justify-content: center;
   }
-  .logo-preview img {
-    max-width: 100%;
-    max-height: 100px;
-    object-fit: contain;
+  .logo-preview img { max-width: 100%; max-height: 100px; object-fit: contain; }
+  .placeholder-preview {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-muted);
+    letter-spacing: 0.02em;
   }
-  .logo-downloads {
-    display: flex;
-    gap: 0.5rem;
-  }
+  .logo-downloads { display: flex; gap: 0.5rem; flex-wrap: wrap; }
   .download-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
+    display: inline-flex; align-items: center; gap: 0.4rem;
     padding: 0.4rem 0.75rem;
-    border: 1px solid var(--color-border);
-    border-radius: 6px;
-    font-size: 0.78rem;
-    font-weight: 500;
-    color: var(--color-dark);
-    text-decoration: none;
+    border: 1px solid var(--color-border); border-radius: 6px;
+    font-size: 0.78rem; font-weight: 500;
+    color: var(--color-dark); text-decoration: none;
     transition: border-color 0.15s, background 0.15s;
   }
-  .download-btn::before {
-    content: "⬇";
-    font-size: 0.7rem;
-  }
-  .download-btn:hover {
-    border-color: var(--color-dark);
+  .download-btn:hover { border-color: var(--color-dark); background: var(--color-bg-alt); opacity: 1; }
+
+  .mk-usage-note {
+    border-left: 3px solid var(--color-dark);
     background: var(--color-bg-alt);
+    padding: 0.9rem 1.1rem;
+    margin: 1rem 0 1.5rem;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    border-radius: 4px;
+  }
+  .mk-usage-note strong { color: var(--color-dark); }
+
+  .photo-library {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin: 1.25rem 0 1.5rem;
+  }
+  .photo-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+  }
+  .photo-thumb {
+    display: block;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--color-bg-alt);
+  }
+  .photo-thumb img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform 0.3s ease;
+  }
+  .photo-thumb:hover img { transform: scale(1.03); }
+  .photo-meta { padding: 0.85rem 1rem 1rem; flex: 1; display: flex; flex-direction: column; }
+  .photo-meta-row {
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 0.5rem; margin-bottom: 0.5rem;
+  }
+  .photo-brand-badge {
+    font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--color-muted);
+    border: 1px solid var(--color-border);
+    padding: 0.1rem 0.45rem; border-radius: 3px;
+  }
+  .photo-location { font-size: 0.75rem; color: var(--color-muted); }
+  .photo-card h3 { font-size: 0.95rem !important; margin: 0 0 0.15rem !important; line-height: 1.3; }
+  .photo-dealer { font-size: 0.8rem; color: var(--color-muted); margin: 0 0 0.7rem !important; }
+  .photo-actions { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: auto; }
+  .photo-btn {
+    display: inline-block;
+    padding: 0.35rem 0.7rem;
+    border: 1px solid var(--color-border);
+    border-radius: 5px;
+    font-size: 0.78rem;
+    color: var(--color-dark);
+    text-decoration: none !important;
+    transition: all 0.15s;
+  }
+  .photo-btn:hover { border-color: var(--color-dark); background: var(--color-bg-alt); opacity: 1; }
+  .photo-btn-primary {
+    background: var(--color-dark); color: #fff;
+    border-color: var(--color-dark);
+  }
+  .photo-btn-primary:hover { background: #000; color: #fff; }
+
+  .mk-format-note {
+    font-size: 0.85rem; color: var(--color-muted);
+    background: var(--color-bg-alt); padding: 0.7rem 1rem;
+    border-radius: 4px; margin: 0 0 2rem;
+  }
+  .mk-format-note code {
+    background: rgba(0,0,0,0.05); padding: 0.05rem 0.3rem;
+    border-radius: 3px; font-size: 0.85em;
+  }
+
+  .caption-list {
+    display: grid; gap: 0.75rem;
+    margin: 0.5rem 0 1.5rem;
+  }
+  .caption-card {
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 1rem 1.1rem;
+    background: #fff;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  .caption-text {
+    margin: 0 !important;
+    flex: 1;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--color-body);
+  }
+  .copy-btn {
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: 5px;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.78rem;
+    font-family: var(--font-body);
+    cursor: pointer;
+    color: var(--color-dark);
+    white-space: nowrap;
+    transition: all 0.15s;
+    flex-shrink: 0;
+  }
+  .copy-btn:hover { background: var(--color-dark); color: #fff; border-color: var(--color-dark); }
+  .copy-btn.copied { background: #166534; color: #fff; border-color: #166534; }
+
+  .hashtag-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.75rem;
+    margin: 0.5rem 0 1.5rem;
+  }
+  .hashtag-card {
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 0.85rem 1rem;
+    background: #fff;
+  }
+  .hashtag-card strong {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    display: block;
+    margin-bottom: 0.45rem;
+  }
+  .hashtag-card p {
+    font-size: 0.82rem;
+    color: var(--color-dark);
+    margin: 0 !important;
+    line-height: 1.5;
+    word-break: break-word;
+  }
+
+  @media (max-width: 640px) {
+    .photo-library { grid-template-columns: 1fr; }
+    .caption-card { flex-direction: column; }
+    .copy-btn { align-self: flex-start; }
   }
 </style>
