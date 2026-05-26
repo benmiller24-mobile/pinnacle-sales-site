@@ -2,9 +2,9 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import DealerCTA from '../../components/DealerCTA.astro';
-const schema = {"@context":"https://schema.org","@type":"Product","name":"Pronorm German Kitchens","brand":{"@type":"Brand","name":"Pronorm"},"description":"Premium fitted German kitchen brand with three product lines, precision engineering, sustainable manufacturing, and over 100 door finishes. Founded 1945 in Vlotho, Germany.","category":"Kitchen Cabinetry","manufacturer":{"@type":"Organization","name":"Pronorm Einbauküchen GmbH"}};
+const schema = {"@context":"https://schema.org","@type":"Product","name":"Pronorm German Kitchens","brand":{"@type":"Brand","name":"Pronorm"},"description":"Premium fitted German kitchen brand with three product lines, precision engineering, sustainable manufacturing, and over 100 door finishes. Founded 1945 in Vlotho, Germany.","category":"Kitchen Cabinetry","manufacturer":{"@type":"Organization","name":"Pronorm Einbauk\u00fcchen GmbH"},"offers":{"@type":"Offer","availability":"https://schema.org/InStock","seller":{"@type":"Organization","name":"Pinnacle Sales","url":"https://www.pinnaclesales.biz"},"areaServed":["Arizona","California","Colorado","Idaho","Montana","Nevada","New Mexico","Oregon","Utah","Washington"]},"audience":{"@type":"BusinessAudience","name":"Kitchen and bath dealers"}};
 ---
-<BaseLayout title="Pronorm German Kitchens | Exclusive US Dealer | Pinnacle Sales" description="Pronorm German fitted kitchens — exclusive US agent Pinnacle Sales. Three lines, 100+ door finishes, sustainable manufacturing. Available nationwide." schema={schema}>
+<BaseLayout title="Pronorm German Kitchens — US Exclusive Dealer Rep | Pinnacle Sales" description="Pronorm German fitted kitchens — exclusive US agent Pinnacle Sales. Three lines, 100+ door finishes, sustainable manufacturing. Available nationwide." schema={schema}>
 <div class="page-header"><h1>Pronorm German Kitchens — Create Your World</h1><p>Exclusive US agent for one of Germany's most respected fitted kitchen manufacturers. Founded 1945. Available nationwide.</p></div>
 <div class="content-narrow section">
 <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Brands',href:'/#brands'},{name:'Pronorm German Kitchens'}]} />

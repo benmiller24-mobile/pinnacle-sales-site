@@ -5,8 +5,9 @@ import DealerCTA from '../../components/DealerCTA.astro';
 import { projects } from '../../data/projects';
 const stateProjects = projects.filter(p => p.state === 'Idaho');
 const breadcrumbs = [{name:'Home',href:'/'},{name:'Territory'},{name:'Idaho'}];
+const serviceSchema = {"@context":"https://schema.org","@type":"Service","name":"Kitchen Cabinet Dealer Representation — Idaho","provider":{"@type":"Organization","name":"Pinnacle Sales","url":"https://www.pinnaclesales.biz"},"areaServed":{"@type":"State","name":"Idaho"},"serviceType":"Manufacturer's Representative","description":"Pinnacle Sales connects Idaho kitchen and bath dealers with Shiloh, Eclipse, Aspect, and Vistora cabinetry brands."};
 ---
-<BaseLayout title="Kitchen Cabinet Dealer Rep in Idaho | Pinnacle Sales" description="Pinnacle Sales connects Idaho kitchen dealers with Shiloh, Eclipse, Aspect, Pronorm & Vistora cabinetry. Training, showroom support, design help.">
+<BaseLayout title="Idaho Kitchen & Bath Cabinet Rep — Shiloh, Eclipse, Aspect" description="Idaho kitchen and bath dealers: Pinnacle Sales reps Shiloh, Eclipse & Aspect cabinetry statewide. Sales training, showroom support, and hands-on design assistance." schema={serviceSchema}>
 <div class="page-header"><h1>Kitchen & Bath Cabinetry Dealer Support in Idaho</h1><p>Premium brands, hands-on support, and local market expertise for Idaho kitchen dealers.</p></div>
 <div class="content-narrow section">
 <Breadcrumbs items={breadcrumbs} />

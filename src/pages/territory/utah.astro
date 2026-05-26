@@ -5,8 +5,9 @@ import DealerCTA from '../../components/DealerCTA.astro';
 import { projects } from '../../data/projects';
 const stateProjects = projects.filter(p => p.state === 'Utah');
 const breadcrumbs = [{name:'Home',href:'/'},{name:'Territory'},{name:'Utah'}];
+const serviceSchema = {"@context":"https://schema.org","@type":"Service","name":"Kitchen Cabinet Dealer Representation — Utah","provider":{"@type":"Organization","name":"Pinnacle Sales","url":"https://www.pinnaclesales.biz"},"areaServed":{"@type":"State","name":"Utah"},"serviceType":"Manufacturer's Representative","description":"Pinnacle Sales connects Utah kitchen and bath dealers with Shiloh, Eclipse, Aspect, and Vistora cabinetry brands."};
 ---
-<BaseLayout title="Kitchen Cabinet Dealer Rep in Utah | Pinnacle Sales" description="Pinnacle Sales connects Utah kitchen dealers with Shiloh, Eclipse, Aspect, Pronorm & Vistora cabinetry. Training, showroom support, design help.">
+<BaseLayout title="Utah Kitchen & Bath Cabinet Rep — Shiloh, Eclipse & Aspect" description="Pinnacle Sales connects Utah kitchen dealers with Shiloh, Eclipse & Aspect cabinetry. Salt Lake City, Provo, St. George — dealer support, design help, training included." schema={serviceSchema}>
 <div class="page-header"><h1>Kitchen & Bath Cabinetry Dealer Support in Utah</h1><p>Premium brands, hands-on support, and local market expertise for Utah kitchen dealers.</p></div>
 <div class="content-narrow section">
 <Breadcrumbs items={breadcrumbs} />

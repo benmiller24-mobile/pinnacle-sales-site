@@ -2,8 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Testimonials from '../components/Testimonials.astro';
+const contactSchema = {"@context":"https://schema.org","@type":"ContactPage","name":"Become a Pinnacle Sales Dealer","description":"Apply to become a Pinnacle Sales kitchen and bath cabinetry dealer. Carry Shiloh, Eclipse, Aspect, Pronorm, and Vistora across 10 Western US states.","mainEntity":{"@type":"Organization","name":"Pinnacle Sales","url":"https://www.pinnaclesales.biz","contactPoint":{"@type":"ContactPoint","telephone":"+1-480-993-9224","contactType":"sales","email":"info@pinnaclesales.biz","areaServed":["Arizona","California","Colorado","Idaho","Montana","Nevada","New Mexico","Oregon","Utah","Washington"],"availableLanguage":["English"]}},"potentialAction":{"@type":"ApplyAction","name":"Apply to become a dealer","target":"https://www.pinnaclesales.biz/dealer-hub/submit/"}};
 ---
-<BaseLayout title="Become a Dealer | Partner with Pinnacle Sales" description="Apply to become a Pinnacle Sales dealer. Shiloh, Eclipse, Aspect, Pronorm & Vistora cabinetry + training, showroom support, territory protection.">
+<BaseLayout title="Become a Kitchen Cabinet Dealer — Shiloh, Eclipse, Pronorm | Pinnacle Sales" description="Apply to become a Pinnacle Sales dealer. Shiloh, Eclipse, Aspect, Pronorm & Vistora cabinetry + training, showroom support, territory protection." schema={contactSchema}>
 <div class="page-header"><h1>Become a Pinnacle Sales Dealer</h1><p>Partner with the leading cabinetry rep firm in the Western US. Five premium brands, one trusted partnership.</p></div>
 <div class="content-narrow section">
 <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Become a Dealer'}]} />

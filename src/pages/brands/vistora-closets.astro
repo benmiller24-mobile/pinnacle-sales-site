@@ -2,9 +2,9 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import DealerCTA from '../../components/DealerCTA.astro';
-const schema = {"@context":"https://schema.org","@type":"Product","name":"Vistora Closets","brand":{"@type":"Brand","name":"Vistora"},"description":"Fully assembled modular closet cabinetry by W.W. Wood Products. Pre-assembled floor-mounted units with built-in accessories, 9 finish options, and simplified installation.","category":"Closet & Storage Systems","manufacturer":{"@type":"Organization","name":"W.W. Wood Products, Inc."}};
+const schema = {"@context":"https://schema.org","@type":"Product","name":"Vistora Closets","brand":{"@type":"Brand","name":"Vistora"},"description":"Fully assembled modular closet cabinetry by W.W. Wood Products. Pre-assembled floor-mounted units with built-in accessories, 9 finish options, and simplified installation.","category":"Closet & Storage Systems","manufacturer":{"@type":"Organization","name":"W.W. Wood Products, Inc."},"offers":{"@type":"Offer","availability":"https://schema.org/InStock","seller":{"@type":"Organization","name":"Pinnacle Sales","url":"https://www.pinnaclesales.biz"},"areaServed":["Arizona","California","Colorado","Idaho","Montana","Nevada","New Mexico","Oregon","Utah","Washington"]},"audience":{"@type":"BusinessAudience","name":"Kitchen and bath dealers"}};
 ---
-<BaseLayout title="Vistora Closets — Fully Assembled Modular Systems" description="Vistora Closets — fully assembled modular closet cabinetry by W.W. Wood Products. Pre-built units, 9 finishes, simplified install." schema={schema}>
+<BaseLayout title="Vistora Closets — Modular Closet Systems for Kitchen & Bath Dealers" description="Vistora Closets — fully assembled modular closet cabinetry by W.W. Wood Products. Pre-built units, 9 finishes, simplified install." schema={schema}>
 <div class="page-header"><h1>Vistora Closets — Fully Assembled. Beautifully Simple.</h1><p>Modular closet cabinetry from W.W. Wood Products with pre-assembled units, built-in accessories, and durable laminate finishes.</p></div>
 <div class="content-narrow section">
 <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Brands',href:'/#brands'},{name:'Vistora Closets'}]} />

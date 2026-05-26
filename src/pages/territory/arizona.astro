@@ -5,8 +5,9 @@ import DealerCTA from '../../components/DealerCTA.astro';
 import { projects } from '../../data/projects';
 const stateProjects = projects.filter(p => p.state === 'Arizona');
 const breadcrumbs = [{name:'Home',href:'/'},{name:'Territory'},{name:'Arizona'}];
+const serviceSchema = {"@context":"https://schema.org","@type":"Service","name":"Kitchen Cabinet Dealer Representation — Arizona","provider":{"@type":"Organization","name":"Pinnacle Sales","url":"https://www.pinnaclesales.biz"},"areaServed":{"@type":"State","name":"Arizona"},"serviceType":"Manufacturer's Representative","description":"Pinnacle Sales connects Arizona kitchen and bath dealers with Shiloh, Eclipse, Aspect, Pronorm, and Vistora cabinetry brands."};
 ---
-<BaseLayout title="Kitchen Cabinet Dealer Rep in Arizona | Pinnacle Sales" description="Pinnacle Sales connects Arizona kitchen dealers with Shiloh, Eclipse, Aspect, Pronorm & Vistora cabinetry. Training, showroom support, design help.">
+<BaseLayout title="Shiloh, Eclipse & Pronorm Dealer Rep — Arizona | Pinnacle Sales" description="Pinnacle Sales reps Shiloh, Eclipse, Aspect, Pronorm & Vistora cabinetry for Arizona kitchen dealers. Phoenix, Scottsdale, Tucson, and beyond. Apply to become a dealer." schema={serviceSchema}>
 <div class="page-header"><h1>Kitchen & Bath Cabinetry Dealer Support in Arizona</h1><p>Premium brands, hands-on support, and local market expertise for Arizona kitchen dealers.</p></div>
 <div class="content-narrow section">
 <Breadcrumbs items={breadcrumbs} />

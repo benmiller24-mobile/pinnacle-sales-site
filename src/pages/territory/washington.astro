@@ -5,8 +5,9 @@ import DealerCTA from '../../components/DealerCTA.astro';
 import { projects } from '../../data/projects';
 const stateProjects = projects.filter(p => p.state === 'Washington');
 const breadcrumbs = [{name:'Home',href:'/'},{name:'Territory'},{name:'Washington'}];
+const serviceSchema = {"@context":"https://schema.org","@type":"Service","name":"Kitchen Cabinet Dealer Representation — Washington","provider":{"@type":"Organization","name":"Pinnacle Sales","url":"https://www.pinnaclesales.biz"},"areaServed":{"@type":"State","name":"Washington"},"serviceType":"Manufacturer's Representative","description":"Pinnacle Sales connects Washington kitchen and bath dealers with Shiloh, Eclipse, Aspect, Pronorm, and Vistora cabinetry brands."};
 ---
-<BaseLayout title="Kitchen Cabinet Dealer Rep in Washington | Pinnacle Sales" description="Pinnacle Sales connects Washington kitchen dealers with Shiloh, Eclipse, Aspect, Pronorm & Vistora cabinetry. Training, showroom support, design help.">
+<BaseLayout title="Washington Kitchen Cabinet Dealer Rep — Shiloh, Eclipse & Pronorm" description="Pinnacle Sales reps Shiloh, Eclipse & Pronorm cabinets for Washington state kitchen dealers. Seattle, Spokane, Tacoma — training, showroom merchandising, territory protection." schema={serviceSchema}>
 <div class="page-header"><h1>Kitchen & Bath Cabinetry Dealer Support in Washington</h1><p>Premium brands, hands-on support, and local market expertise for Washington kitchen dealers.</p></div>
 <div class="content-narrow section">
 <Breadcrumbs items={breadcrumbs} />

@@ -18,7 +18,7 @@ const faqs = [
 ];
 const faqSchema = {"@context":"https://schema.org","@type":"FAQPage","mainEntity":faqs.map(f=>({"@type":"Question","name":f.q,"acceptedAnswer":{"@type":"Answer","text":f.a}}))};
 ---
-<BaseLayout title="FAQs | Pinnacle Sales Cabinetry Dealer Support" description="Frequently asked questions about becoming a Pinnacle Sales dealer, our cabinetry brands, lead times, territory coverage, and dealer support services." schema={faqSchema}>
+<BaseLayout title="Kitchen Cabinet Dealer FAQs — Brands, Territories & Support | Pinnacle Sales" description="Frequently asked questions about becoming a Pinnacle Sales dealer, our cabinetry brands, lead times, territory coverage, and dealer support services." schema={faqSchema}>
 <div class="page-header"><h1>Frequently Asked Questions</h1><p>Everything you need to know about partnering with Pinnacle Sales.</p></div>
 <div class="content-narrow section">
 <Breadcrumbs items={[{name:'Home',href:'/'},{name:'FAQs'}]} />

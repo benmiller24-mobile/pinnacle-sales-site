@@ -2,9 +2,9 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import DealerCTA from '../../components/DealerCTA.astro';
-const schema = {"@context":"https://schema.org","@type":"Product","name":"Aspect Cabinetry","brand":{"@type":"Brand","name":"Aspect Cabinetry"},"description":"Value-driven semi-custom cabinetry with quality construction and affordable pricing.","category":"Kitchen Cabinetry","manufacturer":{"@type":"Organization","name":"WW Wood Products"}};
+const schema = {"@context":"https://schema.org","@type":"Product","name":"Aspect Cabinetry","brand":{"@type":"Brand","name":"Aspect Cabinetry"},"description":"Value-driven semi-custom cabinetry with quality construction and affordable pricing.","category":"Kitchen Cabinetry","manufacturer":{"@type":"Organization","name":"WW Wood Products"},"offers":{"@type":"Offer","availability":"https://schema.org/InStock","seller":{"@type":"Organization","name":"Pinnacle Sales","url":"https://www.pinnaclesales.biz"},"areaServed":["Arizona","California","Colorado","Idaho","Montana","Nevada","New Mexico","Oregon","Utah","Washington"]},"audience":{"@type":"BusinessAudience","name":"Kitchen and bath dealers"}};
 ---
-<BaseLayout title="Aspect Cabinetry | Value Semi-Custom Cabinetry | Pinnacle Sales" description="Aspect Cabinetry offers quality semi-custom cabinetry at accessible price points. Perfect for budget-conscious projects without compromising craftsmanship." schema={schema}>
+<BaseLayout title="Aspect Cabinetry — Value Semi-Custom Cabinets | Dealer Rep Program" description="Aspect Cabinetry offers quality semi-custom cabinetry at accessible price points. Perfect for budget-conscious projects without compromising craftsmanship." schema={schema}>
 <div class="page-header"><h1>Aspect Cabinetry — Quality Semi-Custom at Accessible Pricing</h1><p>The smart choice for beautiful, practical spaces without compromising on craftsmanship.</p></div>
 <div class="content-narrow section">
 <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Brands',href:'/#brands'},{name:'Aspect Cabinetry'}]} />    <img src="/images/brands/aspect-hero.webp" alt="Aspect Cabinetry kitchen with gray shaker cabinets and quartz island" width="1280" height="960" fetchpriority="high" style="width:100%;height:auto;border-radius:8px;margin-bottom:2rem;" />
