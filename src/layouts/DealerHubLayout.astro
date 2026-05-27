@@ -12,22 +12,15 @@ export interface Props {
 const { title, description = 'Pinnacle Sales Dealer Hub — resources, training, and support for authorized dealers.', activeSection } = Astro.props;
 
 const navItems = [
-  { href: '/dealer-hub/dashboard', label: 'Dashboard', icon: '◻' },
   { href: '/dealer-hub/activation', label: 'Activation Plan', icon: '🚀' },
   { href: '/dealer-hub/onboarding', label: 'Onboarding', icon: '✓' },
-  { href: '/dealer-hub/designer-onboarding', label: 'Designer Onboarding', icon: '✏' },
   { href: '/dealer-hub/product-deep-dives', label: 'Product Deep Dives', icon: '📚' },
-  { href: '/dealer-hub/finishes', label: 'Finish Gallery', icon: '🎨' },
-  { href: '/dealer-hub/ordering', label: 'Ordering SOPs', icon: '📋' },
   { href: '/dealer-hub/order-samples', label: 'Order Samples', icon: '🪟' },
-  { href: '/dealer-hub/training', label: 'Training', icon: '🎓' },
   { href: '/dealer-hub/marketing', label: 'Marketing Kit', icon: '📣' },
-  { href: '/dealer-hub/showroom', label: 'Showroom Standards', icon: '🏠' },
   { href: '/dealer-hub/videos', label: 'Video Library', icon: '🎬' },
-  { href: '/dealer-hub/downloads', label: 'Downloads & Forms', icon: '📥' },
+  { href: '/dealer-hub/downloads', label: 'Forms', icon: '📥' },
   { href: '/dealer-hub/faq', label: 'FAQ', icon: '❓' },
-  { href: '/dealer-hub/support', label: 'Support & Escalation', icon: '🔧' },
-  { href: '/dealer-hub/submit', label: 'Submit Request', icon: '📨' },
+  { href: '/dealer-hub/submit', label: 'Submit a Request', icon: '📨' },
 ];
 ---
 
@@ -66,7 +59,7 @@ const navItems = [
     <div class="hub-layout">
       <aside class="hub-sidebar">
         <div class="sidebar-header">
-          <span class="sidebar-badge">DEALER HUB</span>
+          <a href="/dealer-hub/dashboard" class="sidebar-badge">DEALER HUB</a>
           <p class="sidebar-welcome" id="dealer-name-display"></p>
         </div>
         <nav class="sidebar-nav">
@@ -158,6 +151,12 @@ const navItems = [
     padding: 0.25rem 0.6rem;
     border-radius: 3px;
     margin-bottom: 0.5rem;
+    text-decoration: none;
+    transition: background 0.15s, opacity 0.15s;
+  }
+  .sidebar-badge:hover {
+    background: rgba(255,255,255,0.18);
+    opacity: 1;
   }
   .sidebar-welcome {
     font-size: 0.85rem;
