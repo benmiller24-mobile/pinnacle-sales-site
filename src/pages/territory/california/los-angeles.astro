@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import DealerCTA from '../../../components/DealerCTA.astro';
+const breadcrumbs = [{name:'Home',href:'/'},{name:"California",href:'/territory/california'},{name:"Los Angeles"}];
+const schema = {"@context":"https://schema.org","@type":"Service","serviceType":"Kitchen cabinetry sales and dealer support","provider":{"@type":"Organization","name":"Pinnacle Sales","telephone":"+1-480-993-9224","url":"https://www.pinnaclesales.biz"},"areaServed":{"@type":"City","name":"Los Angeles","containedInPlace":{"@type":"State","name":"California"}},"brand":["Shiloh Cabinetry","Eclipse Cabinetry","Aspect Cabinetry","Pronorm German Kitchens","Vistora Closets"],"url":"https://www.pinnaclesales.biz/territory/california/los-angeles"};
+---
+<BaseLayout title="Kitchen Cabinets in Los Angeles, CA | Showrooms & Brands" description="Looking for kitchen cabinets in Los Angeles? Compare premium brands \u2014 Shiloh, Eclipse & Pronorm German kitchens \u2014 and visit a local LA-area showroom." schema={schema}>
+<div class="page-header"><h1>Kitchen Cabinets in Los Angeles, CA</h1><p>Planning a kitchen remodel or new build in LA? Pinnacle Sales represents five premium cabinetry brands — Shiloh, Eclipse, Aspect, Pronorm German Kitchens, and Vistora Closets — sold through independent Los Angeles-area showrooms with designers who spec these lines every day.</p></div>
+<div class="content-narrow section">
+<Breadcrumbs items={breadcrumbs} />
+
+<p>From Pasadena and La Cañada to the Westside, the South Bay, and the foothill communities, LA kitchens span breezy transitional to crisp modern — often with an indoor-outdoor, light-filled sensibility.</p>
+<h2 id="los-angeles-kitchen-showrooms">Los Angeles Kitchen Showrooms</h2>
+<p>Pinnacle Sales brands are sold through independent local showrooms in and around Los Angeles. Tell us about your project and we'll connect you with the nearest authorized dealer.</p>
+<p><a class="btn btn-outline" href="/contact">Find a Local Dealer</a></p>
+<h2 id="best-cabinet-lines-for-los-angeles-kitchens">Best Cabinet Lines for Los Angeles Kitchens</h2>
+<ul>
+  <li><strong><a href="/brands/eclipse-cabinetry">Eclipse Cabinetry</a></strong> — Frameless, full-access for the clean, contemporary LA look.</li>
+  <li><strong><a href="/brands/shiloh-cabinetry">Shiloh Cabinetry</a></strong> — Custom paint and <a href="/playbook/modern-inset">inset</a> for transitional and coastal kitchens.</li>
+  <li><strong><a href="/brands/pronorm-german-kitchens">Pronorm German Kitchens</a></strong> — Handleless European fronts for high-end Westside and hillside homes.</li>
+  <li><strong><a href="/brands/aspect-cabinetry">Aspect Cabinetry</a></strong> — Semi-custom value for ADUs and investment properties.</li>
+</ul>
+<h2 id="los-angeles-kitchen-design-trends">Los Angeles Kitchen Design Trends</h2>
+<p>LA kitchens range from light, transitional coastal looks in the beach communities to sleek modern in the hills and canyons. Two-tone schemes, white-oak and walnut islands, and warm-minimalist palettes are common, while the high-end Westside, Pasadena foothills, and hillside enclaves increasingly favor handleless <a href="/brands/pronorm-german-kitchens">Pronorm</a> and seamless <a href="/brands/eclipse-cabinetry">frameless</a> kitchens.</p>
+<h2 id="featured-los-angeles-project">Featured Los Angeles Project</h2>
+<ul>
+  <li><a href="/projects/rpn-design-la-canada">RPN Design — La Cañada Whole Home</a> — Eclipse · La Cañada Flintridge, CA</li>
+</ul>
+<p>See more in the <a href="/projects">project gallery</a>.</p>
+<h2 id="start-your-los-angeles-kitchen-project">Start Your Los Angeles Kitchen Project</h2>
+<p>Book a showroom visit through an LA-area dealer above, bring rough dimensions or a floor plan, and the designer will guide layout, finishes, and quoting. <a href="#los-angeles-kitchen-showrooms">Find an LA Showroom</a>.</p>
+
+<DealerCTA heading="Los Angeles Kitchen Dealer?" text="Get listed on this page and capture LA homeowner search traffic. Pinnacle Sales provides sales training, 2020/Winner design support, and showroom merchandising." />
+</div>
+</BaseLayout>

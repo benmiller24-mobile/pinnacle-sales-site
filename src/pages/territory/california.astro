@@ -2,132 +2,42 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import DealerCTA from '../../components/DealerCTA.astro';
-import { projects } from '../../data/projects';
-const stateProjects = projects.filter(p => p.state === 'California');
-const breadcrumbs = [{name:'Home',href:'/'},{name:'Territory'},{name:'California'}];
-const serviceSchema = {"@context":"https://schema.org","@type":"Service","name":"Kitchen Cabinet Dealer Representation — California","provider":{"@type":"Organization","name":"Pinnacle Sales","url":"https://www.pinnaclesales.biz"},"areaServed":{"@type":"State","name":"California"},"serviceType":"Manufacturer's Representative","description":"Pinnacle Sales connects California kitchen and bath dealers with Shiloh, Eclipse, Aspect, Pronorm, and Vistora cabinetry brands."};
+const breadcrumbs = [{name:'Home',href:'/'},{name:'Territory'},{name:"California"}];
+const schema = {"@context":"https://schema.org","@type":"Service","serviceType":"Kitchen cabinetry sales and dealer support","provider":{"@type":"Organization","name":"Pinnacle Sales","telephone":"+1-480-993-9224","url":"https://www.pinnaclesales.biz"},"areaServed":{"@type":"State","name":"California"},"brand":["Shiloh Cabinetry","Eclipse Cabinetry","Aspect Cabinetry","Pronorm German Kitchens","Vistora Closets"],"url":"https://www.pinnaclesales.biz/territory/california"};
 ---
-<BaseLayout title="Kitchen Cabinet Dealer Rep — California | Shiloh, Eclipse, Pronorm" description="California's kitchen cabinet dealer rep for Shiloh, Eclipse, Pronorm & more. Serving LA, Bay Area, San Diego, Sacramento dealers with training, showroom support & territory protection." schema={serviceSchema}>
-<div class="page-header"><h1>Kitchen & Bath Cabinetry Dealer Support in California</h1><p>Premium brands, hands-on support, and local market expertise for California kitchen dealers.</p></div>
+<BaseLayout title="Kitchen Cabinets in California | LA, Bay Area & San Diego" description="Premium kitchen cabinets in California \u2014 Shiloh, Eclipse & Pronorm German kitchens. Find a showroom in Los Angeles, the Bay Area, Orange County or San Diego." schema={schema}>
+<div class="page-header"><h1>Kitchen Cabinets in California</h1><p>From the Bay Area to Los Angeles, Orange County, and San Diego, California homeowners and designers can spec the full Pinnacle Sales lineup — Shiloh, Eclipse, Aspect, Pronorm German Kitchens, and Vistora Closets — through independent local showrooms.</p></div>
 <div class="content-narrow section">
 <Breadcrumbs items={breadcrumbs} />
 
-<p>Pinnacle Sales serves kitchen and bath dealers across California with five premium cabinetry brands and dedicated local support. Our team brings 23+ years of industry expertise to help your dealership grow in Los Angeles, San Francisco, San Diego, Orange County, Sacramento, San Jose, and the Inland Empire.</p>
-
-<h2>Available Brands in California</h2>
+<p>California is several markets in one. Northern California leans clean and contemporary; Southern California spans transitional coastal to sleek modern; and the high-end coastal and hillside enclaves drive demand for European handleless kitchens. This guide covers what's available statewide and where to see it.</p>
+<h2 id="find-a-kitchen-cabinet-showroom-near-you">Find a Kitchen Cabinet Showroom Near You</h2>
+<p>Pinnacle Sales brands are sold through independent local showrooms across California. Tell us your project and where you're located, and we'll connect you with the nearest authorized dealer.</p>
+<p><a class="btn btn-outline" href="/contact">Find a Local Dealer</a></p>
+<h2 id="premium-cabinetry-brands-available-in-california">Premium Cabinetry Brands Available in California</h2>
 <ul>
-<li><a href="/brands/shiloh-cabinetry">Shiloh Cabinetry</a> — American-made face-frame, inset, and custom paint</li>
-<li><a href="/brands/eclipse-cabinetry">Eclipse Cabinetry</a> — Modern frameless full-access construction</li>
-<li><a href="/brands/aspect-cabinetry">Aspect Cabinetry</a> — Value-driven semi-custom for builders and budget-conscious clients</li>
-<li><a href="/brands/pronorm-german-kitchens">Pronorm German Kitchens</a> — Premium European fitted kitchens</li>
-<li><a href="/brands/vistora-closets">Vistora Closets</a> — Made-to-order closet and storage solutions by WW Wood Products</li>
+  <li><strong><a href="/brands/shiloh-cabinetry">Shiloh Cabinetry</a></strong> — Custom paint, inset, and wide wood species for California's transitional and coastal kitchens.</li>
+  <li><strong><a href="/brands/eclipse-cabinetry">Eclipse Cabinetry</a></strong> — Frameless, full-access modern construction — a strong fit for contemporary Bay Area and LA remodels.</li>
+  <li><strong><a href="/brands/aspect-cabinetry">Aspect Cabinetry</a></strong> — Semi-custom value for builder and ADU projects across the state.</li>
+  <li><strong><a href="/brands/pronorm-german-kitchens">Pronorm German Kitchens</a></strong> — Premium handleless European kitchens for high-end coastal and hillside homes.</li>
+  <li><strong><a href="/brands/vistora-closets">Vistora Closets</a></strong> — Made-to-order closets and storage.</li>
+</ul>
+<h2 id="california-kitchen-design-trends">California Kitchen Design Trends</h2>
+<p>Northern California favors clean, contemporary kitchens — frameless construction, flat-panel and slab fronts, warm woods against white and gray. Southern California ranges from breezy transitional in the coastal communities to crisp modern in the hills, with two-tone schemes and walnut or white-oak islands. Across the premium coastal and hillside markets — Marin, the Peninsula, the Westside, Newport Coast — handleless <a href="/brands/pronorm-german-kitchens">Pronorm</a> and frameless <a href="/brands/eclipse-cabinetry">Eclipse</a> kitchens continue to gain share.</p>
+<h2 id="recent-california-projects">Recent California Projects</h2>
+<ul>
+  <li><a href="/projects/distinctive-cabinetry-eclipse-natural-walnut-metro">Distinctive Cabinetry — Eclipse Natural Walnut Metro</a> — Walnut Creek, CA</li>
+  <li><a href="/projects/rpn-design-la-canada">RPN Design — La Cañada Whole Home</a> — Eclipse · La Cañada Flintridge, CA</li>
+</ul>
+<p>See the full <a href="/projects">project gallery</a>.</p>
+<h2 id="california-cities-we-serve">California Cities We Serve</h2>
+<ul>
+  <li><a href="/territory/california/los-angeles">Kitchen Cabinets in Los Angeles</a></li>
+  <li><a href="/territory/california/san-francisco-bay-area">Kitchen Cabinets in the San Francisco Bay Area</a></li>
+  <li><a href="/territory/california/orange-county">Kitchen Cabinets in Orange County</a></li>
+  <li><a href="/territory/california/san-diego">Kitchen Cabinets in San Diego</a></li>
 </ul>
 
-
-<h2>California Kitchen Design Trends</h2>
-<p>California remains the nation's trend-setting kitchen market. Northern California favors European-influenced contemporary design — handleless systems, ultra-matte finishes, and integrated appliance panels — making <a href="/brands/pronorm-german-kitchens">Pronorm German Kitchens</a> a natural fit for high-end San Francisco and Silicon Valley projects. Southern California embraces a broader range from warm modern and Japandi-influenced design in the coastal markets to bold transitional and modern farmhouse styles in the Inland Empire.</p>
-<p>Across the state, environmental consciousness drives demand for sustainably manufactured cabinetry. Pronorm's low-VOC European production standards and WW Wood's American-made craftsmanship both resonate with California buyers who value responsible sourcing. <a href="/brands/eclipse-cabinetry">Eclipse Cabinetry's</a> frameless full-access platform continues to gain ground in the state's modern remodel market.</p>
-
-
-<h2>Local Dealer Support</h2>
-<p>California is Pinnacle Sales' largest state by dealer count. We maintain active partnerships with showrooms, design-build firms, and builder networks from San Diego to the Bay Area. Our team conducts regular in-person training visits throughout the state.</p>
-
-{stateProjects.length > 0 && (
-<>
-<h2>Recent Projects in California</h2>
-<p>Real installs by Pinnacle Sales dealer partners in California. See the full <a href="/projects">project gallery</a> for more.</p>
-<div class="state-projects">
-  {stateProjects.map((p) => (
-    <a href={`/projects/${p.slug}`} class="state-project-card">
-      <div class="state-project-image">
-        <img src={`/images/projects/${p.slug}/${p.hero}`} alt={p.title} loading="lazy" width="600" height="400" />
-        <span class="state-project-brand">{p.brand}</span>
-      </div>
-      <div class="state-project-body">
-        <h3>{p.title}</h3>
-        <p class="state-project-meta">{p.dealer} &middot; {p.location}</p>
-      </div>
-    </a>
-  ))}
+<DealerCTA heading="Are You a California Kitchen Dealer?" text="Pinnacle Sales reps five premium brands across California with sales training, 2020/Winner design support, and showroom merchandising. Partner with us and get listed in the showroom finder above." />
 </div>
-</>
-)}
-
-<h2>Dealer Support Services in California</h2>
-<ul>
-<li><strong>In-person sales training</strong> — Product knowledge, competitive positioning, and closing strategies in your showroom</li>
-<li><strong>2020/Winner design and quoting support</strong> — Help with complex projects and multi-brand specifications</li>
-<li><strong>Showroom merchandising</strong> — Display planning, sample programs, and vignette design</li>
-<li><strong>Marketing resources</strong> — Co-branded content, photography, and project showcases</li>
-<li><strong>Factory coordination</strong> — Tours, technical consultations, and custom project support with WW Wood Products and Pronorm</li>
-<li><strong>Technical support</strong> — Order management, specification questions, and installation guidance</li>
-</ul>
-
-<h2>Resources for California Dealers</h2>
-<p>Visit the <a href="/playbook">Kitchen Dealer Playbook</a> for articles on product knowledge, design trends, and business development strategies. Featured articles include:</p>
-<ul>
-<li><a href="/playbook/frameless-vs-face-frame-cabinets">Frameless vs Face-Frame Cabinets</a> — Help clients choose the right construction method</li>
-<li><a href="/playbook/modern-inset">Modern Inset: 6 No-Upcharge Variations from Shiloh</a> — Expand your inset cabinetry offerings</li>
-<li><a href="/playbook/japan-inspired-kitchens">Japan-Inspired Kitchens</a> — Spec the warm minimalism trend at three price points</li>
-</ul>
-
-<DealerCTA heading="Become a Dealer in California" text="Ready to partner with the leading cabinetry rep firm in California? Let us know about your showroom and market." />
-</div>
-
-<style>
-  .state-projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 1.25rem;
-    margin: 1.25rem 0 2rem;
-  }
-  .state-project-card {
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    color: inherit;
-    border: 1px solid var(--color-border, #e0e0e0);
-    background: #fff;
-    overflow: hidden;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  .state-project-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(0,0,0,0.08);
-    opacity: 1;
-  }
-  .state-project-image {
-    position: relative;
-    aspect-ratio: 4 / 3;
-    overflow: hidden;
-    background: var(--color-bg-alt, #f7f7f7);
-  }
-  .state-project-image img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-  }
-  .state-project-brand {
-    position: absolute;
-    bottom: 0.5rem; left: 0.5rem;
-    background: rgba(0,0,0,0.75); color: #fff;
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 0.2rem 0.55rem;
-  }
-  .state-project-body { padding: 0.9rem 1rem 1.1rem; }
-  .state-project-body h3 {
-    font-size: 0.98rem;
-    line-height: 1.3;
-    font-weight: 500;
-    margin: 0 0 0.3rem;
-  }
-  .state-project-meta {
-    font-size: 0.78rem;
-    color: var(--color-light-text, #999);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin: 0;
-  }
-</style>
 </BaseLayout>

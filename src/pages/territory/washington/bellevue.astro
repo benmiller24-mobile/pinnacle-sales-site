@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import DealerCTA from '../../../components/DealerCTA.astro';
+const breadcrumbs = [{name:'Home',href:'/'},{name:"Washington",href:'/territory/washington'},{name:"Bellevue"}];
+const schema = {"@context":"https://schema.org","@type":"Service","serviceType":"Kitchen cabinetry sales and dealer support","provider":{"@type":"Organization","name":"Pinnacle Sales","telephone":"+1-480-993-9224","url":"https://www.pinnaclesales.biz"},"areaServed":{"@type":"City","name":"Bellevue","containedInPlace":{"@type":"State","name":"Washington"}},"brand":["Shiloh Cabinetry","Eclipse Cabinetry","Aspect Cabinetry","Pronorm German Kitchens","Vistora Closets"],"url":"https://www.pinnaclesales.biz/territory/washington/bellevue"};
+---
+<BaseLayout title="Kitchen Cabinets in Bellevue, WA | Showrooms & Brands" description="Looking for kitchen cabinets in Bellevue, WA? Compare premium brands \u2014 Eclipse, Pronorm German kitchens & Shiloh \u2014 and find a local Eastside showroom." schema={schema}>
+<div class="page-header"><h1>Kitchen Cabinets in Bellevue, WA</h1><p>Planning a high-end kitchen on the Eastside? Pinnacle Sales represents five premium cabinetry brands — Eclipse, Pronorm German Kitchens, Shiloh, Aspect, and Vistora Closets — sold through independent local showrooms.</p></div>
+<div class="content-narrow section">
+<Breadcrumbs items={breadcrumbs} />
+
+<p>From downtown Bellevue and Clyde Hill to Medina, Mercer Island, and Kirkland, the Eastside is the Puget Sound region's luxury kitchen market — sleek, contemporary, and backed by the tech economy.</p>
+<h2 id="bellevue-kitchen-showrooms">Bellevue Kitchen Showrooms</h2>
+<p>Pinnacle Sales brands are sold through independent local showrooms in and around Bellevue. Tell us about your project and we'll connect you with the nearest authorized dealer.</p>
+<p><a class="btn btn-outline" href="/contact">Find a Local Dealer</a></p>
+<h2 id="best-cabinet-lines-for-bellevue-kitchens">Best Cabinet Lines for Bellevue Kitchens</h2>
+<ul>
+  <li><strong><a href="/brands/eclipse-cabinetry">Eclipse Cabinetry</a></strong> — Frameless, full-access — a natural fit for the Eastside's contemporary aesthetic.</li>
+  <li><strong><a href="/brands/pronorm-german-kitchens">Pronorm German Kitchens</a></strong> — Handleless, precision-engineered fronts for high-end Medina, Clyde Hill, and Mercer Island homes.</li>
+  <li><strong><a href="/brands/shiloh-cabinetry">Shiloh Cabinetry</a></strong> — Custom paint and wood species for transitional and PNW-modern kitchens.</li>
+  <li><strong><a href="/brands/aspect-cabinetry">Aspect Cabinetry</a></strong> — Semi-custom value for ADUs and secondary spaces.</li>
+</ul>
+<h2 id="bellevue-kitchen-design-trends">Bellevue Kitchen Design Trends</h2>
+<p>Bellevue and the Eastside favor sleek, contemporary kitchens — flat-slab and handleless fronts, warm woods against crisp neutrals, integrated lighting, and seamless detailing. The tech-driven luxury market in Medina, Clyde Hill, and Mercer Island increasingly chooses handleless <a href="/brands/pronorm-german-kitchens">Pronorm</a> and seamless <a href="/brands/eclipse-cabinetry">frameless</a> kitchens, often with natural-wood and stone accents for Pacific-Northwest warmth.</p>
+<h2 id="start-your-bellevue-kitchen-project">Start Your Bellevue Kitchen Project</h2>
+<p>Book a showroom visit through an Eastside dealer, bring rough dimensions or a floor plan, and the designer will guide layout, finishes, and quoting. <a href="#bellevue-kitchen-showrooms">Find a Bellevue Showroom</a>.</p>
+
+<DealerCTA heading="Bellevue Kitchen Dealer?" text="Get listed for Eastside homeowner search traffic. Pinnacle Sales provides sales training, 2020/Winner design support, and showroom merchandising." />
+</div>
+</BaseLayout>
