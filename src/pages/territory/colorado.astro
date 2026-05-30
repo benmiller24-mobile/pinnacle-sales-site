@@ -2,132 +2,47 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import DealerCTA from '../../components/DealerCTA.astro';
-import { projects } from '../../data/projects';
-const stateProjects = projects.filter(p => p.state === 'Colorado');
-const breadcrumbs = [{name:'Home',href:'/'},{name:'Territory'},{name:'Colorado'}];
-const serviceSchema = {"@context":"https://schema.org","@type":"Service","name":"Kitchen Cabinet Dealer Representation — Colorado","provider":{"@type":"Organization","name":"Pinnacle Sales","url":"https://www.pinnaclesales.biz"},"areaServed":{"@type":"State","name":"Colorado"},"serviceType":"Manufacturer's Representative","description":"Pinnacle Sales connects Colorado kitchen and bath dealers with Shiloh, Eclipse, Aspect, Pronorm, and Vistora cabinetry brands."};
+const breadcrumbs = [{name:'Home',href:'/'},{name:'Territory'},{name:"Colorado"}];
+const schema = {"@context":"https://schema.org","@type":"Service","serviceType":"Kitchen cabinetry sales and dealer support","provider":{"@type":"Organization","name":"Pinnacle Sales","telephone":"+1-480-993-9224","url":"https://www.pinnaclesales.biz"},"areaServed":{"@type":"State","name":"Colorado"},"brand":["Shiloh Cabinetry","Eclipse Cabinetry","Aspect Cabinetry","Pronorm German Kitchens","Vistora Closets"],"url":"https://www.pinnaclesales.biz/territory/colorado"};
 ---
-<BaseLayout title="Colorado Kitchen Cabinet Rep — Shiloh, Eclipse & Pronorm Dealers" description="Pinnacle Sales connects Colorado kitchen dealers with Shiloh, Eclipse & Pronorm cabinetry. Denver, Boulder, Colorado Springs — dealer support, training & showroom merchandising." schema={serviceSchema}>
-<div class="page-header"><h1>Kitchen & Bath Cabinetry Dealer Support in Colorado</h1><p>Premium brands, hands-on support, and local market expertise for Colorado kitchen dealers.</p></div>
+<BaseLayout title="Kitchen Cabinets in Colorado | Denver & Front Range" description="Premium kitchen cabinets in Colorado \u2014 explore Shiloh, Eclipse & Pronorm German kitchens, and find a showroom near you in Denver, Boulder or Fort Collins." schema={schema}>
+<div class="page-header"><h1>Kitchen Cabinets in Colorado</h1><p>From Denver's design district to the Front Range and the mountain resort towns, Colorado homeowners and designers have access to the full Pinnacle Sales lineup of premium cabinetry — Shiloh, Eclipse, Aspect, Pronorm German Kitchens, and Vistora Closets — through a network of independent local showrooms.</p></div>
 <div class="content-narrow section">
 <Breadcrumbs items={breadcrumbs} />
 
-<p>Pinnacle Sales serves kitchen and bath dealers across Colorado with five premium cabinetry brands and dedicated local support. Our team brings 23+ years of industry expertise to help your dealership grow in Denver, Boulder, Colorado Springs, Fort Collins, Aspen, Vail, and the Front Range.</p>
-
-<h2>Available Brands in Colorado</h2>
+<p>Whether you're remodeling a transitional kitchen in Cherry Creek, building mountain-modern in Steamboat, or specifying a handleless German kitchen in Boulder, this page helps you understand the brands available in Colorado, the design directions that work in this market, and where to see them in person.</p>
+<h2 id="find-a-kitchen-cabinet-showroom-near-you">Find a Kitchen Cabinet Showroom Near You</h2>
+<p>Pinnacle Sales brands are sold through independent local showrooms across Colorado. Tell us your project and where you're located, and we'll connect you with the nearest authorized dealer.</p>
+<p><a class="btn btn-outline" href="/contact">Find a Local Dealer</a></p>
+<h2 id="premium-cabinetry-brands-available-in-colorado">Premium Cabinetry Brands Available in Colorado</h2>
 <ul>
-<li><a href="/brands/shiloh-cabinetry">Shiloh Cabinetry</a> — American-made face-frame, inset, and custom paint</li>
-<li><a href="/brands/eclipse-cabinetry">Eclipse Cabinetry</a> — Modern frameless full-access construction</li>
-<li><a href="/brands/aspect-cabinetry">Aspect Cabinetry</a> — Value-driven semi-custom for builders and budget-conscious clients</li>
-<li><a href="/brands/pronorm-german-kitchens">Pronorm German Kitchens</a> — Premium European fitted kitchens</li>
-<li><a href="/brands/vistora-closets">Vistora Closets</a> — Made-to-order closet and storage solutions by WW Wood Products</li>
+  <li><strong><a href="/brands/shiloh-cabinetry">Shiloh Cabinetry</a></strong> — American-made face-frame, inset, and custom paint. The deep wood-species and paint program makes it the workhorse for Colorado's mix of transitional and mountain-modern projects.</li>
+  <li><strong><a href="/brands/eclipse-cabinetry">Eclipse Cabinetry</a></strong> — Modern frameless, full-access construction for clean contemporary kitchens that maximize usable storage.</li>
+  <li><strong><a href="/brands/aspect-cabinetry">Aspect Cabinetry</a></strong> — Value-driven semi-custom, ideal for builder projects and budget-conscious remodels without giving up quality construction.</li>
+  <li><strong><a href="/brands/pronorm-german-kitchens">Pronorm German Kitchens</a></strong> — Premium European fitted kitchens with handleless fronts and precision engineering, for the high-end Denver, Boulder, and resort market.</li>
+  <li><strong><a href="/brands/vistora-closets">Vistora Closets</a></strong> — Made-to-order closets and storage by WW Wood Products to finish the whole home.</li>
+</ul>
+<h2 id="colorado-kitchen-design-trends">Colorado Kitchen Design Trends</h2>
+<p>Colorado's kitchen market blends mountain-modern aesthetics with urban contemporary design. The Denver metro favors transitional kitchens with painted-and-stained combinations — white or greige uppers with walnut or natural-oak islands and lowers. Mountain communities like Aspen, Vail, and Steamboat Springs lean rustic-modern, with knotty alder, reclaimed textures, and slatted wood elements.</p>
+<p>Shiloh's extensive wood-species program and custom paint options make it well suited to that range, while the <a href="/playbook/modern-inset">modern inset</a> look is especially strong along the Front Range, where designers want furniture-quality inset construction at attainable pricing. For contemporary builds, <a href="/brands/eclipse-cabinetry">Eclipse frameless</a> and <a href="/brands/pronorm-german-kitchens">Pronorm's handleless</a> systems deliver the seamless, European look.</p>
+<h2 id="recent-colorado-projects">Recent Colorado Projects</h2>
+<p>Real installs by Pinnacle Sales dealer partners across Colorado. See the full <a href="/projects">project gallery</a> for more.</p>
+<ul>
+  <li><a href="/projects/boulder-whole-home">Boulder Whole Home</a> — Chase Cabinetry · Boulder, CO</li>
+  <li><a href="/projects/plum-kitchens-cook-street">Cook Street Kitchen — Plum Kitchens</a> — Shiloh · Denver, CO</li>
+  <li><a href="/projects/greenwood-cabinetry">Greenwood Cabinetry</a> — Eclipse · Colorado</li>
+  <li><a href="/projects/timberline">Timberline</a> — Denver, CO</li>
+</ul>
+<h2 id="starting-a-kitchen-project-in-colorado">Starting a Kitchen Project in Colorado</h2>
+<p>Homeowners usually start by visiting a showroom to compare door styles, finishes, and construction in person, then work with the dealer's designer on layout and quoting. Because every brand here is sold through independent local dealers, you get both manufacturer-grade product and a designer who knows Colorado homes, permitting, and lead times. Use the <a href="#find-a-kitchen-cabinet-showroom-near-you">showroom finder</a> above to book a visit.</p>
+<h2 id="colorado-cities-we-serve">Colorado Cities We Serve</h2>
+<ul>
+  <li><a href="/territory/colorado/denver">Kitchen Cabinets in Denver</a></li>
+  <li><a href="/territory/colorado/boulder">Kitchen Cabinets in Boulder</a></li>
+  <li><a href="/territory/colorado/colorado-springs">Kitchen Cabinets in Colorado Springs</a></li>
+  <li><a href="/territory/colorado/fort-collins">Kitchen Cabinets in Fort Collins</a></li>
 </ul>
 
-
-<h2>Colorado Kitchen Design Trends</h2>
-<p>Colorado's kitchen market blends mountain-modern aesthetics with urban contemporary design. The Denver metro area favors transitional kitchens with painted and stained combinations — white or greige uppers with walnut or natural oak islands and lowers. Mountain communities like Aspen, Vail, and Steamboat Springs lean toward rustic-modern with knotty alder, reclaimed textures, and integrated slatted wood elements.</p>
-<p><a href="/brands/shiloh-cabinetry">Shiloh Cabinetry's</a> extensive wood species program and custom paint options make it ideal for Colorado's diverse design preferences. The <a href="/playbook/modern-inset">modern inset</a> trend is particularly strong along the Front Range, where designers seek the furniture-quality look of inset construction at attainable pricing.</p>
-
-
-<h2>Local Dealer Support</h2>
-<p>Our Colorado dealer network spans the Front Range corridor from Fort Collins to Colorado Springs, with strong partnerships in Denver's design district and mountain resort communities. The <a href='/playbook/dealer-spotlight-plum-kitchens'>Plum Kitchens project in Denver</a> is a standout example of what Colorado dealers are building with Shiloh Inset cabinetry.</p>
-
-{stateProjects.length > 0 && (
-<>
-<h2>Recent Projects in Colorado</h2>
-<p>Real installs by Pinnacle Sales dealer partners in Colorado. See the full <a href="/projects">project gallery</a> for more.</p>
-<div class="state-projects">
-  {stateProjects.map((p) => (
-    <a href={`/projects/${p.slug}`} class="state-project-card">
-      <div class="state-project-image">
-        <img src={`/images/projects/${p.slug}/${p.hero}`} alt={p.title} loading="lazy" width="600" height="400" />
-        <span class="state-project-brand">{p.brand}</span>
-      </div>
-      <div class="state-project-body">
-        <h3>{p.title}</h3>
-        <p class="state-project-meta">{p.dealer} &middot; {p.location}</p>
-      </div>
-    </a>
-  ))}
+<DealerCTA heading="Are You a Colorado Kitchen Dealer?" text="Pinnacle Sales reps five premium cabinetry brands across Colorado with in-person sales training, 2020/Winner design support, showroom merchandising, and factory coordination with WW Wood Products and Pronorm. Partner with us and get listed in the showroom finder above \u2014 homeowner traffic from this page routes to our dealer network." />
 </div>
-</>
-)}
-
-<h2>Dealer Support Services in Colorado</h2>
-<ul>
-<li><strong>In-person sales training</strong> — Product knowledge, competitive positioning, and closing strategies in your showroom</li>
-<li><strong>2020/Winner design and quoting support</strong> — Help with complex projects and multi-brand specifications</li>
-<li><strong>Showroom merchandising</strong> — Display planning, sample programs, and vignette design</li>
-<li><strong>Marketing resources</strong> — Co-branded content, photography, and project showcases</li>
-<li><strong>Factory coordination</strong> — Tours, technical consultations, and custom project support with WW Wood Products and Pronorm</li>
-<li><strong>Technical support</strong> — Order management, specification questions, and installation guidance</li>
-</ul>
-
-<h2>Resources for Colorado Dealers</h2>
-<p>Visit the <a href="/playbook">Kitchen Dealer Playbook</a> for articles on product knowledge, design trends, and business development strategies. Featured articles include:</p>
-<ul>
-<li><a href="/playbook/frameless-vs-face-frame-cabinets">Frameless vs Face-Frame Cabinets</a> — Help clients choose the right construction method</li>
-<li><a href="/playbook/modern-inset">Modern Inset: 6 No-Upcharge Variations from Shiloh</a> — Expand your inset cabinetry offerings</li>
-<li><a href="/playbook/japan-inspired-kitchens">Japan-Inspired Kitchens</a> — Spec the warm minimalism trend at three price points</li>
-</ul>
-
-<DealerCTA heading="Become a Dealer in Colorado" text="Ready to partner with the leading cabinetry rep firm in Colorado? Let us know about your showroom and market." />
-</div>
-
-<style>
-  .state-projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 1.25rem;
-    margin: 1.25rem 0 2rem;
-  }
-  .state-project-card {
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    color: inherit;
-    border: 1px solid var(--color-border, #e0e0e0);
-    background: #fff;
-    overflow: hidden;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  .state-project-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(0,0,0,0.08);
-    opacity: 1;
-  }
-  .state-project-image {
-    position: relative;
-    aspect-ratio: 4 / 3;
-    overflow: hidden;
-    background: var(--color-bg-alt, #f7f7f7);
-  }
-  .state-project-image img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-  }
-  .state-project-brand {
-    position: absolute;
-    bottom: 0.5rem; left: 0.5rem;
-    background: rgba(0,0,0,0.75); color: #fff;
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 0.2rem 0.55rem;
-  }
-  .state-project-body { padding: 0.9rem 1rem 1.1rem; }
-  .state-project-body h3 {
-    font-size: 0.98rem;
-    line-height: 1.3;
-    font-weight: 500;
-    margin: 0 0 0.3rem;
-  }
-  .state-project-meta {
-    font-size: 0.78rem;
-    color: var(--color-light-text, #999);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin: 0;
-  }
-</style>
 </BaseLayout>

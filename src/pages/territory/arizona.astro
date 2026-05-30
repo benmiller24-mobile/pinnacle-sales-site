@@ -2,132 +2,40 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import DealerCTA from '../../components/DealerCTA.astro';
-import { projects } from '../../data/projects';
-const stateProjects = projects.filter(p => p.state === 'Arizona');
-const breadcrumbs = [{name:'Home',href:'/'},{name:'Territory'},{name:'Arizona'}];
-const serviceSchema = {"@context":"https://schema.org","@type":"Service","name":"Kitchen Cabinet Dealer Representation — Arizona","provider":{"@type":"Organization","name":"Pinnacle Sales","url":"https://www.pinnaclesales.biz"},"areaServed":{"@type":"State","name":"Arizona"},"serviceType":"Manufacturer's Representative","description":"Pinnacle Sales connects Arizona kitchen and bath dealers with Shiloh, Eclipse, Aspect, Pronorm, and Vistora cabinetry brands."};
+const breadcrumbs = [{name:'Home',href:'/'},{name:'Territory'},{name:"Arizona"}];
+const schema = {"@context":"https://schema.org","@type":"Service","serviceType":"Kitchen cabinetry sales and dealer support","provider":{"@type":"Organization","name":"Pinnacle Sales","telephone":"+1-480-993-9224","url":"https://www.pinnaclesales.biz"},"areaServed":{"@type":"State","name":"Arizona"},"brand":["Shiloh Cabinetry","Eclipse Cabinetry","Aspect Cabinetry","Pronorm German Kitchens","Vistora Closets"],"url":"https://www.pinnaclesales.biz/territory/arizona"};
 ---
-<BaseLayout title="Shiloh, Eclipse & Pronorm Dealer Rep — Arizona | Pinnacle Sales" description="Pinnacle Sales reps Shiloh, Eclipse, Aspect, Pronorm & Vistora cabinetry for Arizona kitchen dealers. Phoenix, Scottsdale, Tucson, and beyond. Apply to become a dealer." schema={serviceSchema}>
-<div class="page-header"><h1>Kitchen & Bath Cabinetry Dealer Support in Arizona</h1><p>Premium brands, hands-on support, and local market expertise for Arizona kitchen dealers.</p></div>
+<BaseLayout title="Kitchen Cabinets in Arizona | Phoenix, Scottsdale & Tucson" description="Premium kitchen cabinets in Arizona \u2014 Shiloh, Eclipse, Aspect & Pronorm German kitchens. Find a showroom near you in Phoenix, Scottsdale, Tucson or Gilbert." schema={schema}>
+<div class="page-header"><h1>Kitchen Cabinets in Arizona</h1><p>Across the Valley of the Sun and down to Tucson, Arizona homeowners and designers have access to the full Pinnacle Sales lineup — Shiloh, Eclipse, Aspect, Pronorm German Kitchens, and Vistora Closets — through independent local showrooms backed by 23+ years of dealer support.</p></div>
 <div class="content-narrow section">
 <Breadcrumbs items={breadcrumbs} />
 
-<p>Pinnacle Sales serves kitchen and bath dealers across Arizona with five premium cabinetry brands and dedicated local support. Our team brings 23+ years of industry expertise to help your dealership grow in Phoenix, Scottsdale, Tucson, Mesa, Chandler, Gilbert, and Sedona.</p>
-
-<h2>Available Brands in Arizona</h2>
+<p>Whether you're remodeling in Arcadia, building new in Gilbert or Queen Creek, or specifying a handleless German kitchen in Scottsdale, this guide covers the brands available in Arizona, the looks that work in the desert, and where to see them in person.</p>
+<h2 id="find-a-kitchen-cabinet-showroom-near-you">Find a Kitchen Cabinet Showroom Near You</h2>
+<p>Pinnacle Sales brands are sold through independent local showrooms across Arizona. Tell us your project and where you're located, and we'll connect you with the nearest authorized dealer.</p>
+<p><a class="btn btn-outline" href="/contact">Find a Local Dealer</a></p>
+<h2 id="premium-cabinetry-brands-available-in-arizona">Premium Cabinetry Brands Available in Arizona</h2>
 <ul>
-<li><a href="/brands/shiloh-cabinetry">Shiloh Cabinetry</a> — American-made face-frame, inset, and custom paint</li>
-<li><a href="/brands/eclipse-cabinetry">Eclipse Cabinetry</a> — Modern frameless full-access construction</li>
-<li><a href="/brands/aspect-cabinetry">Aspect Cabinetry</a> — Value-driven semi-custom for builders and budget-conscious clients</li>
-<li><a href="/brands/pronorm-german-kitchens">Pronorm German Kitchens</a> — Premium European fitted kitchens</li>
-<li><a href="/brands/vistora-closets">Vistora Closets</a> — Made-to-order closet and storage solutions by WW Wood Products</li>
+  <li><strong><a href="/brands/shiloh-cabinetry">Shiloh Cabinetry</a></strong> — American-made face-frame, inset, and custom paint; the versatile choice for Arizona's transitional and warm-contemporary kitchens.</li>
+  <li><strong><a href="/brands/eclipse-cabinetry">Eclipse Cabinetry</a></strong> — Frameless, full-access construction for the clean modern look that suits desert-contemporary architecture.</li>
+  <li><strong><a href="/brands/aspect-cabinetry">Aspect Cabinetry</a></strong> — Value semi-custom built for Arizona's high new-construction volume in Gilbert, Buckeye, and Queen Creek.</li>
+  <li><strong><a href="/brands/pronorm-german-kitchens">Pronorm German Kitchens</a></strong> — Handleless, precision-engineered fronts for high-end Scottsdale and Paradise Valley projects.</li>
+  <li><strong><a href="/brands/vistora-closets">Vistora Closets</a></strong> — Made-to-order closets and storage to finish the whole home.</li>
+</ul>
+<h2 id="arizona-kitchen-design-trends">Arizona Kitchen Design Trends</h2>
+<p>Arizona kitchens lean warm-contemporary: crisp white and greige perimeters paired with warm walnut or rift oak on islands, large-format porcelain, and indoor-outdoor flow built for the climate. New-construction communities across the East Valley drive heavy demand for semi-custom value, while the luxury market in Scottsdale, Paradise Valley, and North Phoenix increasingly wants handleless European fronts and flat-slab contemporary cabinetry. The <a href="/brands/eclipse-cabinetry">frameless full-access</a> look pairs naturally with the region's clean desert-modern architecture.</p>
+<h2 id="recent-arizona-projects">Recent Arizona Projects</h2>
+<ul>
+  <li><a href="/projects/silverstone-queen-creek-whole-home">Queen Creek Whole Home — Silverstone</a> — Shiloh · Queen Creek, AZ</li>
+</ul>
+<p>See the full <a href="/projects">project gallery</a> for more.</p>
+<h2 id="arizona-cities-we-serve">Arizona Cities We Serve</h2>
+<ul>
+  <li><a href="/territory/arizona/phoenix">Kitchen Cabinets in Phoenix</a></li>
+  <li><a href="/territory/arizona/scottsdale">Kitchen Cabinets in Scottsdale</a></li>
+  <li><a href="/territory/arizona/tucson">Kitchen Cabinets in Tucson</a></li>
 </ul>
 
-
-<h2>Arizona Kitchen Design Trends</h2>
-<p>Arizona's desert climate and indoor-outdoor lifestyle drive unique kitchen design preferences. Homeowners across the Phoenix metro and Scottsdale increasingly favor warm, earthy tones — desert sand, terracotta accents, and muted sage greens — paired with natural materials like rift-cut white oak and walnut. Transitional and modern designs dominate the luxury market in Scottsdale and Paradise Valley, while Tucson leans toward a blend of Southwestern character and contemporary clean lines.</p>
-<p>Large kitchen islands with waterfall countertops, integrated outdoor kitchen connections, and extensive pull-out storage for pantry organization are among the most requested features. Arizona's active builder market creates steady demand for quality semi-custom cabinetry at competitive lead times — making <a href="/brands/shiloh-cabinetry">Shiloh</a> and <a href="/brands/aspect-cabinetry">Aspect</a> particularly strong performers in the state.</p>
-
-
-<h2>Local Dealer Support</h2>
-<p>Pinnacle Sales is headquartered in Arizona, giving our Arizona dealers direct access to our leadership team for sales support, training visits, and showroom planning. Phoenix and Scottsdale represent our largest dealer concentration, with growing partnerships in Tucson, Sedona, and the East Valley corridor.</p>
-
-{stateProjects.length > 0 && (
-<>
-<h2>Recent Projects in Arizona</h2>
-<p>Real installs by Pinnacle Sales dealer partners in Arizona. See the full <a href="/projects">project gallery</a> for more.</p>
-<div class="state-projects">
-  {stateProjects.map((p) => (
-    <a href={`/projects/${p.slug}`} class="state-project-card">
-      <div class="state-project-image">
-        <img src={`/images/projects/${p.slug}/${p.hero}`} alt={p.title} loading="lazy" width="600" height="400" />
-        <span class="state-project-brand">{p.brand}</span>
-      </div>
-      <div class="state-project-body">
-        <h3>{p.title}</h3>
-        <p class="state-project-meta">{p.dealer} &middot; {p.location}</p>
-      </div>
-    </a>
-  ))}
+<DealerCTA heading="Are You an Arizona Kitchen Dealer?" text="Pinnacle Sales reps five premium brands across Arizona with in-person sales training, 2020/Winner design support, showroom merchandising, and factory coordination. Partner with us and get listed in the showroom finder above \u2014 homeowner traffic from this page routes to our dealer network." />
 </div>
-</>
-)}
-
-<h2>Dealer Support Services in Arizona</h2>
-<ul>
-<li><strong>In-person sales training</strong> — Product knowledge, competitive positioning, and closing strategies in your showroom</li>
-<li><strong>2020/Winner design and quoting support</strong> — Help with complex projects and multi-brand specifications</li>
-<li><strong>Showroom merchandising</strong> — Display planning, sample programs, and vignette design</li>
-<li><strong>Marketing resources</strong> — Co-branded content, photography, and project showcases</li>
-<li><strong>Factory coordination</strong> — Tours, technical consultations, and custom project support with WW Wood Products and Pronorm</li>
-<li><strong>Technical support</strong> — Order management, specification questions, and installation guidance</li>
-</ul>
-
-<h2>Resources for Arizona Dealers</h2>
-<p>Visit the <a href="/playbook">Kitchen Dealer Playbook</a> for articles on product knowledge, design trends, and business development strategies. Featured articles include:</p>
-<ul>
-<li><a href="/playbook/frameless-vs-face-frame-cabinets">Frameless vs Face-Frame Cabinets</a> — Help clients choose the right construction method</li>
-<li><a href="/playbook/modern-inset">Modern Inset: 6 No-Upcharge Variations from Shiloh</a> — Expand your inset cabinetry offerings</li>
-<li><a href="/playbook/japan-inspired-kitchens">Japan-Inspired Kitchens</a> — Spec the warm minimalism trend at three price points</li>
-</ul>
-
-<DealerCTA heading="Become a Dealer in Arizona" text="Ready to partner with the leading cabinetry rep firm in Arizona? Let us know about your showroom and market." />
-</div>
-
-<style>
-  .state-projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 1.25rem;
-    margin: 1.25rem 0 2rem;
-  }
-  .state-project-card {
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    color: inherit;
-    border: 1px solid var(--color-border, #e0e0e0);
-    background: #fff;
-    overflow: hidden;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  .state-project-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(0,0,0,0.08);
-    opacity: 1;
-  }
-  .state-project-image {
-    position: relative;
-    aspect-ratio: 4 / 3;
-    overflow: hidden;
-    background: var(--color-bg-alt, #f7f7f7);
-  }
-  .state-project-image img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-  }
-  .state-project-brand {
-    position: absolute;
-    bottom: 0.5rem; left: 0.5rem;
-    background: rgba(0,0,0,0.75); color: #fff;
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 0.2rem 0.55rem;
-  }
-  .state-project-body { padding: 0.9rem 1rem 1.1rem; }
-  .state-project-body h3 {
-    font-size: 0.98rem;
-    line-height: 1.3;
-    font-weight: 500;
-    margin: 0 0 0.3rem;
-  }
-  .state-project-meta {
-    font-size: 0.78rem;
-    color: var(--color-light-text, #999);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin: 0;
-  }
-</style>
 </BaseLayout>

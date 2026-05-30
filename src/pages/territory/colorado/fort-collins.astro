@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import DealerCTA from '../../../components/DealerCTA.astro';
+const breadcrumbs = [{name:'Home',href:'/'},{name:"Colorado",href:'/territory/colorado'},{name:"Fort Collins"}];
+const schema = {"@context":"https://schema.org","@type":"Service","serviceType":"Kitchen cabinetry sales and dealer support","provider":{"@type":"Organization","name":"Pinnacle Sales","telephone":"+1-480-993-9224","url":"https://www.pinnaclesales.biz"},"areaServed":{"@type":"City","name":"Fort Collins","containedInPlace":{"@type":"State","name":"Colorado"}},"brand":["Shiloh Cabinetry","Eclipse Cabinetry","Aspect Cabinetry","Pronorm German Kitchens","Vistora Closets"],"url":"https://www.pinnaclesales.biz/territory/colorado/fort-collins"};
+---
+<BaseLayout title="Kitchen Cabinets in Fort Collins, CO | Showrooms" description="Looking for kitchen cabinets in Fort Collins, CO? Compare premium brands \u2014 Shiloh, Eclipse, Aspect & Pronorm \u2014 and find a local showroom near you." schema={schema}>
+<div class="page-header"><h1>Kitchen Cabinets in Fort Collins, CO</h1><p>Planning a kitchen remodel or new build in Fort Collins? Pinnacle Sales represents five premium cabinetry brands — Shiloh, Eclipse, Aspect, Pronorm German Kitchens, and Vistora Closets — sold through independent local showrooms.</p></div>
+<div class="content-narrow section">
+<Breadcrumbs items={breadcrumbs} />
+
+<p>From Old Town to the newer neighborhoods across Northern Colorado, Fort Collins kitchens blend transitional style with clean, contemporary touches.</p>
+<h2 id="fort-collins-kitchen-showrooms">Fort Collins Kitchen Showrooms</h2>
+<p>Pinnacle Sales brands are sold through independent local showrooms in and around Fort Collins. Tell us about your project and we'll connect you with the nearest authorized dealer.</p>
+<p><a class="btn btn-outline" href="/contact">Find a Local Dealer</a></p>
+<h2 id="best-cabinet-lines-for-fort-collins-kitchens">Best Cabinet Lines for Fort Collins Kitchens</h2>
+<ul>
+  <li><strong><a href="/brands/shiloh-cabinetry">Shiloh Cabinetry</a></strong> — Custom paint and broad wood species for transitional and modern-shaker kitchens.</li>
+  <li><strong><a href="/brands/aspect-cabinetry">Aspect Cabinetry</a></strong> — Semi-custom value for Northern Colorado new construction.</li>
+  <li><strong><a href="/brands/eclipse-cabinetry">Eclipse Cabinetry</a></strong> — Frameless, full-access for contemporary remodels.</li>
+  <li><strong><a href="/brands/pronorm-german-kitchens">Pronorm German Kitchens</a></strong> — Handleless European fronts for high-end homes.</li>
+</ul>
+<h2 id="fort-collins-kitchen-design-trends">Fort Collins Kitchen Design Trends</h2>
+<p>Fort Collins kitchens favor warm transitional design — painted perimeters with stained islands, modern-shaker doors, and natural-wood accents that suit the area's mix of historic Old Town homes and newer construction. The region's growth keeps semi-custom value in demand, while higher-end remodels increasingly add <a href="/playbook/modern-inset">inset</a> and clean <a href="/brands/eclipse-cabinetry">frameless</a> construction.</p>
+<h2 id="start-your-fort-collins-kitchen-project">Start Your Fort Collins Kitchen Project</h2>
+<p>Book a showroom visit through a Fort Collins-area dealer, bring rough dimensions or a floor plan, and the designer will guide layout, finishes, and quoting. <a href="#fort-collins-kitchen-showrooms">Find a Fort Collins Showroom</a>.</p>
+
+<DealerCTA heading="Fort Collins Kitchen Dealer?" text="Get listed for Fort Collins homeowner search traffic. Pinnacle Sales provides sales training, 2020/Winner design support, and showroom merchandising." />
+</div>
+</BaseLayout>

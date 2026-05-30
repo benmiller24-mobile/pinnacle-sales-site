@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import DealerCTA from '../../../components/DealerCTA.astro';
+const breadcrumbs = [{name:'Home',href:'/'},{name:"California",href:'/territory/california'},{name:"Orange County"}];
+const schema = {"@context":"https://schema.org","@type":"Service","serviceType":"Kitchen cabinetry sales and dealer support","provider":{"@type":"Organization","name":"Pinnacle Sales","telephone":"+1-480-993-9224","url":"https://www.pinnaclesales.biz"},"areaServed":{"@type":"City","name":"Orange County","containedInPlace":{"@type":"State","name":"California"}},"brand":["Shiloh Cabinetry","Eclipse Cabinetry","Aspect Cabinetry","Pronorm German Kitchens","Vistora Closets"],"url":"https://www.pinnaclesales.biz/territory/california/orange-county"};
+---
+<BaseLayout title="Kitchen Cabinets in Orange County, CA | Showrooms" description="Looking for kitchen cabinets in Orange County, CA? Compare premium brands \u2014 Shiloh, Eclipse & Pronorm German kitchens \u2014 and find a local showroom near you." schema={schema}>
+<div class="page-header"><h1>Kitchen Cabinets in Orange County, CA</h1><p>Planning a kitchen remodel or new build in Orange County? Pinnacle Sales represents five premium cabinetry brands — Shiloh, Eclipse, Aspect, Pronorm German Kitchens, and Vistora Closets — sold through independent local showrooms.</p></div>
+<div class="content-narrow section">
+<Breadcrumbs items={breadcrumbs} />
+
+<p>From Newport Beach and Corona del Mar to Laguna, Irvine, Coto de Caza, and the South County communities, Orange County kitchens span breezy coastal transitional to crisp contemporary.</p>
+<h2 id="orange-county-kitchen-showrooms">Orange County Kitchen Showrooms</h2>
+<p>Pinnacle Sales brands are sold through independent local showrooms across Orange County. Tell us about your project and we'll connect you with the nearest authorized dealer.</p>
+<p><a class="btn btn-outline" href="/contact">Find a Local Dealer</a></p>
+<h2 id="best-cabinet-lines-for-orange-county-kitchens">Best Cabinet Lines for Orange County Kitchens</h2>
+<ul>
+  <li><strong><a href="/brands/shiloh-cabinetry">Shiloh Cabinetry</a></strong> — Custom paint, <a href="/playbook/modern-inset">inset</a>, and white-oak finishes for the coastal-transitional look.</li>
+  <li><strong><a href="/brands/eclipse-cabinetry">Eclipse Cabinetry</a></strong> — Frameless, full-access for clean contemporary remodels.</li>
+  <li><strong><a href="/brands/pronorm-german-kitchens">Pronorm German Kitchens</a></strong> — Handleless European fronts for high-end Newport Coast and hillside homes.</li>
+  <li><strong><a href="/brands/aspect-cabinetry">Aspect Cabinetry</a></strong> — Semi-custom value for ADUs and rental properties.</li>
+</ul>
+<h2 id="orange-county-kitchen-design-trends">Orange County Kitchen Design Trends</h2>
+<p>Orange County kitchens favor a light, coastal-transitional palette — white and warm-white perimeters, white-oak and walnut islands, natural textures, and easy indoor-outdoor flow. The high-end coastal enclaves of Newport Beach, Corona del Mar, and Laguna increasingly pair this with handleless <a href="/brands/pronorm-german-kitchens">Pronorm</a> and seamless <a href="/brands/eclipse-cabinetry">frameless</a> kitchens for a more contemporary, gallery-like feel.</p>
+<h2 id="start-your-orange-county-kitchen-project">Start Your Orange County Kitchen Project</h2>
+<p>Book a showroom visit through an OC-area dealer, bring rough dimensions or a floor plan, and the designer will guide layout, finishes, and quoting. <a href="#orange-county-kitchen-showrooms">Find an Orange County Showroom</a>.</p>
+
+<DealerCTA heading="Orange County Kitchen Dealer?" text="Get listed for Orange County homeowner search traffic. Pinnacle Sales provides sales training, 2020/Winner design support, and showroom merchandising." />
+</div>
+</BaseLayout>

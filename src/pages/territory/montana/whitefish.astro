@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import DealerCTA from '../../../components/DealerCTA.astro';
+const breadcrumbs = [{name:'Home',href:'/'},{name:"Montana",href:'/territory/montana'},{name:"Whitefish"}];
+const schema = {"@context":"https://schema.org","@type":"Service","serviceType":"Kitchen cabinetry sales and dealer support","provider":{"@type":"Organization","name":"Pinnacle Sales","telephone":"+1-480-993-9224","url":"https://www.pinnaclesales.biz"},"areaServed":{"@type":"City","name":"Whitefish","containedInPlace":{"@type":"State","name":"Montana"}},"brand":["Shiloh Cabinetry","Eclipse Cabinetry","Aspect Cabinetry","Pronorm German Kitchens","Vistora Closets"],"url":"https://www.pinnaclesales.biz/territory/montana/whitefish"};
+---
+<BaseLayout title="Kitchen Cabinets in Whitefish, MT | Showrooms & Brands" description="Looking for kitchen cabinets in Whitefish, MT? Compare premium brands \u2014 Shiloh, Eclipse & Pronorm German kitchens \u2014 and find a local Flathead Valley showroom." schema={schema}>
+<div class="page-header"><h1>Kitchen Cabinets in Whitefish, MT</h1><p>Planning a kitchen build or remodel in the Flathead Valley? Pinnacle Sales represents five premium cabinetry brands — Shiloh, Eclipse, Aspect, Pronorm German Kitchens, and Vistora Closets — sold through independent local showrooms.</p></div>
+<div class="content-narrow section">
+<Breadcrumbs items={breadcrumbs} />
+
+<p>From Whitefish and Whitefish Lake to Kalispell and the Glacier-gateway communities, kitchens here favor mountain-modern luxury for ski-and-lake homes.</p>
+<h2 id="whitefish-kitchen-showrooms">Whitefish Kitchen Showrooms</h2>
+<p>Pinnacle Sales brands are sold through independent local showrooms in and around Whitefish. Tell us about your project and we'll connect you with the nearest authorized dealer.</p>
+<p><a class="btn btn-outline" href="/contact">Find a Local Dealer</a></p>
+<h2 id="best-cabinet-lines-for-whitefish-kitchens">Best Cabinet Lines for Whitefish Kitchens</h2>
+<ul>
+  <li><strong><a href="/brands/shiloh-cabinetry">Shiloh Cabinetry</a></strong> — Custom stains, paint, and wood species for refined mountain-modern kitchens.</li>
+  <li><strong><a href="/brands/pronorm-german-kitchens">Pronorm German Kitchens</a></strong> — Handleless European fronts for high-end ski and lake homes.</li>
+  <li><strong><a href="/brands/eclipse-cabinetry">Eclipse Cabinetry</a></strong> — Frameless, full-access for clean contemporary builds.</li>
+  <li><strong><a href="/brands/aspect-cabinetry">Aspect Cabinetry</a></strong> — Semi-custom value for residential projects.</li>
+</ul>
+<h2 id="whitefish-kitchen-design-trends">Whitefish Kitchen Design Trends</h2>
+<p>Whitefish kitchens define modern-rustic luxury: knotty alder and rift oak, reclaimed wood, blackened metal, and clean lines that frame mountain and lake views. The Flathead Valley's high-end ski-and-lake market increasingly pairs <a href="/brands/shiloh-cabinetry">Shiloh's</a> stain program with handleless or <a href="/brands/eclipse-cabinetry">frameless</a> fronts for a warm contemporary mountain look.</p>
+<h2 id="start-your-whitefish-kitchen-project">Start Your Whitefish Kitchen Project</h2>
+<p>Book a showroom visit through a Flathead Valley dealer, bring rough dimensions or a floor plan, and the designer will guide layout, finishes, and quoting. <a href="#whitefish-kitchen-showrooms">Find a Whitefish Showroom</a>.</p>
+
+<DealerCTA heading="Whitefish Kitchen Dealer?" text="Get listed for Flathead Valley homeowner search traffic. Pinnacle Sales provides sales training, 2020/Winner design support, and showroom merchandising." />
+</div>
+</BaseLayout>

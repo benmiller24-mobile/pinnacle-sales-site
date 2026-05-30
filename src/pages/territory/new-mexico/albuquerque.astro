@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import DealerCTA from '../../../components/DealerCTA.astro';
+const breadcrumbs = [{name:'Home',href:'/'},{name:"New Mexico",href:'/territory/new-mexico'},{name:"Albuquerque"}];
+const schema = {"@context":"https://schema.org","@type":"Service","serviceType":"Kitchen cabinetry sales and dealer support","provider":{"@type":"Organization","name":"Pinnacle Sales","telephone":"+1-480-993-9224","url":"https://www.pinnaclesales.biz"},"areaServed":{"@type":"City","name":"Albuquerque","containedInPlace":{"@type":"State","name":"New Mexico"}},"brand":["Shiloh Cabinetry","Eclipse Cabinetry","Aspect Cabinetry","Pronorm German Kitchens","Vistora Closets"],"url":"https://www.pinnaclesales.biz/territory/new-mexico/albuquerque"};
+---
+<BaseLayout title="Kitchen Cabinets in Albuquerque, NM | Showrooms & Brands" description="Looking for kitchen cabinets in Albuquerque, NM? Compare premium brands \u2014 Shiloh, Eclipse & Pronorm \u2014 and visit a local showroom in Albuquerque or Corrales." schema={schema}>
+<div class="page-header"><h1>Kitchen Cabinets in Albuquerque, NM</h1><p>Planning a kitchen remodel or new build in the Duke City? Pinnacle Sales represents five premium cabinetry brands — Shiloh, Eclipse, Aspect, Pronorm German Kitchens, and Vistora Closets — sold through independent Albuquerque-area showrooms.</p></div>
+<div class="content-narrow section">
+<Breadcrumbs items={breadcrumbs} />
+
+<p>From the Northeast Heights to Corrales and the Sandia foothills, Albuquerque kitchens blend Southwestern warmth with transitional and contemporary refinement. (Designing in Santa Fe? That market is just up the road — ask us for the nearest dealer.)</p>
+<h2 id="albuquerque-kitchen-showrooms">Albuquerque Kitchen Showrooms</h2>
+<p>Pinnacle Sales brands are sold through independent local showrooms in and around Albuquerque. Tell us about your project and we'll connect you with the nearest authorized dealer.</p>
+<p><a class="btn btn-outline" href="/contact">Find a Local Dealer</a></p>
+<h2 id="best-cabinet-lines-for-albuquerque-kitchens">Best Cabinet Lines for Albuquerque Kitchens</h2>
+<ul>
+  <li><strong><a href="/brands/shiloh-cabinetry">Shiloh Cabinetry</a></strong> — Custom paint and warm wood species — well suited to Southwestern and transitional kitchens.</li>
+  <li><strong><a href="/brands/eclipse-cabinetry">Eclipse Cabinetry</a></strong> — Frameless, full-access for contemporary remodels.</li>
+  <li><strong><a href="/brands/aspect-cabinetry">Aspect Cabinetry</a></strong> — Semi-custom value for residential and builder projects.</li>
+  <li><strong><a href="/brands/pronorm-german-kitchens">Pronorm German Kitchens</a></strong> — Handleless European fronts for high-end contemporary homes.</li>
+</ul>
+<h2 id="albuquerque-kitchen-design-trends">Albuquerque Kitchen Design Trends</h2>
+<p>Albuquerque kitchens balance Southwestern warmth with clean, contemporary detailing — warm-painted and stained combinations, natural-wood accents, and earthy palettes that suit the region's adobe and Pueblo-influenced architecture. Higher-end remodels increasingly add <a href="/brands/eclipse-cabinetry">frameless</a> construction and handleless fronts for a more modern, gallery-like feel.</p>
+<h2 id="start-your-albuquerque-kitchen-project">Start Your Albuquerque Kitchen Project</h2>
+<p>Book a showroom visit through an Albuquerque-area dealer above, bring rough dimensions or a floor plan, and the designer will guide layout, finishes, and quoting. <a href="#albuquerque-kitchen-showrooms">Find an Albuquerque Showroom</a>.</p>
+
+<DealerCTA heading="Albuquerque Kitchen Dealer?" text="Get listed on this page and capture Albuquerque homeowner search traffic. Pinnacle Sales provides sales training, 2020/Winner design support, and showroom merchandising." />
+</div>
+</BaseLayout>

@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import DealerCTA from '../../../components/DealerCTA.astro';
+const breadcrumbs = [{name:'Home',href:'/'},{name:"Colorado",href:'/territory/colorado'},{name:"Boulder"}];
+const schema = {"@context":"https://schema.org","@type":"Service","serviceType":"Kitchen cabinetry sales and dealer support","provider":{"@type":"Organization","name":"Pinnacle Sales","telephone":"+1-480-993-9224","url":"https://www.pinnaclesales.biz"},"areaServed":{"@type":"City","name":"Boulder","containedInPlace":{"@type":"State","name":"Colorado"}},"brand":["Shiloh Cabinetry","Eclipse Cabinetry","Aspect Cabinetry","Pronorm German Kitchens","Vistora Closets"],"url":"https://www.pinnaclesales.biz/territory/colorado/boulder"};
+---
+<BaseLayout title="Kitchen Cabinets in Boulder, CO | Showrooms & Brands" description="Looking for kitchen cabinets in Boulder, CO? Compare premium brands \u2014 Shiloh, Eclipse & Pronorm German kitchens \u2014 and find a local showroom near you." schema={schema}>
+<div class="page-header"><h1>Kitchen Cabinets in Boulder, CO</h1><p>Planning a kitchen remodel or new build in Boulder? Pinnacle Sales represents five premium cabinetry brands — Shiloh, Eclipse, Aspect, Pronorm German Kitchens, and Vistora Closets — sold through independent local showrooms.</p></div>
+<div class="content-narrow section">
+<Breadcrumbs items={breadcrumbs} />
+
+<p>From Mapleton Hill and the Newlands to the foothills neighborhoods, Boulder kitchens blend modern, sustainability-minded design with mountain-modern warmth.</p>
+<h2 id="boulder-kitchen-showrooms">Boulder Kitchen Showrooms</h2>
+<p>Pinnacle Sales brands are sold through independent local showrooms in and around Boulder. Tell us about your project and we'll connect you with the nearest authorized dealer.</p>
+<p><a class="btn btn-outline" href="/contact">Find a Local Dealer</a></p>
+<h2 id="best-cabinet-lines-for-boulder-kitchens">Best Cabinet Lines for Boulder Kitchens</h2>
+<ul>
+  <li><strong><a href="/brands/eclipse-cabinetry">Eclipse Cabinetry</a></strong> — Frameless, full-access for clean contemporary Boulder remodels.</li>
+  <li><strong><a href="/brands/shiloh-cabinetry">Shiloh Cabinetry</a></strong> — Custom paint, <a href="/playbook/modern-inset">inset</a>, and natural wood species for transitional and mountain-modern kitchens.</li>
+  <li><strong><a href="/brands/pronorm-german-kitchens">Pronorm German Kitchens</a></strong> — Handleless European fronts for high-end foothills homes.</li>
+  <li><strong><a href="/brands/aspect-cabinetry">Aspect Cabinetry</a></strong> — Semi-custom value for ADUs and rental properties.</li>
+</ul>
+<h2 id="boulder-kitchen-design-trends">Boulder Kitchen Design Trends</h2>
+<p>Boulder kitchens favor clean, modern design with natural materials — warm woods, matte finishes, and an emphasis on light and sustainability that reflects the city's character. Two-tone schemes and warm-wood islands are common in the area's many craftsman and mid-century remodels, while higher-end foothills projects lean toward <a href="/brands/eclipse-cabinetry">frameless</a> construction and handleless <a href="/brands/pronorm-german-kitchens">Pronorm</a> kitchens.</p>
+<h2 id="featured-project-near-boulder">Featured Project Near Boulder</h2>
+<ul>
+  <li><a href="/projects/boulder-whole-home">Boulder Whole Home</a> — Boulder, CO</li>
+</ul>
+<p>See more in the <a href="/projects">project gallery</a>.</p>
+<h2 id="start-your-boulder-kitchen-project">Start Your Boulder Kitchen Project</h2>
+<p>Book a showroom visit through a Boulder-area dealer, bring rough dimensions or a floor plan, and the designer will guide layout, finishes, and quoting. <a href="#boulder-kitchen-showrooms">Find a Boulder Showroom</a>.</p>
+
+<DealerCTA heading="Boulder Kitchen Dealer?" text="Get listed for Boulder homeowner search traffic. Pinnacle Sales provides sales training, 2020/Winner design support, and showroom merchandising." />
+</div>
+</BaseLayout>
