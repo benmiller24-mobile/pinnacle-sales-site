@@ -1,5 +1,15 @@
 export const blogPosts = [
   {
+    slug: 'eclipse-procore-veneer-finished-ends',
+    title: 'Eclipse Brings Back Veneered Finished Ends — Now Standard on ProCore Plywood Stain Orders',
+    excerpt: "W.W. Wood has rolled every applicable Eclipse plywood stain order onto a new ProCore veneer platform: veneered finished ends, wall tops, bottoms, and utility tops, in 12 species. Plywood upcharge stays at 10%. Acrylics, HPLs, Paint, PVs, and TFLs remain Partial Plywood for now — paint on ProCore is coming.",
+    author: 'Ben Miller',
+    date: '2026-05-27',
+    category: 'Product Updates',
+    image: '/images/blog/caruso-eclipse-kitchen-hero.webp',
+    recommended: true
+  },
+  {
     slug: 'shiloh-eclipse-bifold-doors',
     title: 'New Door Option: Bifold (BFD) Doors Now Available in Shiloh and Eclipse',
     excerpt: "W.W. Wood Products has released Bifold Doors (BFD) for Shiloh and Eclipse — production-ready and orderable today on most stock wall cabinets 21″–48″ wide. Soft-close hinges, $672 per set. The catch: the SKUs aren't in 20/20, ProKitchens, or Interactive catalogs yet, so you'll need to add it as a modification line.",
