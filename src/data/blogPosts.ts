@@ -7,6 +7,7 @@ export const blogPosts = [
     date: '2026-05-27',
     category: 'Product Updates',
     image: '/images/logos/eclipse-logo.png',
+    imageFit: 'contain',
     recommended: true
   },
   {
