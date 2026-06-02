@@ -1,5 +1,15 @@
 export const blogPosts = [
   {
+    slug: 'paint-look-white-oak-stains',
+    title: 'Stain That Reads Like Paint: New White Oak Finishes in Warm Stone, Evening Tide, and Deep Water',
+    excerpt: "Three new heavy-pigment stain finishes on White Oak that read like painted cabinetry from across the room — Warm Stone (cream), Evening Tide (charcoal), and Deep Water (slate blue-gray) — while letting the grain telegraph through. Designer positioning, where each one wins, and how to get samples.",
+    author: 'Ben Miller',
+    date: '2026-06-02',
+    category: 'Product Updates',
+    image: '/images/blog/paint-look-white-oak-stains/three-finishes-hero.webp',
+    recommended: true
+  },
+  {
     slug: 'eclipse-procore-veneer-finished-ends',
     title: 'Eclipse Brings Back Veneered Finished Ends — Now Standard on ProCore Plywood Stain Orders',
     excerpt: "W.W. Wood now builds veneered ProCore plywood on every applicable Eclipse plywood stain order: veneered finished ends, wall tops, bottoms, and utility tops, in 12 species. Plywood upcharge stays at 10%. Acrylics, HPLs, Paint, PVs, and TFLs remain Partial Plywood for now — paint on ProCore is coming.",
