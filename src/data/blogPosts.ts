@@ -2,11 +2,11 @@ export const blogPosts = [
   {
     slug: 'eclipse-procore-veneer-finished-ends',
     title: 'Eclipse Brings Back Veneered Finished Ends — Now Standard on ProCore Plywood Stain Orders',
-    excerpt: "W.W. Wood has rolled every applicable Eclipse plywood stain order onto a new ProCore veneer platform: veneered finished ends, wall tops, bottoms, and utility tops, in 12 species. Plywood upcharge stays at 10%. Acrylics, HPLs, Paint, PVs, and TFLs remain Partial Plywood for now — paint on ProCore is coming.",
+    excerpt: "W.W. Wood now builds veneered ProCore plywood on every applicable Eclipse plywood stain order: veneered finished ends, wall tops, bottoms, and utility tops, in 12 species. Plywood upcharge stays at 10%. Acrylics, HPLs, Paint, PVs, and TFLs remain Partial Plywood for now — paint on ProCore is coming.",
     author: 'Ben Miller',
     date: '2026-05-27',
     category: 'Product Updates',
-    image: '/images/blog/caruso-eclipse-kitchen-hero.webp',
+    image: '/images/logos/eclipse-logo.png',
     recommended: true
   },
   {
