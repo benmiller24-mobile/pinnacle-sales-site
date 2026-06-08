@@ -1,5 +1,15 @@
 export const blogPosts = [
   {
+    slug: 'pronorm-weeks-mitchell-scottsdale',
+    title: 'Dark Steel Meets Ultra Matte Black: A Pronorm Desert Kitchen in Scottsdale',
+    excerpt: "Weeks & Mitchell pairs Pronorm's Dark Steel finish with Ultra Matte Black Lacquer in a vaulted Scottsdale great room — a case study in using two flat, modern finishes to frame a dramatic waterfall-marble island.",
+    author: 'Ben Miller',
+    date: '2026-06-08',
+    category: 'Dealer Success',
+    image: '/images/blog/pronorm-weeks-mitchell-scottsdale/01-kitchen-island-overview.webp',
+    recommended: true
+  },
+  {
     slug: 'paint-look-white-oak-stains',
     title: 'Stain That Reads Like Paint: New White Oak Finishes in Warm Stone, Evening Tide, and Deep Water',
     excerpt: "Three new heavy-pigment stain finishes on White Oak that read like painted cabinetry from across the room — Warm Stone (cream), Evening Tide (charcoal), and Deep Water (slate blue-gray) — while letting the grain telegraph through. Designer positioning, where each one wins, and how to get samples.",
