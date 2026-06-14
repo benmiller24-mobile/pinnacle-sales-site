@@ -1,5 +1,25 @@
 export const blogPosts = [
   {
+    slug: 'us-stone-container-program',
+    title: 'Buy by the Container: Wholesale Stone for Dealers, Slab Yards & Fabricators',
+    excerpt: "Through our US Stone Group partnership, Pinnacle now offers full-container quartzite, marble, and porcelain at quarry-direct pricing. See the current container: an exceptionally clean Perla Venata (60 slabs, polished/honed/leathered at no upcharge) finished with a dramatic Cristallo (10 slabs).",
+    author: 'Ben Miller',
+    date: '2026-06-14',
+    category: 'Product Updates',
+    image: '/images/blog/us-stone-container/perla-venata-polished.webp',
+    recommended: true
+  },
+  {
+    slug: 'pinnacle-us-stone-group-partnership',
+    title: 'Pinnacle Sales Now Distributes US Stone Group Luxury Surfaces',
+    excerpt: "Pinnacle Sales has partnered with US Stone Group to distribute luxury natural stone, semi-precious gemstone, and Italian porcelain slabs across the Western U.S. — now you can spec the countertop and the cabinetry from one rep.",
+    author: 'Ben Miller',
+    date: '2026-06-14',
+    category: 'Product Updates',
+    image: '/images/brands/us-stone-group/cristallo.webp',
+    recommended: true
+  },
+  {
     slug: 'pronorm-weeks-mitchell-scottsdale',
     title: 'Dark Steel Meets Ultra Matte Black: A Pronorm Desert Kitchen in Scottsdale',
     excerpt: "Weeks & Mitchell pairs Pronorm's Dark Steel finish with Ultra Matte Black Lacquer in a vaulted Scottsdale great room — a case study in using two flat, modern finishes to frame a dramatic waterfall-marble island.",
