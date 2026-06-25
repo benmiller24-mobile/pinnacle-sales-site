@@ -3,8 +3,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Testimonials from '../components/Testimonials.astro';
 const contactSchema = {"@context":"https://schema.org","@type":"ContactPage","name":"Become a Pinnacle Sales Dealer","description":"Apply to become a Pinnacle Sales kitchen and bath cabinetry dealer. Carry Shiloh, Eclipse, Aspect, Pronorm, and Vistora across 10 Western US states.","mainEntity":{"@type":"Organization","name":"Pinnacle Sales","url":"https://pinnaclesales.biz","contactPoint":{"@type":"ContactPoint","telephone":"+1-480-993-9224","contactType":"sales","email":"info@pinnaclesales.biz","areaServed":["Arizona","California","Colorado","Idaho","Montana","Nevada","New Mexico","Oregon","Utah","Washington"],"availableLanguage":["English"]}},"potentialAction":{"@type":"ApplyAction","name":"Apply to become a dealer","target":"https://pinnaclesales.biz/dealer-hub/submit/"}};
+
+const dealerFaqs = [
+  {q:"How do I become a Pinnacle Sales dealer?", a:"Submit the dealer application on this page. We'll follow up within two business days to schedule an introductory call, review your market and showroom, and discuss which of our brands — Shiloh, Eclipse, Aspect, Pronorm, or Vistora — best fit your business."},
+  {q:"Is there a cost or minimum order to become a dealer?", a:"There is no fee to apply or to become an authorized dealer. Minimum order requirements and display commitments vary by brand and program; we'll walk through the specifics for the lines you're interested in during your introductory call."},
+  {q:"Do you offer protected dealer territories?", a:"Yes. Territory protection varies by brand and market. Pronorm German Kitchens are available nationwide with protected dealer territories, and we manage territory carefully for our WW Wood Products lines (Shiloh, Eclipse, Aspect, Vistora) across the 10 Western states we represent."},
+  {q:"Which states does Pinnacle Sales cover?", a:"We represent dealers across Arizona, California, Colorado, Idaho, Montana, Nevada, New Mexico, Oregon, Utah, and Washington for WW Wood Products brands. Pronorm German Kitchens are available to qualified dealers nationwide."},
+  {q:"Can I carry Pronorm without carrying the WW Wood Products brands?", a:"Yes. Pronorm German Kitchens are distributed independently through European Kitchen Distributors (EKD), a Pinnacle Sales company, with protected territories nationwide — regardless of whether you carry Shiloh, Eclipse, Aspect, or Vistora."},
+  {q:"What support do you provide after I become a dealer?", a:"Hands-on in-person sales training, 2020/Winner design and quoting support, showroom merchandising and display programs, co-branded marketing resources, factory access and tours, and ongoing business development — we work alongside your team to close more projects."},
+  {q:"What types of businesses do you work with?", a:"Independent kitchen & bath showrooms, design-build firms, custom home builders, interior design studios with product sales capability, and multi-location dealer groups — from single showrooms to growing enterprises."}
+];
+const dealerFaqSchema = {"@context":"https://schema.org","@type":"FAQPage","mainEntity":dealerFaqs.map(f=>({"@type":"Question","name":f.q,"acceptedAnswer":{"@type":"Answer","text":f.a}}))};
 ---
-<BaseLayout title="Become a Kitchen Cabinet Dealer — Shiloh, Eclipse, Pronorm | Pinnacle Sales" description="Apply to become a Pinnacle Sales dealer. Shiloh, Eclipse, Aspect, Pronorm & Vistora cabinetry + training, showroom support, territory protection." schema={contactSchema}>
+<BaseLayout title="Become a Kitchen Cabinet Dealer — Shiloh, Eclipse, Pronorm | Pinnacle Sales" description="Apply to become a Pinnacle Sales dealer. Shiloh, Eclipse, Aspect, Pronorm & Vistora cabinetry + training, showroom support, territory protection." schema={[contactSchema, dealerFaqSchema]}>
 <div class="page-header"><h1>Become a Pinnacle Sales Dealer</h1><p>Partner with the leading cabinetry rep firm in the Western US. Five premium brands, one trusted partnership.</p></div>
 <div class="content-narrow section">
 <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Become a Dealer'}]} />
@@ -65,6 +76,16 @@ const contactSchema = {"@context":"https://schema.org","@type":"ContactPage","na
 <h2>Who We Work With</h2>
 
 <p>Our dealer partners include independent kitchen and bath showrooms, design-build firms, custom home builders, interior design studios with product sales capability, and multi-location dealer groups. Whether you are a single-location showroom or a growing enterprise, we structure our support to match your business needs.</p>
+
+<h2>Dealer Program FAQs</h2>
+<div class="dealer-faqs">
+{dealerFaqs.map((faq) => (
+<div class="faq-item">
+<h3>{faq.q}</h3>
+<p>{faq.a}</p>
+</div>
+))}
+</div>
 
 <h2>Apply to Become a Dealer</h2>
 
@@ -209,4 +230,9 @@ const contactSchema = {"@context":"https://schema.org","@type":"ContactPage","na
 .hidden{display:none}
 .btn-primary{background:#1a1a2e;color:#fff;border:none;padding:.75rem 2rem;border-radius:6px;font-size:1rem;font-weight:600;cursor:pointer;transition:background .2s}
 .btn-primary:hover{background:#2563eb}
+.dealer-faqs{margin:1.25rem 0 2rem}
+.faq-item{border-bottom:1px solid #e5e7eb;padding:1.25rem 0}
+.faq-item:last-child{border-bottom:none}
+.faq-item h3{font-size:1.05rem;margin:0 0 .5rem;color:#1a1a2e}
+.faq-item p{margin:0;color:#4b5563;font-size:.95rem;line-height:1.6}
 </style>
