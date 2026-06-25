@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import DealerCTA from '../../../components/DealerCTA.astro';
+const breadcrumbs = [{name:'Home',href:'/'},{name:'Brands',href:'/#brands'},{name:'Shiloh Cabinetry',href:'/brands/shiloh-cabinetry'},{name:'Idaho'}];
+const schema = {"@context":"https://schema.org","@type":"Service","serviceType":"Kitchen cabinetry dealer program and manufacturer representation","provider":{"@type":"Organization","name":"Pinnacle Sales","telephone":"+1-480-993-9224","url":"https://pinnaclesales.biz"},"areaServed":{"@type":"State","name":"Idaho"},"brand":"Shiloh Cabinetry","url":"https://pinnaclesales.biz/brands/shiloh-cabinetry/idaho"};
+---
+<BaseLayout title="Become a Shiloh Cabinetry Dealer in Idaho | Pinnacle Sales" description="Carry Shiloh Cabinetry in Idaho. Pinnacle Sales offers protected territory, design support, and showroom support to kitchen & bath dealers in fast-growing Boise and Coeur d'Alene." schema={schema}>
+<div class="page-header"><h1>Become a Shiloh Cabinetry Dealer in Idaho</h1><p>Pinnacle Sales recruits and supports Idaho showrooms with American-made Shiloh Cabinetry — protected territory, hands-on design support, and showroom backing that drives sales.</p></div>
+<div class="content-narrow section">
+<Breadcrumbs items={breadcrumbs} />
+
+<h2 id="why-partner-with-pinnacle">Why Partner With Pinnacle Sales for Shiloh in Idaho</h2>
+<p>Shiloh Cabinetry gives an Idaho showroom a genuine value-to-premium line that competes on craftsmanship rather than price alone. Pinnacle Sales handles product specification, design consultation, order management, and after-sale service so your team can focus on selling. Protected dealer territories are available now, with strong margins and the support of a manufacturer's rep who knows the Idaho market.</p>
+
+<h2 id="why-shiloh-sells-in-idaho">Why Shiloh Sells in Idaho</h2>
+<ul>
+  <li><strong>American-made craftsmanship</strong> — <a href="/brands/shiloh-cabinetry">Shiloh</a> is built by WW Wood Products in Missouri, with face-frame and inset box construction homeowners trust.</li>
+  <li><strong>Custom Paint Program</strong> — spec any Sherwin-Williams color to match the transitional and modern palettes growing across Boise and the lakefront market.</li>
+  <li><strong>Deep selection</strong> — a wide range of wood species, door styles, and finishes serves both fast-growth new construction and lakefront luxury.</li>
+  <li><strong>Premium standards</strong> — dovetail drawers and full-extension soft-close glides come standard, making the value story easy to sell.</li>
+  <li><strong>Strong margins &amp; protected territory</strong> — value-to-premium positioning gives dealers room to profit with design exclusivity in your market.</li>
+</ul>
+
+<h2 id="idaho-market-opportunity">The Idaho Market Opportunity</h2>
+<p>Idaho is one of the fastest-growing states in the country, led by booming new construction and remodeling in the Boise metro and luxury lakefront projects around Coeur d'Alene. Design preferences run to transitional and modern — clean lines, warm woods, and painted finishes — all squarely within Shiloh's range. Carrying Shiloh lets your showroom capture both the high-volume Boise growth market and the Coeur d'Alene luxury client from a single versatile line.</p>
+
+<h2 id="dealer-support">Dealer Support That Drives Sales</h2>
+<p>Pinnacle Sales backs Idaho Shiloh dealers with hands-on sales training, design and specification support, showroom display guidance, factory coordination, and ongoing business development. We work alongside your team to move kitchen projects from concept to order.</p>
+
+<DealerCTA heading="Open a Shiloh Line in Idaho" text="Apply to carry Shiloh Cabinetry in your Idaho territory. Protected territory, design and showroom support, and an American-made line built to sell in one of the nation's fastest-growing markets." />
+
+<p class="homeowner-note">Idaho homeowner or designer looking to buy Shiloh? <a href="/contact">Contact us</a> and we'll connect you with an authorized local dealer.</p>
+</div>
+</BaseLayout>
+<style>
+.homeowner-note{margin-top:2rem;padding-top:1rem;border-top:1px solid #e5e7eb;font-size:.95rem;color:#555}
+</style>

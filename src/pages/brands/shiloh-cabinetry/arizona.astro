@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import DealerCTA from '../../../components/DealerCTA.astro';
+const breadcrumbs = [{name:'Home',href:'/'},{name:'Brands',href:'/#brands'},{name:'Shiloh Cabinetry',href:'/brands/shiloh-cabinetry'},{name:'Arizona'}];
+const schema = {"@context":"https://schema.org","@type":"Service","serviceType":"Kitchen cabinetry dealer program and manufacturer representation","provider":{"@type":"Organization","name":"Pinnacle Sales","telephone":"+1-480-993-9224","url":"https://pinnaclesales.biz"},"areaServed":{"@type":"State","name":"Arizona"},"brand":"Shiloh Cabinetry","url":"https://pinnaclesales.biz/brands/shiloh-cabinetry/arizona"};
+---
+<BaseLayout title="Become a Shiloh Cabinetry Dealer in Arizona | Pinnacle Sales" description="Carry Shiloh Cabinetry in Arizona. Pinnacle Sales offers protected territory, design support, and showroom support to kitchen & bath dealers in the Phoenix metro and beyond." schema={schema}>
+<div class="page-header"><h1>Become a Shiloh Cabinetry Dealer in Arizona</h1><p>Pinnacle Sales recruits and supports Arizona showrooms with American-made Shiloh Cabinetry — protected territory, hands-on design support, and showroom backing that drives sales.</p></div>
+<div class="content-narrow section">
+<Breadcrumbs items={breadcrumbs} />
+
+<h2 id="why-partner-with-pinnacle">Why Partner With Pinnacle Sales for Shiloh in Arizona</h2>
+<p>Shiloh Cabinetry gives an Arizona showroom a genuine value-to-premium line that competes on craftsmanship rather than price alone. Pinnacle Sales handles product specification, design consultation, order management, and after-sale service so your team can focus on selling. Protected dealer territories are available now, with strong margins and the support of a manufacturer's rep who knows the Arizona market.</p>
+
+<h2 id="why-shiloh-sells-in-arizona">Why Shiloh Sells in Arizona</h2>
+<ul>
+  <li><strong>American-made craftsmanship</strong> — <a href="/brands/shiloh-cabinetry">Shiloh</a> is built by WW Wood Products in Missouri, with face-frame and inset box construction homeowners trust.</li>
+  <li><strong>Custom Paint Program</strong> — spec any Sherwin-Williams color to match desert warm-contemporary palettes popular across Scottsdale and the East Valley.</li>
+  <li><strong>Deep selection</strong> — a wide range of wood species, door styles, and finishes fits everything from luxury Paradise Valley remodels to high-volume new construction.</li>
+  <li><strong>Premium standards</strong> — dovetail drawers and full-extension soft-close glides come standard, making the value story easy to sell.</li>
+  <li><strong>Strong margins &amp; protected territory</strong> — value-to-premium positioning gives dealers room to profit with design exclusivity in your market.</li>
+</ul>
+
+<h2 id="arizona-market-opportunity">The Arizona Market Opportunity</h2>
+<p>Arizona pairs two strong demand drivers: luxury remodeling in Scottsdale and Paradise Valley, and high-volume new construction across the Phoenix East Valley in Gilbert and Queen Creek. The dominant desert warm-contemporary aesthetic — warm woods, painted finishes, and clean transitional lines — is squarely in Shiloh's wheelhouse. Carrying Shiloh lets your showroom serve both the custom-luxury client and the builder-driven volume project from a single, versatile line.</p>
+
+<h2 id="dealer-support">Dealer Support That Drives Sales</h2>
+<p>Pinnacle Sales backs Arizona Shiloh dealers with hands-on sales training, design and specification support, showroom display guidance, factory coordination, and ongoing business development. We work alongside your team to move kitchen projects from concept to order.</p>
+
+<DealerCTA heading="Open a Shiloh Line in Arizona" text="Apply to carry Shiloh Cabinetry in your Arizona territory. Protected territory, design and showroom support, and an American-made line built to sell in the desert market." />
+
+<p class="homeowner-note">Arizona homeowner or designer looking to buy Shiloh? <a href="/contact">Contact us</a> and we'll connect you with an authorized local dealer.</p>
+</div>
+</BaseLayout>
+<style>
+.homeowner-note{margin-top:2rem;padding-top:1rem;border-top:1px solid #e5e7eb;font-size:.95rem;color:#555}
+</style>

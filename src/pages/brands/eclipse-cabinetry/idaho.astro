@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import DealerCTA from '../../../components/DealerCTA.astro';
+const breadcrumbs = [{name:'Home',href:'/'},{name:'Brands',href:'/#brands'},{name:'Eclipse Cabinetry',href:'/brands/eclipse-cabinetry'},{name:'Idaho'}];
+const schema = {"@context":"https://schema.org","@type":"Service","serviceType":"Kitchen cabinetry dealer program and manufacturer representation","provider":{"@type":"Organization","name":"Pinnacle Sales","telephone":"+1-480-993-9224","url":"https://pinnaclesales.biz"},"areaServed":{"@type":"State","name":"Idaho"},"brand":"Eclipse Cabinetry","url":"https://pinnaclesales.biz/brands/eclipse-cabinetry/idaho"};
+---
+<BaseLayout title="Become an Eclipse Cabinetry Dealer in Idaho | Pinnacle Sales" description="Carry Eclipse Cabinetry in Idaho. Pinnacle Sales recruits kitchen & bath dealers with protected territory, strong margins, and frameless full-access cabinetry for contemporary new-build homes." schema={schema}>
+<div class="page-header"><h1>Become an Eclipse Cabinetry Dealer in Idaho</h1><p>Pinnacle Sales recruits and supports Idaho kitchen & bath dealers with protected territory, strong margins, and Eclipse's frameless full-access cabinetry — built for the contemporary look Idaho's fast-growing new-build market demands.</p></div>
+<div class="content-narrow section">
+<Breadcrumbs items={breadcrumbs} />
+
+<h2 id="why-partner-with-pinnacle">Why Partner With Pinnacle Sales for Eclipse in Idaho</h2>
+<p>Eclipse gives an Idaho showroom a genuine point of difference: frameless, full-access construction with a clean contemporary aesthetic that the booming Boise and Coeur d'Alene markets increasingly specify. Pinnacle Sales manages product specification, design support, order management, and after-sale service, so your team can focus on selling. Protected dealer territories are available now, with strong margins built on design rather than discounting.</p>
+
+<h2 id="why-eclipse-sells-in-idaho">Why Eclipse Sells in Idaho</h2>
+<ul>
+  <li><strong>Frameless, full-access construction</strong> — European-inspired <a href="/brands/eclipse-cabinetry">frameless</a> design delivers up to ~15% more usable interior space than face-frame cabinetry.</li>
+  <li><strong>Clean, contemporary aesthetic</strong> — sleek full-overlay fronts match the modern look specced in Boise growth corridors and Coeur d'Alene lake homes.</li>
+  <li><strong>American-made quality</strong> — built by WW Wood Products in Missouri under the same quality program as Shiloh, with a wide finish selection.</li>
+  <li><strong>New-build ready</strong> — ideal for contemporary new construction and remodels, with a finish palette that pairs warm woods and clean matte fronts.</li>
+  <li><strong>Protected territory &amp; strong margins</strong> — open an Eclipse line with dealer exclusivity in your market.</li>
+</ul>
+
+<h2 id="idaho-market-opportunity">The Idaho Market Opportunity</h2>
+<p>Boise is one of the fastest-growing metros in the West, and Coeur d'Alene's lakefront and new-build market keeps pace, with contemporary kitchens increasingly the default brief. Carrying Eclipse lets your studio own that contemporary conversation with a domestically built line that ships in about six weeks — perfect for new-construction schedules and remodels alike.</p>
+
+<h2 id="dealer-support">Dealer Support That Drives Sales</h2>
+<p>Pinnacle Sales backs Idaho Eclipse dealers with hands-on sales training, design and quoting support, showroom display guidance, factory coordination, and ongoing business development. We work alongside your team to move contemporary kitchen projects from concept to order.</p>
+
+<DealerCTA heading="Open an Eclipse Line in Idaho" text="Apply to carry Eclipse Cabinetry in your Idaho territory. Protected territory, strong dealer margins, design and quoting support, and frameless full-access cabinetry built for contemporary new-build homes." />
+
+<p class="homeowner-note">Idaho homeowner or designer looking to buy Eclipse? <a href="/contact">Contact us</a> and we'll connect you with an authorized local dealer.</p>
+</div>
+</BaseLayout>
+<style>
+.homeowner-note{margin-top:2rem;padding-top:1rem;border-top:1px solid #e5e7eb;font-size:.95rem;color:#555}
+</style>

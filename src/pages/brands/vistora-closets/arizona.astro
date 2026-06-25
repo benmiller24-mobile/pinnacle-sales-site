@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import DealerCTA from '../../../components/DealerCTA.astro';
+const breadcrumbs = [{name:'Home',href:'/'},{name:'Brands',href:'/#brands'},{name:'Vistora Closets',href:'/brands/vistora-closets'},{name:'Arizona'}];
+const schema = {"@context":"https://schema.org","@type":"Service","serviceType":"Kitchen cabinetry dealer program and manufacturer representation","provider":{"@type":"Organization","name":"Pinnacle Sales","telephone":"+1-480-993-9224","url":"https://pinnaclesales.biz"},"areaServed":{"@type":"State","name":"Arizona"},"brand":"Vistora Closets","url":"https://pinnaclesales.biz/brands/vistora-closets/arizona"};
+---
+<BaseLayout title="Become a Vistora Closets Dealer in Arizona | Pinnacle Sales" description="Add Vistora Closets in Arizona and turn kitchen projects into whole-home jobs. Pinnacle Sales offers protected territory, design support, and a high-margin storage line." schema={schema}>
+<div class="page-header"><h1>Become a Vistora Closets Dealer in Arizona</h1><p>Pinnacle Sales recruits and supports Arizona kitchen &amp; bath showrooms with Vistora Closets — a made-to-order whole-home storage line that adds a high-margin, fast-turn revenue stream on top of your cabinetry business.</p></div>
+<div class="content-narrow section">
+<Breadcrumbs items={breadcrumbs} />
+
+<h2 id="why-partner-with-pinnacle">Why Partner With Pinnacle Sales for Vistora in Arizona</h2>
+<p>Vistora Closets lets an Arizona kitchen dealer serve the whole home, not just the kitchen — reach-in and walk-in closets, pantries, garages, home offices, and laundry/mudrooms, all made to order. Pinnacle Sales manages product specification, design support, order management, and after-sale service so your team can focus on selling. Protected dealer territories are available now, with strong margins on a fast-turn storage line that pairs naturally with the cabinetry projects you already win.</p>
+
+<h2 id="why-vistora-sells-in-arizona">Why Vistora Sells in Arizona</h2>
+<ul>
+  <li><strong>Whole-home organization line</strong> — <a href="/brands/vistora-closets">Vistora</a> made-to-order closets and storage systems cover walk-in and reach-in closets, pantries, garages, home offices, and laundry/mudrooms.</li>
+  <li><strong>Attaches to every kitchen project</strong> — the same customer remodeling a kitchen almost always needs closet and storage upgrades, so Vistora raises average order value without new lead cost.</li>
+  <li><strong>High-margin, fast-turn revenue</strong> — a quick-selling line that complements long-lead cabinetry and keeps cash flowing between kitchen installs.</li>
+  <li><strong>Protected territory</strong> — own the Vistora storage conversation in your Arizona market rather than competing on price.</li>
+  <li><strong>Pairs naturally with cabinetry</strong> — one design conversation, one trusted installer, one finished home.</li>
+</ul>
+
+<h2 id="arizona-market-opportunity">The Arizona Market Opportunity</h2>
+<p>Arizona's new-build boom in Scottsdale and across the East Valley is producing large homes whose owners expect more than a wire-shelf closet. These buyers want walk-in closet systems and garage storage upgrades to match their finishes — exactly the whole-home storage Vistora delivers. Carrying Vistora lets your showroom capture the closet and garage scope on every Scottsdale and East Valley kitchen project instead of handing it to a dedicated closet company.</p>
+
+<h2 id="dealer-support">Dealer Support That Drives Sales</h2>
+<p>Pinnacle Sales backs Arizona Vistora dealers with hands-on sales training, design and quoting support, showroom display guidance, and ongoing business development. We work alongside your team to turn kitchen leads into whole-home storage projects from concept to order.</p>
+
+<DealerCTA heading="Open a Vistora Line in Arizona" text="Apply to carry Vistora Closets in your Arizona territory. Protected territory, design and quoting support, and a high-margin whole-home storage line that attaches to every kitchen project." />
+
+<p class="homeowner-note">Arizona homeowner or designer looking to buy Vistora Closets? <a href="/contact">Contact us</a> and we'll connect you with an authorized local dealer.</p>
+</div>
+</BaseLayout>
+<style>
+.homeowner-note{margin-top:2rem;padding-top:1rem;border-top:1px solid #e5e7eb;font-size:.95rem;color:#555}
+</style>

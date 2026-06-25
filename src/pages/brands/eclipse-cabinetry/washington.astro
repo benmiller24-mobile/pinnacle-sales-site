@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import DealerCTA from '../../../components/DealerCTA.astro';
+const breadcrumbs = [{name:'Home',href:'/'},{name:'Brands',href:'/#brands'},{name:'Eclipse Cabinetry',href:'/brands/eclipse-cabinetry'},{name:'Washington'}];
+const schema = {"@context":"https://schema.org","@type":"Service","serviceType":"Kitchen cabinetry dealer program and manufacturer representation","provider":{"@type":"Organization","name":"Pinnacle Sales","telephone":"+1-480-993-9224","url":"https://pinnaclesales.biz"},"areaServed":{"@type":"State","name":"Washington"},"brand":"Eclipse Cabinetry","url":"https://pinnaclesales.biz/brands/eclipse-cabinetry/washington"};
+---
+<BaseLayout title="Become an Eclipse Cabinetry Dealer in Washington | Pinnacle Sales" description="Carry Eclipse Cabinetry in Washington. Pinnacle Sales recruits kitchen & bath dealers with protected territory, strong margins, and frameless full-access cabinetry for tech-driven contemporary homes." schema={schema}>
+<div class="page-header"><h1>Become an Eclipse Cabinetry Dealer in Washington</h1><p>Pinnacle Sales recruits and supports Washington kitchen & bath dealers with protected territory, strong margins, and Eclipse's frameless full-access cabinetry — built for the tech-driven contemporary look Seattle and Bellevue buyers demand.</p></div>
+<div class="content-narrow section">
+<Breadcrumbs items={breadcrumbs} />
+
+<h2 id="why-partner-with-pinnacle">Why Partner With Pinnacle Sales for Eclipse in Washington</h2>
+<p>Eclipse gives a Washington showroom a genuine point of difference: frameless, full-access construction with a clean contemporary aesthetic that the Seattle, Bellevue, and Mercer Island markets demand — among the strongest frameless demand in the country. Pinnacle Sales manages product specification, design support, order management, and after-sale service, so your team can focus on selling. Protected dealer territories are available now, with strong margins built on design rather than discounting.</p>
+
+<h2 id="why-eclipse-sells-in-washington">Why Eclipse Sells in Washington</h2>
+<ul>
+  <li><strong>Frameless, full-access construction</strong> — European-inspired <a href="/brands/eclipse-cabinetry">frameless</a> design delivers up to ~15% more usable interior space than face-frame cabinetry.</li>
+  <li><strong>Clean, contemporary aesthetic</strong> — sleek full-overlay fronts match the tech-driven contemporary look specced across Seattle, Bellevue, and Mercer Island.</li>
+  <li><strong>American-made quality</strong> — built by WW Wood Products in Missouri under the same quality program as Shiloh, with a wide finish selection.</li>
+  <li><strong>Tech-modern ready</strong> — ideal for contemporary remodels and new builds, from super-matte acrylics to warm wood veneers.</li>
+  <li><strong>Protected territory &amp; strong margins</strong> — open an Eclipse line with dealer exclusivity in your market.</li>
+</ul>
+
+<h2 id="washington-market-opportunity">The Washington Market Opportunity</h2>
+<p>Seattle, Bellevue, and Mercer Island form a tech-driven contemporary market with very strong frameless demand — exactly the buyer Eclipse is built for. Carrying Eclipse lets your studio own that contemporary conversation with a domestically built line that ships in about six weeks — no long German lead times, no compromise on the sleek modern aesthetic the Puget Sound market expects.</p>
+
+<h2 id="dealer-support">Dealer Support That Drives Sales</h2>
+<p>Pinnacle Sales backs Washington Eclipse dealers with hands-on sales training, design and quoting support, showroom display guidance, factory coordination, and ongoing business development. We work alongside your team to move contemporary kitchen projects from concept to order.</p>
+
+<DealerCTA heading="Open an Eclipse Line in Washington" text="Apply to carry Eclipse Cabinetry in your Washington territory. Protected territory, strong dealer margins, design and quoting support, and frameless full-access cabinetry built for tech-driven contemporary homes." />
+
+<p class="homeowner-note">Washington homeowner or designer looking to buy Eclipse? <a href="/contact">Contact us</a> and we'll connect you with an authorized local dealer.</p>
+</div>
+</BaseLayout>
+<style>
+.homeowner-note{margin-top:2rem;padding-top:1rem;border-top:1px solid #e5e7eb;font-size:.95rem;color:#555}
+</style>
