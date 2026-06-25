@@ -12,7 +12,7 @@ interface Props { project: Project }
 const { project: p } = Astro.props;
 const heroAlt = p.images.find(i => i.src === p.hero)?.alt || p.title;
 
-const siteUrl = 'https://www.pinnaclesales.biz';
+const siteUrl = 'https://pinnaclesales.biz';
 const projectUrl = `${siteUrl}/projects/${p.slug}`;
 
 // CreativeWork schema for the installed project itself, with each

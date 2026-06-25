@@ -28,12 +28,11 @@
   to = "/playbook"
   status = 301
 
-[[redirects]]
-  from = "/thekitchendealerplaybook/*"
-  to = "/playbook/:splat"
-  status = 301
-
 # Specific blog post redirects (old Squarespace slugs -> new slugs)
+# IMPORTANT: these specific rules MUST come before the /thekitchendealerplaybook/*
+# wildcard fallback (defined after the last rule below). Netlify processes redirects
+# first-match-wins, and several slugs changed during the migration — if the wildcard
+# ran first it would naively map old slugs to non-existent /playbook/<old-slug> URLs (404).
 [[redirects]]
   from = "/thekitchendealerplaybook/frameless-vs-face-frame-cabinets-which-construction-method-is-right-for-your-kitchen"
   to = "/playbook/frameless-vs-face-frame-cabinets"
@@ -127,6 +126,13 @@
 [[redirects]]
   from = "/blog/blog-post-title-two-69fdy"
   to = "/playbook/excelle-shiloh-inset"
+  status = 301
+
+# Catch-all fallback for any old playbook URL not matched by a specific rule above.
+# Must stay LAST among the /thekitchendealerplaybook rules (first-match-wins).
+[[redirects]]
+  from = "/thekitchendealerplaybook/*"
+  to = "/playbook/:splat"
   status = 301
 
 # Security headers

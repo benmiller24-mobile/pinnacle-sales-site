@@ -5,7 +5,10 @@ import { blogPosts } from '../data/blogPosts';
 import { projects } from '../data/projects';
 import Testimonials from '../components/Testimonials.astro';
 
-const localBusinessSchema = {"@context":"https://schema.org","@type":"LocalBusiness","name":"Pinnacle Sales","image":"https://www.pinnaclesales.biz/images/pinnacle-sales-og.jpg","telephone":"+1-480-993-9224","address":{"@type":"PostalAddress","addressRegion":"AZ","addressCountry":"US"},"url":"https://www.pinnaclesales.biz","priceRange":"$$-$$$$","openingHours":"Mo-Fr 08:00-17:00"};
+// Homepage relies on the global Organization schema (emitted site-wide via
+// SEOHead) with areaServed for the 10-state territory. Pinnacle is a
+// service-area manufacturer's rep with no public storefront, so a
+// LocalBusiness/PostalAddress would be incomplete and misleading.
 const recentPosts = blogPosts.slice(0, 3);
 // Lookbook for the homepage: 6 strongest projects. Featured entries first,
 // then fill with the most recent projects to reach 6.
@@ -13,7 +16,7 @@ const featuredProjects = projects.filter(p => p.featured);
 const otherProjects   = projects.filter(p => !p.featured);
 const homepageProjects = [...featuredProjects, ...otherProjects].slice(0, 6);
 ---
-<BaseLayout title="Pinnacle Sales — Kitchen Cabinet Manufacturer's Rep, 10 Western States" description="Pinnacle Sales reps Shiloh, Eclipse, Aspect, Pronorm & Vistora cabinetry across 10 Western states. 23+ years of kitchen-dealer support." schema={localBusinessSchema}>
+<BaseLayout title="Pinnacle Sales — Kitchen Cabinet Manufacturer's Rep, 10 Western States" description="Pinnacle Sales reps Shiloh, Eclipse, Aspect, Pronorm & Vistora cabinetry across 10 Western states. 23+ years of kitchen-dealer support.">
 
 <!-- Hero -->
 <section class="hero">
