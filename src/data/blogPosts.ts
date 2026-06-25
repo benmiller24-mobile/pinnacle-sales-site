@@ -2,7 +2,7 @@ export const blogPosts = [
   {
     slug: 'shiloh-eclipse-renderings-2020-design',
     title: 'Photorealistic Shiloh & Eclipse Renderings in Cyncly 2020 Design',
-    excerpt: "Three photorealistic Shiloh and Eclipse concepts designed by Megan Madden of Studio Home (University Place, WA) and rendered by Pinnacle Sales in Cyncly's 2020 Design: a two-tone walnut kitchen with a reeded black island, a reeded media lounge, and a floating walnut primary bath.",
+    excerpt: "Our dealer Studio Home (Megan Madden, University Place, WA) designed and rendered three stunning Shiloh and Eclipse concepts in-house in Cyncly's 2020 Design: a two-tone walnut kitchen with a reeded black island, a reeded media lounge, and a floating walnut primary bath.",
     author: 'Ben Miller',
     date: '2026-06-24',
     category: 'Showroom Tools',
