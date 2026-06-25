@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import DealerCTA from '../../../components/DealerCTA.astro';
+const breadcrumbs = [{name:'Home',href:'/'},{name:'Brands',href:'/#brands'},{name:'Pronorm German Kitchens',href:'/brands/pronorm-german-kitchens'},{name:'New York'}];
+const schema = {"@context":"https://schema.org","@type":"Service","serviceType":"Kitchen cabinetry dealer program and manufacturer representation","provider":{"@type":"Organization","name":"Pinnacle Sales","telephone":"+1-480-993-9224","url":"https://pinnaclesales.biz"},"areaServed":{"@type":"State","name":"New York"},"brand":"Pronorm German Kitchens","url":"https://pinnaclesales.biz/brands/pronorm-german-kitchens/new-york"};
+---
+<BaseLayout title="Become a Pronorm Dealer in New York | Pinnacle Sales" description="Carry Pronorm German Kitchens in New York. Pinnacle Sales (exclusive US agent) offers protected territory, design support, and full German-factory coordination to kitchen & bath dealers." schema={schema}>
+<div class="page-header"><h1>Become a Pronorm German Kitchens Dealer in New York</h1><p>Pinnacle Sales — through European Kitchen Distributors, the exclusive US agent for Pronorm — recruits and supports New York showrooms with protected territory, design support, and full coordination from the German factory.</p></div>
+<div class="content-narrow section">
+<Breadcrumbs items={breadcrumbs} />
+
+<h2 id="why-partner-with-pinnacle">Why Partner With Pinnacle Sales for Pronorm in New York</h2>
+<p>Pronorm is engineered in Germany as a complete, handleless system — a genuine point of difference for a New York showroom competing on design. Pinnacle Sales manages product specification, design consultation, order management, logistics from the German factory, and after-sale service, so your team can focus on selling. Protected dealer territories are available now, with strong margins and design exclusivity rather than a race to the bottom on price.</p>
+
+<h2 id="why-pronorm-sells-in-new-york">Why Pronorm Sells in New York</h2>
+<ul>
+  <li><strong>Handleless, precision-engineered design</strong> — the <a href="/brands/pronorm-german-kitchens">Y-Line and X-Line</a> seamless fronts are exactly the integrated, contemporary look that Manhattan luxury condos, co-op renovations, and Brooklyn brownstone conversions specify.</li>
+  <li><strong>Built for American kitchens</strong> — Pronorm offers 610mm (24″) cabinet depths as standard, unlike most German brands at 560–580mm, so no compromises on countertops, appliances, or storage.</li>
+  <li><strong>Premium market position</strong> — fills the gap between entry-level German lines and ultra-premium names like SieMatic and Poggenpohl, opening a wide, under-served segment.</li>
+  <li><strong>Protected territory &amp; strong margins</strong> — typical installations run $40,000–$150,000+ with design exclusivity in your market.</li>
+  <li><strong>Climate-neutral, certified quality</strong> — climate-neutral since 2021, PEFC certified, "Furniture Made in Germany," with a 5-year manufacturer's guarantee — easy proof points to sell premium.</li>
+</ul>
+
+<h2 id="new-york-market-opportunity">The New York Market Opportunity</h2>
+<p>From Manhattan high-rise condos and Park Avenue co-ops to Brooklyn townhouses, Westchester estates, the Hamptons, and Long Island's North and South Shores, New York demand skews toward clean, integrated, handleless European cabinetry — a high-margin niche that most local showrooms can't serve well. In space-constrained Manhattan apartments and design-forward Hamptons builds alike, seamless German cabinetry commands a premium and solves the storage challenges that define city kitchens. Carrying Pronorm lets your studio own the German-kitchen conversation in your market, pairing seamless <a href="/brands/eclipse-cabinetry">frameless</a> and handleless design with the authenticity of a true German manufacturer.</p>
+
+<h2 id="dealer-support">Dealer Support That Drives Sales</h2>
+<p>Pinnacle Sales backs New York Pronorm dealers with hands-on sales training, 2020/Winner design and quoting support, showroom display guidance, factory coordination, and ongoing business development. We work alongside your team to move complex German-kitchen projects from concept to order.</p>
+
+<DealerCTA heading="Open a Pronorm Line in New York" text="Apply to carry Pronorm German Kitchens in your New York territory. Protected territory, design and quoting support, and full coordination from the German factory." />
+
+<p class="homeowner-note">New York homeowner or designer looking to buy Pronorm? <a href="/contact">Contact us</a> and we'll connect you with an authorized local dealer.</p>
+</div>
+</BaseLayout>
+<style>
+.homeowner-note{margin-top:2rem;padding-top:1rem;border-top:1px solid #e5e7eb;font-size:.95rem;color:#555}
+</style>
