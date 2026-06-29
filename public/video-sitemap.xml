@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+
+  <!-- Homepage hero (same clip as the Caruso Playbook post) -->
+  <url>
+    <loc>https://pinnaclesales.biz/</loc>
+    <video:video>
+      <video:thumbnail_loc>https://pinnaclesales.biz/images/hero-kitchen.webp</video:thumbnail_loc>
+      <video:title>Caruso Kitchen Designs — Eclipse Cabinetry Installed Kitchen</video:title>
+      <video:description>A walkthrough of a real installed Eclipse Cabinetry kitchen by Caruso Kitchen Designs — the kind of finished-project video every kitchen and bath dealer should be filming.</video:description>
+      <video:content_loc>https://pinnaclesales.biz/videos/caruso-eclipse-kitchen.mp4</video:content_loc>
+      <video:publication_date>2026-04-15</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+
+  <!-- Self-hosted MP4: Caruso Playbook post -->
+  <url>
+    <loc>https://pinnaclesales.biz/playbook/caruso-kitchens-eclipse-showroom/</loc>
+    <video:video>
+      <video:thumbnail_loc>https://pinnaclesales.biz/images/blog/caruso-eclipse-kitchen-hero.webp</video:thumbnail_loc>
+      <video:title>Caruso Kitchens + Eclipse Cabinetry: An Installed Kitchen That Sells Itself</video:title>
+      <video:description>How Caruso Kitchens filmed a real installed Eclipse project — and why filming finished work, not just showrooms, is now every dealer's job.</video:description>
+      <video:content_loc>https://pinnaclesales.biz/videos/caruso-eclipse-kitchen.mp4</video:content_loc>
+      <video:publication_date>2026-04-15</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+
+  <!-- Self-hosted MP4: Greenwood grain-matched white oak -->
+  <url>
+    <loc>https://pinnaclesales.biz/playbook/grain-matched-white-oak-metro-straw/</loc>
+    <video:video>
+      <video:thumbnail_loc>https://pinnaclesales.biz/images/blog/greenwood-grain-matched-oak.webp</video:thumbnail_loc>
+      <video:title>Grain Matched White Oak Veneer in Metro Door Style with Straw Finish</video:title>
+      <video:description>Eclipse's grain-matched white oak veneer on the Metro door in Straw finish — and why dealers should be making content like this.</video:description>
+      <video:content_loc>https://pinnaclesales.biz/videos/greenwood-eclipse-grain-matched-oak.mp4</video:content_loc>
+      <video:publication_date>2026-04-15</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+
+  <!-- YouTube: Japan-inspired kitchens -->
+  <url>
+    <loc>https://pinnaclesales.biz/playbook/japan-inspired-kitchens/</loc>
+    <video:video>
+      <video:thumbnail_loc>https://pinnaclesales.biz/images/blog/pronorm-japandi-kitchen.webp</video:thumbnail_loc>
+      <video:title>Japan-Inspired Kitchens: How to Sell the Trend and Still Win on Price</video:title>
+      <video:description>Turn Japandi buzz into real projects with Shiloh, Eclipse &amp; Pronorm using a structured Good/Better/Best pricing strategy for warm minimalist kitchens.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/UR8HXSoA6Z8</video:player_loc>
+      <video:publication_date>2025-12-09</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+
+  <!-- YouTube: Pronorm Boho textured white oak -->
+  <url>
+    <loc>https://pinnaclesales.biz/playbook/pronorm-boho-textured-white-oak/</loc>
+    <video:video>
+      <video:thumbnail_loc>https://pinnaclesales.biz/images/blog/pronorm-boho-kitchen.webp</video:thumbnail_loc>
+      <video:title>Pronorm's New Boho Textured White Oak</video:title>
+      <video:description>Pronorm's Boho White Oak with Y-channel handleless construction brings warm, textured modern German design to your showroom.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/wVd7X4c8p7k</video:player_loc>
+      <video:publication_date>2025-12-09</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+
+  <!-- YouTube: Pronorm Modern Shaker LF -->
+  <url>
+    <loc>https://pinnaclesales.biz/playbook/pronorm-modern-shaker-lf/</loc>
+    <video:video>
+      <video:thumbnail_loc>https://pinnaclesales.biz/images/blog/pronorm-modern-shaker.webp</video:thumbnail_loc>
+      <video:title>Introducing the New Modern Shaker LF Door Style</video:title>
+      <video:description>Pronorm's Modern Shaker LF is a refined reinterpretation of the classic shaker silhouette with ultra-thin stiles and rails for modern living.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/VNPA06bNkqk</video:player_loc>
+      <video:publication_date>2025-11-17</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+
+  <!-- YouTube: Showcasing installed projects -->
+  <url>
+    <loc>https://pinnaclesales.biz/playbook/showcasing-installed-projects/</loc>
+    <video:video>
+      <video:thumbnail_loc>https://pinnaclesales.biz/images/pinnacle-sales-og.jpg</video:thumbnail_loc>
+      <video:title>How Showcasing Installed Projects Helps Dealers Stand Out</video:title>
+      <video:description>See how Caruso Kitchen Designs created a compelling video showcase with Eclipse Cabinetry and learn how to get your projects featured.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/99jWJZD4bdw</video:player_loc>
+      <video:publication_date>2026-01-15</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+
+</urlset>
