@@ -11,9 +11,17 @@ export interface Props {
   modifiedDate?: string;
   ogImage?: string;
   heroImage?: string;  // body LCP image — preloaded in head
+  video?: {
+    contentUrl?: string;    // self-hosted MP4 (site-relative or absolute)
+    embedUrl?: string;      // YouTube/Vimeo embed URL
+    name?: string;          // defaults to post title
+    description?: string;   // defaults to post description
+    thumbnailUrl?: string;  // defaults to ogImage
+    uploadDate?: string;    // defaults to publishedDate
+  };
 }
 
-const { title, description, author, publishedDate, modifiedDate, ogImage, heroImage } = Astro.props;
+const { title, description, author, publishedDate, modifiedDate, ogImage, heroImage, video } = Astro.props;
 
 const articleSchema = {
   "@context": "https://schema.org",
@@ -29,12 +37,30 @@ const articleSchema = {
   "dateModified": modifiedDate || publishedDate,
   "description": description
 };
+
+// Optional VideoObject schema for posts that embed a video (self-hosted or YouTube).
+// Falls back to the post's own title / description / ogImage / publishedDate.
+const siteUrl = 'https://pinnaclesales.biz';
+const absUrl = (u?: string) => (u && u.startsWith('http') ? u : u ? `${siteUrl}${u}` : u);
+
+const videoSchema = video && {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": video.name ?? title,
+  "description": video.description ?? description,
+  "thumbnailUrl": [absUrl(video.thumbnailUrl ?? ogImage ?? '/images/pinnacle-sales-og.jpg')],
+  "uploadDate": video.uploadDate ?? publishedDate,
+  ...(video.contentUrl ? { "contentUrl": absUrl(video.contentUrl) } : {}),
+  ...(video.embedUrl ? { "embedUrl": video.embedUrl } : {}),
+};
+
+const pageSchema = videoSchema ? [articleSchema, videoSchema] : articleSchema;
 ---
 
 <BaseLayout
   title={`${title} | Kitchen Dealer Playbook | Pinnacle Sales`}
   description={description}
-  schema={articleSchema}
+  schema={pageSchema}
   ogImage={ogImage}
   heroImage={heroImage}
   article={{ publishedTime: publishedDate, modifiedTime: modifiedDate, author: 'Pinnacle Sales' }}

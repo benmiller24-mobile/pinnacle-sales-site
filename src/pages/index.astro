@@ -15,8 +15,19 @@ const recentPosts = blogPosts.slice(0, 3);
 const featuredProjects = projects.filter(p => p.featured);
 const otherProjects   = projects.filter(p => !p.featured);
 const homepageProjects = [...featuredProjects, ...otherProjects].slice(0, 6);
+
+// VideoObject for the autoplaying hero clip so Google can index it.
+const heroVideoSchema = {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Caruso Kitchen Designs — Eclipse Cabinetry Installed Kitchen",
+  "description": "A walkthrough of a real installed Eclipse Cabinetry kitchen by Caruso Kitchen Designs — the kind of finished-project video every kitchen and bath dealer should be filming.",
+  "thumbnailUrl": ["https://pinnaclesales.biz/images/hero-kitchen.webp"],
+  "uploadDate": "2026-04-15",
+  "contentUrl": "https://pinnaclesales.biz/videos/caruso-eclipse-kitchen.mp4"
+};
 ---
-<BaseLayout title="Pinnacle Sales — Kitchen Cabinet Manufacturer's Rep, 10 Western States" description="Pinnacle Sales reps Shiloh, Eclipse, Aspect, Pronorm & Vistora cabinetry across 10 Western states. 23+ years of kitchen-dealer support.">
+<BaseLayout title="Pinnacle Sales — Kitchen Cabinet Manufacturer's Rep, 10 Western States" description="Pinnacle Sales reps Shiloh, Eclipse, Aspect, Pronorm & Vistora cabinetry across 10 Western states. 23+ years of kitchen-dealer support." schema={heroVideoSchema}>
 
 <!-- Hero -->
 <section class="hero">
