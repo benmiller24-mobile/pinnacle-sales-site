@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Application Received | Pinnacle Sales" description="Your dealer application is in. Here's what happens next." noindex={true}>
+<div class="page-header"><h1>Application Received</h1><p>We'll follow up within two business days to schedule your introductory call.</p></div>
+<div class="content-narrow section thanks">
+
+<h2>What happens next</h2>
+<ol>
+  <li><strong>We review your application</strong> — market, showroom, and current lines.</li>
+  <li><strong>Introductory call</strong> — within two business days we'll reach out to schedule it. We'll discuss territory availability and which brands fit your business.</li>
+  <li><strong>Brand deep-dive</strong> — pricing, display programs, training, and next steps for the lines you choose.</li>
+</ol>
+
+<p>Want to talk sooner? Call <a href="tel:+14809939224">480-993-9224</a> or email <a href="mailto:marketing@pinnaclesales.biz">marketing@pinnaclesales.biz</a>.</p>
+
+<h2>While you wait</h2>
+<ul>
+  <li>See what dealers say in our <a href="/dealer-success-stories/">Dealer Success Stories</a></li>
+  <li>Get to know the lineup: <a href="/brands/shiloh-cabinetry/">Shiloh</a>, <a href="/brands/eclipse-cabinetry/">Eclipse</a>, <a href="/brands/aspect-cabinetry/">Aspect</a>, <a href="/brands/pronorm-german-kitchens/">Pronorm</a>, <a href="/brands/vistora-closets/">Vistora</a>, and <a href="/brands/us-stone-group/">US Stone Group</a></li>
+  <li>Read the <a href="/playbook/">Kitchen Dealer Playbook</a> — product deep dives and dealer success stories</li>
+</ul>
+
+</div>
+
+<script is:inline>
+(function () {
+  // GA4 conversion — fires ONLY when a real submission stashed context on the form page.
+  // Direct visits, refreshes, and bookmarks push nothing (raw is null after removeItem).
+  try {
+    var raw = sessionStorage.getItem('ps_lead');
+    if (!raw) return;
+    sessionStorage.removeItem('ps_lead');
+    var ctx = JSON.parse(raw);
+    // SEOHead defers gtag.js until interaction/5s; wake it now so the queued
+    // conversion transmits even if the visitor closes the tab immediately.
+    window.dispatchEvent(new Event('mousedown'));
+    if (typeof gtag === 'function') {
+      gtag('event', 'generate_lead', {
+        currency: 'USD',
+        value: 1.0,
+        form_name: ctx.form || 'dealer-application',
+        lead_type: ctx.lead_type || 'unknown',
+        source_page: ctx.source || 'unknown'
+      });
+    }
+  } catch (e) {}
+})();
+</script>
+</BaseLayout>
+<style>
+.thanks h2{margin-top:2rem}
+.thanks ul,.thanks ol{line-height:1.9}
+</style>

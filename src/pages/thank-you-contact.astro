@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Message Received | Pinnacle Sales" description="Thanks for reaching out to Pinnacle Sales. Here's what happens next." noindex={true}>
+<div class="page-header"><h1>Thank You — Message Received</h1><p>We reply within two business days, usually sooner.</p></div>
+<div class="content-narrow section thanks">
+
+<h2>What happens next</h2>
+<ul>
+  <li><strong>Homeowners &amp; designers</strong> — we'll match your project and city with the nearest authorized dealer and make a warm introduction.</li>
+  <li><strong>Stone inquiries</strong> — we'll follow up with current inventory, slab photos, and pricing for your material and volume.</li>
+  <li><strong>Dealers</strong> — your rep (or our support team) will get back to you with the details you asked for.</li>
+</ul>
+
+<p>Need us sooner? Call <a href="tel:+14809939224">480-993-9224</a>.</p>
+
+<h2>While you wait</h2>
+<ul>
+  <li>Browse <a href="/projects/">real dealer projects</a> across the Western US</li>
+  <li>Explore our <a href="/brands/">brand lineup</a> — cabinetry, closets, and luxury stone</li>
+  <li>Read the <a href="/playbook/">Kitchen Dealer Playbook</a></li>
+</ul>
+
+</div>
+
+<script is:inline>
+(function () {
+  // GA4 conversion — fires ONLY when a real submission stashed context on the form page.
+  // Direct visits, refreshes, and bookmarks push nothing (raw is null after removeItem).
+  try {
+    var raw = sessionStorage.getItem('ps_lead');
+    if (!raw) return;
+    sessionStorage.removeItem('ps_lead');
+    var ctx = JSON.parse(raw);
+    // SEOHead defers gtag.js until interaction/5s; wake it now so the queued
+    // conversion transmits even if the visitor closes the tab immediately.
+    window.dispatchEvent(new Event('mousedown'));
+    if (typeof gtag === 'function') {
+      gtag('event', 'generate_lead', {
+        currency: 'USD',
+        value: 1.0,
+        form_name: ctx.form || 'contact',
+        lead_type: ctx.lead_type || 'unknown',
+        source_page: ctx.source || 'unknown'
+      });
+    }
+  } catch (e) {}
+})();
+</script>
+</BaseLayout>
+<style>
+.thanks h2{margin-top:2rem}
+.thanks ul{line-height:1.9}
+</style>

@@ -151,6 +151,14 @@ const projectSchemas = [creativeWorkSchema, localBusinessSchema];
   </div>
 </div>
 
+<div class="content-narrow">
+  <div class="homeowner-cta">
+    <h2>Love this {p.spaceType.toLowerCase()}?</h2>
+    <p>{p.brand !== 'Multiple' ? `${p.brand} is` : 'These brands are'} sold through authorized independent dealers in {p.state}. Tell us about your project and we'll connect you with the nearest showroom.</p>
+    <a class="btn btn-outline" href="/contact/?subject=homeowner">Find a Local Dealer</a>
+  </div>
+</div>
+
 <DealerCTA />
 
 </BaseLayout>
@@ -266,4 +274,13 @@ const projectSchemas = [creativeWorkSchema, localBusinessSchema];
     .lookbook { grid-template-columns: 1fr; gap: 0.75rem; }
     .hero { aspect-ratio: 4 / 3; }
   }
+  .homeowner-cta {
+    text-align: center;
+    padding: 2.5rem 2rem;
+    margin: 0 auto 1rem;
+    border: 1px solid var(--color-border, #e0e0e0);
+    background: var(--color-bg-warm, #faf8f5);
+  }
+  .homeowner-cta h2 { margin: 0 0 .6rem; }
+  .homeowner-cta p { max-width: 560px; margin: 0 auto 1.4rem; color: var(--color-muted, #666); }
 </style>

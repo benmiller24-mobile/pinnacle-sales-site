@@ -6,6 +6,7 @@ export interface Props {
   ogImage?: string;
   heroImage?: string;  // LCP candidate — emits <link rel="preload"> in head
   schema?: object | object[];
+  noindex?: boolean;  // utility pages (thank-you, etc.) that shouldn't rank
   article?: {
     publishedTime: string;
     modifiedTime?: string;
@@ -20,6 +21,7 @@ const {
   ogImage = '/images/pinnacle-sales-og.jpg',
   heroImage,
   schema,
+  noindex = false,
   article,
 } = Astro.props;
 
@@ -32,7 +34,7 @@ const orgSchema = {
   "@type": "Organization",
   "name": "Pinnacle Sales",
   "url": siteUrl,
-  "logo": `${siteUrl}/images/pinnacle-sales-logo.png`,
+  "logo": `${siteUrl}/images/pinnacle-sales-logo.webp`,
   "description": "Premium cabinetry dealer representative serving 10 Western US states. Exclusive rep for Shiloh, Eclipse, Aspect, Pronorm, and Vistora.",
   "foundingDate": "2001",
   "areaServed": ["Arizona","California","Colorado","Idaho","Montana","Nevada","New Mexico","Oregon","Utah","Washington"],
@@ -77,6 +79,7 @@ const allSchemas = [orgSchema, ...(Array.isArray(schema) ? schema : schema ? [sc
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>{title}</title>
 <meta name="description" content={description} />
+{noindex && <meta name="robots" content="noindex, nofollow" />}
 <link rel="canonical" href={canonical} />
 
 {/* Preload the page's LCP hero image so the browser starts the network request

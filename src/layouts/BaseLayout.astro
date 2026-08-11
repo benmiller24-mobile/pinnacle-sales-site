@@ -7,18 +7,19 @@ export interface Props {
   title: string;
   description: string;
   schema?: object | object[];
+  noindex?: boolean;
   ogImage?: string;
   heroImage?: string;  // LCP candidate — preloaded in head via SEOHead
   article?: { publishedTime: string; modifiedTime?: string; author: string; };
 }
 
-const { title, description, schema, ogImage, heroImage, article } = Astro.props;
+const { title, description, schema, noindex, ogImage, heroImage, article } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <SEOHead title={title} description={description} schema={schema} ogImage={ogImage} heroImage={heroImage} article={article} />
+  <SEOHead title={title} description={description} schema={schema} noindex={noindex} ogImage={ogImage} heroImage={heroImage} article={article} />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
@@ -154,5 +155,18 @@ const { title, description, schema, ogImage, heroImage, article } = Astro.props;
     <slot />
   </main>
   <Footer />
+  <script is:inline>
+    // GA4: track phone + email clicks sitewide (delegated; beacon survives navigation)
+    document.addEventListener('click', function (e) {
+      var a = e.target && e.target.closest ? e.target.closest('a[href^="tel:"], a[href^="mailto:"]') : null;
+      if (!a || typeof gtag !== 'function') return;
+      var isTel = a.getAttribute('href').indexOf('tel:') === 0;
+      gtag('event', isTel ? 'click_to_call' : 'click_to_email', {
+        link_url: a.getAttribute('href'),
+        page_path: location.pathname,
+        transport_type: 'beacon'
+      });
+    });
+  </script>
 </body>
 </html>

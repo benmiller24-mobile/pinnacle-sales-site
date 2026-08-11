@@ -16,7 +16,7 @@ const dealerFaqs = [
 const dealerFaqSchema = {"@context":"https://schema.org","@type":"FAQPage","mainEntity":dealerFaqs.map(f=>({"@type":"Question","name":f.q,"acceptedAnswer":{"@type":"Answer","text":f.a}}))};
 ---
 <BaseLayout title="Become a Kitchen Cabinet Dealer — Shiloh, Eclipse, Pronorm | Pinnacle Sales" description="Apply to become a Pinnacle Sales dealer. Shiloh, Eclipse, Aspect, Pronorm & Vistora cabinetry + training, showroom support, territory protection." schema={[contactSchema, dealerFaqSchema]}>
-<div class="page-header"><h1>Become a Pinnacle Sales Dealer</h1><p>Partner with the leading cabinetry rep firm in the Western US. Five premium brands, one trusted partnership.</p></div>
+<div class="page-header"><h1>Become a Pinnacle Sales Dealer</h1><p>Partner with the leading cabinetry rep firm in the Western US. Five premium brands, one trusted partnership.</p><a href="#apply" class="btn btn-white header-apply">Apply Now</a></div>
 <div class="content-narrow section">
 <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Become a Dealer'}]} />
 
@@ -87,12 +87,13 @@ const dealerFaqSchema = {"@context":"https://schema.org","@type":"FAQPage","main
 ))}
 </div>
 
-<h2>Apply to Become a Dealer</h2>
+<h2 id="apply">Apply to Become a Dealer</h2>
 
 <p>Complete the form below and our team will follow up within two business days to schedule an introductory call. We will discuss your market, showroom, current product lines, and which Pinnacle Sales brands are the best fit for your business.</p>
 
-<form name="dealer-application" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="dealer-form">
+<form name="dealer-application" method="POST" action="/thank-you-dealer/" data-netlify="true" netlify-honeypot="bot-field" class="dealer-form">
 <input type="hidden" name="form-name" value="dealer-application" />
+<input type="hidden" name="source-page" id="source-page" />
 <p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
 
 <div class="form-group">
@@ -188,16 +189,30 @@ const dealerFaqSchema = {"@context":"https://schema.org","@type":"FAQPage","main
 </div>
 
 <script is:inline>
-  // GA4 conversion: dealer application submit -> generate_lead
-  document.querySelector('form[name="dealer-application"]')?.addEventListener('submit', function() {
-    if (typeof gtag === 'function') {
-      gtag('event', 'generate_lead', {
-        currency: 'USD',
-        value: 1.0,
-        form_name: 'dealer-application'
-      });
+(function () {
+  // Attribution: which page sent this visitor to the application
+  try {
+    var src = '';
+    if (document.referrer) {
+      var r = new URL(document.referrer);
+      if (r.host === location.host) src = r.pathname;
     }
+    document.getElementById('source-page').value = src || 'direct';
+  } catch (e) {}
+
+  // Stash lead context; the GA4 generate_lead conversion fires on /thank-you-dealer/
+  // (firing on the destination page survives the form's full-page navigation).
+  document.querySelector('form[name="dealer-application"]')?.addEventListener('submit', function () {
+    if (this.elements['bot-field'] && this.elements['bot-field'].value) return; // honeypot: no conversion for spam
+    try {
+      sessionStorage.setItem('ps_lead', JSON.stringify({
+        form: 'dealer-application',
+        lead_type: 'Dealer Application',
+        source: document.getElementById('source-page').value
+      }));
+    } catch (e) {}
   });
+})();
 </script>
 
 </BaseLayout>
@@ -230,6 +245,7 @@ const dealerFaqSchema = {"@context":"https://schema.org","@type":"FAQPage","main
 .hidden{display:none}
 .btn-primary{background:#1a1a2e;color:#fff;border:none;padding:.75rem 2rem;border-radius:6px;font-size:1rem;font-weight:600;cursor:pointer;transition:background .2s}
 .btn-primary:hover{background:#2563eb}
+.header-apply{margin-top:1.5rem}
 .dealer-faqs{margin:1.25rem 0 2rem}
 .faq-item{border-bottom:1px solid #e5e7eb;padding:1.25rem 0}
 .faq-item:last-child{border-bottom:none}

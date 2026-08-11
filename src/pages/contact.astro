@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 ---
-<BaseLayout title="Contact Pinnacle Sales | Cabinetry Dealer Support" description="Contact Pinnacle Sales for cabinetry dealer support, brand information, or partnership inquiries. Serving 10 Western US states.">
+<BaseLayout title="Contact Pinnacle Sales — Dealers, Homeowners & Stone Buyers" description="Contact Pinnacle Sales — dealer support and partnership inquiries, homeowner and designer referrals to local dealers, and wholesale stone slab requests. Serving 10 Western US states.">
 <div class="page-header"><h1>Contact Us</h1><p>Ready to connect? We would love to hear from you.</p></div>
 <div class="content-narrow section">
 <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Contact'}]} />
@@ -34,18 +34,22 @@ Arizona, California, Colorado, Idaho, Montana, Nevada, New Mexico, Oregon, Utah,
 <p><strong>Pronorm German Kitchens:</strong><br/>
 Available nationwide through European Kitchen Distributors.</p>
 
-<h2>Looking to Become a Dealer?</h2>
-<p>Visit our <a href="/become-a-dealer">Become a Dealer</a> page to learn about partnership benefits and submit an application.</p>
+<h2>Homeowner or Designer?</h2>
+<p>Pinnacle Sales brands are sold through independent local showrooms. Choose <strong>"Homeowner / Designer — Find a Local Dealer"</strong> in the form and tell us your city — we'll connect you with the nearest authorized dealer.</p>
 
-<h2>Have a Project to Share?</h2>
-<p>We feature outstanding dealer projects in our <a href="/playbook">Kitchen Dealer Playbook</a>. Send your best project photos and a short description to <a href="mailto:marketing@pinnaclesales.biz">marketing@pinnaclesales.biz</a>.</p>
+<h2>Looking to Become a Dealer?</h2>
+<p>Visit our <a href="/become-a-dealer/">Become a Dealer</a> page to learn about partnership benefits and submit an application.</p>
+
+<h2>Buying Stone?</h2>
+<p>For <a href="/brands/us-stone-group/">US Stone Group</a> slab walk-throughs, singles, bundles, or full-container wholesale pricing, choose the <strong>"Stone Slabs"</strong> subject and tell us what material you're after.</p>
 </div>
 
 <div class="contact-form-wrapper">
 <h2>Send Us a Message</h2>
 
-<form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
+<form name="contact" method="POST" action="/thank-you-contact/" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
 <input type="hidden" name="form-name" value="contact" />
+<input type="hidden" name="source-page" id="source-page" />
 <p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
 
 <div class="form-group">
@@ -67,6 +71,8 @@ Available nationwide through European Kitchen Distributors.</p>
 <label for="subject">Subject <span class="req">*</span></label>
 <select id="subject" name="subject" required>
 <option value="">Select a topic...</option>
+<option value="Homeowner / Designer — Find a Local Dealer">Homeowner / Designer — Find a Local Dealer</option>
+<option value="Stone Slabs — Wholesale / Container Inquiry">Stone Slabs — Wholesale / Container Inquiry</option>
 <option value="Dealer Partnership Inquiry">Dealer Partnership Inquiry</option>
 <option value="Brand Information">Brand Information</option>
 <option value="Design / Quoting Support">Design / Quoting Support</option>
@@ -77,17 +83,102 @@ Available nationwide through European Kitchen Distributors.</p>
 </select>
 </div>
 
+<div class="form-row">
+<div class="form-group">
+<label for="city">City <span class="req city-req" style="display:none">*</span></label>
+<input type="text" id="city" name="city" />
+</div>
+<div class="form-group">
+<label for="state">State <span class="req city-req" style="display:none">*</span></label>
+<select id="state" name="state">
+<option value="">Select state...</option>
+<option value="AZ">Arizona</option>
+<option value="CA">California</option>
+<option value="CO">Colorado</option>
+<option value="ID">Idaho</option>
+<option value="MT">Montana</option>
+<option value="NV">Nevada</option>
+<option value="NM">New Mexico</option>
+<option value="OR">Oregon</option>
+<option value="UT">Utah</option>
+<option value="WA">Washington</option>
+<option value="Other">Other</option>
+</select>
+</div>
+</div>
+<p class="field-hint" id="city-hint" style="display:none">So we can match you with the nearest authorized dealer.</p>
+
 <div class="form-group">
 <label for="message">Message <span class="req">*</span></label>
 <textarea id="message" name="message" rows="5" required></textarea>
 </div>
 
 <button type="submit" class="btn-primary">Send Message</button>
+<p class="sla-note">We reply within two business days — usually sooner.</p>
 </form>
 </div>
 </div>
 
 </div>
+
+<script is:inline>
+(function () {
+  var subject = document.getElementById('subject');
+  var city = document.getElementById('city');
+  var state = document.getElementById('state');
+
+  // Preselect subject from ?subject= deep links (e.g. /contact/?subject=homeowner)
+  var map = {
+    'homeowner': 'Homeowner / Designer — Find a Local Dealer',
+    'stone': 'Stone Slabs — Wholesale / Container Inquiry',
+    'dealer': 'Dealer Partnership Inquiry'
+  };
+  try {
+    var q = new URLSearchParams(location.search).get('subject');
+    if (q) {
+      var target = map[q.toLowerCase()] || q;
+      for (var i = 0; i < subject.options.length; i++) {
+        if (subject.options[i].value === target) { subject.value = target; break; }
+      }
+    }
+  } catch (e) {}
+
+  // City/State required for homeowner referrals so we can route to a dealer
+  function syncCityRequired() {
+    var isHomeowner = subject.value.indexOf('Homeowner') === 0;
+    city.required = isHomeowner;
+    state.required = isHomeowner;
+    document.querySelectorAll('.city-req').forEach(function (el) { el.style.display = isHomeowner ? '' : 'none'; });
+    document.getElementById('city-hint').style.display = isHomeowner ? '' : 'none';
+  }
+  subject.addEventListener('change', syncCityRequired);
+  window.addEventListener('pageshow', syncCityRequired); // form values restored on back/forward don't fire change
+  syncCityRequired();
+
+  // Attribution: which page sent this visitor to the form
+  try {
+    var src = '';
+    if (document.referrer) {
+      var r = new URL(document.referrer);
+      if (r.host === location.host) src = r.pathname;
+    }
+    document.getElementById('source-page').value = src || 'direct';
+  } catch (e) {}
+
+  // Stash lead context for the thank-you page's GA4 conversion event
+  document.querySelector('form[name="contact"]').addEventListener('submit', function () {
+    if (this.elements['bot-field'] && this.elements['bot-field'].value) return; // honeypot: no conversion for spam
+    try {
+      sessionStorage.setItem('ps_lead', JSON.stringify({
+        form: 'contact',
+        lead_type: subject.value || 'unspecified',
+        source: document.getElementById('source-page').value
+      }));
+    } catch (e) {}
+  });
+})();
+</script>
+
 </BaseLayout>
 <style>
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:1rem}
@@ -99,10 +190,14 @@ Available nationwide through European Kitchen Distributors.</p>
 .contact-item a:hover{text-decoration:underline}
 .contact-form{margin-top:.5rem}
 .form-group{margin-bottom:1.25rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:600px){.form-row{grid-template-columns:1fr}}
 .form-group label{display:block;font-weight:600;margin-bottom:.4rem;font-size:.95rem;color:#1a1a2e}
 .form-group input,.form-group select,.form-group textarea{width:100%;padding:.65rem .75rem;border:1px solid #d1d5db;border-radius:6px;font-size:.95rem;font-family:inherit;background:#fff;transition:border-color .2s;box-sizing:border-box}
 .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.1)}
 .req{color:#dc2626}
+.field-hint{margin:-.75rem 0 1.25rem;font-size:.85rem;color:#6b7280}
+.sla-note{margin:.9rem 0 0;font-size:.88rem;color:#6b7280}
 .hidden{display:none}
 .btn-primary{background:#1a1a2e;color:#fff;border:none;padding:.75rem 2rem;border-radius:6px;font-size:1rem;font-weight:600;cursor:pointer;transition:background .2s}
 .btn-primary:hover{background:#2563eb}
