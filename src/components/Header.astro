@@ -65,11 +65,12 @@ toggle?.addEventListener('click', () => {
     border-bottom: 1px solid #e8e8e8;
   }
   .header-inner {
-    max-width: 1200px;
+    max-width: 1440px;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1rem;
     padding: 0.75rem 2rem;
   }
   .logo { text-decoration: none; display: flex; align-items: center; flex-shrink: 0; }
@@ -78,6 +79,7 @@ toggle?.addEventListener('click', () => {
 
   .nav-list {
     display: flex;
+    flex-wrap: nowrap;
     list-style: none;
     gap: 0;
     align-items: center;
@@ -87,13 +89,14 @@ toggle?.addEventListener('click', () => {
   .nav-list > li { position: relative; }
   .nav-list > li > a {
     display: block;
-    padding: 0.5rem 0.7rem;
+    padding: 0.5rem 0.5rem;
     color: #000;
     text-decoration: none;
     font-size: 0.78rem;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.07em;
     text-transform: uppercase;
     font-weight: 400;
+    white-space: nowrap;
     transition: opacity 0.2s;
   }
   .nav-list > li > a:hover { opacity: 0.5; }
@@ -107,12 +110,25 @@ toggle?.addEventListener('click', () => {
   .nav-list > li > a.nav-cta {
     background: #000;
     color: #fff;
-    padding: 0.55rem 1.1rem;
-    margin-left: 0.35rem;
+    padding: 0.55rem 1rem;
+    margin-left: 0.2rem;
     white-space: nowrap;
     transition: background 0.2s;
   }
   .nav-list > li > a.nav-cta:hover { background: #c8a96e; color: #000; opacity: 1; }
+
+  /* Between the hamburger breakpoint and full desktop, tighten the nav so
+     every item still fits on ONE line — no stacked labels. */
+  @media (min-width: 1201px) and (max-width: 1419px) {
+    .logo-img { height: 76px; }
+    .nav-list > li > a {
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      padding: 0.5rem 0.42rem;
+    }
+    .nav-list > li > a.nav-cta { padding: 0.5rem 0.8rem; margin-left: 0.2rem; }
+    .header-inner { padding: 0.75rem 1.25rem; gap: 0.5rem; }
+  }
 
   /* Dropdown */
   .has-dropdown { position: relative; }

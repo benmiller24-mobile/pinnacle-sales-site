@@ -6,7 +6,7 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
   <div class="activation-header">
     <p class="activation-badge">Dealer Onboarding</p>
     <h1>Your Activation Plan</h1>
-    <p class="activation-intro">Your 21-day guide from account setup to fully onboarded. Track your progress, complete each module, and book your wrap-up call &mdash; all in one place.</p>
+    <p class="activation-intro">Your guided path from account setup to fully onboarded &mdash; 12 steps across four modules. Most dealers complete it within their first 6&ndash;8 weeks. Track your progress, complete each module, and book your wrap-up call &mdash; all in one place.</p>
   </div>
 
   <div class="activation-progress">
@@ -14,6 +14,7 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
       <div class="progress-fill" id="progressFill"></div>
     </div>
     <p class="progress-text"><span id="progressCount">0</span> of 12 steps completed</p>
+    <p class="progress-note">Progress saves in this browser on this device.</p>
   </div>
 
   <!-- MODULE 1: Getting Started -->
@@ -21,7 +22,7 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
     <div class="module-header">
       <div>
         <h2>Module 1: Getting Started</h2>
-        <p class="module-timeline">Days 1&ndash;4 &middot; Set up your team with the foundational tools and knowledge.</p>
+        <p class="module-timeline">Week 1 &middot; Set up your team with the foundational tools and knowledge.</p>
       </div>
       <span class="module-count" data-module="1">0/3</span>
     </div>
@@ -41,7 +42,7 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
         <div class="step-check"></div>
         <div class="step-content">
           <strong>Book Your 90-Minute Live Product Training</strong>
-          <p>The most important meeting of your onboarding. Your rep will walk you through all three cabinet lines, construction, and key selling points.</p>
+          <p>The most important meeting of your onboarding. Your rep will walk you through the WW Wood cabinet lines you carry, construction, and key selling points.</p>
           <a href="/dealer-hub/submit/?type=zoom-training" class="step-link">&#x1F4F9; Book via Zoom</a>
         </div>
       </label>
@@ -64,7 +65,7 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
     <div class="module-header">
       <div>
         <h2>Module 2: Product &amp; Quoting</h2>
-        <p class="module-timeline">Days 5&ndash;10 &middot; Learn the product lines and place your first order.</p>
+        <p class="module-timeline">Weeks 2&ndash;5 &middot; Learn the product lines and place your first order.</p>
       </div>
       <span class="module-count" data-module="2">0/4</span>
     </div>
@@ -75,7 +76,7 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
         <div class="step-check"></div>
         <div class="step-content">
           <strong>Training Modules with your Rep</strong>
-          <p>Deep-dive into Shiloh, Eclipse, and Aspect &mdash; learn what makes each line unique, pricing tiers, and ideal customer profiles.</p>
+          <p>Deep-dive into Shiloh, Eclipse, Aspect, and Nevara &mdash; learn what makes each line unique, pricing tiers, and ideal customer profiles.</p>
           <a href="/dealer-hub/training/" class="step-link">&#x1F4D6; Open Training Hub</a>
         </div>
       </label>
@@ -118,7 +119,7 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
     <div class="module-header">
       <div>
         <h2>Module 3: Selling &amp; Marketing</h2>
-        <p class="module-timeline">Days 11&ndash;16 &middot; Get your showroom and marketing materials ready to sell.</p>
+        <p class="module-timeline">Weeks 5&ndash;7 &middot; Get your showroom and marketing materials ready to sell.</p>
       </div>
       <span class="module-count" data-module="3">0/3</span>
     </div>
@@ -162,7 +163,7 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
     <div class="module-header">
       <div>
         <h2>Module 4: Wrap-Up</h2>
-        <p class="module-timeline">Days 17&ndash;21 &middot; Wrap up your onboarding and get the green light to start placing live orders.</p>
+        <p class="module-timeline">Weeks 7&ndash;8 &middot; Wrap up your onboarding and get the green light to start placing live orders.</p>
       </div>
       <span class="module-count" data-module="4">0/2</span>
     </div>
@@ -263,6 +264,7 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
     width: 0%; transition: width 0.4s ease;
   }
   .progress-text { font-size: 0.85rem; color: var(--color-muted); }
+  .progress-note { font-size: 0.72rem; color: var(--color-light-text); margin-top: 0.15rem; }
 
   .activation-module {
     background: white; border: 1px solid var(--color-border);

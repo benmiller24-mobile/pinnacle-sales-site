@@ -4,7 +4,7 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
 <DealerHubLayout title="Submit a Request | Pinnacle Sales Dealer Hub" activeSection="Submit a Request">
 
 <h1>Submit a Request</h1>
-<p class="page-subtitle">Send us a design for review, an order to check before submission, or request a Zoom training session for your team.</p>
+<p class="page-subtitle">Send us a design for review, an order to check before submission, a training or showroom visit, a surfaces quote, or a marketing-asset request.</p>
 
 <form
   id="request-form"
@@ -55,6 +55,22 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
           <span class="radio-desc">Schedule an in-person visit from your Pinnacle rep — showroom merchandising, sample-wall planning, display strategy, or any consult that's better in person than on Zoom. Tell us preferred dates in the notes below.</span>
         </span>
       </label>
+      <label class="radio-card">
+        <input type="radio" name="request-type" value="surfaces-quote" />
+        <span class="radio-content">
+          <span class="radio-icon">🪨</span>
+          <span class="radio-label">Surfaces Quote (US Stone Group)</span>
+          <span class="radio-desc">Request written pricing, slab photos, inventory checks, or a shipping quote for US Stone Group surfaces. Include the material, slab count, total square footage, and destination in the notes if you have them — see the <a href="/dealer-hub/us-stone-group">selling &amp; ordering guide</a>.</span>
+        </span>
+      </label>
+      <label class="radio-card">
+        <input type="radio" name="request-type" value="marketing-assets" />
+        <span class="radio-content">
+          <span class="radio-icon">📣</span>
+          <span class="radio-label">Marketing / Brand Assets</span>
+          <span class="radio-desc">Request logos, photography, social content, print collateral, or other brand assets — tell us the brand and what you need in the notes below.</span>
+        </span>
+      </label>
     </div>
   </div>
 
@@ -91,7 +107,7 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
           <option value="shiloh">Shiloh Cabinetry</option>
           <option value="eclipse">Eclipse Cabinetry</option>
           <option value="aspect">Aspect Cabinetry</option>
-          <option value="nevara">Nevara Cabinetry</option>
+          <option value="nevara">Nevara Cabinets</option>
           <option value="multi">Multiple Brands</option>
         </select>
       </div>
@@ -191,9 +207,9 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
       if (this.value === 'zoom-training') {
         designFields.style.display = 'none';
         trainingFields.style.display = 'block';
-      } else if (this.value === 'showroom-consult') {
-        // In-person showroom visits don't need design files or training topics —
-        // dealer puts preferred dates / focus areas in the always-visible Notes field.
+      } else if (this.value === 'showroom-consult' || this.value === 'surfaces-quote' || this.value === 'marketing-assets') {
+        // These request types don't need design files or training topics —
+        // the dealer puts specifics (dates, materials, brands) in the always-visible Notes field.
         designFields.style.display = 'none';
         trainingFields.style.display = 'none';
       } else {
@@ -203,7 +219,7 @@ import DealerHubLayout from '../../layouts/DealerHubLayout.astro';
     });
   });
 
-  // Pre-select a request type from the URL (?type=design-review|order-check|zoom-training|showroom-consult).
+  // Pre-select a request type from the URL (?type=design-review|order-check|zoom-training|showroom-consult|surfaces-quote|marketing-assets).
   // Used by the Activation Plan's "Book via Zoom" and "Schedule In-Person Visit" buttons
   // and any other deep-link CTA in the hub.
   (function() {

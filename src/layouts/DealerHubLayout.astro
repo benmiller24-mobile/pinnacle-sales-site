@@ -11,18 +11,54 @@ export interface Props {
 
 const { title, description = 'Pinnacle Sales Dealer Hub — resources, training, and support for authorized dealers.', activeSection } = Astro.props;
 
-const navItems = [
-  { href: '/dealer-hub/activation', label: 'Activation Plan', icon: '🚀' },
-  { href: '/dealer-hub/onboarding', label: 'Onboarding', icon: '✓' },
-  { href: '/dealer-hub/product-deep-dives', label: 'Product Deep Dives', icon: '📚' },
-    { href: '/dealer-hub/us-stone-group', label: 'US Stone Group', icon: '🪨' },
-  { href: '/dealer-hub/order-samples', label: 'Order Samples', icon: '🪟' },
-  { href: '/dealer-hub/marketing', label: 'Marketing Kit', icon: '📣' },
-  { href: '/dealer-hub/videos', label: 'Video Library', icon: '🎬' },
-  { href: '/dealer-hub/downloads', label: 'Forms', icon: '📥' },
-  { href: '/dealer-hub/faq', label: 'FAQ', icon: '❓' },
-  { href: '/dealer-hub/submit', label: 'Submit a Request', icon: '📨' },
+const navGroups = [
+  {
+    heading: 'Get Started',
+    items: [
+      { href: '/dealer-hub/activation', label: 'Activation Plan' },
+      { href: '/dealer-hub/onboarding', label: 'Onboarding' },
+      { href: '/dealer-hub/designer-onboarding', label: 'Designer Onboarding' },
+      { href: '/dealer-hub/training', label: 'Training' },
+    ],
+  },
+  {
+    heading: 'Sell & Spec',
+    items: [
+      { href: '/dealer-hub/product-deep-dives', label: 'Product Deep Dives' },
+      { href: '/dealer-hub/finishes', label: 'Finish Gallery' },
+      { href: '/dealer-hub/order-samples', label: 'Order Samples' },
+      { href: '/dealer-hub/us-stone-group', label: 'US Stone Group' },
+      { href: '/dealer-hub/pronorm', label: 'Pronorm Kitchens' },
+    ],
+  },
+  {
+    heading: 'Showroom',
+    items: [
+      { href: '/dealer-hub/marketing', label: 'Marketing Kit' },
+      { href: '/dealer-hub/showroom', label: 'Showroom Standards' },
+      { href: '/dealer-hub/downloads', label: 'Forms & Downloads' },
+    ],
+  },
+  {
+    heading: 'Operations',
+    items: [
+      { href: '/dealer-hub/ordering', label: 'Ordering SOPs' },
+      { href: '/dealer-hub/support', label: 'Support & Escalation' },
+      { href: '/dealer-hub/videos', label: 'Video Library' },
+      { href: '/dealer-hub/faq', label: 'FAQ' },
+      { href: '/dealer-hub/submit', label: 'Submit a Request' },
+    ],
+  },
 ];
+
+// Older pages pass activeSection values that predate the grouped nav —
+// map them onto the current labels so highlighting keeps working.
+const sectionAliases: Record<string, string> = {
+  'Forms': 'Forms & Downloads',
+  'Ordering SOPs': 'Ordering SOPs',
+  'Showroom Standards': 'Showroom Standards',
+};
+const currentSection = (activeSection && sectionAliases[activeSection]) || activeSection;
 ---
 
 <!DOCTYPE html>
@@ -64,10 +100,15 @@ const navItems = [
           <p class="sidebar-welcome" id="dealer-name-display"></p>
         </div>
         <nav class="sidebar-nav">
-          {navItems.map(item => (
-            <a href={item.href} class={`sidebar-link ${activeSection === item.label ? 'active' : ''}`}>
-              {item.label}
-            </a>
+          {navGroups.map(group => (
+            <div class="sidebar-group">
+              <p class="sidebar-group-heading">{group.heading}</p>
+              {group.items.map(item => (
+                <a href={item.href} class={`sidebar-link ${currentSection === item.label ? 'active' : ''}`}>
+                  {item.label}
+                </a>
+              ))}
+            </div>
           ))}
         </nav>
         <div class="sidebar-footer">
@@ -168,11 +209,20 @@ const navItems = [
     flex: 1;
     padding: 0.5rem 0;
   }
+  .sidebar-group { margin-bottom: 0.75rem; }
+  .sidebar-group-heading {
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    padding: 0.5rem 1.5rem 0.25rem;
+    margin: 0;
+  }
   .sidebar-link {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    padding: 0.7rem 1.5rem;
+    padding: 0.5rem 1.5rem;
     color: rgba(255,255,255,0.65);
     text-decoration: none;
     font-size: 0.9rem;
@@ -204,7 +254,17 @@ const navItems = [
 
   .hub-main {
     padding: 3rem 3.5rem;
-    max-width: 900px;
+    max-width: 1080px;
+  }
+  /* Cards that are links should never inherit the body-link underline —
+     it turns multi-line card copy into "link soup" on presentation pages. */
+  .hub-main :global(a.dive-card),
+  .hub-main :global(a.dive-card *),
+  .hub-main :global(a.hub-card),
+  .hub-main :global(a.hub-card *),
+  .hub-main :global(a.dl-card),
+  .hub-main :global(a.dl-card *) {
+    text-decoration: none;
   }
   .hub-main :global(h1) {
     font-size: 1.6rem;
@@ -320,6 +380,8 @@ const navItems = [
     }
     .sidebar-header { border-bottom: none; padding: 0 0.5rem; margin-bottom: 0; }
     .sidebar-nav { display: flex; flex-wrap: wrap; gap: 0; padding: 0; }
+    .sidebar-group { display: contents; }
+    .sidebar-group-heading { display: none; }
     .sidebar-link { padding: 0.5rem 0.75rem; font-size: 0.82rem; }
     .sidebar-footer { padding: 0.5rem 0; border-top: none; }
     .hub-main { padding: 2rem 1.25rem; }
