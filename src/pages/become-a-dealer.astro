@@ -5,25 +5,26 @@ import Testimonials from '../components/Testimonials.astro';
 const contactSchema = {"@context":"https://schema.org","@type":"ContactPage","name":"Become a Pinnacle Sales Dealer","description":"Apply to become a Pinnacle Sales kitchen and bath cabinetry dealer. Carry six brands — Shiloh, Eclipse, Aspect, Vistora, Pronorm, and US Stone — across 10 Western US states (Pronorm nationwide).","mainEntity":{"@type":"Organization","name":"Pinnacle Sales","url":"https://pinnaclesales.biz","contactPoint":{"@type":"ContactPoint","telephone":"+1-480-993-9224","contactType":"sales","email":"info@pinnaclesales.biz","areaServed":["Arizona","California","Colorado","Idaho","Montana","Nevada","New Mexico","Oregon","Utah","Washington"],"availableLanguage":["English"]}},"potentialAction":{"@type":"ApplyAction","name":"Apply to become a dealer","target":"https://pinnaclesales.biz/dealer-hub/submit/"}};
 
 const dealerFaqs = [
-  {q:"How do I become a Pinnacle Sales dealer?", a:"Submit the dealer application on this page. We'll follow up within two business days to schedule an introductory call, review your market and showroom, and discuss which of our six public brands — Shiloh, Eclipse, Aspect, Vistora, Pronorm, or US Stone — best fit your business."},
-  {q:"What brands can I carry?", a:"Six public brands, not five: Shiloh, Eclipse, Aspect, Vistora, Pronorm, US Stone."},
-  {q:"What is American depths on Pronorm?", a:"Planned for American rooms and appliances. Factory stays in millimeters."},
+  {q:"How do I become a Pinnacle Sales dealer?", a:"Submit the dealer application on this page. We'll follow up within two business days to schedule an introductory call, review your market and showroom, and discuss which of our six public brands — Shiloh, Eclipse, Aspect, Vistora, Pronorm, or US Stone — best fit your business. Step-by-step: <a href='/guides/how-to-become-a-kitchen-cabinet-dealer/'>how to become a kitchen cabinet dealer</a>."},
+  {q:"What brands can I carry?", a:"Six public brands, not five: Shiloh, Eclipse, Aspect, Vistora, Pronorm, US Stone. See <a href='/guides/one-showroom-six-lines/'>one showroom, six lines</a>."},
+  {q:"What is American depths on Pronorm?", a:"Planned for American rooms and appliances. Factory stays in millimeters. Dealer spec: <a href='/guides/pronorm-american-depths/'>Pronorm American depths</a>."},
   {q:"Do you market Nevara?", a:"No. Nevara is a dealer-only WW Wood SKU. It is not on this site."},
   {q:"Is there a cost or minimum order to become a dealer?", a:"There is no fee to apply or to become an authorized dealer. Minimum order requirements and display commitments vary by brand and program; we'll walk through the specifics for the lines you're interested in during your introductory call."},
-  {q:"Do you offer protected dealer territories?", a:"Yes. Territory protection varies by brand and market. Pronorm German Kitchens are available nationwide with protected dealer territories, and we manage territory carefully for our WW Wood Products lines (Shiloh, Eclipse, Aspect, Vistora) across the 10 Western states we represent."},
+  {q:"Do you offer protected dealer territories?", a:"Yes. Territory protection varies by brand and market. Pronorm German Kitchens are available nationwide with protected dealer territories, and we manage territory carefully for our WW Wood Products lines (Shiloh, Eclipse, Aspect, Vistora) across the 10 Western states we represent. Details: <a href='/guides/protected-dealer-territories/'>protected dealer territories</a>."},
   {q:"Which states does Pinnacle Sales cover?", a:"We represent dealers across Arizona, California, Colorado, Idaho, Montana, Nevada, New Mexico, Oregon, Utah, and Washington for WW Wood Products brands. Pronorm German Kitchens are available to qualified dealers nationwide."},
   {q:"Can I carry Pronorm without carrying the WW Wood Products brands?", a:"Yes. Pronorm German Kitchens are distributed independently through European Kitchen Distributors (EKD), a Pinnacle Sales company, with protected territories nationwide — regardless of whether you carry Shiloh, Eclipse, Aspect, or Vistora."},
   {q:"What support do you provide after I become a dealer?", a:"Hands-on in-person sales training, 2020/Winner design and quoting support, showroom merchandising and display programs, co-branded marketing resources, factory access and tours, and ongoing business development — we work alongside your team to close more projects."},
   {q:"What types of businesses do you work with?", a:"Independent kitchen & bath showrooms, design-build firms, custom home builders, interior design studios with product sales capability, and multi-location dealer groups — from single showrooms to growing enterprises."}
 ];
-const dealerFaqSchema = {"@context":"https://schema.org","@type":"FAQPage","mainEntity":dealerFaqs.map(f=>({"@type":"Question","name":f.q,"acceptedAnswer":{"@type":"Answer","text":f.a}}))};
+const stripTags = (s) => s.replace(/<[^>]+>/g, '');
+const dealerFaqSchema = {"@context":"https://schema.org","@type":"FAQPage","mainEntity":dealerFaqs.map(f=>({"@type":"Question","name":f.q,"acceptedAnswer":{"@type":"Answer","text":stripTags(f.a)}}))};
 ---
 <BaseLayout title="Become a Kitchen Cabinet Dealer — Shiloh, Eclipse, Pronorm | Pinnacle Sales" description="Apply to become a Pinnacle Sales dealer. Six brands — Shiloh, Eclipse, Aspect, Vistora, Pronorm, and US Stone — plus training, showroom support, and territory protection." schema={[contactSchema, dealerFaqSchema]}>
 <div class="page-header"><h1>Become a Pinnacle Sales Dealer</h1><p>Partner with the leading cabinetry rep firm in the Western US. Six premium brands, one trusted partnership.</p><a href="#apply" class="btn btn-white header-apply">Apply Now</a></div>
 <div class="content-narrow section">
 <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Become a Dealer'}]} />
 
-<p>Whether you are an established kitchen dealer looking to expand your brand portfolio or an entrepreneur exploring how to launch a new showroom, Pinnacle Sales offers the brands, training, and hands-on support you need to build a profitable cabinetry business.</p>
+<p>Whether you are an established kitchen dealer looking to expand your brand portfolio or an entrepreneur exploring how to launch a new showroom, Pinnacle Sales offers the brands, training, and hands-on support you need to build a profitable cabinetry business. Start with <a href="/guides/how-to-become-a-kitchen-cabinet-dealer/">how to become a kitchen cabinet dealer</a> if you want the process before the form.</p>
 
 <h2>Why Partner with Pinnacle Sales?</h2>
 
@@ -80,12 +81,22 @@ const dealerFaqSchema = {"@context":"https://schema.org","@type":"FAQPage","main
 
 <p>Our dealer partners include independent kitchen and bath showrooms, design-build firms, custom home builders, interior design studios with product sales capability, and multi-location dealer groups. Whether you are a single-location showroom or a growing enterprise, we structure our support to match your business needs.</p>
 
+<h2>Dealer Guides</h2>
+<p>Short answers a kitchen dealer would search. Each page has a CTA back to this application.</p>
+<ul>
+  <li><a href="/guides/how-to-become-a-kitchen-cabinet-dealer/">How to become a kitchen cabinet dealer</a></li>
+  <li><a href="/guides/protected-dealer-territories/">Protected dealer territories</a> — WW Wood West vs Pronorm nationwide</li>
+  <li><a href="/guides/pronorm-american-depths/">What American depths means for Pronorm</a></li>
+  <li><a href="/guides/one-showroom-six-lines/">One showroom, six lines</a></li>
+  <li><a href="/guides/face-frame-vs-frameless/">Face-frame vs frameless on a dealer floor</a> — Shiloh vs Eclipse, same factory</li>
+</ul>
+
 <h2>Dealer Program FAQs</h2>
 <div class="dealer-faqs">
 {dealerFaqs.map((faq) => (
 <div class="faq-item">
 <h3>{faq.q}</h3>
-<p>{faq.a}</p>
+<p set:html={faq.a}></p>
 </div>
 ))}
 </div>

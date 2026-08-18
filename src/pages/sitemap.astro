@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { blogPosts } from '../data/blogPosts';
+import { aeoGuides } from '../data/aeoGuides';
 
 const states = ['Arizona','California','Colorado','Idaho','Montana','Nevada','New Mexico','Oregon','Utah','Washington'];
 const statesSlugs = ['arizona','california','colorado','idaho','montana','nevada','new-mexico','oregon','utah','washington'];
@@ -13,9 +14,10 @@ const statesSlugs = ['arizona','california','colorado','idaho','montana','nevada
 <ul>
 <li><a href="/">Home</a></li>
 <li><a href="/about">About</a></li>
-<li><a href="/become-a-dealer">Become a Dealer</a></li>
-<li><a href="/dealer-success-stories">Dealer Success Stories</a></li>
-<li><a href="/faqs">FAQs</a></li>
+<li><a href="/become-a-dealer/">Become a Dealer</a></li>
+<li><a href="/dealer-success-stories/">Dealer Success Stories</a></li>
+<li><a href="/guides/">Dealer Guides</a></li>
+<li><a href="/faqs/">FAQs</a></li>
 <li><a href="/contact">Contact</a></li>
 </ul>
 
@@ -32,6 +34,14 @@ const statesSlugs = ['arizona','california','colorado','idaho','montana','nevada
 <ul>
 {statesSlugs.map((slug, i) => (
 <li><a href={`/territory/${slug}`}>{states[i]}</a></li>
+))}
+</ul>
+
+<h2>Dealer Guides</h2>
+<ul>
+<li><a href="/guides/">All dealer guides</a></li>
+{aeoGuides.map((g) => (
+<li><a href={g.href}>{g.title}</a></li>
 ))}
 </ul>
 
