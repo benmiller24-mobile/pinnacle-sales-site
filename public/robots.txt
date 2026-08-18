@@ -1,6 +1,8 @@
 User-agent: *
 Allow: /
 Disallow: /404
+Disallow: /dealer-hub/
+Disallow: /thank-you-
 
 Sitemap: https://pinnaclesales.biz/sitemap-index.xml
 Sitemap: https://pinnaclesales.biz/video-sitemap.xml
