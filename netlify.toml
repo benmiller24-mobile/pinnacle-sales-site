@@ -2,6 +2,19 @@
   command = "npm run build"
   publish = "dist"
 
+# Google and most SEO tools request /sitemap.xml by default.
+# @astrojs/sitemap already emits sitemap-index.xml (200) + sitemap-0.xml.
+# Alias the common path instead of leaving a 404.
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/sitemap-index.xml"
+  status = 301
+
+[[redirects]]
+  from = "/sitemap.xml/"
+  to = "/sitemap-index.xml"
+  status = 301
+
 # 301 Redirects from old Squarespace URLs
 [[redirects]]
   from = "/shiloh-cabinetry"
@@ -126,6 +139,19 @@
 [[redirects]]
   from = "/blog/blog-post-title-two-69fdy"
   to = "/playbook/excelle-shiloh-inset/"
+  status = 301
+
+# Leftover Squarespace /blog/* URLs. Must stay AFTER the specific
+# /blog/blog-post-title-two-69fdy rule so that slug still maps to the
+# Excelle article (first-match-wins). /blog itself is the old index.
+[[redirects]]
+  from = "/blog"
+  to = "/playbook/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/*"
+  to = "/playbook/:splat/"
   status = 301
 
 # Catch-all fallback for any old playbook URL not matched by a specific rule above.
