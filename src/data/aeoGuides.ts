@@ -7,10 +7,16 @@ export interface AeoGuide {
 
 export const aeoGuides: AeoGuide[] = [
   {
+    slug: 'become-a-shiloh-dealer',
+    title: 'Become a Shiloh Dealer',
+    href: '/guides/become-a-shiloh-dealer/',
+    description: 'Open Shiloh only. For custom shops and dealers leaving a box or semi-custom line — Kraftmaid, Medallion, or similar.',
+  },
+  {
     slug: 'how-to-become-a-kitchen-cabinet-dealer',
     title: 'How to Become a Kitchen Cabinet Dealer',
     href: '/guides/how-to-become-a-kitchen-cabinet-dealer/',
-    description: 'How kitchen dealers apply, get territory, and open Shiloh, Eclipse, Aspect, Vistora, Pronorm, or US Stone.',
+    description: 'How kitchen dealers apply, get territory, and open Shiloh first — or any of the six public brands.',
   },
   {
     slug: 'protected-dealer-territories',
