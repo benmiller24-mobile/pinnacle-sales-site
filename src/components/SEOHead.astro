@@ -17,7 +17,7 @@ export interface Props {
 const {
   title,
   description,
-  canonical = Astro.url.href,
+  canonical: canonicalProp,
   ogImage = '/images/pinnacle-sales-og.jpg',
   heroImage,
   schema,
@@ -27,6 +27,21 @@ const {
 
 const siteName = 'Pinnacle Sales';
 const siteUrl = 'https://pinnaclesales.biz';
+
+// Brand rule: canonical is always non-www with a trailing slash.
+const toCanonical = (input?: string) => {
+  const raw = input || Astro.url.pathname || '/';
+  let path = raw;
+  try {
+    if (/^https?:\/\//i.test(raw)) path = new URL(raw).pathname;
+  } catch {
+    path = Astro.url.pathname || '/';
+  }
+  if (!path.startsWith('/')) path = `/${path}`;
+  if (!path.endsWith('/')) path += '/';
+  return `${siteUrl}${path}`;
+};
+const canonical = toCanonical(canonicalProp);
 
 // Global Organization schema on every page
 const orgSchema = {

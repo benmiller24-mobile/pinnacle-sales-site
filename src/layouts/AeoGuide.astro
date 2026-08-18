@@ -1,0 +1,76 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import DealerCTA from '../components/DealerCTA.astro';
+import { aeoGuides } from '../data/aeoGuides';
+
+export interface Faq {
+  q: string;
+  a: string;
+}
+
+export interface Props {
+  title: string;
+  description: string;
+  slug: string;
+  heading: string;
+  lede: string;
+  faqs: Faq[];
+}
+
+const { title, description, slug, heading, lede, faqs } = Astro.props;
+const path = `/guides/${slug}/`;
+const canonical = `https://pinnaclesales.biz${path}`;
+const stripTags = (s: string) => s.replace(/<[^>]+>/g, '');
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: stripTags(f.a) },
+  })),
+};
+const related = aeoGuides.filter((g) => g.slug !== slug);
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schema={faqSchema}>
+  <div class="page-header">
+    <h1>{heading}</h1>
+    <p>{lede}</p>
+  </div>
+  <div class="content-narrow section">
+    <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Dealer Guides', href: '/guides/' }, { name: heading }]} />
+    <slot />
+
+    <h2>Dealer FAQs</h2>
+    <div class="guide-faqs">
+      {faqs.map((faq) => (
+        <div class="faq-item">
+          <h3>{faq.q}</h3>
+          <p set:html={faq.a} />
+        </div>
+      ))}
+    </div>
+
+    <h2>More dealer guides</h2>
+    <ul class="related-guides">
+      {related.map((g) => (
+        <li><a href={g.href}>{g.title}</a></li>
+      ))}
+    </ul>
+  </div>
+  <DealerCTA
+    heading="Apply to Become a Dealer"
+    text="Submit the application. We follow up within two business days to talk market, showroom, and which of the six public brands fit."
+  />
+</BaseLayout>
+
+<style>
+  .guide-faqs { margin: 1.25rem 0 2rem; }
+  .faq-item { border-bottom: 1px solid #e5e7eb; padding: 1.25rem 0; }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-item h3 { font-size: 1.05rem; margin: 0 0 0.5rem; color: #1a1a2e; text-transform: none; letter-spacing: 0; }
+  .faq-item p { margin: 0; color: #4b5563; font-size: 0.95rem; line-height: 1.6; }
+  .related-guides { margin: 0 0 1rem; }
+</style>

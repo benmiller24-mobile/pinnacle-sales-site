@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import DealerCTA from '../../components/DealerCTA.astro';
+import { aeoGuides } from '../../data/aeoGuides';
+
+const canonical = 'https://pinnaclesales.biz/guides/';
+---
+<BaseLayout
+  title="Dealer Guides — Territory, Brands & Spec | Pinnacle Sales"
+  description="Dealer-intent guides: become a Shiloh dealer from custom or a box line, territories, Pronorm American depths, six public brands, face-frame vs frameless."
+  canonical={canonical}
+>
+  <div class="page-header">
+    <h1>Dealer Guides</h1>
+    <p>Shiloh-first answers a kitchen dealer would search — then apply at Become a Dealer.</p>
+  </div>
+  <div class="content-narrow section">
+    <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Dealer Guides' }]} />
+    <p>Pinnacle Sales is a manufacturer's representative. The dealer is the customer. Start with <a href="/guides/become-a-shiloh-dealer/">become a Shiloh dealer</a> if you build custom or you are leaving Kraftmaid / Medallion. Not a consumer storefront. Not a dealer locator.</p>
+    <ul class="guide-list">
+      {aeoGuides.map((g) => (
+        <li>
+          <h2><a href={g.href}>{g.title}</a></h2>
+          <p>{g.description}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+  <DealerCTA
+    heading="Apply to Become a Dealer"
+    text="Six public brands — Shiloh, Eclipse, Aspect, Vistora, Pronorm, and US Stone — plus training, merchandising, and territory review."
+  />
+</BaseLayout>
+<style>
+  .guide-list { list-style: none; padding: 0; margin: 2rem 0 0; }
+  .guide-list li { border-bottom: 1px solid #e5e7eb; padding: 1.5rem 0; }
+  .guide-list li:last-child { border-bottom: none; }
+  .guide-list h2 { font-size: 1.15rem; margin: 0 0 0.5rem; text-transform: none; letter-spacing: 0; }
+  .guide-list p { margin: 0; color: #4b5563; }
+</style>

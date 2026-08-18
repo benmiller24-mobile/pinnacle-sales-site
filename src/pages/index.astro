@@ -51,7 +51,8 @@ const heroVideoSchema = {
     <h4 class="hero-tagline">Connect | Collaborate | Create</h4>
     <h1>Premium Kitchen & Bath Cabinetry for Dealers Across 10 Western US States</h1>
     <p>Pinnacle Sales is the leading Manufacturer's Representative to the Kitchen and Bath Industry, serving Arizona, California, Colorado, Idaho, Montana, Nevada, New Mexico, Oregon, Utah, and Washington. We connect kitchen and bath dealers with premium brands including <a href="/brands/shiloh-cabinetry">Shiloh Cabinetry</a>, <a href="/brands/eclipse-cabinetry">Eclipse Cabinetry</a>, <a href="/brands/aspect-cabinetry">Aspect Cabinetry</a>, <a href="/brands/pronorm-german-kitchens">Pronorm German Kitchens</a>, <a href="/brands/vistora-closets">Vistora Closets</a>, and <a href="/brands/us-stone-group">US Stone Group</a> luxury surfaces — backed by 23+ years of industry expertise, hands-on sales training, and showroom support.</p>
-    <a href="/become-a-dealer" class="btn btn-white">Become a Dealer</a>
+    <a href="/become-a-dealer/" class="btn btn-white">Become a Dealer</a>
+    <p class="hero-shiloh">Custom shop, or leaving Kraftmaid / Medallion? Apply for Shiloh — you do not have to take all six lines.</p>
     <p class="hero-routes">
       <a href="/contact/?subject=homeowner">Homeowner or designer? Find a local dealer &rarr;</a>
       <a href="/brands/us-stone-group/">Buying stone? Slabs &amp; containers &rarr;</a>
@@ -564,6 +565,12 @@ const heroVideoSchema = {
   }
   @media (max-width: 520px) {
     .lookbook-grid { grid-template-columns: 1fr; }
+  }
+  .hero-shiloh {
+    margin: 1rem auto 0;
+    max-width: 520px;
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.88);
   }
   .hero-routes {
     margin-top: 1.4rem;
