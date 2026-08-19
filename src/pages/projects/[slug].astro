@@ -13,7 +13,13 @@ const { project: p } = Astro.props;
 const heroAlt = p.images.find(i => i.src === p.hero)?.alt || p.title;
 
 const siteUrl = 'https://pinnaclesales.biz';
-const projectUrl = `${siteUrl}/projects/${p.slug}`;
+const projectUrl = `${siteUrl}/projects/${p.slug}/`;
+
+const openLine = p.brand === 'Shiloh'
+  ? 'Open Shiloh'
+  : p.brand !== 'Multiple'
+    ? `Open ${p.brand}, or start with Shiloh`
+    : 'Open Shiloh';
 
 // CreativeWork schema for the installed project itself, with each
 // gallery image as an associated ImageObject.
@@ -31,7 +37,7 @@ const creativeWorkSchema = {
     "description": img.alt,
   })),
   "creator": {
-    "@type": "LocalBusiness",
+    "@type": "Organization",
     "@id": `${projectUrl}#dealer`,
     "name": p.dealer,
     ...(p.dealerWebsite ? { "url": p.dealerWebsite } : {}),
@@ -56,11 +62,9 @@ const creativeWorkSchema = {
     .filter(Boolean).join(", "),
 };
 
-// Standalone LocalBusiness schema for the dealer (separate node so
-// search engines can match it as an organization in its own right).
-const localBusinessSchema = {
+const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "Organization",
   "@id": `${projectUrl}#dealer`,
   "name": p.dealer,
   ...(p.dealerWebsite ? { "url": p.dealerWebsite } : {}),
@@ -81,12 +85,13 @@ const localBusinessSchema = {
   },
 };
 
-const projectSchemas = [creativeWorkSchema, localBusinessSchema];
+const projectSchemas = [creativeWorkSchema, organizationSchema];
 ---
 <BaseLayout
   title={`${p.title} | Pinnacle Sales Projects`}
   description={p.blurb}
   ogImage={`/images/projects/${p.slug}/${p.hero}`}
+  canonical={projectUrl}
   schema={projectSchemas}
 >
 
@@ -108,7 +113,7 @@ const projectSchemas = [creativeWorkSchema, localBusinessSchema];
 <div class="container narrow section">
   <Breadcrumbs items={[
     { name: 'Home', href: '/' },
-    { name: 'Projects', href: '/projects' },
+    { name: 'Projects', href: '/projects/' },
     { name: p.title }
   ]} />
 
@@ -152,14 +157,17 @@ const projectSchemas = [creativeWorkSchema, localBusinessSchema];
 </div>
 
 <div class="content-narrow">
-  <div class="homeowner-cta">
-    <h2>Love this {p.spaceType.toLowerCase()}?</h2>
-    <p>{p.brand !== 'Multiple' ? `${p.brand} is` : 'These brands are'} sold through authorized independent dealers in {p.state}. Tell us about your project and we'll connect you with the nearest showroom.</p>
-    <a class="btn btn-outline" href="/contact/?subject=homeowner">Find a Local Dealer</a>
+  <div class="dealer-proof-cta">
+    <h2>This is dealer work</h2>
+    <p>{openLine}. This {p.spaceType.toLowerCase()} was installed by a Pinnacle Sales dealer. The customer on this site is the dealer, not a homeowner. Apply to carry {p.brand !== 'Multiple' ? p.brand : 'a public brand'}. You do not have to take all six public brands. There is no locator.</p>
+    <a class="btn btn-outline" href="/become-a-dealer/">Apply / open Shiloh</a>
   </div>
 </div>
 
-<DealerCTA />
+<DealerCTA
+  heading="Apply to become a dealer"
+  text="This gallery is dealer proof, not a storefront. Custom shop or leaving a box line? Open Shiloh, or any of the six public brands."
+/>
 
 </BaseLayout>
 
@@ -274,13 +282,13 @@ const projectSchemas = [creativeWorkSchema, localBusinessSchema];
     .lookbook { grid-template-columns: 1fr; gap: 0.75rem; }
     .hero { aspect-ratio: 4 / 3; }
   }
-  .homeowner-cta {
+  .dealer-proof-cta {
     text-align: center;
     padding: 2.5rem 2rem;
     margin: 0 auto 1rem;
     border: 1px solid var(--color-border, #e0e0e0);
     background: var(--color-bg-warm, #faf8f5);
   }
-  .homeowner-cta h2 { margin: 0 0 .6rem; }
-  .homeowner-cta p { max-width: 560px; margin: 0 auto 1.4rem; color: var(--color-muted, #666); }
+  .dealer-proof-cta h2 { margin: 0 0 .6rem; }
+  .dealer-proof-cta p { max-width: 560px; margin: 0 auto 1.4rem; color: var(--color-muted, #666); }
 </style>
