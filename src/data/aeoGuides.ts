@@ -46,12 +46,12 @@ export const aeoGuides: AeoGuide[] = [
     slug: 'ww-wood-factory',
     title: 'WW Wood Factory in Dudley',
     href: '/guides/ww-wood-factory/',
-    description: 'Shiloh, Eclipse, Aspect, and Vistora from WW Wood in Dudley, Missouri. Apply and we will set up a visit.',
+    description: 'Shiloh, Eclipse, Aspect, and Vistora from WW Wood in Dudley, Missouri. Fill out the form and we will set up a visit.',
   },
   {
     slug: 'dealer-training',
     title: 'Dealer Training',
     href: '/guides/dealer-training/',
-    description: 'In-person line training, merchandising, and 2020/Winner support. Apply and we will get you on the calendar.',
+    description: 'In-person line training, merchandising, and Cyncly 2020 support. Fill out the form and we will get you on the calendar.',
   },
 ];
