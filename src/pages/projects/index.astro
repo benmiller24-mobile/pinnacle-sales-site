@@ -7,18 +7,29 @@ import { projects } from '../../data/projects';
 const brands = Array.from(new Set(projects.map(p => p.brand))).sort();
 const spaces = Array.from(new Set(projects.map(p => p.spaceType))).sort();
 const states = Array.from(new Set(projects.map(p => p.state))).sort();
+const canonical = 'https://pinnaclesales.biz/projects/';
 ---
 <BaseLayout
   title="Dealer Projects | Pinnacle Sales Gallery"
-  description="Installed kitchen, bath, and whole-home projects by Pinnacle Sales dealers — Shiloh, Eclipse, Aspect, and Pronorm across the Western US."
+  description="Installed kitchen, bath, and whole-home projects by Pinnacle Sales dealers. Dealer proof for shops opening Shiloh, Eclipse, Aspect, or Pronorm. Apply. No locator."
+  canonical={canonical}
 >
 <div class="page-header">
   <h1>Dealer Projects</h1>
-  <p>Real installs by real Pinnacle Sales dealer partners. Curated from kitchens, bath rooms, closets, and showrooms across our 10-state Western US territory.</p>
+  <p>Installed work from Pinnacle Sales dealers. This gallery is dealer proof, not a consumer storefront. Open Shiloh, or apply for any of the six public brands. You do not have to take all six.</p>
 </div>
 
 <div class="container section">
   <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Projects' }]} />
+
+  <div class="dealer-proof">
+    <h2>This is dealer work</h2>
+    <p>Every project here was specified and installed by an independent dealer. Homeowners do not apply on this site. There is no locator and no "find a local dealer" path. If you run a custom shop or you are leaving a box line, <a href="/become-a-dealer/">apply</a> and we will talk territory. Shiloh-only is a real path: <a href="/guides/become-a-shiloh-dealer/">open Shiloh first</a>.</p>
+    <blockquote class="dealer-quote">
+      <p>&ldquo;Ben Miller and the team at Pinnacle Sales has been instrumental to our business. From the very beginning, Ben has given us guidance in creating our showroom, kept us apprised of current trends, navigate the intricacies of how our supplier operates, and never shied away from helping us through the tough situations that come with home remodeling. Over the 20 years I've been a designer, I've worked with a lot of sales representatives but Ben &amp; Pinnacle Sales has truly gone above and beyond the rest to give us the tools for continued success.&rdquo;</p>
+      <footer>Jason Castillo, Owner, Castle Vision Design, Ventura, CA. Existing quote from <a href="/dealer-success-stories/">dealer success stories</a>.</footer>
+    </blockquote>
+  </div>
 
   <div class="filters">
     <span class="filter-label">Filter</span>
@@ -50,7 +61,7 @@ const states = Array.from(new Set(projects.map(p => p.state))).sort();
     {projects.map(p => (
       <a
         class={`project-card${p.featured ? ' featured' : ''}`}
-        href={`/projects/${p.slug}`}
+        href={`/projects/${p.slug}/`}
         data-brand={p.brand}
         data-space={p.spaceType}
         data-state={p.state}
@@ -78,8 +89,8 @@ const states = Array.from(new Set(projects.map(p => p.state))).sort();
 </div>
 
 <DealerCTA
-  heading="Want Your Installs Featured Here?"
-  text="If you're a current Pinnacle Sales dealer with a finished install you're proud of, send photos to your territory rep. We're always curating new work for this gallery."
+  heading="Open Shiloh. This is dealer proof."
+  text="Custom shop or leaving Kraftmaid / Medallion? Apply. You do not have to take all six public brands. Current dealers: send finished installs to your territory rep."
 />
 
 </BaseLayout>
@@ -143,6 +154,28 @@ const states = Array.from(new Set(projects.map(p => p.state))).sort();
     font-weight: 400;
   }
   .page-header p { max-width: 640px; margin: 0 auto; color: var(--color-muted, #666); }
+
+  .dealer-proof {
+    max-width: 800px;
+    margin: 0 0 2.5rem;
+    padding: 1.75rem 1.5rem;
+    border: 1px solid var(--color-border, #e0e0e0);
+    background: var(--color-bg-warm, #faf8f5);
+  }
+  .dealer-proof h2 {
+    margin: 0 0 0.75rem;
+    font-size: 1.15rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .dealer-proof p { margin: 0 0 1rem; color: var(--color-muted, #666); }
+  .dealer-quote {
+    margin: 0;
+    padding: 0 0 0 1.25rem;
+    border-left: 3px solid var(--color-accent, #c8a96e);
+  }
+  .dealer-quote p { margin: 0 0 0.75rem; color: var(--color-body, #333); font-size: 0.92rem; line-height: 1.7; }
+  .dealer-quote footer { font-size: 0.8rem; color: var(--color-muted, #666); }
 
   .filters {
     display: flex;
