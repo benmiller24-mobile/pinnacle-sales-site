@@ -42,4 +42,16 @@ export const aeoGuides: AeoGuide[] = [
     href: '/guides/face-frame-vs-frameless/',
     description: 'Shiloh face-frame and Eclipse frameless from the same WW Wood factory — how to merchandize both.',
   },
+  {
+    slug: 'ww-wood-factory',
+    title: 'WW Wood Factory in Dudley',
+    href: '/guides/ww-wood-factory/',
+    description: 'How WW Wood in Dudley, Missouri builds Shiloh, Eclipse, Aspect, and Vistora for 10 Western states. Apply for factory access.',
+  },
+  {
+    slug: 'dealer-training',
+    title: 'Dealer Training and Events',
+    href: '/guides/dealer-training/',
+    description: 'In-person line training, merchandising, and 2020/Winner support. No public event calendar. Apply to get on the schedule.',
+  },
 ];
