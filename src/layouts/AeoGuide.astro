@@ -31,7 +31,7 @@ const faqSchema = {
     acceptedAnswer: { '@type': 'Answer', text: stripTags(f.a) },
   })),
 };
-const related = aeoGuides.filter((g) => g.slug !== slug);
+const related = aeoGuides.filter((g) => g.slug !== slug && !(slug === 'ww-wood-factory' && g.slug === 'pronorm-american-depths'));
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} schema={faqSchema}>
@@ -61,8 +61,8 @@ const related = aeoGuides.filter((g) => g.slug !== slug);
     </ul>
   </div>
   <DealerCTA
-    heading="Apply to Become a Dealer"
-    text="Submit the application. We follow up within two business days to talk market, showroom, and which of the six public brands fit."
+    heading="Become a Dealer"
+    text="Submit the form. We follow up within two business days to talk market, showroom, and which of the six public brands fit."
   />
 </BaseLayout>
 

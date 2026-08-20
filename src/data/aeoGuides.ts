@@ -10,7 +10,7 @@ export const aeoGuides: AeoGuide[] = [
     slug: 'become-a-shiloh-dealer',
     title: 'Become a Shiloh Dealer',
     href: '/guides/become-a-shiloh-dealer/',
-    description: 'Open Shiloh only. For custom shops and dealers leaving a box or semi-custom line — Kraftmaid, Medallion, or similar.',
+    description: 'Open Shiloh only. For custom shops and dealers leaving Kraftmaid, Medallion, or a similar stock or semi-custom program.',
   },
   {
     slug: 'how-to-become-a-kitchen-cabinet-dealer',
@@ -41,5 +41,17 @@ export const aeoGuides: AeoGuide[] = [
     title: 'Face-Frame vs Frameless on a Dealer Floor',
     href: '/guides/face-frame-vs-frameless/',
     description: 'Shiloh face-frame and Eclipse frameless from the same WW Wood factory — how to merchandize both.',
+  },
+  {
+    slug: 'ww-wood-factory',
+    title: 'WW Wood Factory in Dudley',
+    href: '/guides/ww-wood-factory/',
+    description: 'Shiloh, Eclipse, Aspect, and Vistora from WW Wood in Dudley, Missouri. Fill out the form and we will set up a visit.',
+  },
+  {
+    slug: 'dealer-training',
+    title: 'Dealer Training',
+    href: '/guides/dealer-training/',
+    description: 'In-person line training, merchandising, and Cyncly 2020 support. Fill out the form and we will get you on the calendar.',
   },
 ];
