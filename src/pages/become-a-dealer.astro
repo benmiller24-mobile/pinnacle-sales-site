@@ -5,8 +5,8 @@ import Testimonials from '../components/Testimonials.astro';
 const contactSchema = {"@context":"https://schema.org","@type":"ContactPage","name":"Become a Pinnacle Sales Dealer","description":"Apply to become a Pinnacle Sales kitchen and bath cabinetry dealer. Carry six brands — Shiloh, Eclipse, Aspect, Vistora, Pronorm, and US Stone — across 10 Western US states (Pronorm nationwide).","mainEntity":{"@type":"Organization","name":"Pinnacle Sales","url":"https://pinnaclesales.biz","contactPoint":{"@type":"ContactPoint","telephone":"+1-480-993-9224","contactType":"sales","email":"info@pinnaclesales.biz","areaServed":["Arizona","California","Colorado","Idaho","Montana","Nevada","New Mexico","Oregon","Utah","Washington"],"availableLanguage":["English"]}},"potentialAction":{"@type":"ApplyAction","name":"Apply to become a dealer","target":"https://pinnaclesales.biz/dealer-hub/submit/"}};
 
 const dealerFaqs = [
-  {q:"How do I become a Pinnacle Sales dealer?", a:"Submit the dealer application on this page. Check Shiloh only if that is the line — custom shops and dealers leaving Kraftmaid or Medallion do that every week. We'll follow up within two business days. Shiloh path: <a href='/guides/become-a-shiloh-dealer/'>become a Shiloh dealer</a>. Full process: <a href='/guides/how-to-become-a-kitchen-cabinet-dealer/'>how to become a kitchen cabinet dealer</a>."},
-  {q:"Can I apply for Shiloh only?", a:"Yes. Check Shiloh and leave the other boxes blank. Tell us if you build custom and what you used to sell (Kraftmaid, Medallion, or another stock or semi-custom program). Details: <a href='/guides/become-a-shiloh-dealer/'>become a Shiloh dealer</a>."},
+  {q:"How do I become a Pinnacle Sales dealer?", a:"Submit the dealer form on this page. Check Shiloh only if that is the line. Custom shops and dealers leaving Kraftmaid, Medallion, Omega, StarMark, UltraCraft, Bellmont, or Canyon Creek do that every week. We'll follow up within two business days. Shiloh path: <a href='/guides/become-a-shiloh-dealer/'>become a Shiloh dealer</a>. Full process: <a href='/guides/how-to-become-a-kitchen-cabinet-dealer/'>how to become a kitchen cabinet dealer</a>."},
+  {q:"Can I apply for Shiloh only?", a:"Yes. Check Shiloh and leave the other boxes blank. Tell us if you build custom and what you used to sell (Kraftmaid, Medallion, Omega, StarMark, UltraCraft, Bellmont, Canyon Creek, or another stock or semi-custom program). Details: <a href='/guides/become-a-shiloh-dealer/'>become a Shiloh dealer</a>."},
   {q:"What brands can I carry?", a:"Six public brands, not five: Shiloh, Eclipse, Aspect, Vistora, Pronorm, US Stone. You do not have to take all six. See <a href='/guides/one-showroom-six-lines/'>one showroom, six lines</a>."},
   {q:"What is American depths on Pronorm?", a:"Planned for American rooms and appliances. Factory stays in millimeters. Dealer spec: <a href='/guides/pronorm-american-depths/'>Pronorm American depths</a>."},
   {q:"Do you market Nevara?", a:"No. Nevara is a dealer-only WW Wood SKU. It is not on this site."},
@@ -15,7 +15,7 @@ const dealerFaqs = [
   {q:"Which states does Pinnacle Sales cover?", a:"We represent dealers across Arizona, California, Colorado, Idaho, Montana, Nevada, New Mexico, Oregon, Utah, and Washington for WW Wood Products brands. Pronorm German Kitchens are available to qualified dealers nationwide."},
   {q:"Can I carry Pronorm without carrying the WW Wood Products brands?", a:"Yes. Pronorm German Kitchens are distributed independently through European Kitchen Distributors (EKD), a Pinnacle Sales company, with protected territories nationwide — regardless of whether you carry Shiloh, Eclipse, Aspect, or Vistora."},
   {q:"What support do you provide after I become a dealer?", a:"Hands-on in-person sales training, 2020/Winner design and quoting support, showroom merchandising and display programs, co-branded marketing resources, factory access and tours, and ongoing business development — we work alongside your team to close more projects."},
-  {q:"What types of businesses do you work with?", a:"Custom shops adding a factory line, dealers leaving Kraftmaid, Medallion, or a similar stock or semi-custom program, independent kitchen & bath showrooms, design-build firms, custom home builders, interior studios that sell product, and multi-location dealer groups."}
+  {q:"What types of businesses do you work with?", a:"Custom shops adding a factory line, dealers leaving Kraftmaid, Medallion, Omega, StarMark, UltraCraft, Bellmont, Canyon Creek, or a similar stock or semi-custom program, independent kitchen & bath showrooms, design-build firms, custom home builders, interior studios that sell product, and multi-location dealer groups."}
 ];
 const stripTags = (s) => s.replace(/<[^>]+>/g, '');
 const dealerFaqSchema = {"@context":"https://schema.org","@type":"FAQPage","mainEntity":dealerFaqs.map(f=>({"@type":"Question","name":f.q,"acceptedAnswer":{"@type":"Answer","text":stripTags(f.a)}}))};
@@ -25,7 +25,7 @@ const dealerFaqSchema = {"@context":"https://schema.org","@type":"FAQPage","main
 <div class="content-narrow section">
 <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Become a Dealer'}]} />
 
-<p>Most applications we want look like this: you already build custom, or you used to sell Kraftmaid, Medallion, or another stock or semi-custom program, and you want factory-backed <a href="/guides/become-a-shiloh-dealer/">Shiloh</a>. Check Shiloh on the form. You do not have to take the other five public brands on day one. Process: <a href="/guides/how-to-become-a-kitchen-cabinet-dealer/">how to become a kitchen cabinet dealer</a>.</p>
+<p>Most shops we want look like this: you already build custom, or you used to sell Kraftmaid, Medallion, Omega, StarMark, UltraCraft, Bellmont, Canyon Creek, or another stock or semi-custom program, and you want factory-backed <a href="/guides/become-a-shiloh-dealer/">Shiloh</a>. Check Shiloh on the form. You do not have to take the other five public brands on day one. Process: <a href="/guides/how-to-become-a-kitchen-cabinet-dealer/">how to become a kitchen cabinet dealer</a>.</p>
 
 <h2>Why Partner with Pinnacle Sales?</h2>
 
@@ -80,12 +80,12 @@ const dealerFaqSchema = {"@context":"https://schema.org","@type":"FAQPage","main
 
 <h2>Who We Work With</h2>
 
-<p>Custom shops adding a factory line. Dealers leaving Kraftmaid, Medallion, or a similar stock or semi-custom program. Independent kitchen and bath showrooms, design-build firms, custom home builders, interior studios that sell product, and multi-location groups. Shiloh-only is a real first conversation.</p>
+<p>Custom shops adding a factory line. Dealers leaving Kraftmaid, Medallion, Omega, StarMark, UltraCraft, Bellmont, Canyon Creek, or a similar stock or semi-custom program. Independent kitchen and bath showrooms, design-build firms, custom home builders, interior studios that sell product, and multi-location groups. Shiloh-only is a real first conversation.</p>
 
 <h2>Dealer Guides</h2>
 <p>Short answers a kitchen dealer would search. Each page has a CTA back to this application.</p>
 <ul>
-  <li><a href="/guides/become-a-shiloh-dealer/">Become a Shiloh dealer</a> — from custom, Kraftmaid, or Medallion</li>
+  <li><a href="/guides/become-a-shiloh-dealer/">Become a Shiloh dealer</a> — from custom, Kraftmaid, Medallion, Omega, StarMark, UltraCraft, Bellmont, or Canyon Creek</li>
   <li><a href="/guides/how-to-become-a-kitchen-cabinet-dealer/">How to become a kitchen cabinet dealer</a></li>
   <li><a href="/guides/protected-dealer-territories/">Protected dealer territories</a> — WW Wood West vs Pronorm nationwide</li>
   <li><a href="/guides/pronorm-american-depths/">What American depths means for Pronorm</a></li>

@@ -10,7 +10,7 @@ export const aeoGuides: AeoGuide[] = [
     slug: 'become-a-shiloh-dealer',
     title: 'Become a Shiloh Dealer',
     href: '/guides/become-a-shiloh-dealer/',
-    description: 'Open Shiloh only. For custom shops and dealers leaving Kraftmaid, Medallion, or a similar stock or semi-custom program.',
+    description: 'Open Shiloh only. For custom shops and dealers leaving Kraftmaid, Medallion, Omega, StarMark, UltraCraft, Bellmont, Canyon Creek, or a similar stock or semi-custom program.',
   },
   {
     slug: 'how-to-become-a-kitchen-cabinet-dealer',
