@@ -4,9 +4,8 @@
 
 # XML sitemaps must stay XML and must return 200 — not a 301 chain.
 # GSC "Couldn't fetch" started the same day /sitemap.xml was 301'd (2026-08-17).
-# Some crawlers (and some Netlify edge nodes for datacenter/Google-like UAs)
-# fail after a sitemap redirect or after Pretty URLs / trailingSlash treats
-# *.xml/ as an HTML page. force=true 200 rewrites short-circuit that.
+# Some crawlers fail after a sitemap redirect. Trailing-slash variants of
+# *.xml must not become HTML. force=true 200 rewrites pin those paths.
 [[redirects]]
   from = "/sitemap.xml"
   to = "/sitemap-index.xml"
