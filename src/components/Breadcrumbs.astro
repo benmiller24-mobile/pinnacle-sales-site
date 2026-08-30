@@ -11,21 +11,46 @@ interface Props {
 const { items } = Astro.props;
 const siteUrl = 'https://pinnaclesales.biz';
 
+// Canonical paths are trailing-slash. Normalize so breadcrumb links and
+// BreadcrumbList schema never emit the no-slash twin that 301s.
+const withTrailingSlash = (href?: string) => {
+  if (!href || href === '/') return href;
+  if (/^(mailto:|tel:|#)/i.test(href)) return href;
+  if (/^https?:\/\//i.test(href)) {
+    try {
+      const u = new URL(href);
+      if (!u.pathname.endsWith('/') && !/\.[a-zA-Z0-9]+$/.test(u.pathname)) {
+        u.pathname += '/';
+      }
+      return u.toString();
+    } catch {
+      return href;
+    }
+  }
+  const cut = [href.indexOf('#'), href.indexOf('?')].filter((i) => i >= 0).sort((a, b) => a - b)[0];
+  const path = cut === undefined ? href : href.slice(0, cut);
+  const rest = cut === undefined ? '' : href.slice(cut);
+  if (/\.[a-zA-Z0-9]+$/.test(path)) return href;
+  return (path.endsWith('/') ? path : `${path}/`) + rest;
+};
+
+const crumbs = items.map((item) => ({ ...item, href: withTrailingSlash(item.href) }));
+
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": items.map((item, i) => ({
+  "itemListElement": crumbs.map((item, i) => ({
     "@type": "ListItem",
     "position": i + 1,
     "name": item.name,
-    ...(item.href ? { "item": `${siteUrl}${item.href}` } : {})
+    ...(item.href ? { "item": item.href.startsWith('http') ? item.href : `${siteUrl}${item.href}` } : {})
   }))
 };
 ---
 
 <nav aria-label="Breadcrumb" class="breadcrumbs">
   <ol>
-    {items.map((item, i) => (
+    {crumbs.map((item, i) => (
       <li>
         {item.href && i < items.length - 1 ? (
           <a href={item.href}>{item.name}</a>

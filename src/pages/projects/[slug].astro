@@ -108,7 +108,7 @@ const projectSchemas = [creativeWorkSchema, localBusinessSchema];
 <div class="container narrow section">
   <Breadcrumbs items={[
     { name: 'Home', href: '/' },
-    { name: 'Projects', href: '/projects' },
+    { name: 'Projects', href: '/projects/' },
     { name: p.title }
   ]} />
 
@@ -118,14 +118,14 @@ const projectSchemas = [creativeWorkSchema, localBusinessSchema];
 
   {p.relatedPostSlug && (
     <p class="related-post">
-      <a href={`/playbook/${p.relatedPostSlug}`}>Read the full Playbook story &rarr;</a>
+      <a href={`/playbook/${p.relatedPostSlug}/`}>Read the full Playbook story &rarr;</a>
     </p>
   )}
 
   <div class="meta-row">
     <div><span class="meta-label">Dealer</span><span class="meta-value">{p.dealer}</span></div>
     {p.brandSlug ? (
-      <div><span class="meta-label">Brand</span><span class="meta-value"><a href={`/brands/${p.brandSlug}`}>{p.brand}</a></span></div>
+      <div><span class="meta-label">Brand</span><span class="meta-value"><a href={`/brands/${p.brandSlug}/`}>{p.brand}</a></span></div>
     ) : (
       <div><span class="meta-label">Brand</span><span class="meta-value">{p.brand}</span></div>
     )}

@@ -20,7 +20,7 @@ const categories = [...new Set(blogPosts.map(p => p.category))];
   <!-- Category filter -->
   <div class="category-nav">
     <span class="cat-label">Filter:</span>
-    <a href="/playbook" class="cat-tag active">All</a>
+    <a href="/playbook/" class="cat-tag active">All</a>
     {categories.map(cat => (
       <span class="cat-tag">{cat}</span>
     ))}
@@ -31,14 +31,14 @@ const categories = [...new Set(blogPosts.map(p => p.category))];
     {blogPosts.map((post) => (
       <article class={`post-card${post.recommended ? ' recommended' : ''}`}>
         {post.image && (
-          <a href={`/playbook/${post.slug}`} class={`post-card-image${post.imageFit === 'contain' ? ' contain' : ''}`}>
+          <a href={`/playbook/${post.slug}/`} class={`post-card-image${post.imageFit === 'contain' ? ' contain' : ''}`}>
             <img src={post.image} alt={post.title} loading="lazy" width="600" height="340" />
             {post.recommended && <span class="recommended-badge">⭐ Recommended for New Dealers</span>}
           </a>
         )}
         <div class="post-card-body">
           <div class="post-card-category">{post.category}</div>
-          <h2><a href={`/playbook/${post.slug}`}>{post.title}</a></h2>
+          <h2><a href={`/playbook/${post.slug}/`}>{post.title}</a></h2>
           <p>{post.excerpt}</p>
           <div class="post-card-meta">
             <span>{post.author}</span>
@@ -46,7 +46,7 @@ const categories = [...new Set(blogPosts.map(p => p.category))];
               {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
             </time>
           </div>
-          <a href={`/playbook/${post.slug}`} class="read-more">Read More &rarr;</a>
+          <a href={`/playbook/${post.slug}/`} class="read-more">Read More &rarr;</a>
         </div>
       </article>
     ))}
@@ -56,7 +56,7 @@ const categories = [...new Set(blogPosts.map(p => p.category))];
   <div class="subscribe-cta">
     <h2>Stay in the Loop</h2>
     <p>Subscribe to the Kitchen Dealer Playbook for weekly product deep dives, territory win stories, and operational insights delivered to your inbox.</p>
-    <a href="/become-a-dealer" class="hero-cta">Sign Up for Free</a>
+    <a href="/become-a-dealer/" class="hero-cta">Sign Up for Free</a>
   </div>
 </div>
 </BaseLayout>

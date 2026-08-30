@@ -50,7 +50,7 @@ const states = Array.from(new Set(projects.map(p => p.state))).sort();
     {projects.map(p => (
       <a
         class={`project-card${p.featured ? ' featured' : ''}`}
-        href={`/projects/${p.slug}`}
+        href={`/projects/${p.slug}/`}
         data-brand={p.brand}
         data-space={p.spaceType}
         data-state={p.state}
