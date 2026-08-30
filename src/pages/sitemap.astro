@@ -13,27 +13,27 @@ const statesSlugs = ['arizona','california','colorado','idaho','montana','nevada
 <h2>Main Pages</h2>
 <ul>
 <li><a href="/">Home</a></li>
-<li><a href="/about">About</a></li>
+<li><a href="/about/">About</a></li>
 <li><a href="/become-a-dealer/">Become a Dealer</a></li>
 <li><a href="/dealer-success-stories/">Dealer Success Stories</a></li>
 <li><a href="/guides/">Dealer Guides</a></li>
 <li><a href="/faqs/">FAQs</a></li>
-<li><a href="/contact">Contact</a></li>
+<li><a href="/contact/">Contact</a></li>
 </ul>
 
 <h2>Brands</h2>
 <ul>
-<li><a href="/brands/shiloh-cabinetry">Shiloh Cabinetry</a></li>
-<li><a href="/brands/eclipse-cabinetry">Eclipse Cabinetry</a></li>
-<li><a href="/brands/aspect-cabinetry">Aspect Cabinetry</a></li>
-<li><a href="/brands/pronorm-german-kitchens">Pronorm German Kitchens</a></li>
-<li><a href="/brands/vistora-closets">Vistora Closets</a></li>
+<li><a href="/brands/shiloh-cabinetry/">Shiloh Cabinetry</a></li>
+<li><a href="/brands/eclipse-cabinetry/">Eclipse Cabinetry</a></li>
+<li><a href="/brands/aspect-cabinetry/">Aspect Cabinetry</a></li>
+<li><a href="/brands/pronorm-german-kitchens/">Pronorm German Kitchens</a></li>
+<li><a href="/brands/vistora-closets/">Vistora Closets</a></li>
 </ul>
 
 <h2>Territory</h2>
 <ul>
 {statesSlugs.map((slug, i) => (
-<li><a href={`/territory/${slug}`}>{states[i]}</a></li>
+<li><a href={`/territory/${slug}/`}>{states[i]}</a></li>
 ))}
 </ul>
 
@@ -47,9 +47,9 @@ const statesSlugs = ['arizona','california','colorado','idaho','montana','nevada
 
 <h2>Kitchen Dealer Playbook</h2>
 <ul>
-<li><a href="/playbook">All Articles</a></li>
+<li><a href="/playbook/">All Articles</a></li>
 {blogPosts.map((post) => (
-<li><a href={`/playbook/${post.slug}`}>{post.title}</a></li>
+<li><a href={`/playbook/${post.slug}/`}>{post.title}</a></li>
 ))}
 </ul>
 </div>

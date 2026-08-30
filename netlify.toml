@@ -2,18 +2,40 @@
   command = "npm run build"
   publish = "dist"
 
-# Google and most SEO tools request /sitemap.xml by default.
-# @astrojs/sitemap already emits sitemap-index.xml (200) + sitemap-0.xml.
-# Alias the common path instead of leaving a 404.
+# XML sitemaps must stay XML and must return 200 — not a 301 chain.
+# GSC "Couldn't fetch" started the same day /sitemap.xml was 301'd (2026-08-17).
+# Some crawlers (and some Netlify edge nodes for datacenter/Google-like UAs)
+# fail after a sitemap redirect or after Pretty URLs / trailingSlash treats
+# *.xml/ as an HTML page. force=true 200 rewrites short-circuit that.
 [[redirects]]
   from = "/sitemap.xml"
   to = "/sitemap-index.xml"
-  status = 301
+  status = 200
+  force = true
 
 [[redirects]]
   from = "/sitemap.xml/"
   to = "/sitemap-index.xml"
-  status = 301
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/sitemap-index.xml/"
+  to = "/sitemap-index.xml"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/sitemap-0.xml/"
+  to = "/sitemap-0.xml"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/video-sitemap.xml/"
+  to = "/video-sitemap.xml"
+  status = 200
+  force = true
 
 # 301 Redirects from old Squarespace URLs
 [[redirects]]
@@ -160,6 +182,48 @@
   from = "/thekitchendealerplaybook/*"
   to = "/playbook/:splat/"
   status = 301
+
+# Keep sitemap XML as application/xml even if a fetcher sends Accept: text/html
+# or a trailing slash. charset UTF-8 is explicit for GSC / Googlebot.
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Content-Type = "application/xml; charset=UTF-8"
+
+[[headers]]
+  for = "/sitemap.xml/"
+  [headers.values]
+    Content-Type = "application/xml; charset=UTF-8"
+
+[[headers]]
+  for = "/sitemap-index.xml"
+  [headers.values]
+    Content-Type = "application/xml; charset=UTF-8"
+
+[[headers]]
+  for = "/sitemap-index.xml/"
+  [headers.values]
+    Content-Type = "application/xml; charset=UTF-8"
+
+[[headers]]
+  for = "/sitemap-0.xml"
+  [headers.values]
+    Content-Type = "application/xml; charset=UTF-8"
+
+[[headers]]
+  for = "/sitemap-0.xml/"
+  [headers.values]
+    Content-Type = "application/xml; charset=UTF-8"
+
+[[headers]]
+  for = "/video-sitemap.xml"
+  [headers.values]
+    Content-Type = "application/xml; charset=UTF-8"
+
+[[headers]]
+  for = "/video-sitemap.xml/"
+  [headers.values]
+    Content-Type = "application/xml; charset=UTF-8"
 
 # Security headers
 [[headers]]
