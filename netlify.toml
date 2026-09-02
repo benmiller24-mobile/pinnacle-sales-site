@@ -2,64 +2,38 @@
   command = "npm run build"
   publish = "dist"
 
-[functions]
-  directory = "netlify/functions"
-
-# Bundle the generated XML next to the handler. Static require() also pulls it in.
-[functions.serve-sitemap]
-  included_files = ["netlify/functions/serve-sitemap/sitemaps.json"]
-
 # XML sitemaps must stay XML and must return 200 — not a 301 chain.
-# GSC "Couldn't fetch" survived PR #9's static 200 rewrites to other *.xml files.
-# Pretty URLs + trailingSlash: 'always' can still treat *.xml/ as a directory
-# for some fetchers. Serve every public sitemap path through a function so
-# the body is always application/xml, slash or not. force=true wins over the
-# static file. Do not disable Pretty URLs sitewide (dealer slash canonicals).
-[[redirects]]
-  from = "/sitemap-index.xml"
-  to = "/.netlify/functions/serve-sitemap"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/sitemap-index.xml/"
-  to = "/.netlify/functions/serve-sitemap"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/sitemap-0.xml"
-  to = "/.netlify/functions/serve-sitemap"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/sitemap-0.xml/"
-  to = "/.netlify/functions/serve-sitemap"
-  status = 200
-  force = true
-
+# GSC "Couldn't fetch" started the same day /sitemap.xml was 301'd (2026-08-17).
+# Some crawlers (and some Netlify edge nodes for datacenter/Google-like UAs)
+# fail after a sitemap redirect or after Pretty URLs / trailingSlash treats
+# *.xml/ as an HTML page. force=true 200 rewrites short-circuit that.
 [[redirects]]
   from = "/sitemap.xml"
-  to = "/.netlify/functions/serve-sitemap"
+  to = "/sitemap-index.xml"
   status = 200
   force = true
 
 [[redirects]]
   from = "/sitemap.xml/"
-  to = "/.netlify/functions/serve-sitemap"
+  to = "/sitemap-index.xml"
   status = 200
   force = true
 
 [[redirects]]
-  from = "/video-sitemap.xml"
-  to = "/.netlify/functions/serve-sitemap"
+  from = "/sitemap-index.xml/"
+  to = "/sitemap-index.xml"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/sitemap-0.xml/"
+  to = "/sitemap-0.xml"
   status = 200
   force = true
 
 [[redirects]]
   from = "/video-sitemap.xml/"
-  to = "/.netlify/functions/serve-sitemap"
+  to = "/video-sitemap.xml"
   status = 200
   force = true
 
