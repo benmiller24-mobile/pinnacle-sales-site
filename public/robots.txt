@@ -5,4 +5,10 @@ Disallow: /dealer-hub/
 Disallow: /thank-you-
 
 Sitemap: https://pinnaclesales.biz/sitemap-index.xml
+Sitemap: https://pinnaclesales.biz/sitemap-index.xml/
+Sitemap: https://pinnaclesales.biz/sitemap-0.xml
+Sitemap: https://pinnaclesales.biz/sitemap-0.xml/
+Sitemap: https://pinnaclesales.biz/sitemap.xml
+Sitemap: https://pinnaclesales.biz/sitemap.xml/
 Sitemap: https://pinnaclesales.biz/video-sitemap.xml
+Sitemap: https://pinnaclesales.biz/video-sitemap.xml/

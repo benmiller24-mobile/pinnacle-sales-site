@@ -3,5 +3,8 @@ dist/
 .astro/
 .DS_Store
 
+# Generated at build from dist/*.xml for the GSC sitemap function
+netlify/functions/serve-sitemap/sitemaps.json
+
 # macOS custom folder icon resource forks (Icon\r)
 Icon?
