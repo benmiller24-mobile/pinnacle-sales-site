@@ -36,64 +36,52 @@ toggle?.addEventListener('click', () => {
   const open = nav?.classList.toggle('open');
   toggle.setAttribute('aria-expanded', String(open));
 });
-</script>  <main>  <div class="login-page" data-astro-cid-pk5ee2oe> <div class="login-card" data-astro-cid-pk5ee2oe> <div class="login-header" data-astro-cid-pk5ee2oe> <span class="login-badge" data-astro-cid-pk5ee2oe>DEALER HUB</span> <h1 data-astro-cid-pk5ee2oe>Welcome Back</h1> <p data-astro-cid-pk5ee2oe>Sign in for product deep dives, support &amp; escalation, and dealer resources.</p> </div> <form id="login-form" class="login-form" autocomplete="off" data-astro-cid-pk5ee2oe> <div class="field" data-astro-cid-pk5ee2oe> <label for="dealer-name" data-astro-cid-pk5ee2oe>Username</label> <input type="text" id="dealer-name" name="dealer-name" placeholder="Enter your username" required autocomplete="off" data-astro-cid-pk5ee2oe> </div> <div class="field" data-astro-cid-pk5ee2oe> <label for="dealer-password" data-astro-cid-pk5ee2oe>Password</label> <input type="password" id="dealer-password" name="dealer-password" placeholder="Enter dealer password" required autocomplete="off" data-astro-cid-pk5ee2oe> </div> <p id="login-error" class="login-error" style="display:none;" data-astro-cid-pk5ee2oe>Invalid username or password. Contact your Pinnacle Sales rep if you need access.</p> <button type="submit" class="login-btn" data-astro-cid-pk5ee2oe>Sign In</button> </form> <div class="login-footer" data-astro-cid-pk5ee2oe> <p data-astro-cid-pk5ee2oe>Don't have access? <a href="/become-a-dealer" data-astro-cid-pk5ee2oe>Become a dealer</a> or contact <a href="mailto:marketing@pinnaclesales.biz" data-astro-cid-pk5ee2oe>marketing@pinnaclesales.biz</a></p> </div> </div> </div> <script>
-  // Authorized credentials — add new dealers as { username, password, displayName }
-  const CREDENTIALS = [
-    { username: 'ben@pinnaclesales.biz', password: 'pinnacle2025', displayName: 'Ben Miller' },
-    { username: 'scott@pinnaclesales.biz', password: 'pinnacle2025', displayName: 'Scott Miller' },
-    { username: 'gillian@pinnaclesales.biz', password: 'pinnacle2025', displayName: 'Gillian Patriquin' },
-    { username: 'josh@pinnaclesales.biz', password: 'pinnacle2025', displayName: 'Josh Polvogt' },
-    { username: 'anna@pinnaclesales.biz', password: 'pinnacle2025', displayName: 'Anna Fisher' },
-    { username: 'andrew@kitchenbarn.net', password: 'Kitchen Barn', displayName: 'Andrew · Kitchen Barn' },
-    { username: 'matt@kitchenbarn.net', password: 'Kitchen Barn', displayName: 'Matt · Kitchen Barn' },
-    { username: 'david@kitchenbarn.net', password: 'Kitchen Barn', displayName: 'David · Kitchen Barn' },
-    { username: 'dan@cabinetfantastic.com', password: 'Cabinet Fantastic', displayName: 'Dan Cunningham · Cabinet Fantastic' },
-    { username: 'oftheayers@gmail.com', password: 'Cabinet Fantastic', displayName: 'Rob Ayers · Cabinet Fantastic' },
-    { username: 'hello@tashawelchdesign.com', password: 'Cabinet Fantastic', displayName: 'Tasha Welch · Cabinet Fantastic' },
-    { username: 'jesse@premierkitchensandcabinets.com', password: 'Premier Kitchens & Cabinets', displayName: 'Jesse Tissot · Premier Kitchens & Cabinets' },
-    { username: 'dennis@premierkitchensandcabinets.com', password: 'Premier Kitchens & Cabinets', displayName: 'Dennis Brue · Premier Kitchens & Cabinets' },
-    { username: 'theoutback2645200@yahoo.com', password: 'Original Showcase Inc', displayName: 'Rhonda Raney · Original Showcase Inc' },
-    { username: 'morgan@interiordesigncenter.net', password: 'Original Showcase Inc', displayName: 'Morgan Kohlman · Original Showcase Inc' },
-    { username: 'kayla@interiordesigncenter.net', password: 'Original Showcase Inc', displayName: 'Kayla Miller · Original Showcase Inc' },
-    { username: 'michael@creeksidecabinet.com', password: 'Creekside Cabinet & Design', displayName: 'Michael Scheurich · Creekside Cabinet & Design' },
-    { username: 'howie@creeksidecabinet.com', password: 'Creekside Cabinet & Design', displayName: 'Howie · Creekside Cabinet & Design' },
-    { username: 'cindy@creeksidecabinet.com', password: 'Creekside Cabinet & Design', displayName: 'Cindy Friend · Creekside Cabinet & Design' },
-    { username: 'christian@creeksidecabinet.com', password: 'Creekside Cabinet & Design', displayName: 'Christian · Creekside Cabinet & Design' },
-    { username: 'ben@creeksidecabinet.com', password: 'Creekside Cabinet & Design', displayName: 'Ben Muhleman · Creekside Cabinet & Design' },
-    { username: 'mark@creoluxeinteriors.com', password: 'Creo Luxe Interiors', displayName: 'Mark Ostrom · Creo Luxe Interiors' },
-    { username: 'tracy@creoluxeinteriors.com', password: 'Creo Luxe Interiors', displayName: 'Tracy Ostrom · Creo Luxe Interiors' },
-    { username: 'angelica.king@thebathstudio.com', password: 'The Bath Studio', displayName: 'Angelica King · The Bath Studio' },
-    { username: 'info@thebathstudio.com', password: 'The Bath Studio', displayName: 'The Bath Studio Team' },
-  ];
-
-  // If already authenticated, redirect to dashboard
-  if (sessionStorage.getItem('pinnacle_dealer_auth') === 'authenticated') {
-    const params = new URLSearchParams(window.location.search);
-    const redirect = params.get('redirect') || '/dealer-hub/dashboard';
-    window.location.href = redirect;
-  }
-
-  document.getElementById('login-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const username = document.getElementById('dealer-name').value.trim();
-    const password = document.getElementById('dealer-password').value;
-    const errorEl = document.getElementById('login-error');
-
-    const normalizedUsername = username.toLowerCase();
-    const match = CREDENTIALS.find(c => c.username.toLowerCase() === normalizedUsername && c.password === password);
-
-    if (match) {
-      sessionStorage.setItem('pinnacle_dealer_auth', 'authenticated');
-      sessionStorage.setItem('pinnacle_dealer_name', match.displayName);
-      const params = new URLSearchParams(window.location.search);
-      const redirect = params.get('redirect') || '/dealer-hub/dashboard';
-      window.location.href = redirect;
-    } else {
-      errorEl.style.display = 'block';
-      document.getElementById('dealer-password').value = '';
-      document.getElementById('dealer-password').focus();
+</script>  <main>  <div class="login-page" data-astro-cid-pk5ee2oe> <div class="login-card" data-astro-cid-pk5ee2oe> <div class="login-header" data-astro-cid-pk5ee2oe> <span class="login-badge" data-astro-cid-pk5ee2oe>DEALER HUB</span> <h1 data-astro-cid-pk5ee2oe>Welcome Back</h1> <p data-astro-cid-pk5ee2oe>Sign in for product deep dives, support &amp; escalation, and dealer resources.</p> </div> <form id="login-form" class="login-form" data-astro-cid-pk5ee2oe> <div class="field" data-astro-cid-pk5ee2oe> <label for="dealer-name" data-astro-cid-pk5ee2oe>Username</label> <input type="text" id="dealer-name" name="dealer-name" placeholder="Enter your username" required autocomplete="username" data-astro-cid-pk5ee2oe> </div> <div class="field" data-astro-cid-pk5ee2oe> <label for="dealer-password" data-astro-cid-pk5ee2oe>Password</label> <input type="password" id="dealer-password" name="dealer-password" placeholder="Enter dealer password" required autocomplete="current-password" data-astro-cid-pk5ee2oe> </div> <p id="login-error" class="login-error" style="display:none;" data-astro-cid-pk5ee2oe>Invalid username or password. Contact your Pinnacle Sales rep if you need access.</p> <button type="submit" class="login-btn" data-astro-cid-pk5ee2oe>Sign In</button> </form> <div class="login-footer" data-astro-cid-pk5ee2oe> <p data-astro-cid-pk5ee2oe>Don't have access? <a href="/become-a-dealer" data-astro-cid-pk5ee2oe>Become a dealer</a> or contact <a href="mailto:marketing@pinnaclesales.biz" data-astro-cid-pk5ee2oe>marketing@pinnaclesales.biz</a></p> </div> </div> </div> <script>
+  // Sign-in is verified server-side (netlify/functions/dealer-hub-login.mts),
+  // which sets an HttpOnly session cookie; every /dealer-hub/* page is gated by
+  // netlify/edge-functions/dealer-hub-gate.ts. No credentials live in this page.
+  (function () {
+    function safeRedirect() {
+      var r = new URLSearchParams(window.location.search).get('redirect') || '';
+      // Only same-site Dealer Hub paths — never an open redirect.
+      return /^\/dealer-hub\/[^\/]/.test(r) && r.indexOf('//') !== 0 ? r : '/dealer-hub/dashboard/';
     }
-  });
+    var form = document.getElementById('login-form');
+    var errorEl = document.getElementById('login-error');
+    var button = form.querySelector('button[type="submit"]');
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      var username = document.getElementById('dealer-name').value.trim();
+      var passwordEl = document.getElementById('dealer-password');
+      errorEl.style.display = 'none';
+      button.disabled = true;
+      button.textContent = 'Signing in…';
+      try {
+        var res = await fetch('/api/dealer-hub/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          credentials: 'same-origin',
+          body: JSON.stringify({ username: username, password: passwordEl.value })
+        });
+        var data = await res.json().catch(function () { return {}; });
+        if (res.ok) {
+          try { sessionStorage.setItem('pinnacle_dealer_name', data.displayName || 'Dealer'); } catch (_) {}
+          window.location.href = safeRedirect();
+          return;
+        }
+        errorEl.textContent = res.status === 401
+          ? 'Invalid username or password. Contact your Pinnacle Sales rep if you need access.'
+          : (data.error || 'Sign-in failed. Please try again.');
+      } catch (_) {
+        errorEl.textContent = 'Network error. Please try again.';
+      }
+      errorEl.style.display = 'block';
+      passwordEl.value = '';
+      passwordEl.focus();
+      button.disabled = false;
+      button.textContent = 'Sign In';
+    });
+  })();
 </script>  <form data-astro-cid-pk5ee2oe netlify netlify-honeypot="bot-field" enctype='multipart/form-data' hidden method='POST' name='dealer-request'> <input name="form-name" type="hidden" value="dealer-request" data-astro-cid-pk5ee2oe> <input name="bot-field" data-astro-cid-pk5ee2oe> <input name="request-type" data-astro-cid-pk5ee2oe> <input name="dealer-company" data-astro-cid-pk5ee2oe> <input name="contact-name" data-astro-cid-pk5ee2oe> <input name="contact-email" data-astro-cid-pk5ee2oe> <input name="contact-phone" data-astro-cid-pk5ee2oe> <input name="brand" data-astro-cid-pk5ee2oe> <input name="project-name" data-astro-cid-pk5ee2oe> <input name="files" type="file" data-astro-cid-pk5ee2oe> <input name="urgency" data-astro-cid-pk5ee2oe> <input name="topics" data-astro-cid-pk5ee2oe> <input name="team-size" data-astro-cid-pk5ee2oe> <input name="preferred-date" data-astro-cid-pk5ee2oe> <input name="notes" data-astro-cid-pk5ee2oe> </form>  </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <a href="/" class="footer-logo" data-astro-cid-sz7xmlte> <img src="/images/pinnacle-sales-logo-white.webp" alt="Pinnacle Sales" width="180" height="50" data-astro-cid-sz7xmlte> </a> <p class="footer-desc" data-astro-cid-sz7xmlte>Premium cabinetry dealer representative serving 10 Western US states. 23+ years of industry expertise.</p> <p class="footer-contact" data-astro-cid-sz7xmlte> <a href="tel:+14809939224" data-astro-cid-sz7xmlte>480-993-9224</a><br data-astro-cid-sz7xmlte> <a href="mailto:marketing@pinnaclesales.biz" data-astro-cid-sz7xmlte>marketing@pinnaclesales.biz</a> </p> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <h4 data-astro-cid-sz7xmlte>Brands</h4> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/brands/shiloh-cabinetry/" data-astro-cid-sz7xmlte>Shiloh Cabinetry</a></li> <li data-astro-cid-sz7xmlte><a href="/brands/eclipse-cabinetry/" data-astro-cid-sz7xmlte>Eclipse Cabinetry</a></li> <li data-astro-cid-sz7xmlte><a href="/brands/aspect-cabinetry/" data-astro-cid-sz7xmlte>Aspect Cabinetry</a></li> <li data-astro-cid-sz7xmlte><a href="/brands/pronorm-german-kitchens/" data-astro-cid-sz7xmlte>Pronorm German Kitchens</a></li> <li data-astro-cid-sz7xmlte><a href="/brands/vistora-closets/" data-astro-cid-sz7xmlte>Vistora Closets</a></li> <li data-astro-cid-sz7xmlte><a href="/brands/us-stone-group/" data-astro-cid-sz7xmlte>US Stone Group</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <h4 data-astro-cid-sz7xmlte>Territory</h4> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/territory/arizona/" data-astro-cid-sz7xmlte>Arizona</a></li> <li data-astro-cid-sz7xmlte><a href="/territory/california/" data-astro-cid-sz7xmlte>California</a></li> <li data-astro-cid-sz7xmlte><a href="/territory/colorado/" data-astro-cid-sz7xmlte>Colorado</a></li> <li data-astro-cid-sz7xmlte><a href="/territory/idaho/" data-astro-cid-sz7xmlte>Idaho</a></li> <li data-astro-cid-sz7xmlte><a href="/territory/montana/" data-astro-cid-sz7xmlte>Montana</a></li> <li data-astro-cid-sz7xmlte><a href="/territory/nevada/" data-astro-cid-sz7xmlte>Nevada</a></li> <li data-astro-cid-sz7xmlte><a href="/territory/new-mexico/" data-astro-cid-sz7xmlte>New Mexico</a></li> <li data-astro-cid-sz7xmlte><a href="/territory/oregon/" data-astro-cid-sz7xmlte>Oregon</a></li> <li data-astro-cid-sz7xmlte><a href="/territory/utah/" data-astro-cid-sz7xmlte>Utah</a></li> <li data-astro-cid-sz7xmlte><a href="/territory/washington/" data-astro-cid-sz7xmlte>Washington</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <h4 data-astro-cid-sz7xmlte>Resources</h4> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/playbook/" data-astro-cid-sz7xmlte>Kitchen Dealer Playbook</a></li> <li data-astro-cid-sz7xmlte><a href="/guides/" data-astro-cid-sz7xmlte>Dealer Guides</a></li> <li data-astro-cid-sz7xmlte><a href="/dealer-success-stories/" data-astro-cid-sz7xmlte>Dealer Success Stories</a></li> <li data-astro-cid-sz7xmlte><a href="/become-a-dealer/" data-astro-cid-sz7xmlte>Become a Dealer</a></li> <li data-astro-cid-sz7xmlte><a href="/faqs/" data-astro-cid-sz7xmlte>FAQs</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About Us</a></li> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Contact</a></li> <li data-astro-cid-sz7xmlte><a href="/sitemap/" data-astro-cid-sz7xmlte>Sitemap</a></li> <li data-astro-cid-sz7xmlte><a href="/privacy/" data-astro-cid-sz7xmlte>Privacy Policy</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <div class="footer-bottom-inner" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte>&copy; 2026 Pinnacle Sales. All rights reserved.</p> <p class="footer-note" data-astro-cid-sz7xmlte>WW Wood Products Territory: AZ, CA, CO, ID, MT, NV, NM, OR, and WA &bull; Pronorm Available Nationwide</p> <div class="footer-social" data-astro-cid-sz7xmlte> <a href="https://www.linkedin.com/company/pinnacle-sales-kbi" target="_blank" rel="noopener noreferrer" aria-label="Pinnacle Sales on LinkedIn" data-astro-cid-sz7xmlte> <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" data-astro-cid-sz7xmlte><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" data-astro-cid-sz7xmlte></path></svg> </a> </div> </div> </div> </footer>  <script>
     // GA4: track phone + email clicks sitewide (delegated; beacon survives navigation)
     document.addEventListener('click', function (e) {
