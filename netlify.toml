@@ -2,6 +2,10 @@
   command = "npm run build"
   publish = "dist"
 
+# Astro 7 requires Node >= 22.23.4 — pin it so Netlify never builds with an older default.
+[build.environment]
+  NODE_VERSION = "22.23.4"
+
 # Serverless functions (netlify/functions/<name>/<name>.mjs). `submission-created` is an
 # event-triggered function: Netlify runs it on every verified Forms submission and it
 # syncs dealer leads into HubSpot + sends the same-day auto-reply. See its README.md.
