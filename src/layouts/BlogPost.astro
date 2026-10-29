@@ -79,7 +79,7 @@ const pageSchema = videoSchema ? [articleSchema, videoSchema] : articleSchema;
           <span class="post-author">By {author}</span>
           <span class="post-date">
             <time datetime={publishedDate}>
-              {new Date(publishedDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+              {new Date(publishedDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}
             </time>
           </span>
         </div>

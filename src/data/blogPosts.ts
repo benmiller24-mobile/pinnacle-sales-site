@@ -1,5 +1,15 @@
 export const blogPosts = [
   {
+    slug: 'pacifica-ventura-door-styles',
+    title: 'New Door Styles: Pacifica and Ventura — Narrow-Rail Flat Panels in White Oak',
+    excerpt: "Two new narrow-rail flat panel doors with a slim 5/16\" applied moulding: Pacifica (radius profile, soft and transitional) and Ventura (square profile, crisp and modern). Shown in Pacifica Deep Water White Oak and Ventura Warm Stone White Oak, with spec notes, ordering codes, and where each one wins.",
+    author: 'Ben Miller',
+    date: '2026-10-29',
+    category: 'Product Updates',
+    image: '/images/blog/pacifica-ventura-door-styles/listing-card.webp',
+    recommended: true
+  },
+  {
     slug: 'shiloh-eclipse-renderings-2020-design',
     title: 'Photorealistic Shiloh & Eclipse Renderings in Cyncly 2020 Design',
     excerpt: "Our dealer Studio Home (Megan Madden, University Place, WA) designed and rendered three stunning Shiloh and Eclipse concepts in-house in Cyncly's 2020 Design: a two-tone walnut kitchen with a reeded black island, a reeded media lounge, and a floating walnut primary bath.",
