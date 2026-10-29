@@ -14,21 +14,15 @@ import BlogPost from '../../layouts/BlogPost.astro';
 
 <p>Because both styles are offered on Shiloh and Eclipse, you can put the same door on a face-frame Shiloh kitchen or a frameless Eclipse kitchen. Pick the construction for the project, then pick the door. Not sure which construction fits? See <a href="/playbook/frameless-vs-face-frame-cabinets/">Frameless vs. Face-Frame Cabinets</a>.</p>
 
-<div class="post-images">
+<div class="post-images door-full">
   <img src="/images/blog/pacifica-ventura-door-styles/pacifica-ventura-hero.webp" alt="Two narrow-rail cabinet door samples side by side: Pacifica in Deep Water stain on White Oak with a rounded applied moulding, and Ventura in Warm Stone stain on White Oak with a square applied moulding" width="1600" height="1000" fetchpriority="high" />
 </div>
 
 <p><em>L–R: Pacifica in Deep Water White Oak, Ventura in Warm Stone White Oak.</em></p>
 
-<h2>The one-line pitch for clients</h2>
-
-<p>"It's the cleanness of a slab door with just enough of a frame to give it some shadow — a picture-frame edge instead of a chunky shaker rail."</p>
-
-<p>That's the gap these two fill. Clients who find a slab too flat and a shaker too traditional — even a slim shaker — now have a door that sits right between them.</p>
-
 <h2>Pacifica: the radius moulding</h2>
 
-<div class="post-images">
+<div class="post-images door-full">
   <img src="/images/blog/pacifica-ventura-door-styles/pacifica-deep-water-white-oak.webp" alt="Pacifica flat panel door in Deep Water stain on White Oak, showing the slim rounded applied moulding framing a cathedral-grain oak panel" width="1200" height="1484" loading="lazy" />
 </div>
 
@@ -45,7 +39,7 @@ import BlogPost from '../../layouts/BlogPost.astro';
 
 <h2>Ventura: the square moulding</h2>
 
-<div class="post-images">
+<div class="post-images door-full">
   <img src="/images/blog/pacifica-ventura-door-styles/ventura-warm-stone-white-oak.webp" alt="Ventura flat panel door in Warm Stone stain on White Oak, showing the slim square applied moulding framing a straight-grain oak panel" width="1200" height="1331" loading="lazy" />
 </div>
 
@@ -103,20 +97,18 @@ import BlogPost from '../../layouts/BlogPost.astro';
   <li><strong>One display, two stories.</strong> Show the two side by side and you've demonstrated how a single profile change takes the same door from soft to sharp. That's an easy way to get a client to tell you which direction they lean.</li>
 </ul>
 
-<h2>How to sample</h2>
-
-<p>Pinnacle Sales can get Pacifica and Ventura door samples into your showroom or onto a specific job. Request them through the <a href="/dealer-hub/submit/?type=sample-request">dealer hub</a> and tell us which finish you want them in — Deep Water and Warm Stone on White Oak, as shown here, or another finish from the program.</p>
-
 <h2>Spec questions</h2>
 
 <ul>
-  <li><strong>Pinnacle Sales</strong> — for spec confirmation on a door style, species, and finish combination for a specific job, send the project through <a href="/dealer-hub/submit/?type=design-review">Submit a Request</a>.</li>
+  <li><strong>Pinnacle Sales</strong> — for spec confirmation on a door style, species, and finish combination for a specific job, call your rep.</li>
   <li><strong>W.W. Wood Products customer service</strong> — <a href="tel:5736243526">573-624-3526</a> or <a href="mailto:customer.service@wwinc.com">customer.service@wwinc.com</a> for direct door style and program questions.</li>
 </ul>
 
 </BlogPost>
 
 <style>
+  /* Show each door sample whole — override the blog layout's 400px cover crop */
+  :global(.post-images.door-full.door-full img) { max-height: none; object-fit: contain; width: 100%; }
   .spec-table-wrap { overflow-x: auto; margin: 1.5rem 0; }
   .spec-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
   .spec-table th, .spec-table td { border: 1px solid #e5e7eb; padding: 0.65rem 0.85rem; text-align: left; vertical-align: top; }
