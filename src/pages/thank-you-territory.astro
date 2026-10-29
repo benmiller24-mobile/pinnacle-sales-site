@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Checking Your Market | Pinnacle Sales" description="Your territory check is in. A Pinnacle Sales rep replies the same business day with what is open." noindex={true}>
+<div class="page-header"><h1>Thanks — we're checking your market</h1><p id="tc-summary">A Pinnacle Sales rep will reply the same business day — first thing the next business morning if you asked after 3 pm Pacific.</p></div>
+<div class="content-narrow section thanks">
+
+<h2>What happens next</h2>
+<ol>
+  <li><strong>Check your inbox</strong> — a quick confirmation is on its way now.</li>
+  <li><strong>The answer</strong> — same business day: whether <span class="tc-market">your market</span> is open<span class="tc-brand-phrase"></span>, and how territory protection works there.</li>
+  <li><strong>If it's open</strong> — a 20-minute call about a first display and opening order. If it isn't, we'll tell you what's nearby and keep you in mind if it opens up.</li>
+</ol>
+
+<p>Rather talk now? Call <a href="tel:+14809939224">480-993-9224</a> or email <a href="mailto:marketing@pinnaclesales.biz">marketing@pinnaclesales.biz</a>.</p>
+
+<h2>While you wait</h2>
+<ul>
+  <li>How territory protection works: <a href="/guides/protected-dealer-territories/">Protected dealer territories</a></li>
+  <li>The full process: <a href="/guides/how-to-become-a-kitchen-cabinet-dealer/">How to become a kitchen cabinet dealer</a></li>
+  <li>What dealers say about working with us: <a href="/dealer-success-stories/">Dealer Success Stories</a></li>
+  <li>Ready now? <a href="/become-a-dealer/#apply">Complete the dealer application</a></li>
+</ul>
+
+</div>
+
+<script is:inline>
+(function () {
+  // Personalize from the context stashed on the form page, then fire the GA4 conversion.
+  // Direct visits, refreshes, and bookmarks have no stash: nothing is personalized or counted.
+  try {
+    var raw = sessionStorage.getItem('ps_lead');
+    if (!raw) return;
+    sessionStorage.removeItem('ps_lead');
+    var ctx = JSON.parse(raw);
+
+    var market = [ctx.city, ctx.state].filter(Boolean).join(', ');
+    if (market) {
+      document.querySelectorAll('.tc-market').forEach(function (el) { el.textContent = market; });
+      var summary = document.getElementById('tc-summary');
+      if (summary) summary.textContent = 'Checking ' + market + (ctx.brand ? ' for ' + ctx.brand : '') + '. A Pinnacle Sales rep will reply the same business day — first thing the next business morning if you asked after 3 pm Pacific.';
+    }
+    if (ctx.brand) {
+      document.querySelectorAll('.tc-brand-phrase').forEach(function (el) { el.textContent = ' for ' + ctx.brand; });
+    }
+
+    // SEOHead defers gtag.js until interaction/5s; wake it now so the queued
+    // conversion transmits even if the visitor closes the tab immediately.
+    window.dispatchEvent(new Event('mousedown'));
+    if (typeof gtag === 'function') {
+      gtag('event', 'generate_lead', {
+        currency: 'USD',
+        value: 0.5,
+        form_name: ctx.form || 'territory-check',
+        lead_type: ctx.lead_type || 'Territory Check',
+        source_page: ctx.source || 'unknown'
+      });
+    }
+  } catch (e) {}
+})();
+</script>
+</BaseLayout>
+<style>
+.thanks h2{margin-top:2rem}
+.thanks ul,.thanks ol{line-height:1.9}
+</style>

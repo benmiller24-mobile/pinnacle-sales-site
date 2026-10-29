@@ -157,16 +157,6 @@ export const blogPosts = [
     recommended: true
   },
   {
-    slug: 'how-to-become-kitchen-cabinet-dealer',
-    title: 'How to Become a Kitchen Cabinet Dealer: A Complete Guide for Entrepreneurs',
-    excerpt: 'From initial research to opening day and beyond, this guide covers every step of starting a kitchen cabinet dealership.',
-    author: 'Ben Miller',
-    date: '2026-02-08',
-    category: 'Business Growth',
-    image: '/images/gallery-2.webp',
-    recommended: true
-  },
-  {
     slug: 'pronorm-german-kitchens-usa',
     title: 'The Complete Guide to Pronorm German Kitchens in the United States',
     excerpt: 'Pronorm German kitchens are now available to qualified dealers and homeowners across the United States through Pinnacle Sales.',

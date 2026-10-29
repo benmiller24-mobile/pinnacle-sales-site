@@ -5,3 +5,8 @@ dist/
 
 # macOS custom folder icon resource forks (Icon\r)
 Icon?
+
+# Local secrets for netlify dev / function tests (never commit)
+.env
+.env.*
+!.env.example

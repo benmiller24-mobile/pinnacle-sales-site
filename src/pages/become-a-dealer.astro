@@ -2,10 +2,20 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Testimonials from '../components/Testimonials.astro';
-const contactSchema = {"@context":"https://schema.org","@type":"ContactPage","name":"Become a Pinnacle Sales Dealer","description":"Apply to become a Pinnacle Sales kitchen and bath cabinetry dealer. Carry six brands — Shiloh, Eclipse, Aspect, Vistora, Pronorm, and US Stone — across 10 Western US states (Pronorm nationwide).","mainEntity":{"@type":"Organization","name":"Pinnacle Sales","url":"https://pinnaclesales.biz","contactPoint":{"@type":"ContactPoint","telephone":"+1-480-993-9224","contactType":"sales","email":"info@pinnaclesales.biz","areaServed":["Arizona","California","Colorado","Idaho","Montana","Nevada","New Mexico","Oregon","Utah","Washington"],"availableLanguage":["English"]}},"potentialAction":{"@type":"ApplyAction","name":"Apply to become a dealer","target":"https://pinnaclesales.biz/dealer-hub/submit/"}};
+const contactSchema = {"@context":"https://schema.org","@type":"ContactPage","name":"Become a Pinnacle Sales Dealer","description":"Apply to become a Pinnacle Sales kitchen and bath cabinetry dealer. Carry six brands — Shiloh, Eclipse, Aspect, Vistora, Pronorm, and US Stone — across 10 Western US states (Pronorm nationwide).","mainEntity":{"@type":"Organization","name":"Pinnacle Sales","url":"https://pinnaclesales.biz","contactPoint":{"@type":"ContactPoint","telephone":"+1-480-993-9224","contactType":"sales","email":"info@pinnaclesales.biz","areaServed":["Arizona","California","Colorado","Idaho","Montana","Nevada","New Mexico","Oregon","Utah","Washington"],"availableLanguage":["English"]}},"potentialAction":{"@type":"ApplyAction","name":"Apply to become a dealer","target":"https://pinnaclesales.biz/become-a-dealer/#apply"}};
+
+// Response promise. Keep in step with SAME_DAY_CUTOFF_HOUR in netlify/functions/submission-created/copy.mjs,
+// which is what the automated reply to the prospect actually says.
+const responsePromise = "A Pinnacle Sales rep will call you the same business day — applications received after 3 pm Pacific get a call first thing the next business morning.";
+
+const states = [
+  ['AZ','Arizona'],['CA','California'],['CO','Colorado'],['ID','Idaho'],['MT','Montana'],['NV','Nevada'],
+  ['NM','New Mexico'],['OR','Oregon'],['UT','Utah'],['WA','Washington'],['Other','Other (Pronorm nationwide)'],
+];
+const brands = ['Shiloh Cabinetry','Eclipse Cabinetry','Aspect Cabinetry','Pronorm German Kitchens','Vistora Closets','US Stone Group'];
 
 const dealerFaqs = [
-  {q:"How do I become a Pinnacle Sales dealer?", a:"Submit the dealer application on this page. Check Shiloh only if that is the line — custom shops and dealers leaving Kraftmaid or Medallion do that every week. We'll follow up within two business days. Shiloh path: <a href='/guides/become-a-shiloh-dealer/'>become a Shiloh dealer</a>. Full process: <a href='/guides/how-to-become-a-kitchen-cabinet-dealer/'>how to become a kitchen cabinet dealer</a>."},
+  {q:"How do I become a Pinnacle Sales dealer?", a:"Submit the dealer application on this page. Check Shiloh only if that is the line — custom shops and dealers leaving Kraftmaid or Medallion do that every week. A Pinnacle Sales rep will call you the same business day (next business morning for applications after 3 pm Pacific). Not ready to apply? <a href='#territory-check'>See what's open in your area</a> first. Shiloh path: <a href='/guides/become-a-shiloh-dealer/'>become a Shiloh dealer</a>. Full process: <a href='/guides/how-to-become-a-kitchen-cabinet-dealer/'>how to become a kitchen cabinet dealer</a>."},
   {q:"Can I apply for Shiloh only?", a:"Yes. Check Shiloh and leave the other boxes blank. Tell us if you build custom and what you used to sell (Kraftmaid, Medallion, or another box / semi-custom line). Details: <a href='/guides/become-a-shiloh-dealer/'>become a Shiloh dealer</a>."},
   {q:"What brands can I carry?", a:"Six public brands, not five: Shiloh, Eclipse, Aspect, Vistora, Pronorm, US Stone. You do not have to take all six. See <a href='/guides/one-showroom-six-lines/'>one showroom, six lines</a>."},
   {q:"What is American depths on Pronorm?", a:"Planned for American rooms and appliances. Factory stays in millimeters. Dealer spec: <a href='/guides/pronorm-american-depths/'>Pronorm American depths</a>."},
@@ -21,11 +31,11 @@ const stripTags = (s) => s.replace(/<[^>]+>/g, '');
 const dealerFaqSchema = {"@context":"https://schema.org","@type":"FAQPage","mainEntity":dealerFaqs.map(f=>({"@type":"Question","name":f.q,"acceptedAnswer":{"@type":"Answer","text":stripTags(f.a)}}))};
 ---
 <BaseLayout title="Become a Kitchen Cabinet Dealer — Shiloh, Eclipse, Pronorm | Pinnacle Sales" description="Apply to become a Pinnacle Sales dealer. Six brands — Shiloh, Eclipse, Aspect, Vistora, Pronorm, and US Stone — plus training, showroom support, and territory protection." schema={[contactSchema, dealerFaqSchema]}>
-<div class="page-header"><h1>Become a Pinnacle Sales Dealer</h1><p>Partner with the leading cabinetry rep firm in the Western US. Six premium brands, one trusted partnership.</p><a href="#apply" class="btn btn-white header-apply">Apply Now</a></div>
+<div class="page-header"><h1>Become a Pinnacle Sales Dealer</h1><p>Partner with the leading cabinetry rep firm in the Western US. Six premium brands, one trusted partnership.</p><div class="header-ctas"><a href="#apply" class="btn btn-white header-apply">Apply Now</a><a href="#territory-check" class="btn btn-ghost header-apply">See what's open near you</a></div></div>
 <div class="content-narrow section">
 <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Become a Dealer'}]} />
 
-<p>Most applications we want look like this: you already build custom, or you used to sell Kraftmaid, Medallion, or another box / semi-custom line, and you want factory-backed <a href="/guides/become-a-shiloh-dealer/">Shiloh</a>. Check Shiloh on the form. You do not have to take the other five public brands on day one. Process: <a href="/guides/how-to-become-a-kitchen-cabinet-dealer/">how to become a kitchen cabinet dealer</a>.</p>
+<p>Most applications we want look like this: you already build custom, or you used to sell Kraftmaid, Medallion, or another box / semi-custom line, and you want factory-backed <a href="/guides/become-a-shiloh-dealer/">Shiloh</a>. Check Shiloh on the form. You do not have to take the other five public brands on day one. Process: <a href="/guides/how-to-become-a-kitchen-cabinet-dealer/">how to become a kitchen cabinet dealer</a>. Not ready to apply? <a href="#territory-check">See what's open in your area</a> — no application needed.</p>
 
 <h2>Why Partner with Pinnacle Sales?</h2>
 
@@ -76,7 +86,61 @@ const dealerFaqSchema = {"@context":"https://schema.org","@type":"FAQPage","main
 
 <p>We serve dealers in Arizona, California, Colorado, Idaho, Montana, Nevada, New Mexico, Oregon, Utah, and Washington. Pronorm German Kitchens are available nationwide with protected dealer territories.</p>
 
-<p>Territory availability varies by brand and market. Contact us to discuss what is open in your area.</p>
+<p>Territory availability varies by brand and market, and we don't publish a dealer locator — so just ask.</p>
+
+<div class="territory-check" id="territory-check">
+<div class="territory-check-intro">
+<h3>Curious what's open in your area?</h3>
+<p>You don't need to apply to find out. Share your market and the brand you're considering, and a Pinnacle Sales rep will get back to you the same business day with what's available and how territory protection works there. If your market is already covered, we'll let you know and keep you in mind if it opens up.</p>
+</div>
+
+<form name="territory-check" method="POST" action="/thank-you-territory/" data-netlify="true" netlify-honeypot="bot-field" class="dealer-form territory-form">
+<input type="hidden" name="form-name" value="territory-check" />
+<input type="hidden" name="source-page" />
+<p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
+
+<div class="form-row">
+<div class="form-group">
+<label for="tc-name">Your Name <span class="required">*</span></label>
+<input type="text" id="tc-name" name="name" required autocomplete="name" />
+</div>
+<div class="form-group">
+<label for="tc-email">Email <span class="required">*</span></label>
+<input type="email" id="tc-email" name="email" required autocomplete="email" />
+</div>
+</div>
+
+<div class="form-group">
+<label for="tc-company">Company / Showroom <span class="required">*</span></label>
+<input type="text" id="tc-company" name="company" required autocomplete="organization" />
+</div>
+
+<div class="form-row">
+<div class="form-group">
+<label for="tc-city">City <span class="required">*</span></label>
+<input type="text" id="tc-city" name="city" required autocomplete="address-level2" />
+</div>
+<div class="form-group">
+<label for="tc-state">State <span class="required">*</span></label>
+<select id="tc-state" name="state" required>
+<option value="">Select state...</option>
+{states.map(([code, name]) => <option value={code}>{name}</option>)}
+</select>
+</div>
+</div>
+
+<div class="form-group">
+<label for="tc-brand">Brand you're considering</label>
+<select id="tc-brand" name="brand">
+<option value="">Not sure yet — happy to talk it through</option>
+{brands.map((b) => <option value={b}>{b}</option>)}
+</select>
+</div>
+
+<button type="submit" class="btn-primary">See what's open</button>
+<p class="form-footnote">Already know you want in? <a href="#apply">Go straight to the dealer application</a>.</p>
+</form>
+</div>
 
 <h2>Who We Work With</h2>
 
@@ -105,7 +169,7 @@ const dealerFaqSchema = {"@context":"https://schema.org","@type":"FAQPage","main
 
 <h2 id="apply">Apply to Become a Dealer</h2>
 
-<p>Complete the form below and our team will follow up within two business days to schedule an introductory call. We will discuss your market, showroom, current product lines, and which Pinnacle Sales brands are the best fit for your business.</p>
+<p>Complete the form below. {responsePromise} On that call we cover your market, showroom, current product lines, and which Pinnacle Sales brands are the best fit for your business.</p>
 
 <form name="dealer-application" method="POST" action="/thank-you-dealer/" data-netlify="true" netlify-honeypot="bot-field" class="dealer-form">
 <input type="hidden" name="form-name" value="dealer-application" />
@@ -207,28 +271,33 @@ const dealerFaqSchema = {"@context":"https://schema.org","@type":"FAQPage","main
 
 <script is:inline>
 (function () {
-  // Attribution: which page sent this visitor to the application
+  // Attribution: which page sent this visitor here. Both forms carry a hidden source-page field.
+  var src = 'direct';
   try {
-    var src = '';
     if (document.referrer) {
       var r = new URL(document.referrer);
-      if (r.host === location.host) src = r.pathname;
+      if (r.host === location.host) src = r.pathname || 'direct';
     }
-    document.getElementById('source-page').value = src || 'direct';
   } catch (e) {}
+  document.querySelectorAll('input[name="source-page"]').forEach(function (el) { el.value = src; });
 
-  // Stash lead context; the GA4 generate_lead conversion fires on /thank-you-dealer/
+  // Stash lead context; the GA4 generate_lead conversion fires on the thank-you page
   // (firing on the destination page survives the form's full-page navigation).
-  document.querySelector('form[name="dealer-application"]')?.addEventListener('submit', function () {
-    if (this.elements['bot-field'] && this.elements['bot-field'].value) return; // honeypot: no conversion for spam
-    try {
-      sessionStorage.setItem('ps_lead', JSON.stringify({
-        form: 'dealer-application',
-        lead_type: 'Dealer Application',
-        source: document.getElementById('source-page').value
-      }));
-    } catch (e) {}
-  });
+  function stash(form, ctx) {
+    form.addEventListener('submit', function () {
+      if (this.elements['bot-field'] && this.elements['bot-field'].value) return; // honeypot: no conversion for spam
+      try {
+        var val = function (name) { var el = this.elements[name]; return el && el.value ? el.value : ''; }.bind(this);
+        sessionStorage.setItem('ps_lead', JSON.stringify(Object.assign({ source: src }, ctx, {
+          city: val('city'), state: val('state'), brand: val('brand')
+        })));
+      } catch (e) {}
+    });
+  }
+  var application = document.querySelector('form[name="dealer-application"]');
+  if (application) stash(application, { form: 'dealer-application', lead_type: 'Dealer Application' });
+  var territory = document.querySelector('form[name="territory-check"]');
+  if (territory) stash(territory, { form: 'territory-check', lead_type: 'Territory Check' });
 })();
 </script>
 
@@ -262,7 +331,17 @@ const dealerFaqSchema = {"@context":"https://schema.org","@type":"FAQPage","main
 .hidden{display:none}
 .btn-primary{background:#1a1a2e;color:#fff;border:none;padding:.75rem 2rem;border-radius:6px;font-size:1rem;font-weight:600;cursor:pointer;transition:background .2s}
 .btn-primary:hover{background:#2563eb}
+.header-ctas{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
 .header-apply{margin-top:1.5rem}
+.btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.7)}
+.btn-ghost:hover{background:rgba(255,255,255,.12);opacity:1}
+.territory-check{margin:1.5rem 0 2.5rem;padding:1.5rem 1.75rem;border:1px solid #d6e2f5;border-radius:10px;background:#f5f8ff;scroll-margin-top:6rem}
+.territory-check-intro h3{margin:0 0 .5rem;font-size:1.2rem;color:#1a1a2e}
+.territory-check-intro p{margin:0 0 1rem;color:#4b5563;font-size:.95rem;line-height:1.6}
+.territory-form{margin-top:.5rem;max-width:none}
+.territory-form .form-group{margin-bottom:1rem}
+.form-footnote{margin:1rem 0 0;font-size:.9rem;color:#6b7280}
+@media(max-width:600px){.territory-check{padding:1.25rem 1rem}}
 .dealer-faqs{margin:1.25rem 0 2rem}
 .faq-item{border-bottom:1px solid #e5e7eb;padding:1.25rem 0}
 .faq-item:last-child{border-bottom:none}
