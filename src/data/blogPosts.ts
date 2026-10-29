@@ -41,8 +41,8 @@ export const blogPosts = [
   },
   {
     slug: 'radius-end-panel-columns',
-    title: "New from W.W. Wood: Radius End Panels and Radius Columns",
-    excerpt: "A brand-new Radius End Panel and a full lineup of Radius Columns bring a softened, furniture-style curve to wall, base, vanity, utility, and peninsula applications. A look at the production sample and where to use it.",
+    title: "Radius End Panels and Radius Columns: Specs, SKUs, and Pricing",
+    excerpt: "W.W. Wood's new Radius Columns put a 3″ radius end on wall, base, vanity, utility, and peninsula runs. Every SKU and list price (updated 8/27/2026), finished-side rules, height and depth limits, and modification rules.",
     author: 'Ben Miller',
     date: '2026-09-04',
     category: 'Product Updates',
