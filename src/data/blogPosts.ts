@@ -153,8 +153,7 @@ export const blogPosts = [
     author: 'Ben Miller',
     date: '2026-06-09',
     category: 'Product Education',
-    image: '/images/blog/horizontal-grain-metro-napa-doors/listing-card.webp',
-    imageFit: 'contain'
+    image: '/images/blog/horizontal-grain-metro-napa-doors/listing-card.webp'
   },
   {
     slug: 'arched-cabinet-doors-shiloh-eclipse',
