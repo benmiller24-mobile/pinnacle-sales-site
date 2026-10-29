@@ -10,6 +10,113 @@ export const blogPosts = [
     recommended: true
   },
   {
+    slug: 'hpl-terra-colors-discontinued',
+    title: "Discontinued at the End of 2026: Five Terra HPL Colors",
+    excerpt: "Craft Elm, Harvest Walnut, Lakefront Elm, Mission Maple, and Whiskey Oak — five HPL colors from Rauvisio's Terra line — won't be available after the end of 2026. Review open jobs, confirm large orders early, and pull the samples.",
+    author: 'Ben Miller',
+    date: '2026-10-02',
+    category: 'Product Updates',
+    image: '/images/blog/hpl-terra-colors-discontinued/listing-card.webp'
+  },
+  {
+    slug: 'eclipse-painted-procore-plywood',
+    title: "Eclipse Now Offers Painted Finishes on ProCore Plywood",
+    excerpt: "Painted Eclipse orders with a Maple or White interior now get painted ProCore plywood finished ends, wall tops, bottoms, and utility tops — the same upgrade stain got earlier this year. Plywood upcharge stays 10%; applicable orders have already transitioned.",
+    author: 'Ben Miller',
+    date: '2026-09-15',
+    category: 'Product Updates',
+    image: '/images/logos/eclipse-logo.png',
+    imageFit: 'contain'
+  },
+  {
+    slug: 'led-prep-shiloh-eclipse',
+    title: "LED Prep in Shiloh and Eclipse: Internal, External, and Continuous Pull",
+    excerpt: "Every way to prep Shiloh and Eclipse for LED lighting in one guide: internal panel routes at $100 list per panel, Cabinet Lighting Channel for wall cabinets, floating shelves, and toe kicks, and the continuous pull for handleless walls. Route positions, caveats, and what the dealer supplies.",
+    author: 'Ben Miller',
+    date: '2026-09-04',
+    category: 'Product Education',
+    image: '/images/blog/led-prep-shiloh-eclipse/listing-card.webp',
+    imageFit: 'contain',
+    recommended: true
+  },
+  {
+    slug: 'radius-end-panel-columns',
+    title: "New from W.W. Wood: Radius End Panels and Radius Columns",
+    excerpt: "A brand-new Radius End Panel and a full lineup of Radius Columns bring a softened, furniture-style curve to wall, base, vanity, utility, and peninsula applications. A look at the production sample and where to use it.",
+    author: 'Ben Miller',
+    date: '2026-09-04',
+    category: 'Product Updates',
+    image: '/images/blog/radius-end-panel-columns/listing-card.webp'
+  },
+  {
+    slug: 'cambridge-door-style',
+    title: "New Door Style: Cambridge — Malibu with an Applied Moulding",
+    excerpt: "Cambridge adds an applied moulding to Malibu: 2″ total rail and stile, a door just under 7/8″ thick, and a solid, reversed flat insert panel. Shown in the new Maple Honey stain.",
+    author: 'Ben Miller',
+    date: '2026-09-04',
+    category: 'Product Updates',
+    image: '/images/blog/cambridge-door-style/listing-card.webp'
+  },
+  {
+    slug: 'elevated-spaces-shiloh-inset-kitchen',
+    title: "Painted Inset Meets Rift White Oak: Elevated Spaces' Two-Finish Shiloh Kitchen",
+    excerpt: "Chris Leach of Elevated Spaces pairs Shiloh beaded inset maple in Polar with rift cut white oak in Whitewash — a case study in using a painted perimeter and one wood finish to keep a big kitchen bright but layered.",
+    author: 'Ben Miller',
+    date: '2026-09-04',
+    category: 'Dealer Spotlights',
+    image: '/images/blog/elevated-spaces-shiloh-inset-kitchen/listing-card.webp'
+  },
+  {
+    slug: 'shiloh-eclipse-bridged-doors',
+    title: "Bridged Doors: A No-Charge Modification in Shiloh and Eclipse",
+    excerpt: "A full-height door with the look of a drawer stack — at no charge, in full overlay/frameless, inset, and modern inset. Best on vanity sink bases, pantry lowers, and dishwasher panels. Spec limits and excluded styles inside.",
+    author: 'Ben Miller',
+    date: '2026-08-11',
+    category: 'Product Updates',
+    image: '/images/logos/shiloh-logo.png',
+    imageFit: 'contain',
+    recommended: true
+  },
+  {
+    slug: 'ww-wood-dealer-resources-portal',
+    title: "W.W. Wood Dealer Resources: Portal Access, Current Catalogs, and the New Shiloh Brochure",
+    excerpt: "Where current Shiloh, Eclipse, Aspect, and Nevara catalogs, spec books, and brochures live; how Portal access works for your team; how to order the new Shiloh brochure; and how W.W. Wood counts lead time.",
+    author: 'Ben Miller',
+    date: '2026-08-04',
+    category: 'Showroom Tools',
+    image: '/images/blog/ww-wood-dealer-resources-portal/listing-card.webp',
+    imageFit: 'contain',
+    recommended: true
+  },
+  {
+    slug: 'maple-honey-stain',
+    title: "New Stain: Maple Honey — A Light Brown for Shiloh and Eclipse",
+    excerpt: "A newly released light-brown stain on maple, orderable now ahead of the spec book and 2020 Design, and compatible with glazes and highlights. Free color chip for your showroom; full-size samples at your showroom discount.",
+    author: 'Ben Miller',
+    date: '2026-07-31',
+    category: 'Product Updates',
+    image: '/images/blog/maple-honey-stain/listing-card.webp'
+  },
+  {
+    slug: 'custom-paint-color-drenching',
+    title: "Color-Drenching with Shiloh and Eclipse: The Custom Paint Ordering Guide",
+    excerpt: "Any Sherwin-Williams color on Shiloh or Eclipse: 20% plus species upcharge, $750 list fee under $15,000, $350 or $585 sample doors, the Eclipse edge-band check, the Custom Finish Approval Form, and 2020 Design Flex setup.",
+    author: 'Ben Miller',
+    date: '2026-07-31',
+    category: 'Product Education',
+    image: '/images/blog/custom-paint-color-drenching/listing-card.webp',
+    recommended: true
+  },
+  {
+    slug: 'ib-16-ironing-board-discontinued',
+    title: "Discontinued: Ironing Board 16 (IB-16) in Shiloh and Eclipse — Use the IB-18",
+    excerpt: "No new orders with the IB-16 as of July 29, 2026; orders already in-house will be filled. The IB-18 fits 18″–21″ wide, 21″ or 24″ deep cabinets. 2020 and ProKitchen catalogs aren't updated yet.",
+    author: 'Ben Miller',
+    date: '2026-07-29',
+    category: 'Product Updates',
+    image: '/images/blog/ib-16-ironing-board-discontinued/listing-card.webp'
+  },
+  {
     slug: 'shiloh-eclipse-renderings-2020-design',
     title: 'Photorealistic Shiloh & Eclipse Renderings in Cyncly 2020 Design',
     excerpt: "Our dealer Studio Home (Megan Madden, University Place, WA) designed and rendered three stunning Shiloh and Eclipse concepts in-house in Cyncly's 2020 Design: a two-tone walnut kitchen with a reeded black island, a reeded media lounge, and a floating walnut primary bath.",
@@ -40,6 +147,25 @@ export const blogPosts = [
     recommended: true
   },
   {
+    slug: 'horizontal-grain-metro-napa-doors',
+    title: "Horizontal vs. Vertical Grain: How to Order Metropolitan and Napa Doors",
+    excerpt: "Metropolitan and Napa are the only Shiloh and Eclipse door styles offered in horizontal or vertical grain. Order codes, which parts change grain direction, height limits by species, and how to carry horizontal grain onto cabinet sides.",
+    author: 'Ben Miller',
+    date: '2026-06-09',
+    category: 'Product Education',
+    image: '/images/blog/horizontal-grain-metro-napa-doors/listing-card.webp',
+    imageFit: 'contain'
+  },
+  {
+    slug: 'arched-cabinet-doors-shiloh-eclipse',
+    title: "Getting the Arched Look in Shiloh and Eclipse: Contour Doors, Arched Inserts, and Custom Arches",
+    excerpt: "Three ways to spec arches: Contour Doors from the spec book (glass-prep available, wall sizes 24″–48″), square doors with arched insert panels, and fully arched doors by custom quote.",
+    author: 'Ben Miller',
+    date: '2026-06-09',
+    category: 'Product Education',
+    image: '/images/blog/arched-cabinet-doors-shiloh-eclipse/listing-card.webp'
+  },
+  {
     slug: 'pronorm-weeks-mitchell-scottsdale',
     title: 'Dark Steel Meets Ultra Matte Black: A Pronorm Desert Kitchen in Scottsdale',
     excerpt: "Weeks & Mitchell pairs Pronorm's Dark Steel finish with Ultra Matte Black Lacquer in a vaulted Scottsdale great room — a case study in using two flat, modern finishes to frame a dramatic waterfall-marble island.",
@@ -62,7 +188,7 @@ export const blogPosts = [
   {
     slug: 'eclipse-procore-veneer-finished-ends',
     title: 'Eclipse Brings Back Veneered Finished Ends — Now Standard on ProCore Plywood Stain Orders',
-    excerpt: "W.W. Wood now builds veneered ProCore plywood on every applicable Eclipse plywood stain order: veneered finished ends, wall tops, bottoms, and utility tops, in 12 species. Plywood upcharge stays at 10%. Acrylics, HPLs, Paint, PVs, and TFLs remain Partial Plywood for now — paint on ProCore is coming.",
+    excerpt: "W.W. Wood now builds veneered ProCore plywood on every applicable Eclipse plywood stain order: veneered finished ends, wall tops, bottoms, and utility tops, in 12 species. Plywood upcharge stays at 10%. Paint on ProCore followed in September 2026; acrylics, HPLs, PVs, and TFLs remain Partial Plywood.",
     author: 'Ben Miller',
     date: '2026-05-27',
     category: 'Product Updates',
@@ -145,6 +271,26 @@ export const blogPosts = [
     date: '2026-04-02',
     category: 'Dealer Success',
     image: '/images/blog/5blox-shiloh-eclipse-yosemite-brown-display/listing-card.webp'
+  },
+  {
+    slug: 'nevara-cabinets-launch-2026',
+    title: "Nevara Cabinets Officially Launches: Frameless All-Plywood at a Lower Price Point",
+    excerpt: "Nevara formally launched March 27, 2026: frameless all-plywood construction, a streamlined SKU offering, an estimated 3–4 week lead time, and its own multiplier (Shiloh × 0.95) with the v2.0 price book.",
+    author: 'Ben Miller',
+    date: '2026-03-27',
+    category: 'Product Updates',
+    image: '/images/blog/nevara-cabinets-launch-2026/listing-card.webp',
+    recommended: true
+  },
+  {
+    slug: 'top-10-finishes-species-2026',
+    title: "What Clients Are Ordering: W.W. Wood's Top 10 Finishes and Species for 2026",
+    excerpt: "Walnut Natural is the #1 finish, whites hold four of the top five, and Rift White Oak takes three spots. W.W. Wood's February 2026 Top 10 lists — and how to use them to plan your sample wall.",
+    author: 'Ben Miller',
+    date: '2026-03-06',
+    category: 'Design Trends',
+    image: '/images/blog/top-10-finishes-species-2026/listing-card.webp',
+    imageFit: 'contain'
   },
   {
     slug: 'frameless-vs-face-frame-cabinets',
