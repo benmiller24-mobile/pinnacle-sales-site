@@ -1,8 +1,8 @@
 export const blogPosts = [
   {
     slug: 'pacifica-ventura-door-styles',
-    title: 'New Door Styles: Pacifica and Ventura — Narrow-Rail Flat Panels in White Oak',
-    excerpt: "Two new narrow-rail flat panel doors with a slim 5/16\" applied moulding: Pacifica (radius profile, soft and transitional) and Ventura (square profile, crisp and modern). Shown in Pacifica Deep Water White Oak and Ventura Warm Stone White Oak, with spec notes, ordering codes, and where each one wins.",
+    title: 'Pacifica and Ventura: New Narrow-Rail Door Styles for Shiloh & Eclipse',
+    excerpt: "New for both Shiloh and Eclipse: two narrow-rail flat panel doors with a slim 5/16\" applied moulding: Pacifica (radius profile, soft and transitional) and Ventura (square profile, crisp and modern). Shown in Pacifica Deep Water White Oak and Ventura Warm Stone White Oak, with spec notes, ordering codes, and where each one wins.",
     author: 'Ben Miller',
     date: '2026-10-29',
     category: 'Product Updates',
