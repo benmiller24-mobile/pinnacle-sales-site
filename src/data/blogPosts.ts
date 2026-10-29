@@ -275,7 +275,7 @@ export const blogPosts = [
   {
     slug: 'nevara-cabinets-launch-2026',
     title: "Nevara Cabinets Officially Launches: Frameless All-Plywood at a Lower Price Point",
-    excerpt: "Nevara formally launched March 27, 2026: frameless all-plywood construction, a streamlined SKU offering, an estimated 3–4 week lead time, and its own multiplier (Shiloh × 0.95) with the v2.0 price book.",
+    excerpt: "Nevara formally launched March 27, 2026: frameless all-plywood construction, a streamlined SKU offering, an estimated 3–4 week lead time, and a dedicated Nevara multiplier with the v2.0 price book.",
     author: 'Ben Miller',
     date: '2026-03-27',
     category: 'Product Updates',
