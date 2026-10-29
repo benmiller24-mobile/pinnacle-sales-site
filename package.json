@@ -9,8 +9,13 @@
     "test:leads": "node scripts/test-dealer-lead-function.mjs --quiet"
   },
   "dependencies": {
-    "astro": "^5.0.0",
-    "@astrojs/sitemap": "^3.0.0",
+    "@astrojs/sitemap": "^3.7.4",
+    "@netlify/blobs": "^8.2.0",
+    "astro": "^7.4.4",
     "nodemailer": "^10.0.12"
+  },
+  "devDependencies": {
+    "@netlify/edge-functions": "^4.0.3",
+    "@netlify/functions": "^6.0.3"
   }
 }

@@ -25,6 +25,19 @@ function aliasSitemapXml() {
 
 export default defineConfig({
   site: 'https://pinnaclesales.biz',
+  // Astro 7 defaults to compressHTML: 'jsx', which drops whitespace between
+  // inline elements (breadcrumb separators, inline links in copy). Keep the
+  // Astro 5 behavior so rendered text is unchanged.
+  compressHTML: true,
+  vite: {
+    build: {
+      // Vite 8 minifies CSS with Lightning CSS, which keeps only the last of a
+      // prefixed/standard pair and adds prefixes only for explicit targets.
+      // Same browsers as Vite's "baseline widely available" default, with
+      // Safari/iOS widened to 15 (they need -webkit-backdrop-filter < 18).
+      cssTarget: ['chrome111', 'edge111', 'firefox114', 'safari15', 'ios15'],
+    },
+  },
   trailingSlash: 'always',
   integrations: [
     sitemap({
