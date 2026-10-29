@@ -11,9 +11,9 @@ export interface Props {
 
 const {
   heading = 'What Pinnacle Sales Dealers Say',
-  subhead = 'Direct quotes from showrooms in our 10-state Western US territory.',
+  subhead = 'Direct quotes from showrooms in our Western US territory.',
   limit = 3,
-  featuredOnly = false,
+  featuredOnly = true,
 } = Astro.props;
 
 const list: Testimonial[] = (featuredOnly
@@ -38,7 +38,7 @@ if (list.length === 0) {
       {list.map((t) => (
         <figure class="testimonial-card">
           <blockquote class="testimonial-quote">
-            <p>&ldquo;{t.quote}&rdquo;</p>
+            <p>&ldquo;{t.excerpt ?? t.quote}&rdquo;</p>
           </blockquote>
           <figcaption class="testimonial-attrib">
             {t.photo && (

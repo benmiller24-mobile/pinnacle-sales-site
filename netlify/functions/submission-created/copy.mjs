@@ -1,7 +1,7 @@
 // Timing rules and email copy for the dealer-lead auto-reply and the internal alert.
 // Edit the text here; nothing else needs to change.
 
-import { brandPagesFor } from './mapping.mjs';
+import { brandPagesFor, unavailableBrands, WW_STATE_NAMES_TEXT } from './mapping.mjs';
 
 export const TIME_ZONE = 'America/Los_Angeles';
 
@@ -136,12 +136,51 @@ function wrapHtml(paragraphsHtml, S) {
  * @returns {{ subject: string, text: string, html: string }}
  */
 export function prospectEmail(lead, touch, env = process.env) {
-  const S = sender(env);
+  const route = lead.route || 'pinnacle';
+  const S = route === 'pinnacle' ? sender(env) : {
+    ...sender(env),
+    title: env.EKD_SIGNATURE_TITLE || 'Pronorm USA · European Kitchen Distributors',
+    site: 'pronormusa.com',
+  };
   const first = lead.firstName || 'there';
-  const where = [lead.city, lead.state].filter(Boolean).join(', ');
+  const knownState = /^other\b/i.test(lead.state || '') ? '' : lead.state;
+  const where = [lead.city, knownState].filter(Boolean).join(', ');
   const brands = joinBrands(lead.brands);
   const pages = brandPagesFor(lead.brands, lead.siteUrl).slice(0, 2);
   const stories = `${lead.siteUrl.replace(/\/$/, '')}/dealer-success-stories/`;
+  const pronormPage = `${lead.siteUrl.replace(/\/$/, '')}/brands/pronorm-german-kitchens/`;
+  const missing = unavailableBrands(lead);
+  const missingText = joinBrands(missing);
+  const state = knownState ? (lead.stateName || knownState) : '';
+
+  // Outside the WW Wood territory, asking only about WW lines: never promise territory.
+  if (route === 'outside') {
+    const subject = `${missingText} in ${state || 'your area'} — we'll reply ${touch.phrase}`;
+    const p1 = `Hi ${first}, thanks for reaching out. Pinnacle Sales represents ${missingText} to dealers in ${WW_STATE_NAMES_TEXT}, and ${state || 'your area'} is outside that territory, so we can't offer you territory for ${missing.length > 1 ? 'those lines' : 'that line'}. We'll reply ${touch.phrase} with the right contact for your area.`;
+    const p2 = `One line we can offer anywhere in the US: Pronorm German Kitchens, available to qualified dealers nationwide with protected territories — ${pronormPage}`;
+    return {
+      subject,
+      text: [p1, p2, signatureText(S)].join('\n\n'),
+      html: wrapHtml([`<p>${escapeHtml(p1)}</p>`, `<p>One line we can offer anywhere in the US: <a href="${escapeHtml(pronormPage)}">Pronorm German Kitchens</a>, available to qualified dealers nationwide with protected territories.</p>`], S),
+    };
+  }
+
+  // Pronorm outside the WW territory: EKD / Pronorm USA, not "your Pinnacle Sales rep".
+  if (route === 'ekd') {
+    const callLine = lead.phone ? `will call you at ${lead.phone} ${touch.phrase}` : `will reach out ${touch.phrase}`;
+    const subject = `Pronorm German Kitchens${where ? ` in ${where}` : ''} — ${lead.phone ? 'call' : 'reply'} ${touch.phrase}`;
+    const p1 = `Hi ${first}, thanks — we received your ${lead.form === 'territory-check' ? 'territory question' : 'request'}${lead.company ? ` for ${lead.company}` : ''}. Pronorm German Kitchens are available to qualified dealers nationwide with protected territories, and your Pronorm USA rep ${callLine} to talk through what's open${where ? ` in ${where}` : ''}, a first display, and opening orders.`;
+    const p2 = missing.length
+      ? `A note on ${missingText}: Pinnacle Sales represents ${missing.length > 1 ? 'those lines' : 'that line'} only in ${WW_STATE_NAMES_TEXT}, so ${missing.length > 1 ? 'they are' : 'it is'} not something we can offer in ${state || 'your state'}.`
+      : '';
+    const p3 = `Worth a look before we talk: ${pronormPage}`;
+    const paras = [p1, p2, p3].filter(Boolean);
+    return {
+      subject,
+      text: [...paras, signatureText(S)].join('\n\n'),
+      html: wrapHtml([`<p>${escapeHtml(p1)}</p>`, p2 ? `<p>${escapeHtml(p2)}</p>` : '', `<p>Worth a look before we talk: <a href="${escapeHtml(pronormPage)}">Pronorm German Kitchens</a></p>`], S),
+    };
+  }
 
   if (lead.form === 'territory-check') {
     const what = brands ? `${where || 'your market'} is open for ${brands}` : `${where || 'your market'} is open`;
@@ -195,18 +234,20 @@ export function prospectEmail(lead, touch, env = process.env) {
  */
 export function internalAlert(lead, sync, touch, summaryLines) {
   const where = [lead.city, lead.state].filter(Boolean).join(', ');
-  const subject = `New dealer lead: ${lead.company || lead.name || lead.email}${where ? ` (${where})` : ''} — ${lead.formLabel}`;
+  const tag = { ekd: '[Pronorm/EKD] ', outside: '[Outside WW territory] ' }[lead.route] || '';
+  const subject = `${tag}New dealer lead: ${lead.company || lead.name || lead.email}${where ? ` (${where})` : ''} — ${lead.formLabel}`;
 
   const linkLines = [];
   if (sync?.urls?.deal) linkLines.push(`Deal${sync.dealReused ? ' (existing, reused)' : ''}: ${sync.urls.deal}`);
   if (sync?.urls?.contact) linkLines.push(`Contact: ${sync.urls.contact}`);
   if (sync?.urls?.company) linkLines.push(`Company: ${sync.urls.company}`);
   if (sync?.urls?.task) linkLines.push(`Task: ${sync.urls.task}`);
-  if (!sync) linkLines.push('HubSpot sync: skipped (no HUBSPOT_PRIVATE_APP_TOKEN configured)');
+  if (!sync) linkLines.push('HubSpot sync: FAILED or not configured — work this lead from this email and check Netlify function logs');
+  if (sync && !sync.dealId && lead.route === 'outside') linkLines.push('No deal opened: outside the WW territory, WW lines only.');
   if (sync?.warnings?.length) linkLines.push(...sync.warnings.map((w) => `Warning: ${w}`));
 
   const text = [
-    `Prospect was told to expect a call ${touch.phrase}. Task due ${touch.dueAt.toLocaleString('en-US', { timeZone: TIME_ZONE, dateStyle: 'medium', timeStyle: 'short' })} PT.`,
+    `${lead.route === 'outside' ? 'Prospect was told to expect a reply' : 'Prospect was told to expect a call'} ${touch.phrase}. Task due ${touch.dueAt.toLocaleString('en-US', { timeZone: TIME_ZONE, dateStyle: 'medium', timeStyle: 'short' })} PT.`,
     '',
     ...summaryLines,
     '',

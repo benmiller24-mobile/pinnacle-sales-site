@@ -33,7 +33,7 @@ export function createDryRunFetch({ existingContact = null, existingCompany = nu
       const type = path.split('/').pop();
       return respond(201, { id: nextId(type), properties: body?.properties || {} });
     }
-    if (method === 'PATCH' && /^\/crm\/v3\/objects\/contacts\/.+/.test(path)) {
+    if (method === 'PATCH' && /^\/crm\/v3\/objects\/(contacts|deals)\/.+/.test(path)) {
       return respond(200, { id: path.split('/').pop(), properties: body?.properties || {} });
     }
     if (method === 'PUT' && /\/associations\/default\//.test(path)) {

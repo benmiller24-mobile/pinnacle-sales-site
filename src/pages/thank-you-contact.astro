@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 <BaseLayout title="Message Received | Pinnacle Sales" description="Thanks for reaching out to Pinnacle Sales. Here's what happens next." noindex={true}>
-<div class="page-header"><h1>Thank You — Message Received</h1><p>We reply within two business days, usually sooner.</p></div>
+<div class="page-header"><h1>Thank You — Message Received</h1><p id="ty-sla">We reply within two business days, usually sooner.</p></div>
 <div class="content-narrow section thanks">
 
 <h2>What happens next</h2>
@@ -13,6 +13,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </ul>
 
 <p>Need us sooner? Call <a href="tel:+14809939224">480-993-9224</a>.</p>
+
+<script is:inline>
+(function () {
+  try {
+    var topic = sessionStorage.getItem('ps_contact_topic') || '';
+    sessionStorage.removeItem('ps_contact_topic');
+    if (/dealer\s+partnership/i.test(topic)) {
+      document.getElementById('ty-sla').textContent = 'A Pinnacle Sales rep will call you the same business day \u2014 first thing the next business morning if you wrote after 3 pm Pacific.';
+    }
+  } catch (e) {}
+})();
+</script>
 
 <h2>While you wait</h2>
 <ul>

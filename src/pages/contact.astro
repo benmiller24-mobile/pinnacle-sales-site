@@ -1,8 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AttributionFields from '../components/AttributionFields.astro';
+import { WW_STATES, WW_STATE_NAMES, WW_BRAND_SHORT_NAMES } from '../data/footprint';
 ---
-<BaseLayout title="Contact Pinnacle Sales — Dealers, Homeowners & Stone Buyers" description="Contact Pinnacle Sales — dealer support and partnership inquiries, homeowner and designer referrals to local dealers, and wholesale stone slab requests. Serving 10 Western US states.">
+<BaseLayout title="Contact Pinnacle Sales — Dealers, Homeowners & Stone Buyers" description="Contact Pinnacle Sales — dealer support and partnership inquiries, homeowner and designer referrals to local dealers, and wholesale stone slab requests across the Western US.">
 <div class="page-header"><h1>Contact Us</h1><p>Ready to connect? We would love to hear from you.</p></div>
 <div class="content-narrow section">
 <Breadcrumbs items={[{name:'Home',href:'/'},{name:'Contact'}]} />
@@ -28,8 +30,8 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 
 <h2>Territory Coverage</h2>
 
-<p><strong>WW Wood Products</strong> (Shiloh, Eclipse, Aspect, Vistora):<br/>
-Arizona, California, Colorado, Idaho, Montana, Nevada, New Mexico, Oregon, Utah, and Washington.</p>
+<p><strong>WW Wood Products</strong> ({WW_BRAND_SHORT_NAMES}):<br/>
+{WW_STATE_NAMES}.</p>
 
 <p><strong>Pronorm German Kitchens:</strong><br/>
 Available nationwide through European Kitchen Distributors.</p>
@@ -50,6 +52,7 @@ Available nationwide through European Kitchen Distributors.</p>
 <form name="contact" method="POST" action="/thank-you-contact/" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
 <input type="hidden" name="form-name" value="contact" />
 <input type="hidden" name="source-page" id="source-page" />
+<AttributionFields />
 <p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
 
 <div class="form-group">
@@ -92,16 +95,7 @@ Available nationwide through European Kitchen Distributors.</p>
 <label for="state">State <span class="req city-req" style="display:none">*</span></label>
 <select id="state" name="state">
 <option value="">Select state...</option>
-<option value="AZ">Arizona</option>
-<option value="CA">California</option>
-<option value="CO">Colorado</option>
-<option value="ID">Idaho</option>
-<option value="MT">Montana</option>
-<option value="NV">Nevada</option>
-<option value="NM">New Mexico</option>
-<option value="OR">Oregon</option>
-<option value="UT">Utah</option>
-<option value="WA">Washington</option>
+{WW_STATES.map((st) => <option value={st.code}>{st.name}</option>)}
 <option value="Other">Other</option>
 </select>
 </div>
@@ -114,7 +108,7 @@ Available nationwide through European Kitchen Distributors.</p>
 </div>
 
 <button type="submit" class="btn-primary">Send Message</button>
-<p class="sla-note">We reply within two business days — usually sooner.</p>
+<p class="sla-note">Dealer partnership inquiries get a call the same business day (next business morning after 3 pm Pacific). Everything else gets a reply within two business days, usually sooner.</p>
 </form>
 </div>
 </div>
@@ -174,6 +168,7 @@ Available nationwide through European Kitchen Distributors.</p>
         lead_type: subject.value || 'unspecified',
         source: document.getElementById('source-page').value
       }));
+      sessionStorage.setItem('ps_contact_topic', subject.value || '');
     } catch (e) {}
   });
 })();

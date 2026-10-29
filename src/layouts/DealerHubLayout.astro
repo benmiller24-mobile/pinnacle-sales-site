@@ -149,7 +149,7 @@ const currentSection = (activeSection && sectionAliases[activeSection]) || activ
         logoutBtn.addEventListener('click', function() {
           sessionStorage.removeItem('pinnacle_dealer_auth');
           sessionStorage.removeItem('pinnacle_dealer_name');
-          window.location.href = '/dealer-hub/';
+          window.location.href = '/dealer-hub/?logout=1';
         });
       }
     })();

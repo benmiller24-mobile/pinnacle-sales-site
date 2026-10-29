@@ -1,0 +1,37 @@
+---
+// Site-wide: remembers how a visitor first arrived (UTM tags, Google Ads click id, landing
+// page, outside referrer) for 90 days in this browser, and fills the hidden fields from
+// AttributionFields.astro on any lead form. Lets each HubSpot deal show which campaign,
+// post or search produced it. Stores nothing personal; fails silently if storage is blocked.
+---
+<script is:inline>
+(function () {
+  var KEY = 'ps_first_touch';
+  var MAX_AGE = 90 * 24 * 3600 * 1000;
+  var touch = null;
+  try { touch = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) {}
+  if (touch && (!touch.t || Date.now() - touch.t > MAX_AGE)) touch = null;
+
+  var params = new URLSearchParams(location.search);
+  var tagged = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid'].some(function (k) { return params.get(k); });
+  var external = '';
+  try { if (document.referrer && new URL(document.referrer).host !== location.host) external = document.referrer.slice(0, 300); } catch (e) {}
+
+  // First touch wins, except that a tagged campaign visit replaces an untagged one.
+  if (!touch || (tagged && !touch.utm_source && !touch.gclid)) {
+    touch = { t: Date.now(), 'landing-page': location.pathname, 'first-referrer': external };
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid'].forEach(function (k) {
+      var v = params.get(k); if (v) touch[k] = v.slice(0, 150);
+    });
+    try { localStorage.setItem(KEY, JSON.stringify(touch)); } catch (e) {}
+  }
+
+  function fill() {
+    document.querySelectorAll('input[data-attr]').forEach(function (el) {
+      var v = touch && touch[el.getAttribute('data-attr')];
+      if (v) el.value = v;
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fill); else fill();
+})();
+</script>

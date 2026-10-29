@@ -50,14 +50,15 @@ const orgSchema = {
   "name": "Pinnacle Sales",
   "url": siteUrl,
   "logo": `${siteUrl}/images/pinnacle-sales-logo.webp`,
-  "description": "Premium cabinetry dealer representative serving 10 Western US states. Six public brands: Shiloh, Eclipse, Aspect, Vistora, Pronorm, and US Stone.",
+  "description": `Manufacturer’s representative for independent kitchen and bath dealers in the Western US: ${BRAND_SHORT_NAMES}. Pronorm German Kitchens available nationwide.`,
   "foundingDate": "2001",
-  "areaServed": ["Arizona","California","Colorado","Idaho","Montana","Nevada","New Mexico","Oregon","Utah","Washington"],
+  "areaServed": WW_STATE_NAME_ARRAY,
   "contactPoint": { "@type": "ContactPoint", "telephone": "+1-480-993-9224", "contactType": "sales" },
   "sameAs": ["https://www.linkedin.com/company/pinnacle-sales-kbi"]
 };
 
 const allSchemas = [orgSchema, ...(Array.isArray(schema) ? schema : schema ? [schema] : [])];
+import { WW_STATE_NAME_ARRAY, BRAND_SHORT_NAMES } from '../data/footprint';
 ---
 
 <!-- Google tag (gtag.js) — GA4 property pinnaclesales.biz.
