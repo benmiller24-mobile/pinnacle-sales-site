@@ -3,11 +3,13 @@ export interface Props {
   heading?: string;
   text?: string;
 }
-const { heading = "Ready to Grow Your Kitchen & Bath Dealership?", text = "Custom shop or leaving a box line? Apply for Shiloh — or any line in our lineup. No fee to apply." } = Astro.props;
+const { heading = "Ready to Grow Your Kitchen & Bath Dealership?", text } = Astro.props;
 ---
 <section class="dealer-cta">
   <h2>{heading}</h2>
-  <p>{text}</p>
+  {text !== undefined
+    ? <p>{text}</p>
+    : <p>Leaving Cabinetworks, MasterBrand, or a local shop? <a href="tel:+14809939224" aria-label="Call Pinnacle Sales at 480-993-9224">Call us</a>. No fee to apply.</p>}
   <a href="/become-a-dealer/#apply" class="btn btn-white">Become a Dealer</a>
 </section>
 <style>
@@ -32,6 +34,10 @@ const { heading = "Ready to Grow Your Kitchen & Bath Dealership?", text = "Custo
     margin: 0 auto 2rem;
     color: rgba(255,255,255,0.7);
     line-height: 1.8;
+  }
+  .dealer-cta p a {
+    color: #fff;
+    text-underline-offset: 3px;
   }
   .dealer-cta .btn {
     display: inline-block;
