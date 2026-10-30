@@ -1,0 +1,7 @@
+---
+// Hidden first-touch attribution fields for a lead form. They must be in the static HTML so
+// Netlify Forms registers them; src/components/AttributionCapture.astro fills them in.
+// The lead function (netlify/functions/submission-created) writes them onto the HubSpot deal.
+const fields = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'landing-page', 'first-referrer'];
+---
+{fields.map((name) => <input type="hidden" name={name} data-attr={name} />)}

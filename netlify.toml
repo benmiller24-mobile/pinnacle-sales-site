@@ -53,6 +53,69 @@
   status = 200
   force = true
 
+# Utah is not in Pinnacle's WW Wood territory (see src/data/footprint.ts). These pages
+# offered Utah dealers protected WW territory we can't grant; send any traffic to the
+# honest equivalent. Pronorm is available to Utah dealers nationwide via EKD.
+[[redirects]]
+  from = "/territory/utah/*"
+  to = "/brands/pronorm-german-kitchens/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/territory/utah"
+  to = "/brands/pronorm-german-kitchens/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/brands/shiloh-cabinetry/utah/"
+  to = "/brands/shiloh-cabinetry/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/brands/shiloh-cabinetry/utah"
+  to = "/brands/shiloh-cabinetry/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/brands/eclipse-cabinetry/utah/"
+  to = "/brands/eclipse-cabinetry/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/brands/eclipse-cabinetry/utah"
+  to = "/brands/eclipse-cabinetry/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/brands/aspect-cabinetry/utah/"
+  to = "/brands/aspect-cabinetry/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/brands/aspect-cabinetry/utah"
+  to = "/brands/aspect-cabinetry/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/brands/vistora-closets/utah/"
+  to = "/brands/vistora-closets/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/brands/vistora-closets/utah"
+  to = "/brands/vistora-closets/"
+  status = 301
+  force = true
+
 # 301 Redirects from old Squarespace URLs
 [[redirects]]
   from = "/shiloh-cabinetry"

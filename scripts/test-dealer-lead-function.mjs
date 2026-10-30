@@ -255,4 +255,94 @@ assert.equal(zonedTimeToUtc({ year: 2026, month: 12, day: 4, hour: 9 }).toISOStr
   assert.ok(out.alertEmail, 'team still gets the alert (with the HubSpot skip noted)');
 }
 
+// ---- Territory routing: WW footprint vs Pronorm/EKD vs outside --------------
+{
+  const { routeFor, WW_STATE_CODES } = await import('../netlify/functions/submission-created/mapping.mjs');
+  // Function's WW list must match the site's single source of truth.
+  const { readFileSync } = await import('node:fs');
+  const footprint = readFileSync(new URL('../src/data/footprint.ts', import.meta.url), 'utf8');
+  const block = footprint.match(/WW_STATES: State\[\] = \[([\s\S]*?)\];/)[1];
+  const siteCodes = [...block.matchAll(/code: '([A-Z]{2})'/g)].map((m) => m[1]);
+  assert.deepEqual([...WW_STATE_CODES].sort(), [...siteCodes].sort(), 'mapping.mjs WW_STATE_CODES must match src/data/footprint.ts');
+
+  assert.equal(routeFor({ state: 'AZ', brands: ['Shiloh Cabinetry'] }), 'pinnacle');
+  assert.equal(routeFor({ state: 'UT', brands: ['Shiloh Cabinetry'] }), 'outside');
+  assert.equal(routeFor({ state: 'Other', brands: [] }), 'ekd');
+  assert.equal(routeFor({ state: 'TX', brands: ['Shiloh Cabinetry', 'Pronorm German Kitchens'] }), 'ekd');
+
+  // Utah, Shiloh only → no deal, reply-type task, no territory promise.
+  const utah = basePayload('territory-check', { name: 'Sam Utah', company: 'Wasatch Kitchens', email: 'sam@wasatchkitchens.com', city: 'Park City', state: 'UT', brand: 'Shiloh Cabinetry' });
+  const dry = createDryRunFetch();
+  const out = await processSubmission(utah, { env: ENV, now: at('2026-09-29T17:05:00Z'), fetchImpl: dry.fetchImpl, mailer: createMailer({ DRY_RUN: '1' }) });
+  assert.equal(out.route, 'outside');
+  assert.deepEqual(out.errors, []);
+  assert.ok(!dry.calls.some((c) => c.path.startsWith('/crm/v3/objects/deals')), 'no deal search or create for outside leads');
+  const task = dry.calls.find((c) => c.method === 'POST' && c.path === '/crm/v3/objects/tasks').body.properties;
+  assert.equal(task.hs_task_type, 'EMAIL');
+  assert.match(task.hs_task_subject, /outside WW territory \(UT\)/);
+  const lead = normalizeLead(utah); lead.route = 'outside';
+  const email = prospectEmail(lead, nextTouch(at('2026-09-29T17:05:00Z')));
+  assert.match(email.text, /Utah is outside that territory/);
+  assert.match(email.text, /Pronorm German Kitchens, available to qualified dealers nationwide/);
+  assert.doesNotMatch(email.text, /territory protection works there|your Pinnacle Sales rep will/);
+  print('\n===== PROSPECT EMAIL — outside WW territory (Utah, Shiloh) =====\nSubject: ' + email.subject + '\n\n' + email.text);
+}
+
+{
+  // Pronorm, out of footprint → EKD deal (prefixed), EKD signature, WW lines flagged as unavailable.
+  const tx = basePayload('dealer-application', { name: 'Tess Rivera', company: 'Hill Country Kitchens', email: 'tess@hillcountrykitchens.com', phone: '512-555-0100', city: 'Austin', state: 'Other', 'brands-interest': ['Pronorm German Kitchens', 'Shiloh Cabinetry'] });
+  const dry = createDryRunFetch();
+  const out = await processSubmission(tx, { env: { ...ENV, EKD_OWNER_ID: '84039521' }, now: at('2026-09-29T17:05:00Z'), fetchImpl: dry.fetchImpl, mailer: createMailer({ DRY_RUN: '1' }) });
+  assert.equal(out.route, 'ekd');
+  const deal = dry.calls.find((c) => c.method === 'POST' && c.path === '/crm/v3/objects/deals').body.properties;
+  assert.equal(deal.dealname, 'Pronorm (EKD) — Hill Country Kitchens — Dealer Application');
+  assert.equal(deal.region, 'other');
+  const lead = normalizeLead(tx); lead.route = 'ekd';
+  const email = prospectEmail(lead, nextTouch(at('2026-09-29T17:05:00Z')));
+  assert.match(email.text, /your Pronorm USA rep will call you at 512-555-0100 later today/);
+  assert.match(email.text, /A note on Shiloh: Pinnacle Sales represents that line only in Arizona.*not something we can offer in your state\./s);
+  assert.match(email.text, /what's open in Austin, a first display/);
+  assert.match(email.text, /Pronorm USA · European Kitchen Distributors/);
+  assert.doesNotMatch(email.text, /Pinnacle Sales rep\b/);
+  assert.doesNotMatch(email.text, /Other/, 'the dropdown placeholder never leaks into copy');
+  print('\n===== PROSPECT EMAIL — Pronorm outside WW territory =====\nSubject: ' + email.subject + '\n\n' + email.text);
+  // EKD pipeline override
+  const dry2 = createDryRunFetch();
+  await processSubmission(tx, { env: { ...ENV, EKD_DEAL_PIPELINE_ID: 'p-ekd', EKD_NEW_STAGE_ID: 's-ekd' }, fetchImpl: dry2.fetchImpl, mailer: createMailer({ DRY_RUN: '1' }) });
+  const deal2 = dry2.calls.find((c) => c.method === 'POST' && c.path === '/crm/v3/objects/deals').body.properties;
+  assert.equal(deal2.pipeline, 'p-ekd');
+  assert.equal(deal2.dealstage, 's-ekd');
+}
+
+{
+  // Dedupe: application from a company that already has an open territory-check deal → reuse + rename.
+  const dry = createDryRunFetch({
+    existingCompany: { id: 'co-7', properties: { name: 'Desert Modern Kitchens', domain: 'desertmodernkitchens.com' } },
+    existingDeal: { id: 'd-7', properties: { dealname: 'Desert Modern Kitchens — Territory Check (Tucson, AZ)', dealstage: '2277725906' } },
+  });
+  const out = await processSubmission(applicationPayload, { env: ENV, now: at('2026-09-29T17:05:00Z'), fetchImpl: dry.fetchImpl, mailer: createMailer({ DRY_RUN: '1' }) });
+  assert.deepEqual(out.errors, []);
+  assert.equal(out.hubspot.dealId, 'd-7');
+  const search = dry.calls.find((c) => c.path === '/crm/v3/objects/deals/search').body;
+  assert.equal(search.filterGroups[0].filters[0].propertyName, 'associations.company');
+  assert.equal(search.filterGroups[0].filters[0].value, 'co-7');
+  assert.equal(search.filterGroups[1].filters[0].propertyName, 'associations.contact');
+  assert.ok(!dry.calls.some((c) => c.method === 'POST' && c.path === '/crm/v3/objects/deals'), 'no second deal');
+  const rename = dry.calls.find((c) => c.method === 'PATCH' && c.path === '/crm/v3/objects/deals/d-7');
+  assert.equal(rename.body.properties.dealname, 'Desert Modern Kitchens — Dealer Application');
+}
+
+{
+  // Attribution fields flow into the note/deal summary; no-phone territory check → EMAIL task.
+  const withUtm = basePayload('territory-check', { name: 'Ann Lee', company: 'Lee Cabinets', email: 'ann@leecabinets.com', city: 'Boise', state: 'ID', brand: 'Shiloh Cabinetry', utm_source: 'linkedin', utm_medium: 'social', utm_campaign: 'shiloh-q4', 'landing-page': '/guides/become-a-shiloh-dealer/' });
+  const dry = createDryRunFetch();
+  await processSubmission(withUtm, { env: ENV, now: at('2026-09-29T17:05:00Z'), fetchImpl: dry.fetchImpl, mailer: createMailer({ DRY_RUN: '1' }) });
+  const deal = dry.calls.find((c) => c.method === 'POST' && c.path === '/crm/v3/objects/deals').body.properties;
+  assert.match(deal.description, /First touch: utm_source=linkedin · utm_medium=social · utm_campaign=shiloh-q4 · landing_page=\/guides\/become-a-shiloh-dealer\//);
+  assert.match(deal.description, /Route: Pinnacle Sales \(WW territory\)/);
+  const task = dry.calls.find((c) => c.method === 'POST' && c.path === '/crm/v3/objects/tasks').body.properties;
+  assert.equal(task.hs_task_type, 'EMAIL');
+  assert.match(task.hs_task_subject, /^Email Ann Lee/);
+}
+
 console.log('\nAll dealer-lead function tests passed.');

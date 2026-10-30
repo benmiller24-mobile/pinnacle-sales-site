@@ -11,6 +11,7 @@ import {
   primaryBrandFocusFor,
   recordUrl,
   regionFor,
+  unavailableBrands,
 } from './mapping.mjs';
 import { domainFromEmail, domainFromUrl, leadSummaryLines } from './leads.mjs';
 
@@ -112,15 +113,22 @@ export class HubSpotClient {
 
   // ---- Deals --------------------------------------------------------------
 
-  async findOpenDeal({ dealname, pipelineId, closedStageIds }) {
+  /**
+   * An open deal in the pipeline for the same company, the same contact, or with the same
+   * name. Matching on the associations means a territory check followed by an application
+   * (different deal names) stays ONE deal instead of double-counting the funnel.
+   */
+  async findOpenDeal({ dealname, pipelineId, closedStageIds, companyId, contactId }) {
+    const open = [
+      { propertyName: 'pipeline', operator: 'EQ', value: pipelineId },
+      { propertyName: 'dealstage', operator: 'NOT_IN', values: closedStageIds },
+    ];
+    const filterGroups = [];
+    if (companyId) filterGroups.push({ filters: [{ propertyName: 'associations.company', operator: 'EQ', value: String(companyId) }, ...open] });
+    if (contactId) filterGroups.push({ filters: [{ propertyName: 'associations.contact', operator: 'EQ', value: String(contactId) }, ...open] });
+    filterGroups.push({ filters: [{ propertyName: 'dealname', operator: 'EQ', value: dealname }, ...open] });
     const res = await this.request('POST', '/crm/v3/objects/deals/search', {
-      filterGroups: [{
-        filters: [
-          { propertyName: 'dealname', operator: 'EQ', value: dealname },
-          { propertyName: 'pipeline', operator: 'EQ', value: pipelineId },
-          { propertyName: 'dealstage', operator: 'NOT_IN', values: closedStageIds },
-        ],
-      }],
+      filterGroups,
       properties: ['dealname', 'dealstage', 'hubspot_owner_id'],
       sorts: [{ propertyName: 'createdate', direction: 'DESCENDING' }],
       limit: 1,
@@ -130,6 +138,10 @@ export class HubSpotClient {
 
   createDeal(properties) {
     return this.request('POST', '/crm/v3/objects/deals', { properties });
+  }
+
+  updateDeal(id, properties) {
+    return this.request('PATCH', `/crm/v3/objects/deals/${id}`, { properties });
   }
 
   // ---- Engagements --------------------------------------------------------
@@ -183,12 +195,20 @@ function dropEmpty(obj) {
  * @param {Function} [opts.log]
  */
 export async function syncLeadToHubSpot(client, lead, { dueAt, touchPhrase, env = process.env, log = () => {} }) {
-  const pipelineId = env.HUBSPOT_DEALER_PIPELINE_ID || HUBSPOT_DEFAULTS.dealerAcquisitionPipelineId;
-  const stageId = env.HUBSPOT_NEW_PROSPECT_STAGE_ID || HUBSPOT_DEFAULTS.newProspectStageId;
-  const closedStageIds = (env.HUBSPOT_CLOSED_STAGE_IDS || HUBSPOT_DEFAULTS.closedStageIds.join(','))
+  const route = lead.route || 'pinnacle';
+  const isEkd = route === 'ekd';
+  // Pronorm leads outside the WW territory belong to EKD. Point them at an EKD pipeline when
+  // one exists (EKD_DEAL_PIPELINE_ID + EKD_NEW_STAGE_ID); otherwise they stay in Dealer
+  // Acquisition, clearly prefixed, so they never read as Pinnacle WW prospects.
+  const ekdPipeline = isEkd && env.EKD_DEAL_PIPELINE_ID && env.EKD_NEW_STAGE_ID;
+  const pipelineId = ekdPipeline ? env.EKD_DEAL_PIPELINE_ID : (env.HUBSPOT_DEALER_PIPELINE_ID || HUBSPOT_DEFAULTS.dealerAcquisitionPipelineId);
+  const stageId = ekdPipeline ? env.EKD_NEW_STAGE_ID : (env.HUBSPOT_NEW_PROSPECT_STAGE_ID || HUBSPOT_DEFAULTS.newProspectStageId);
+  const closedStageIds = ((ekdPipeline && env.EKD_CLOSED_STAGE_IDS) || env.HUBSPOT_CLOSED_STAGE_IDS || HUBSPOT_DEFAULTS.closedStageIds.join(','))
     .split(',').map((s) => s.trim()).filter(Boolean);
-  const ownerId = ownerForState(lead.state, env);
-  const region = regionFor(lead.state, lead.city);
+  const ownerId = route === 'pinnacle'
+    ? ownerForState(lead.state, env)
+    : String(env.EKD_OWNER_ID || env.LEAD_DEFAULT_OWNER_ID || HUBSPOT_DEFAULTS.owners.ben);
+  const region = route === 'pinnacle' ? regionFor(lead.state, lead.city) : (lead.state ? { company: 'Other', deal: 'other' } : null);
   const summary = leadSummaryLines(lead);
   const result = { contactId: null, companyId: null, dealId: null, noteId: null, taskId: null, dealReused: false, urls: {}, warnings: [] };
 
@@ -266,17 +286,32 @@ export async function syncLeadToHubSpot(client, lead, { dueAt, touchPhrase, env 
     }
   }
 
-  // 3) Deal (reuse an open one with the same name from the last submission) --
+  // 3) Deal — one open deal per company/contact. Outside-territory WW-only asks get no deal:
+  //    there is nothing Pinnacle can sell them, so they would only inflate the pipeline.
   const displayCompany = lead.company || lead.name || lead.email;
+  const prefix = isEkd ? 'Pronorm (EKD) — ' : '';
   const dealname = lead.form === 'territory-check'
-    ? `${displayCompany} — Territory Check (${[lead.city, lead.state].filter(Boolean).join(', ') || 'location TBD'})`
-    : `${displayCompany} — Dealer Application`;
+    ? `${prefix}${displayCompany} — Territory Check (${[lead.city, lead.state].filter(Boolean).join(', ') || 'location TBD'})`
+    : `${prefix}${displayCompany} — Dealer Application`;
 
-  const open = await client.findOpenDeal({ dealname, pipelineId, closedStageIds });
-  if (open) {
+  const open = route === 'outside'
+    ? null
+    : await client.findOpenDeal({ dealname, pipelineId, closedStageIds, companyId: result.companyId, contactId: result.contactId });
+  if (route === 'outside') {
+    log('outside WW territory, WW-only interest: no deal opened');
+  } else if (open) {
     result.dealId = open.id;
     result.dealReused = true;
     log(`deal ${open.id} reused`);
+    // A territory check that turns into an application: name the deal for the stronger signal.
+    if (lead.form !== 'territory-check' && /Territory Check/.test(open.properties?.dealname || '')) {
+      try {
+        await client.updateDeal(open.id, { dealname });
+        log(`deal ${open.id} renamed to "${dealname}"`);
+      } catch (err) {
+        result.warnings.push(`deal rename skipped: ${err.message}`);
+      }
+    }
   } else {
     const closedate = new Date(lead.submittedAt.getTime() + 90 * 24 * 3600 * 1000);
     const deal = await client.createDeal(dropEmpty({
@@ -293,9 +328,11 @@ export async function syncLeadToHubSpot(client, lead, { dueAt, touchPhrase, env 
     result.dealId = deal.id;
     log(`deal ${deal.id} created`);
   }
-  result.urls.deal = recordUrl('deals', result.dealId, env);
-  await tryAssociate(client, log, 'deals', result.dealId, 'contacts', result.contactId);
-  if (result.companyId) await tryAssociate(client, log, 'deals', result.dealId, 'companies', result.companyId);
+  if (result.dealId) {
+    result.urls.deal = recordUrl('deals', result.dealId, env);
+    await tryAssociate(client, log, 'deals', result.dealId, 'contacts', result.contactId);
+    if (result.companyId) await tryAssociate(client, log, 'deals', result.dealId, 'companies', result.companyId);
+  }
 
   // 4) Note with the full submission ----------------------------------------
   try {
@@ -305,7 +342,7 @@ export async function syncLeadToHubSpot(client, lead, { dueAt, touchPhrase, env 
     });
     result.noteId = note.id;
     await tryAssociate(client, log, 'notes', note.id, 'contacts', result.contactId);
-    await tryAssociate(client, log, 'notes', note.id, 'deals', result.dealId);
+    if (result.dealId) await tryAssociate(client, log, 'notes', note.id, 'deals', result.dealId);
     if (result.companyId) await tryAssociate(client, log, 'notes', note.id, 'companies', result.companyId);
     log(`note ${note.id} created`);
   } catch (err) {
@@ -316,11 +353,19 @@ export async function syncLeadToHubSpot(client, lead, { dueAt, touchPhrase, env 
   // 5) Same-day call task for the owner -------------------------------------
   try {
     const who = [lead.name, lead.company].filter(Boolean).join(' · ') || lead.email;
+    const canCall = Boolean(lead.phone);
+    const missing = unavailableBrands(lead);
+    const subject = route === 'outside'
+      ? `Reply to ${who} — outside WW territory (${lead.state || 'state?'}) (${touchPhrase})`
+      : `${canCall ? 'Call' : 'Email'} ${who} — website ${lead.formShortLabel}${isEkd ? ' (Pronorm/EKD)' : ''} (${touchPhrase})`;
     const task = await client.createTask({
       hs_timestamp: String(dueAt.getTime()),
-      hs_task_subject: `Call ${who} — website ${lead.formShortLabel} (${touchPhrase})`,
+      hs_task_subject: subject,
       hs_task_body: [
-        `Prospect was told to expect a call ${touchPhrase}.`,
+        route === 'outside'
+          ? `Outside the WW Wood territory and asked only about ${missing.join(', ')}. They were told we would reply ${touchPhrase} with the right contact for their area and that Pronorm is available nationwide.`
+          : `Prospect was told to expect ${canCall ? 'a call' : 'a reply'} ${touchPhrase}.`,
+        isEkd && missing.length ? `Also asked about ${missing.join(', ')}, which are not available in ${lead.state}; they were told so.` : '',
         `Phone: ${lead.phone || '—'} · Email: ${lead.email}`,
         `Location: ${[lead.city, lead.state].filter(Boolean).join(', ') || '—'}`,
         lead.brands.length ? `Brands: ${lead.brands.join(', ')}` : '',
@@ -330,13 +375,13 @@ export async function syncLeadToHubSpot(client, lead, { dueAt, touchPhrase, env 
       ].filter(Boolean).join('\n'),
       hs_task_status: 'NOT_STARTED',
       hs_task_priority: 'HIGH',
-      hs_task_type: 'CALL',
+      hs_task_type: canCall && route !== 'outside' ? 'CALL' : 'EMAIL',
       hubspot_owner_id: ownerId,
     });
     result.taskId = task.id;
     result.urls.task = recordUrl('tasks', task.id, env);
     await tryAssociate(client, log, 'tasks', task.id, 'contacts', result.contactId);
-    await tryAssociate(client, log, 'tasks', task.id, 'deals', result.dealId);
+    if (result.dealId) await tryAssociate(client, log, 'tasks', task.id, 'deals', result.dealId);
     log(`task ${task.id} created`);
   } catch (err) {
     result.warnings.push(`task skipped: ${err.message}`);

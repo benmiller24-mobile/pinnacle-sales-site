@@ -17,8 +17,38 @@ export const HUBSPOT_DEFAULTS = {
     scott: '160712108',
     gillian: '160712129',
     josh: '160712575',
+    kara: '169390981',
   },
 };
+
+/**
+ * WW Wood Products territory (state codes). KEEP IN SYNC with WW_STATES in
+ * src/data/footprint.ts — scripts/test-dealer-lead-function.mjs fails if they differ.
+ */
+export const WW_STATE_CODES = ['AZ', 'CA', 'CO', 'ID', 'MT', 'NV', 'NM', 'OR', 'WA'];
+export const WW_STATE_NAMES_TEXT = 'Arizona, California, Colorado, Idaho, Montana, Nevada, New Mexico, Oregon, and Washington';
+
+const isPronorm = (b) => /pronorm/i.test(String(b));
+
+/**
+ * Which business a lead belongs to:
+ *   'pinnacle' — inside the WW Wood territory (any brand): Pinnacle Sales prospect.
+ *   'ekd'      — outside the WW territory, interested in Pronorm (or no brand picked, which
+ *                on these forms means "Other state (Pronorm nationwide)"): a Pronorm USA / EKD prospect.
+ *   'outside'  — outside the WW territory and asking only about WW lines Pinnacle can't offer there.
+ */
+export function routeFor(lead) {
+  if (WW_STATE_CODES.includes(String(lead.state || '').toUpperCase())) return 'pinnacle';
+  const brands = lead.brands || [];
+  if (brands.length === 0 || brands.some(isPronorm)) return 'ekd';
+  return 'outside';
+}
+
+/** Brands the lead asked for that Pinnacle can't offer in their (out-of-territory) state. */
+export function unavailableBrands(lead) {
+  if (routeFor(lead) === 'pinnacle') return [];
+  return (lead.brands || []).filter((b) => !isPronorm(b));
+}
 
 /** HubSpot object type IDs used to build record URLs. */
 export const OBJECT_TYPE_IDS = {

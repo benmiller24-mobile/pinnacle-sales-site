@@ -4,9 +4,11 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node scripts/check-copy.mjs dist",
     "preview": "astro preview",
-    "test:leads": "node scripts/test-dealer-lead-function.mjs --quiet"
+    "test:leads": "node scripts/test-dealer-lead-function.mjs --quiet",
+    "test:hub": "node scripts/test-dealer-hub-auth.mjs --quiet",
+    "check:copy": "node scripts/check-copy.mjs dist"
   },
   "dependencies": {
     "astro": "^5.0.0",

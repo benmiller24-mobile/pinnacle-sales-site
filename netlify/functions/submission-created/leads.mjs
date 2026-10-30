@@ -138,6 +138,16 @@ export function normalizeLead(payload) {
     subject: str(data.subject),
     sourcePage: str(data['source-page']) || 'direct',
     referrer: str(data.referrer),
+    attribution: Object.fromEntries(Object.entries({
+      utm_source: str(data.utm_source),
+      utm_medium: str(data.utm_medium),
+      utm_campaign: str(data.utm_campaign),
+      utm_term: str(data.utm_term),
+      utm_content: str(data.utm_content),
+      gclid: str(data.gclid),
+      landing_page: str(data['landing-page']),
+      first_referrer: str(data['first-referrer']),
+    }).filter(([, v]) => v)),
     userAgent: str(data.user_agent),
     ip: str(data.ip),
   };
@@ -147,6 +157,7 @@ export function normalizeLead(payload) {
 export function leadSummaryLines(lead) {
   const lines = [
     `Form: ${lead.formLabel}`,
+    ...(lead.route ? [`Route: ${{ pinnacle: 'Pinnacle Sales (WW territory)', ekd: 'Pronorm USA / EKD (outside WW territory)', outside: 'Outside WW territory — no deal opened' }[lead.route]}`] : []),
     `Submitted: ${lead.submittedAt.toISOString()}`,
     `Name: ${lead.name || '—'}`,
     `Company: ${lead.company || '—'}`,
@@ -162,6 +173,10 @@ export function leadSummaryLines(lead) {
   if (lead.message) lines.push(`Message: ${lead.message}`);
   lines.push(`Source page: ${lead.sourcePage}`);
   if (lead.referrer) lines.push(`Referrer: ${lead.referrer}`);
+  const attr = lead.attribution || {};
+  if (Object.keys(attr).length) {
+    lines.push(`First touch: ${Object.entries(attr).map(([k, v]) => `${k}=${v}`).join(' · ')}`);
+  }
   if (lead.netlifyNumber !== null) lines.push(`Netlify submission #${lead.netlifyNumber}`);
   return lines;
 }

@@ -16,13 +16,13 @@ export const aeoGuides: AeoGuide[] = [
     slug: 'how-to-become-a-kitchen-cabinet-dealer',
     title: 'How to Become a Kitchen Cabinet Dealer',
     href: '/guides/how-to-become-a-kitchen-cabinet-dealer/',
-    description: 'How kitchen dealers apply, get territory, and open Shiloh first — or any of the six public brands.',
+    description: 'How kitchen dealers apply, get territory, and open Shiloh first — or any line in the lineup.',
   },
   {
     slug: 'protected-dealer-territories',
     title: 'Protected Dealer Territories',
     href: '/guides/protected-dealer-territories/',
-    description: 'WW Wood protection in 10 Western states versus Pronorm nationwide. Availability by brand and market.',
+    description: 'WW Wood protection across the Western states we cover versus Pronorm nationwide. Availability by brand and market.',
   },
   {
     slug: 'pronorm-american-depths',
@@ -34,7 +34,7 @@ export const aeoGuides: AeoGuide[] = [
     slug: 'one-showroom-six-lines',
     title: 'One Showroom, Six Lines',
     href: '/guides/one-showroom-six-lines/',
-    description: 'Carry Shiloh, Eclipse, Aspect, Vistora, Pronorm, and US Stone from one partnership — not five brands.',
+    description: 'Carry Shiloh, Eclipse, Aspect, Vistora, Pronorm, and US Stone from one partnership.',
   },
   {
     slug: 'face-frame-vs-frameless',

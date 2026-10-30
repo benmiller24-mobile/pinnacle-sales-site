@@ -32,7 +32,7 @@ import { HubSpotClient, syncLeadToHubSpot } from './hubspot.mjs';
 import { nextTouch, prospectEmail, internalAlert } from './copy.mjs';
 import { createMailer, sendMail } from './mail.mjs';
 import { createDryRunFetch } from './dryrun.mjs';
-import { HUBSPOT_DEFAULTS } from './mapping.mjs';
+import { HUBSPOT_DEFAULTS, routeFor } from './mapping.mjs';
 
 const log = (...args) => console.log('[dealer-lead]', ...args);
 const warn = (...args) => console.warn('[dealer-lead]', ...args);
@@ -63,11 +63,12 @@ export async function processSubmission(payload, { env = process.env, now = new 
   if (!lead) {
     return { skipped: true, reason: `form "${payload?.form_name || 'unknown'}" is not a dealer lead (or has no valid email)` };
   }
+  lead.route = routeFor(lead);
 
   const touch = nextTouch(now);
   const summary = leadSummaryLines(lead);
-  const outcome = { skipped: false, form: lead.form, email: lead.email, touch: touch.phrase, hubspot: null, prospectEmail: null, alertEmail: null, errors: [] };
-  log(`lead received: ${lead.formLabel} from ${lead.email} (${lead.company || 'no company'}, ${lead.city || '?'}, ${lead.state || '?'}); touch ${touch.phrase}`);
+  const outcome = { skipped: false, form: lead.form, route: lead.route, email: lead.email, touch: touch.phrase, hubspot: null, prospectEmail: null, alertEmail: null, errors: [] };
+  log(`lead received: ${lead.formLabel} from ${lead.email} (${lead.company || 'no company'}, ${lead.city || '?'}, ${lead.state || '?'}); route ${lead.route}; touch ${touch.phrase}`);
 
   // --- HubSpot -------------------------------------------------------------
   const dryRun = env.DRY_RUN === '1';
@@ -81,7 +82,7 @@ export async function processSubmission(payload, { env = process.env, now = new 
         log,
       });
       outcome.hubspot = await syncLeadToHubSpot(client, lead, { dueAt: touch.dueAt, touchPhrase: touch.phrase, env, log });
-      log(`hubspot ok: contact ${outcome.hubspot.contactId}, deal ${outcome.hubspot.dealId}${outcome.hubspot.dealReused ? ' (reused)' : ''}, task ${outcome.hubspot.taskId || 'none'}`);
+      log(`hubspot ok: contact ${outcome.hubspot.contactId}, deal ${outcome.hubspot.dealId || 'none'}${outcome.hubspot.dealReused ? ' (reused)' : ''}, task ${outcome.hubspot.taskId || 'none'}`);
     } catch (err) {
       outcome.errors.push(`hubspot: ${err.message}`);
       warn(`hubspot sync failed: ${err.message}`);

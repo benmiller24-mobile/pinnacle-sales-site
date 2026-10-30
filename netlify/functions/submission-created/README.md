@@ -82,6 +82,32 @@ After deploying, submit the live form once with your own email, then check:
    the call task attached.
 3. Your inbox: the auto-reply (and, if configured, the team alert).
 
+## Territory routing (added Oct 2026)
+
+Every dealer lead is classified against the WW Wood territory (`WW_STATE_CODES` in
+`mapping.mjs`, kept in sync with `src/data/footprint.ts` — the test suite fails if they differ):
+
+| Route | When | What happens |
+|---|---|---|
+| `pinnacle` | State is in the WW territory | As before: contact, company, Dealer Acquisition deal, note, call task, Pinnacle auto-reply |
+| `ekd` | Outside the WW territory and Pronorm selected (or no brand — the dropdown's "Other state (Pronorm nationwide)") | Deal named `Pronorm (EKD) — …`, owner `EKD_OWNER_ID` (default Ben), reply signed as Pronorm USA; any WW lines they asked about are flagged as unavailable in their state |
+| `outside` | Outside the WW territory, WW lines only | Contact, company, note and an EMAIL task — **no deal**; reply says plainly we can't offer territory there and points to Pronorm |
+
+Deals are matched to an existing open deal by **company, then contact, then name**, so a territory
+check followed by an application stays one deal (it is renamed to "Dealer Application").
+UTM tags, Google Ads click id, landing page and outside referrer (first touch, captured site-wide by
+`src/components/AttributionCapture.astro`) are written into the deal description and note.
+
+New optional env vars: `EKD_OWNER_ID`, `EKD_DEAL_PIPELINE_ID` + `EKD_NEW_STAGE_ID` (+ `EKD_CLOSED_STAGE_IDS`)
+to send Pronorm/EKD leads to their own pipeline, `EKD_SIGNATURE_TITLE`.
+
+Recommended owner routing (matches the About page team):
+
+```
+LEAD_OWNER_BY_STATE={"AZ":"160712108","ID":"160712108","MT":"160712108","CO":"169390981","OR":"160712575","WA":"160712575"}
+```
+(Scott = 160712108, Kara Hayes = 169390981, Josh = 160712575; CA, NV, NM and anything unlisted go to Ben.)
+
 ## Timing rules
 
 `copy.mjs` decides what the prospect is promised. Weekdays before **3 pm Pacific** →
