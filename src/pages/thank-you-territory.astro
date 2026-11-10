@@ -1,14 +1,14 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="Checking Your Market | Pinnacle Sales" description="Your territory check is in. A Pinnacle Sales rep replies the same business day with what is open." noindex={true}>
-<div class="page-header"><h1>Thanks — we're checking your market</h1><p id="tc-summary">A Pinnacle Sales rep will reply the same business day — first thing the next business morning if you asked after 3 pm Pacific.</p></div>
+<BaseLayout title="Checking Your Market | Pinnacle Sales" description="Your territory check is in. A Pinnacle Sales rep replies within one business day with what is open." noindex={true}>
+<div class="page-header"><h1>Thanks — we're checking your market</h1><p id="tc-summary">A Pinnacle Sales rep will reply within one business day.</p></div>
 <div class="content-narrow section thanks">
 
 <h2>What happens next</h2>
 <ol>
   <li><strong>Check your inbox</strong> — a quick confirmation is on its way now.</li>
-  <li><strong>The answer</strong> — same business day: whether <span class="tc-market">your market</span> is open<span class="tc-brand-phrase"></span>, and how territory protection works there.</li>
+  <li><strong>The answer</strong> — within one business day: whether <span class="tc-market">your market</span> is open<span class="tc-brand-phrase"></span>, and how territory protection works there.</li>
   <li><strong>If it's open</strong> — a 20-minute call about a first display and opening order. If it isn't, we'll tell you what's nearby and keep you in mind if it opens up.</li>
 </ol>
 
@@ -38,7 +38,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     if (market) {
       document.querySelectorAll('.tc-market').forEach(function (el) { el.textContent = market; });
       var summary = document.getElementById('tc-summary');
-      if (summary) summary.textContent = 'Checking ' + market + (ctx.brand ? ' for ' + ctx.brand : '') + '. A Pinnacle Sales rep will reply the same business day — first thing the next business morning if you asked after 3 pm Pacific.';
+      if (summary) summary.textContent = 'Checking ' + market + (ctx.brand ? ' for ' + ctx.brand : '') + '. A Pinnacle Sales rep will reply within one business day.';
     }
     if (ctx.brand) {
       document.querySelectorAll('.tc-brand-phrase').forEach(function (el) { el.textContent = ' for ' + ctx.brand; });
