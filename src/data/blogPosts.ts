@@ -29,17 +29,6 @@ export const blogPosts = [
     imageFit: 'contain'
   },
   {
-    slug: 'led-prep-shiloh-eclipse',
-    title: "LED Prep in Shiloh and Eclipse: Internal, External, and Continuous Pull",
-    excerpt: "Every way to prep Shiloh and Eclipse for LED lighting in one guide: internal panel routes at $100 list per panel, Cabinet Lighting Channel for wall cabinets, floating shelves, and toe kicks, and the continuous pull for handleless walls. Route positions, caveats, and what the dealer supplies.",
-    author: 'Ben Miller',
-    date: '2026-09-04',
-    category: 'Product Education',
-    image: '/images/blog/led-prep-shiloh-eclipse/listing-card.webp',
-    imageFit: 'contain',
-    recommended: true
-  },
-  {
     slug: 'radius-end-panel-columns',
     title: "Radius End Panels and Radius Columns: Specs, SKUs, and Pricing",
     excerpt: "W.W. Wood's new Radius Columns put a 3″ radius end on wall, base, vanity, utility, and peninsula runs. Every SKU and list price (updated 8/27/2026), finished-side rules, height and depth limits, and modification rules.",
