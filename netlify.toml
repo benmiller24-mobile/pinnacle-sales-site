@@ -18,6 +18,20 @@
   status = 301
   force = true
 
+# LED prep playbook post taken down 2026-11-10 at Ben's request. Send old links to the
+# Playbook index instead of a 404. force = true so it wins if a stale file is ever deployed.
+[[redirects]]
+  from = "/playbook/led-prep-shiloh-eclipse"
+  to = "/playbook/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/playbook/led-prep-shiloh-eclipse/"
+  to = "/playbook/"
+  status = 301
+  force = true
+
 # XML sitemaps must stay XML and must return 200 — not a 301 chain.
 # GSC "Couldn't fetch" started the same day /sitemap.xml was 301'd (2026-08-17).
 # Some crawlers (and some Netlify edge nodes for datacenter/Google-like UAs)
