@@ -1,0 +1,63 @@
+---
+import AeoGuide from '../../layouts/AeoGuide.astro';
+
+const faqs = [
+  { q: 'What is the difference between Shiloh, Eclipse, and Aspect?', a: 'All three are built to order by WW Wood Products in Missouri. <a href="/brands/shiloh-cabinetry/">Shiloh</a> is face-frame and inset. <a href="/brands/eclipse-cabinetry/">Eclipse</a> is frameless full-access. <a href="/brands/aspect-cabinetry/">Aspect</a> is the value line: the same finish and build quality with fewer customization and color choices.' },
+  { q: 'Is Aspect lower quality than Shiloh?', a: 'No. Aspect comes from the same WW Wood factory with similar finish quality, and soft-close hinges and drawer guides are standard. What you give up is range: fewer door styles, fewer colors, fewer modifications. If the job needs custom paint, inset, or heavy modification, it is a Shiloh or Eclipse job.' },
+  { q: 'Is Eclipse more expensive than Shiloh?', a: 'No. Eclipse is offered in the same door styles, wood species, and finishes as Shiloh at comparable pricing. Shiloh inset runs at nearly the same price point as full-overlay Eclipse. Choose by construction, not by price.' },
+  { q: 'Which line should a new dealer open first?', a: 'Most custom shops and dealers leaving a box line open <a href="/guides/become-a-shiloh-dealer/">Shiloh first</a>. Add Eclipse when clients ask for frameless. Add Aspect when builder and bid work needs a lower price point.' },
+  { q: 'What are the lead times?', a: 'Shiloh, Eclipse, and Aspect typically ship in about six weeks from the Missouri factory.' },
+  { q: 'Where can dealers get these lines?', a: 'Pinnacle Sales represents all three to kitchen and bath dealers in Arizona, California, Colorado, Idaho, Montana, Nevada, New Mexico, Oregon, Utah, and Washington, with <a href="/guides/protected-dealer-territories/">protected territories</a>.' },
+];
+---
+<AeoGuide
+  slug="shiloh-vs-eclipse-vs-aspect"
+  title="Shiloh vs Eclipse vs Aspect Cabinetry | Pinnacle Sales"
+  description="Shiloh vs Eclipse vs Aspect: three WW Wood cabinet lines from one Missouri factory. Construction, options, price position, and which jobs each line fits."
+  heading="Shiloh vs Eclipse vs Aspect"
+  lede="One factory, three lines. Pick by construction first, then by how much the job needs to be modified."
+  faqs={faqs}
+>
+
+<p>Shiloh, Eclipse, and Aspect are all built to order by WW Wood Products in Dudley, Missouri. Shiloh is face-frame and inset. Eclipse is frameless. Aspect is the value line for builder and bid work. The finish quality is the same family across all three. What changes is the box construction and how far you can customize.</p>
+
+<h2>Side by side</h2>
+<div class="line-table-wrap">
+<table class="line-table">
+  <thead>
+    <tr><th scope="col"></th><th scope="col">Shiloh</th><th scope="col">Eclipse</th><th scope="col">Aspect</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Construction</th><td>Face-frame and inset</td><td>Frameless, full-access</td><td>Value semi-custom</td></tr>
+    <tr><th scope="row">Best for</th><td>Traditional, transitional, inset, furniture-grade work</td><td>Contemporary and European-look kitchens; up to 15% more usable interior</td><td>Builder projects and budget-conscious remodels</td></tr>
+    <tr><th scope="row">Customization</th><td>Widest. Six inset styles, custom Sherwin-Williams paint, multiple species</td><td>Same door styles, species, and finishes as Shiloh, plus laminates, acrylics, and textured melamine</td><td>Fewer door styles, colors, and modifications</td></tr>
+    <tr><th scope="row">Price position</th><td>Semi-custom</td><td>Comparable to Shiloh</td><td>Below Shiloh and Eclipse</td></tr>
+    <tr><th scope="row">Standard hardware</th><td>Dovetail drawers, full-extension soft-close</td><td>Dovetail drawers, soft-close undermount guides</td><td>Soft-close hinges and drawer guides</td></tr>
+    <tr><th scope="row">Lead time</th><td>About 6 weeks</td><td>About 6 weeks</td><td>About 6 weeks</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>When to sell Shiloh</h2>
+<p><a href="/brands/shiloh-cabinetry/">Shiloh</a> is the line for the client who wants the kitchen tailored. All-plywood box, six inset variations at no upcharge, White Oak and rift-cut without an upcharge, and any standard Sherwin-Williams color through the custom paint program. It is the usual first line for a custom shop or a dealer stepping up from a box program.</p>
+
+<h2>When to sell Eclipse</h2>
+<p><a href="/brands/eclipse-cabinetry/">Eclipse</a> is the same factory in a frameless box. Tight reveals, wider drawer openings, and vertical grain matching included on wood veneers and wood-grain laminates. Sell it when the client wants a clean, full-overlay look on a Missouri lead time. See <a href="/guides/face-frame-vs-frameless/">face-frame vs frameless</a> for how to show both on one floor.</p>
+
+<h2>When to sell Aspect</h2>
+<p><a href="/brands/aspect-cabinetry/">Aspect</a> is for the job that will not carry Shiloh or Eclipse pricing. Builders, multi-unit work, rentals, and tighter remodel budgets. Be straight with the client about the trade: the build and finish come from the same WW Wood family, but the option list is shorter. If the design depends on a custom color, an inset door, or unusual modifications, quote Shiloh or Eclipse instead of forcing Aspect to do a job it was not designed for.</p>
+
+<h2>How dealers use all three</h2>
+<p>One finish library and one lead-time story across the floor. Shiloh and Eclipse cover the showroom. Aspect keeps the builder bid in-house instead of sending it to a box supplier. Want the full portfolio? Read <a href="/guides/one-showroom-six-lines/">one showroom, six lines</a>, then <a href="/become-a-dealer/">apply</a>.</p>
+
+</AeoGuide>
+
+<style>
+  .line-table-wrap { overflow-x: auto; margin: 1.25rem 0 2rem; border: 1px solid #e5e7eb; border-radius: 8px; }
+  .line-table { width: 100%; min-width: 640px; border-collapse: collapse; font-size: 0.95rem; }
+  .line-table th, .line-table td { padding: 0.8rem 1rem; text-align: left; vertical-align: top; border-bottom: 1px solid #e5e7eb; line-height: 1.5; }
+  .line-table thead th { background: #f6f7f9; color: #1a1a2e; font-size: 0.9rem; }
+  .line-table tbody th { color: #1a1a2e; font-weight: 600; width: 19%; }
+  .line-table tbody td { color: #4b5563; width: 27%; }
+  .line-table tbody tr:last-child th, .line-table tbody tr:last-child td { border-bottom: none; }
+</style>
