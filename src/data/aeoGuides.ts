@@ -37,6 +37,12 @@ export const aeoGuides: AeoGuide[] = [
     description: 'Carry Shiloh, Eclipse, Aspect, Vistora, Pronorm, and US Stone from one partnership — not five brands.',
   },
   {
+    slug: 'shiloh-vs-eclipse-vs-aspect',
+    title: 'Shiloh vs Eclipse vs Aspect',
+    href: '/guides/shiloh-vs-eclipse-vs-aspect/',
+    description: 'Three WW Wood lines from one Missouri factory — construction, options, price position, and which jobs each fits.',
+  },
+  {
     slug: 'face-frame-vs-frameless',
     title: 'Face-Frame vs Frameless on a Dealer Floor',
     href: '/guides/face-frame-vs-frameless/',

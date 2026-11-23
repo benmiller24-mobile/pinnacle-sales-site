@@ -2,8 +2,63 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import DealerCTA from '../components/DealerCTA.astro';
+
+// Team entities for answer engines. Keep in step with the "Meet the Team" cards below.
+const org = { '@type': 'Organization', name: 'Pinnacle Sales', url: 'https://pinnaclesales.biz/' };
+const person = (p: Record<string, unknown>) => ({ '@type': 'Person', worksFor: org, ...p });
+const team = [
+  person({
+    name: 'Scott Miller',
+    jobTitle: 'Principal',
+    email: 'mailto:scott@pinnaclesales.biz',
+    image: 'https://pinnaclesales.biz/images/team/scott-miller.jpg',
+    description: 'Principal of Pinnacle Sales since 2001. Covers Arizona, Idaho, Montana, and New Mexico.',
+  }),
+  person({
+    name: 'Ben Miller',
+    alternateName: 'Benjamin Miller',
+    jobTitle: 'Partner',
+    email: 'mailto:ben@pinnaclesales.biz',
+    image: 'https://pinnaclesales.biz/images/team/ben-miller.jpg',
+    description: 'Partner at Pinnacle Sales since 2003 and President of European Kitchen Distributors, the exclusive U.S. agent for Pronorm German Kitchens. Covers California, Utah, and Nevada.',
+    sameAs: ['https://www.linkedin.com/in/benjaminmiller-ca'],
+    alumniOf: [
+      { '@type': 'CollegeOrUniversity', name: 'University of Denver Daniels College of Business' },
+      { '@type': 'CollegeOrUniversity', name: 'University of Colorado Boulder' },
+    ],
+    knowsAbout: ['Kitchen cabinetry', 'Manufacturers representation', 'German fitted kitchens', 'Kitchen and bath dealer development'],
+  }),
+  person({
+    name: 'Kara Hayes',
+    jobTitle: 'Territory Sales & Marketing Manager',
+    email: 'mailto:kara@pinnaclesales.biz',
+    image: 'https://pinnaclesales.biz/images/team/kara-hayes.jpg',
+    description: 'Territory Sales & Marketing Manager for Colorado.',
+  }),
+  person({
+    name: 'Gillian Patriquin',
+    jobTitle: 'Dealer & Training Specialist',
+    email: 'mailto:gillian@pinnaclesales.biz',
+    image: 'https://pinnaclesales.biz/images/team/gillian-patriquin.jpg',
+    description: 'Dealer and training specialist for all territories.',
+  }),
+  person({
+    name: 'Josh Polvogt',
+    jobTitle: 'Territory Sales & Marketing Manager',
+    email: 'mailto:josh@pinnaclesales.biz',
+    image: 'https://pinnaclesales.biz/images/team/josh-polvogt.jpg',
+    description: 'Territory Sales & Marketing Manager for Washington and Oregon.',
+  }),
+];
+const aboutSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: 'About Pinnacle Sales',
+  url: 'https://pinnaclesales.biz/about/',
+  mainEntity: { ...org, foundingDate: '2001', employee: team },
+};
 ---
-<BaseLayout title="About Pinnacle Sales — Cabinet Manufacturer's Rep Since 2001" description="Pinnacle Sales — repping kitchen cabinetry across 10 Western US states since 2001. Meet the team, our mission, and dealer support services.">
+<BaseLayout title="About Pinnacle Sales — Cabinet Manufacturer's Rep Since 2001" description="Pinnacle Sales — repping kitchen cabinetry across 10 Western US states since 2001. Meet the team, our mission, and dealer support services." schema={aboutSchema}>
 <div class="page-header"><h1>About Pinnacle Sales</h1><p>Connecting Western US dealers with premium cabinetry brands since 2001.</p></div>
 <div class="content-narrow section">
 <Breadcrumbs items={[{name:'Home',href:'/'},{name:'About'}]} />
@@ -45,7 +100,7 @@ import DealerCTA from '../components/DealerCTA.astro';
     <p class="team-title">Partner</p>
     <p class="team-territory">CA, UT, NV</p>
     <p><a href="mailto:ben@pinnaclesales.biz">ben@pinnaclesales.biz</a></p>
-    <p class="team-bio">Joined Pinnacle in 2003 and built its newer Western territories from the ground up. Since 2021 he has also led European Kitchen Distributors, the exclusive U.S. agent for Pronorm German Kitchens. MBA, University of Denver. Based in Ladera Ranch, California.</p>
+    <p class="team-bio">Joined Pinnacle in 2003 and built its newer Western territories from the ground up. Since 2021 he has also led European Kitchen Distributors, the exclusive U.S. agent for Pronorm German Kitchens. MBA, University of Denver Daniels College of Business; undergraduate degree, University of Colorado Boulder. Based in Ladera Ranch, California. <a href="https://www.linkedin.com/in/benjaminmiller-ca" target="_blank" rel="noopener">LinkedIn</a></p>
   </div>
   <div class="team-member">
     <img width="80" height="80" loading="lazy" style="width:80px;height:80px;border-radius:50%;object-fit:cover;object-position:center top;margin:0 auto 0.75rem;display:block" src="/images/team/kara-hayes.jpg" alt="Kara Hayes" />
